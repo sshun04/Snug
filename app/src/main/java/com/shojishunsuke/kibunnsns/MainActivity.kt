@@ -1,11 +1,26 @@
 package com.shojishunsuke.kibunnsns
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.shojishunsuke.kibunnsns.data.EmtionAnalysysRepository
+import com.google.api.client.extensions.android.http.AndroidHttp
+import com.google.api.client.extensions.android.json.AndroidJsonFactory
+import com.google.api.services.language.v1.CloudNaturalLanguage
+import com.google.api.services.language.v1.CloudNaturalLanguageRequestInitializer
+import com.google.api.services.language.v1.model.AnnotateTextRequest
+import com.google.api.services.language.v1.model.Document
+import com.google.api.services.language.v1.model.Features
+
+import com.shojishunsuke.kibunnsns.data.EmtionAnalysisRepository
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+
+    val API_KEY = "AIzaSyBFaWIJSd1tpkoXV-I4TfNAw0Lo4pcAOYc"
+
 
     lateinit var bottomNavigation: BottomNavigationView
 
@@ -13,7 +28,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val rep = EmtionAnalysysRepository(this)
+        val contentTextView = findViewById<TextView>(R.id.docTextView)
+        val scoreTextView = findViewById<TextView>(R.id.scoreTextView)
+
+
+        val rep = EmtionAnalysisRepository(this)
         val score = rep.getScore("友達が遊べなくてほんと悲しかった")
         System.out.println(score)
 
@@ -31,8 +50,20 @@ class MainActivity : AppCompatActivity() {
                     return@setOnNavigationItemSelectedListener true
                 }
             }
+
+
         }
+
+
+
+
+
+
+
+
+
     }
+
 
 
 }

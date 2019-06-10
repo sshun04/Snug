@@ -1,8 +1,8 @@
 package com.shojishunsuke.kibunnsns.data.repository
 
-interface LocalFileRepository {
+interface LanguageAnalysisRepository {
 
-    fun getScore(text:String):Int
+   suspend fun getScore(text:String):Int
 
 
 }

@@ -2,12 +2,13 @@ package com.shojishunsuke.kibunnsns.data
 
 import android.content.Context
 import android.util.Log
-import com.shojishunsuke.kibunnsns.data.repository.LocalFileRepository
+import com.shojishunsuke.kibunnsns.data.repository.LanguageAnalysisRepository
 import com.shojishunsuke.kibunnsns.utils.tokenize
+import kotlinx.coroutines.runBlocking
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
-class EmtionAnalysysRepository(context: Context) : LocalFileRepository {
+class EmtionAnalysisRepository(context: Context) : LanguageAnalysisRepository {
 
     private val dictionaryMap = HashMap<String, Int>()
 
@@ -57,7 +58,7 @@ class EmtionAnalysysRepository(context: Context) : LocalFileRepository {
 
     }
 
-    override fun getScore(text: String): Int {
+    override suspend fun getScore(text: String): Int = runBlocking {
         val tokens = tokenize(text)
 
         var score = 0
@@ -70,7 +71,7 @@ class EmtionAnalysysRepository(context: Context) : LocalFileRepository {
             }
         }
 
-        return score
+        score
     }
 
 

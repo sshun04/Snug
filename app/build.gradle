@@ -20,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+    }
+
 }
 
 dependencies {
@@ -33,8 +37,19 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation "org.atilika.kuromoji:kuromoji:0.7.7"
     implementation 'com.google.android.material:material:1.0.0-rc01'
-
-
     implementation 'com.google.firebase:firebase-core:16.0.9'
+
+    implementation group: 'com.google.apis', name: 'google-api-services-language', version: 'v1-rev388-1.22.0' exclude module: 'httpclient'
+    implementation group: 'com.google.api-client', name: 'google-api-client-android', version: '1.22.0' exclude module: 'httpclient'
+
+    def coroutines_version = '1.0.1' //Kotlin coroutines用ライブラリ(async, await)のバージョン
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version" //Kotlin coroutines用ライブラリ(async, await)
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 }
+
+
+
+
+
+
 apply plugin: 'com.google.gms.google-services'
