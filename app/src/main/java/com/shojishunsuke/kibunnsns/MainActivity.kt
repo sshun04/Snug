@@ -19,9 +19,6 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-    val API_KEY = "AIzaSyBFaWIJSd1tpkoXV-I4TfNAw0Lo4pcAOYc"
-
-
     lateinit var bottomNavigation: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,14 +47,6 @@ class MainActivity : AppCompatActivity() {
 
 
         }
-
-
-
-
-
-
-
-
 
     }
 
