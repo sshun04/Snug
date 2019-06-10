@@ -15,6 +15,7 @@ import kotlinx.coroutines.runBlocking
 class NaturalLanguageAnalysisRepository(apiKey:String) : LanguageAnalysisRepository {
 
     private val naturalLanguageService: CloudNaturalLanguage
+
     init {
         naturalLanguageService = CloudNaturalLanguage.Builder(
             AndroidHttp.newCompatibleTransport(), AndroidJsonFactory(), null
@@ -44,5 +45,5 @@ class NaturalLanguageAnalysisRepository(apiKey:String) : LanguageAnalysisReposit
         Log.d("SentiScore", "$sentiScore")
 
         sentiScore
-    }
+    }/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/res/values/apy_keys.xml
 }
