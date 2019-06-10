@@ -45,5 +45,5 @@ class NaturalLanguageAnalysisRepository(apiKey:String) : LanguageAnalysisReposit
         Log.d("SentiScore", "$sentiScore")
 
         sentiScore
-    }/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/res/values/apy_keys.xml
+    }
 }

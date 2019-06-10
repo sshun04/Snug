@@ -32,9 +32,6 @@ class MainActivity : AppCompatActivity() {
         val scoreTextView = findViewById<TextView>(R.id.scoreTextView)
 
 
-        val rep = EmtionAnalysisRepository(this)
-        val score = rep.getScore("友達が遊べなくてほんと悲しかった")
-        System.out.println(score)
 
         bottomNavigation = findViewById(R.id.bottom_navigation)
         bottomNavigation.setOnNavigationItemSelectedListener { item ->
