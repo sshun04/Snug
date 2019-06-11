@@ -39,12 +39,17 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0-rc01'
     implementation 'com.google.firebase:firebase-core:16.0.9'
 
-    implementation group: 'com.google.apis', name: 'google-api-services-language', version: 'v1-rev388-1.22.0' exclude module: 'httpclient'
-    implementation group: 'com.google.api-client', name: 'google-api-client-android', version: '1.22.0' exclude module: 'httpclient'
+    implementation 'com.google.apis:google-api-services-language:v1-rev388-1.22.0' exclude group: 'com.google.guava'
+    implementation 'com.google.api-client:google-api-client-android:1.22.0' exclude group: 'com.google.guava'
 
     def coroutines_version = '1.0.1' //Kotlin coroutines用ライブラリ(async, await)のバージョン
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version" //Kotlin coroutines用ライブラリ(async, await)
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+    implementation 'com.google.firebase:firebase-firestore:19.0.2'
+
+    implementation "android.arch.lifecycle:viewmodel:1.1.0"
+    implementation "android.arch.lifecycle:extensions:1.1.0"
 }
 
 apply plugin: 'com.google.gms.google-services'
