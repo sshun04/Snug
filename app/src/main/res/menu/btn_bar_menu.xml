@@ -4,6 +4,7 @@
         android:id="@+id/item1"
         android:title="HOME"
         android:icon="@drawable/ic_dashboard_black_24dp"
+        android:checked="true"
     />
     <item
             android:id="@+id/item2"
