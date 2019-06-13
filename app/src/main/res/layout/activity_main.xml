@@ -25,7 +25,7 @@
             <com.google.android.material.bottomnavigation.BottomNavigationView
                     android:id="@+id/bottom_navigation"
                     app:menu="@menu/btn_bar_menu"
-                    android:elevation="4dp"
+                    android:elevation="8dp"
                     android:layout_width="match_parent"
                     app:itemIconTint="@drawable/bottom_navigation_colors"
                     app:itemTextColor="@drawable/bottom_navigation_colors"
@@ -37,7 +37,7 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab"
-                android:elevation="4dp"
+                android:elevation="8dp"
                 app:layout_anchor="@id/bottom_app_bar"
                 android:src="@drawable/ic_mode_edit_white_24dp"
                 android:layout_width="wrap_content"
@@ -55,26 +55,6 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
-    <TextView
-
-            android:id="@+id/docTextView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/scoreTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-
-    <TextView
-            android:id="@+id/scoreTextView"
-            android:gravity="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

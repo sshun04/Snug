@@ -68,20 +68,20 @@
                 {
                     "source": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/res/values/styles.xml",
                     "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "54",
-                        "endLines": "8",
-                        "endColumns": "12",
-                        "endOffsets": "368"
+                        "startLines": "3,11",
+                        "startColumns": "4,4",
+                        "startOffsets": "54,375",
+                        "endLines": "8,13",
+                        "endColumns": "12,12",
+                        "endOffsets": "368,506"
                     },
                     "to": {
-                        "startLines": "641",
-                        "startColumns": "4",
-                        "startOffsets": "41344",
-                        "endLines": "646",
-                        "endColumns": "12",
-                        "endOffsets": "41658"
+                        "startLines": "641,2976",
+                        "startColumns": "4,4",
+                        "startOffsets": "41344,193665",
+                        "endLines": "646,2978",
+                        "endColumns": "12,12",
+                        "endOffsets": "41658,193796"
                     }
                 },
                 {

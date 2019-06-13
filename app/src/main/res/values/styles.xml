@@ -9,5 +9,12 @@
     </style>
 
 
+    <style name="darkAccent" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorAccent">@color/dark_54</item>
+    </style>
+
+
+
+
 
 </resources>

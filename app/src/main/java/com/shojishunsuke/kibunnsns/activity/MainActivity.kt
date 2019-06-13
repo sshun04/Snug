@@ -19,8 +19,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val contentTextView = findViewById<TextView>(R.id.docTextView)
-        val scoreTextView = findViewById<TextView>(R.id.scoreTextView)
         val fab = findViewById<FloatingActionButton>(R.id.fab)
 
 

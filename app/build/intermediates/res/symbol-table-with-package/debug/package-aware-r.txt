@@ -1151,7 +1151,6 @@ id design_navigation_view
 id dimensions
 id direct
 id disableHome
-id docTextView
 id edit_query
 id end
 id end_padder
@@ -1219,6 +1218,7 @@ id percent
 id pin
 id postButton
 id postsRecyclerView
+id progressBar
 id progress_circular
 id progress_horizontal
 id radio
@@ -1228,7 +1228,6 @@ id right_side
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
-id scoreTextView
 id screen
 id scroll
 id scrollIndicatorDown
@@ -1981,6 +1980,7 @@ style Widget_MaterialComponents_TextInputLayout_OutlinedBox
 style Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense
 style Widget_MaterialComponents_Toolbar
 style Widget_Support_CoordinatorLayout
+style darkAccent
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
