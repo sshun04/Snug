@@ -16,6 +16,8 @@
                 android:layout_marginTop="4dp"
                 android:textColor="@color/dark_54"
                 android:textSize="16dp"
+                android:gravity="center"
+                android:text="10"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="64dp"
@@ -32,9 +34,11 @@
 
         <TextView
                 android:id="@+id/contentTextView"
+                android:text="content"
                 android:textColor="@color/dark_87"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/dateTextView"
                 app:layout_constraintStart_toEndOf="@id/sentiScoreTextView"
                 app:layout_constraintTop_toTopOf="parent"
         />

@@ -9,16 +9,46 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
+import com.shojishunsuke.kibunnsns.adapter.PostsRecyclerViewAdapter
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.HomePostsFragmentViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class HomePostsFragment : Fragment() {
+
+    lateinit var adapter: PostsRecyclerViewAdapter
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_home_posts,container,false)
-        val recyclerView = view.findViewById<RecyclerView>(R.id.postsRecyclerView)
+        val view = inflater.inflate(R.layout.fragment_home_posts, container, false)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.postsRecyclerView).apply {
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            visibility = View.GONE
+        }
         val homePostsFragmentViewModel = ViewModelProviders.of(this).get(HomePostsFragmentViewModel::class.java)
 
-        recyclerView.adapter = homePostsFragmentViewModel.setUpRecyclerViewAdapter(context!!)
-        recyclerView.layoutManager = LinearLayoutManager(context,RecyclerView.VERTICAL,false)
+
+
+        GlobalScope.launch(Dispatchers.Default) {
+
+            val adapter = homePostsFragmentViewModel.setUpRecyclerViewAdapter(context!!)
+
+            runBlocking(Dispatchers.Main) {
+
+                recyclerView.adapter = adapter
+                recyclerView.visibility = View.VISIBLE
+
+            }
+        }
+
+
+        
+
+
+
+
 
         return view
     }
