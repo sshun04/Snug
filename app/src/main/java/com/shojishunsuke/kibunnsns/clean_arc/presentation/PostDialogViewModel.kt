@@ -12,7 +12,7 @@ class PostDialogViewModel:ViewModel() {
    private val postUseCase = PostDialogUseCase()
 
     fun onPostButtonClicked(content:String){
-        val post = Post(content,0,actID = "")
+        val post = Post(content,0f,actID = "")
         postUseCase.onPost(post)
 
     }

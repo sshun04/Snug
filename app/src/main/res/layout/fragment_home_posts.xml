@@ -17,6 +17,57 @@
             android:layout_height="32dp"/>
 
 
+    <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/postsRecyclerView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+    >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:id="@+id/currentPostContent"
+                    android:textColor="@color/dark_87"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/currentPostSentiScore"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/currentPostDate"
+            />
+
+            <TextView
+                    android:id="@+id/currentPostSentiScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/currentPostDate"
+            />
+
+            <TextView
+                    android:id="@+id/currentPostDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dark_26"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/postsRecyclerView"

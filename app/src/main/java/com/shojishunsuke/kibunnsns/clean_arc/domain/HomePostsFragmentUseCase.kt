@@ -8,7 +8,7 @@ class HomePostsFragmentUseCase {
     private val fireStoreRepository = FireStoreDataBaseRepository()
 
     suspend fun getPosts(fieldName: String, params: Any): List<Post> = runBlocking {
-        return@runBlocking fireStoreRepository.getFilteredCollection(fieldName, params)
+        return@runBlocking fireStoreRepository.loadWholeCollection()
     }
 
 }

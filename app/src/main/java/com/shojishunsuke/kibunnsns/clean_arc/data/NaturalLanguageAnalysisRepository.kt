@@ -24,7 +24,7 @@ class NaturalLanguageAnalysisRepository(apiKey:String) : LanguageAnalysisReposit
         ).build()
     }
 
-    override suspend fun getScore(text: String): Int = runBlocking {
+    override suspend fun getScore(text: String): Float = runBlocking {
         val document = Document()
         document.language = "ja_JP"
         document.type = "PLAIN_TEXT"
@@ -40,7 +40,7 @@ class NaturalLanguageAnalysisRepository(apiKey:String) : LanguageAnalysisReposit
 
 
         val response = naturalLanguageService.documents().annotateText(annotateTextRequest).execute()
-        val sentiScore = response.documentSentiment.score.toInt()
+        val sentiScore = response.documentSentiment.score
 
         Log.d("SentiScore", "$sentiScore")
 

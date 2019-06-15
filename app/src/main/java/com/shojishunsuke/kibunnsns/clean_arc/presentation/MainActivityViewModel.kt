@@ -20,7 +20,7 @@ class MainActivityViewModel(private val fragmentManager: FragmentManager) : View
         fragmentManager.beginTransaction().replace(R.id.mainBackGround,homeFragment).commit()
     }
 
-    fun onPostButtonClicked() {
+    fun setupPostFragment() {
         Log.d("Main", "Tapped!!")
         val postDialog = PostDialogFragment()
         postDialog.show(fragmentManager, "MainActivityViewModel")

@@ -12,16 +12,22 @@ import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.button.MaterialButton
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostDialogViewModel
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostsSharedViewModel
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.SharedViewModelFactory
 
-class PostDialogFragment : DialogFragment(){
+class PostDialogFragment : DialogFragment() {
 
     lateinit var postViewModel: PostDialogViewModel
+    lateinit var sharedViewModel: PostsSharedViewModel
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         val dialog = Dialog(context)
 
         postViewModel = ViewModelProviders.of(this).get(PostDialogViewModel::class.java)
+        sharedViewModel = activity?.run {
+            ViewModelProviders.of(this, SharedViewModelFactory(context!!)).get(PostsSharedViewModel::class.java)
+        }?:throw Exception("Invalid Activity")
 
         dialog.window!!.requestFeature(Window.FEATURE_NO_TITLE)
         dialog.window!!.setFlags(
@@ -42,8 +48,9 @@ class PostDialogFragment : DialogFragment(){
 
 
         postButton.setOnClickListener {
-            postViewModel.onPostButtonClicked(contentEditText.text.toString())
-            dismiss()
+
+            val content = contentEditText.text.toString()
+            sharedViewModel.onPost(content)
         }
 
 

@@ -1,7 +1,6 @@
 package com.shojishunsuke.kibunnsns.activity
 
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -45,8 +44,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        mainViewModel.setupPostFragment()
+
         fab.setOnClickListener {
-            mainViewModel.onPostButtonClicked()
+            mainViewModel.setupPostFragment()
         }
 
 

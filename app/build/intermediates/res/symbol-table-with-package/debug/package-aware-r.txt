@@ -1137,6 +1137,9 @@ id contentEditText
 id contentPanel
 id contentTextView
 id coordinator
+id currentPostContent
+id currentPostDate
+id currentPostSentiScore
 id custom
 id customPanel
 id dark
