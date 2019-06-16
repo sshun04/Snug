@@ -4,15 +4,23 @@ ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/And
 INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-21:12
 INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-21:12
 INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-21:12
-MERGED from [com.google.android.material:material:1.0.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fa541f110a592e672c9eb0ea7578b6dd/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/61f94a718cc38fd8c87dd4181c388108/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/04d371cb0b43ff7a61b9d34112f926be/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.material:material:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4122b770116f2a994ed750b248532298/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core-ktx:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/207897e3344b6bf624a98dd402d2efdd/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4edac9f1a8e5cc6a35f6af09175c3573/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-core:16.0.9] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/85051e51bfb0714ac4e1a774ab82ddde/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/22241861442a874220542f1b83c6d2c4/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/557df50082172d1e5f9c36ed5b9d9d6f/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/719ad12012023efbfbbbae335177cbf6/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment-ktx:1.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/30049f53b47923b8e34c1b1b129851ff/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity-ktx:1.0.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fc7d69f5805f0120a987d81dac8063da/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/c176f43c0c6917167e9c3211b6ddc0f5/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-firestore:19.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6b171a55124624bcdd84081c33b06217/AndroidManifest.xml:2:1-26:12
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a7461431f5d58dde192310532a626675/AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/12edfa79dbba57b41cba234dd1a4d9d9/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b4fe0851818cfadc3086f8c416ec36a5/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-auth-interop:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/36c54e2f4da02c4fee32c81f355b0703/AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-analytics:16.5.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fc5ae23abed71a435c3eb260fef0268a/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-measurement-api:16.5.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f4b5df10e452d0e2c87a95b3d5358926/AndroidManifest.xml:17:1-36:12
@@ -31,16 +39,23 @@ MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /Users/s
 MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5eaf4b6f57161c406c3ea48dc6b5bef0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-basement:16.2.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e90ddc8f195512f4152a6f73b872f125/AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6097b6f0f4edb3dd9a25eb1e35f187c9/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.fragment:fragment:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8f5904ecbe2a6e0ef027415190e66856/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/12edfa79dbba57b41cba234dd1a4d9d9/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.recyclerview:recyclerview:1.0.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5dabb3b30205e571c32c5035a587c544/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/96710affcdb98f8120b42830a7272c73/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a9b33dd151bfe98b3dad531ba2869b3c/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-fragment:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e7e31d1d5bb8b577888453264e9e8748/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5bf693c4b57ed1883850eafd9f50d975/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.loader:loader:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/646c1643008158a9937fbed0ae35646a/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/3c8474658aeb7d63b5a26519a5f1c6ed/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e367af2bb05defb3b2e9564428c10b6b/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-runtime:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7237de32a6752f2154e8f7fd6d36f259/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.0.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/2187487641f88fe21b119019e86982cd/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fd36bc547348be2a639f01303b1f8450/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/76e9271e57e58320121be189831f409e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d6b45078786ffa80c98cf751aa1de303/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/190e680d0cef83318299a07022481546/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/67577155dc586deb1e92868f5c302016/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.transition:transition:1.0.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/517eabfbf78cd00edd9bfcb8c6524ed7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/0b8c0683c0b63bb7c1e975ebe3b7ee3a/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/316f82af9bcf03b11d506f007d4fcb2b/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/32d6f782eb93a611006be059af399d38/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-service:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6debd0d67d8472cc078488de87aa7791/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/151e31fbf8a6adfbb4da4678be598bad/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7457fba6397afedee7af9b34152b8994/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/de9051b933596e7e64f17b8716ab01de/AndroidManifest.xml:17:1-22:12
@@ -48,21 +63,19 @@ MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/shojishu
 MERGED from [androidx.customview:customview:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/05bb711764309fc7a26afe53b7952243/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/1f4bf751758ffd48d861e356e5e2d4e0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/21fca9bd2b2af865c59976588aee0ba2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/deb3b2a747863fe0084fcd6428e6dcc3/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/52e6b8edb3a6329629da9ea78a5fbf7d/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.media:media:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/ee338d2e2b0732302fe06ad97cf152ad/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b3e0189a61a90dec7689b5b8256eabca/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a2ebbf9fcd26718e6ab72605d06b0224/AndroidManifest.xml:17:1-25:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/190e680d0cef83318299a07022481546/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.cardview:cardview:1.0.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b705c5a131892d56e3c4fef0792e60b1/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/32d6f782eb93a611006be059af399d38/AndroidManifest.xml:17:1-30:12
-MERGED from [androidx.lifecycle:lifecycle-service:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6debd0d67d8472cc078488de87aa7791/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/89de21b3b117425d7359a242023a8c55/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/0b8c0683c0b63bb7c1e975ebe3b7ee3a/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/316f82af9bcf03b11d506f007d4fcb2b/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/49d90330101795e74c1029fabf4ae19e/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/89f163a5afccab3032302445e1038722/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b9977bbf13f34d88370150855352d103/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6d0c151382abf53e05bd519c26855ab1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/de80b735e165318925bd1edb4746ff08/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fae5d9e8f711ef50247ff0b9ee47000c/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a2f9308b29fbce53aadc343620be0da3/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f911be4918733f1019ffc8a0b5963d91/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/497ed7c036a6b706e8778491915619dd/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4e1f0b34501aff6efc96dc2a5fe77512/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/79b3cdbfb087ca5b880850994a10d37d/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:protolite-well-known-types:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dc3ab858dc5f55e5f83d000fca8d13cc/AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.21.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/28f214cef35c1293bebad261ed4f9a8b/AndroidManifest.xml:2:1-13:12
@@ -85,8 +98,8 @@ INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/
 		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:11-69
 application
 ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:5:5-19:19
-MERGED from [com.google.android.material:material:1.0.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fa541f110a592e672c9eb0ea7578b6dd/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.material:material:1.0.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fa541f110a592e672c9eb0ea7578b6dd/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4edac9f1a8e5cc6a35f6af09175c3573/AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4edac9f1a8e5cc6a35f6af09175c3573/AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.9] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/85051e51bfb0714ac4e1a774ab82ddde/AndroidManifest.xml:7:5-20
@@ -129,14 +142,14 @@ MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /Users/
 MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5eaf4b6f57161c406c3ea48dc6b5bef0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-basement:16.2.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e90ddc8f195512f4152a6f73b872f125/AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:16.2.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e90ddc8f195512f4152a6f73b872f125/AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.core:core:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b3e0189a61a90dec7689b5b8256eabca/AndroidManifest.xml:22:5-89
-MERGED from [androidx.core:core:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b3e0189a61a90dec7689b5b8256eabca/AndroidManifest.xml:22:5-89
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a2ebbf9fcd26718e6ab72605d06b0224/AndroidManifest.xml:22:5-23:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a2ebbf9fcd26718e6ab72605d06b0224/AndroidManifest.xml:22:5-23:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/32d6f782eb93a611006be059af399d38/AndroidManifest.xml:22:5-28:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/32d6f782eb93a611006be059af399d38/AndroidManifest.xml:22:5-28:19
+MERGED from [androidx.core:core:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/49d90330101795e74c1029fabf4ae19e/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/49d90330101795e74c1029fabf4ae19e/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/497ed7c036a6b706e8778491915619dd/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/497ed7c036a6b706e8778491915619dd/AndroidManifest.xml:24:5-25:19
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b3e0189a61a90dec7689b5b8256eabca/AndroidManifest.xml:22:18-86
+		ADDED from [androidx.core:core:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/49d90330101795e74c1029fabf4ae19e/AndroidManifest.xml:24:18-86
 	android:supportsRtl
 		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:10:13-39
 	android:label
@@ -167,8 +180,12 @@ uses-sdk
 INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
 INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
-MERGED from [com.google.android.material:material:1.0.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fa541f110a592e672c9eb0ea7578b6dd/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.material:material:1.0.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fa541f110a592e672c9eb0ea7578b6dd/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/61f94a718cc38fd8c87dd4181c388108/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/61f94a718cc38fd8c87dd4181c388108/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/04d371cb0b43ff7a61b9d34112f926be/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/04d371cb0b43ff7a61b9d34112f926be/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4122b770116f2a994ed750b248532298/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4122b770116f2a994ed750b248532298/AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core-ktx:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/207897e3344b6bf624a98dd402d2efdd/AndroidManifest.xml:5:5-44
@@ -181,10 +198,22 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha01] /Users/sho
 MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/22241861442a874220542f1b83c6d2c4/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/557df50082172d1e5f9c36ed5b9d9d6f/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/557df50082172d1e5f9c36ed5b9d9d6f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/719ad12012023efbfbbbae335177cbf6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/719ad12012023efbfbbbae335177cbf6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/30049f53b47923b8e34c1b1b129851ff/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/30049f53b47923b8e34c1b1b129851ff/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.0.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fc7d69f5805f0120a987d81dac8063da/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.0.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fc7d69f5805f0120a987d81dac8063da/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/c176f43c0c6917167e9c3211b6ddc0f5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/c176f43c0c6917167e9c3211b6ddc0f5/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-firestore:19.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6b171a55124624bcdd84081c33b06217/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-firestore:19.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6b171a55124624bcdd84081c33b06217/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a7461431f5d58dde192310532a626675/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a7461431f5d58dde192310532a626675/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/12edfa79dbba57b41cba234dd1a4d9d9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/12edfa79dbba57b41cba234dd1a4d9d9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b4fe0851818cfadc3086f8c416ec36a5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b4fe0851818cfadc3086f8c416ec36a5/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/36c54e2f4da02c4fee32c81f355b0703/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/36c54e2f4da02c4fee32c81f355b0703/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics:16.5.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fc5ae23abed71a435c3eb260fef0268a/AndroidManifest.xml:5:5-44
@@ -221,26 +250,40 @@ MERGED from [com.google.android.gms:play-services-basement:16.2.0] /Users/shojis
 MERGED from [com.google.android.gms:play-services-basement:16.2.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e90ddc8f195512f4152a6f73b872f125/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6097b6f0f4edb3dd9a25eb1e35f187c9/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6097b6f0f4edb3dd9a25eb1e35f187c9/AndroidManifest.xml:20:5-44
-MERGED from [androidx.fragment:fragment:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8f5904ecbe2a6e0ef027415190e66856/AndroidManifest.xml:20:5-44
-MERGED from [androidx.fragment:fragment:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8f5904ecbe2a6e0ef027415190e66856/AndroidManifest.xml:20:5-44
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/12edfa79dbba57b41cba234dd1a4d9d9/AndroidManifest.xml:20:5-44
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/12edfa79dbba57b41cba234dd1a4d9d9/AndroidManifest.xml:20:5-44
-MERGED from [androidx.recyclerview:recyclerview:1.0.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5dabb3b30205e571c32c5035a587c544/AndroidManifest.xml:20:5-44
-MERGED from [androidx.recyclerview:recyclerview:1.0.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5dabb3b30205e571c32c5035a587c544/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/96710affcdb98f8120b42830a7272c73/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/96710affcdb98f8120b42830a7272c73/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a9b33dd151bfe98b3dad531ba2869b3c/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a9b33dd151bfe98b3dad531ba2869b3c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e7e31d1d5bb8b577888453264e9e8748/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e7e31d1d5bb8b577888453264e9e8748/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5bf693c4b57ed1883850eafd9f50d975/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5bf693c4b57ed1883850eafd9f50d975/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.loader:loader:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/646c1643008158a9937fbed0ae35646a/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/646c1643008158a9937fbed0ae35646a/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/3c8474658aeb7d63b5a26519a5f1c6ed/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/3c8474658aeb7d63b5a26519a5f1c6ed/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e367af2bb05defb3b2e9564428c10b6b/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e367af2bb05defb3b2e9564428c10b6b/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7237de32a6752f2154e8f7fd6d36f259/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7237de32a6752f2154e8f7fd6d36f259/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/2187487641f88fe21b119019e86982cd/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/2187487641f88fe21b119019e86982cd/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fd36bc547348be2a639f01303b1f8450/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fd36bc547348be2a639f01303b1f8450/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/76e9271e57e58320121be189831f409e/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/76e9271e57e58320121be189831f409e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d6b45078786ffa80c98cf751aa1de303/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d6b45078786ffa80c98cf751aa1de303/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/190e680d0cef83318299a07022481546/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/190e680d0cef83318299a07022481546/AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/67577155dc586deb1e92868f5c302016/AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/67577155dc586deb1e92868f5c302016/AndroidManifest.xml:20:5-44
-MERGED from [androidx.transition:transition:1.0.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/517eabfbf78cd00edd9bfcb8c6524ed7/AndroidManifest.xml:20:5-44
-MERGED from [androidx.transition:transition:1.0.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/517eabfbf78cd00edd9bfcb8c6524ed7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/0b8c0683c0b63bb7c1e975ebe3b7ee3a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/0b8c0683c0b63bb7c1e975ebe3b7ee3a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/316f82af9bcf03b11d506f007d4fcb2b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/316f82af9bcf03b11d506f007d4fcb2b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/32d6f782eb93a611006be059af399d38/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/32d6f782eb93a611006be059af399d38/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6debd0d67d8472cc078488de87aa7791/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6debd0d67d8472cc078488de87aa7791/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/151e31fbf8a6adfbb4da4678be598bad/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/151e31fbf8a6adfbb4da4678be598bad/AndroidManifest.xml:20:5-44
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7457fba6397afedee7af9b34152b8994/AndroidManifest.xml:20:5-44
@@ -255,26 +298,18 @@ MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/shojis
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/1f4bf751758ffd48d861e356e5e2d4e0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/21fca9bd2b2af865c59976588aee0ba2/AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/21fca9bd2b2af865c59976588aee0ba2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/deb3b2a747863fe0084fcd6428e6dcc3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/deb3b2a747863fe0084fcd6428e6dcc3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/52e6b8edb3a6329629da9ea78a5fbf7d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/52e6b8edb3a6329629da9ea78a5fbf7d/AndroidManifest.xml:20:5-44
 MERGED from [androidx.media:media:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/ee338d2e2b0732302fe06ad97cf152ad/AndroidManifest.xml:20:5-44
 MERGED from [androidx.media:media:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/ee338d2e2b0732302fe06ad97cf152ad/AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b3e0189a61a90dec7689b5b8256eabca/AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b3e0189a61a90dec7689b5b8256eabca/AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a2ebbf9fcd26718e6ab72605d06b0224/AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a2ebbf9fcd26718e6ab72605d06b0224/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/190e680d0cef83318299a07022481546/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/190e680d0cef83318299a07022481546/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b705c5a131892d56e3c4fef0792e60b1/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b705c5a131892d56e3c4fef0792e60b1/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/32d6f782eb93a611006be059af399d38/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/32d6f782eb93a611006be059af399d38/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-service:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6debd0d67d8472cc078488de87aa7791/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-service:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6debd0d67d8472cc078488de87aa7791/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/89de21b3b117425d7359a242023a8c55/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/89de21b3b117425d7359a242023a8c55/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/0b8c0683c0b63bb7c1e975ebe3b7ee3a/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/0b8c0683c0b63bb7c1e975ebe3b7ee3a/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/316f82af9bcf03b11d506f007d4fcb2b/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/316f82af9bcf03b11d506f007d4fcb2b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/49d90330101795e74c1029fabf4ae19e/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/49d90330101795e74c1029fabf4ae19e/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/89f163a5afccab3032302445e1038722/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/89f163a5afccab3032302445e1038722/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b9977bbf13f34d88370150855352d103/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b9977bbf13f34d88370150855352d103/AndroidManifest.xml:20:5-44
 MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6d0c151382abf53e05bd519c26855ab1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6d0c151382abf53e05bd519c26855ab1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/de80b735e165318925bd1edb4746ff08/AndroidManifest.xml:20:5-44
@@ -285,6 +320,10 @@ MERGED from [androidx.arch.core:core-runtime:2.1.0-beta01] /Users/shojishunsuke/
 MERGED from [androidx.arch.core:core-runtime:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a2f9308b29fbce53aadc343620be0da3/AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f911be4918733f1019ffc8a0b5963d91/AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f911be4918733f1019ffc8a0b5963d91/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/497ed7c036a6b706e8778491915619dd/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/497ed7c036a6b706e8778491915619dd/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4e1f0b34501aff6efc96dc2a5fe77512/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4e1f0b34501aff6efc96dc2a5fe77512/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/79b3cdbfb087ca5b880850994a10d37d/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/79b3cdbfb087ca5b880850994a10d37d/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:protolite-well-known-types:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dc3ab858dc5f55e5f83d000fca8d13cc/AndroidManifest.xml:7:5-9:41

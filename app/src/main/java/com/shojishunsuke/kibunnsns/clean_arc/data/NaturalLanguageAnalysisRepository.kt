@@ -1,5 +1,6 @@
 package com.shojishunsuke.kibunnsns.clean_arc.data
 
+import android.content.Context
 import android.util.Log
 import com.google.api.client.extensions.android.http.AndroidHttp
 import com.google.api.client.extensions.android.json.AndroidJsonFactory
@@ -8,15 +9,18 @@ import com.google.api.services.language.v1.CloudNaturalLanguageRequestInitialize
 import com.google.api.services.language.v1.model.AnnotateTextRequest
 import com.google.api.services.language.v1.model.Document
 import com.google.api.services.language.v1.model.Features
+import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LanguageAnalysisRepository
 import kotlinx.coroutines.runBlocking
 
 
-class NaturalLanguageAnalysisRepository(apiKey:String) : LanguageAnalysisRepository {
+class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepository {
 
     private val naturalLanguageService: CloudNaturalLanguage
 
     init {
+        val apiKey = context.resources.getString(R.string.api_key)
+
         naturalLanguageService = CloudNaturalLanguage.Builder(
             AndroidHttp.newCompatibleTransport(), AndroidJsonFactory(), null
         ).setCloudNaturalLanguageRequestInitializer(

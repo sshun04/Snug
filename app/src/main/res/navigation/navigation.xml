@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:startDestination="@+id/navigation_home"
+            android:id="@+id/navigation">
+
+    <custom_fragment
+            android:id="@+id/navigation_home"
+            android:name="com.shojishunsuke.kibunnsns.fragment.HomePostsFragment"
+            android:label="HomePostsFragment" />
+    <custom_fragment
+            android:id="@+id/navigation_second"
+            android:name="com.shojishunsuke.kibunnsns.fragment.RecordFragment"
+            android:label="RecordFragment" />
+
+</navigation>
