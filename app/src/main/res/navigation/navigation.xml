@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
             app:startDestination="@+id/navigation_home"
             android:id="@+id/navigation">
 
     <custom_fragment
             android:id="@+id/navigation_home"
             android:name="com.shojishunsuke.kibunnsns.fragment.HomePostsFragment"
-            android:label="HomePostsFragment" />
+            android:label="HomePostsFragment"
+            tools:layout="@layout/fragment_home_posts"
+    />
     <custom_fragment
             android:id="@+id/navigation_second"
             android:name="com.shojishunsuke.kibunnsns.fragment.RecordFragment"
-            android:label="RecordFragment" />
+            android:label="RecordFragment"
+            tools:layout="@layout/fragment_record"
+    />
 
 </navigation>

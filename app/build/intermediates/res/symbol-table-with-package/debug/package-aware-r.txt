@@ -1243,8 +1243,6 @@ id image
 id info
 id invisible
 id italic
-id item1
-id item2
 id item_touch_helper_previous_elevation
 id labeled
 id largeLabel
