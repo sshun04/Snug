@@ -9,15 +9,15 @@ import com.shojishunsuke.kibunnsns.fragment.PostDialogFragment
 import com.shojishunsuke.kibunnsns.fragment.RecordFragment
 
 class MainActivityViewModel(private val fragmentManager: FragmentManager) : ViewModel() {
-
-    private val homeFragment:HomePostsFragment
-    private val recordFragment:RecordFragment
+//
+//    private val homeFragment:HomePostsFragment
+//    private val recordFragment:RecordFragment
 
     init {
-        homeFragment = HomePostsFragment()
-        recordFragment = RecordFragment()
+//        homeFragment = HomePostsFragment()
+//        recordFragment = RecordFragment()
 
-        fragmentManager.beginTransaction().replace(R.id.mainBackGround,homeFragment).commit()
+
     }
 
     fun setupPostFragment() {
@@ -26,12 +26,12 @@ class MainActivityViewModel(private val fragmentManager: FragmentManager) : View
         postDialog.show(fragmentManager, "MainActivityViewModel")
     }
 
-    fun onSwitchFragment(position: Int) {
-        if (position == 1) {
-            fragmentManager.beginTransaction().replace(R.id.mainBackGround,homeFragment).commit()
-
-        } else {
-            fragmentManager.beginTransaction().replace(R.id.mainBackGround,recordFragment).commit()
-        }
-    }
+//    fun onSwitchFragment(position: Int) {
+//        if (position == 1) {
+//            fragmentManager.beginTransaction().replace(R.id.mainBackGround,homeFragment).commit()
+//
+//        } else {
+//            fragmentManager.beginTransaction().replace(R.id.mainBackGround,recordFragment).commit()
+//        }
+//    }
 }

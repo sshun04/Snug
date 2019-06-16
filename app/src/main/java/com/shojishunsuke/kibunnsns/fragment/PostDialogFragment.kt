@@ -10,6 +10,7 @@ import android.widget.EditText
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostDialogViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostsSharedViewModel
@@ -44,7 +45,7 @@ class PostDialogFragment : DialogFragment() {
         dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         val contentEditText = dialog.findViewById<EditText>(R.id.contentEditText)
-        val postButton = dialog.findViewById<MaterialButton>(R.id.postButton)
+        val postButton = dialog.findViewById<FloatingActionButton>(R.id.postButton)
 
 
         postButton.setOnClickListener {

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #Sun Jun 16 22:23:07 JST 2019
+=======
+#Sun Jun 16 22:47:52 JST 2019
+>>>>>>> use_navigation
 path.1=classes.dex
 path.0=classes.dex
 renamed.10=classes11.dex

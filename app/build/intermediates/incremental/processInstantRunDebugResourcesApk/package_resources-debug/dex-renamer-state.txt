@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 #Sun Jun 16 22:30:31 JST 2019
+=======
+#Sun Jun 16 22:47:20 JST 2019
+>>>>>>> use_navigation

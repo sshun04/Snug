@@ -21,19 +21,29 @@
             android:layout_margin="16dp"
     />
 
-    <com.google.android.material.button.MaterialButton
-            style="@style/Widget.AppCompat.Button.Borderless"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/postButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="POST"
+            android:src="@drawable/ic_done_black_24dp"
             android:textSize="16dp"
             android:textColor="@color/alto_010"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="36dp"
     />
+
+    <TextView
+            android:text="投稿"
+            android:textColor="@color/dark_54"
+            android:textSize="12dp"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/postButton"
+            app:layout_constraintStart_toStartOf="@id/postButton"
+            app:layout_constraintEnd_toEndOf="@id/postButton"
+            android:layout_width="wrap_content"
+              android:layout_height="wrap_content"/>
     <androidx.constraintlayout.widget.Barrier
             android:layout_width="wrap_content"
             android:layout_height="56dp"

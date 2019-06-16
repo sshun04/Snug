@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #Sun Jun 16 22:30:32 JST 2019
+=======
+#Sun Jun 16 22:47:51 JST 2019
+>>>>>>> use_navigation
 base.0=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/6
 path.0=classes.dex
 renamed.0=classes.dex
