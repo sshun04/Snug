@@ -1,4 +1,4 @@
-#Sat Jun 15 21:23:11 JST 2019
+#Sun Jun 16 22:23:06 JST 2019
 base.0=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
