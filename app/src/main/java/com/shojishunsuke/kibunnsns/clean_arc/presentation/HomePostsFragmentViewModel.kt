@@ -15,7 +15,7 @@ class HomePostsFragmentViewModel:ViewModel() {
 
 
 
-   suspend fun setUpRecyclerViewAdapter(context: Context):PostsRecyclerViewAdapter = runBlocking{
-      return@runBlocking PostsRecyclerViewAdapter(context,useCase.getPosts("sentiScore",0))
-    }
+//   suspend fun setUpRecyclerViewAdapter(context: Context):PostsRecyclerViewAdapter = runBlocking{
+//      return@runBlocking PostsRecyclerViewAdapter(context,useCase.getPosts("sentiScore",0))
+//    }
 }

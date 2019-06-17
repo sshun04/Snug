@@ -80,7 +80,7 @@ class EmotionAnalysisRepository(context: Context) : LanguageAnalysisRepository {
             }
         }
 
-      val convertedScore =   BigDecimal(score).divide(BigDecimal(10))
+        val convertedScore =   BigDecimal(score).divide(BigDecimal(10))
 
         convertedScore.toFloat()
     }

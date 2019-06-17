@@ -62,7 +62,7 @@ class HomePostsFragment : Fragment() {
 
         sharedViewModel.relatedPosts.observe(this, Observer { postsList ->
 
-            recyclerView.adapter = PostsRecyclerViewAdapter(context!!, postsList)
+            recyclerView.adapter = PostsRecyclerViewAdapter(context!!,sharedViewModel, postsList)
             progressBar.visibility = View.GONE
                 recyclerView.visibility = View.VISIBLE
         })

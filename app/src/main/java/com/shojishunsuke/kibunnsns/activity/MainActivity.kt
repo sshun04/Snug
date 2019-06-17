@@ -5,14 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.plusAssign
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.MainActivityViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.MainActivityViewModelFactory
-import com.shojishunsuke.kibunnsns.navigation.CustomNavHostFragment
 import com.shojishunsuke.kibunnsns.navigation.CustomNavigator
 
 class MainActivity : AppCompatActivity() {

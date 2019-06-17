@@ -468,23 +468,16 @@
         "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4122b770116f2a994ed750b248532298/res/drawable-ldrtl-xxhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-<<<<<<< HEAD
-=======
         "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/animator-v21_design_appbar_state_list_animator.xml.flat",
         "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/res/animator-v21/design_appbar_state_list_animator.xml"
     },
     {
->>>>>>> use_navigation
         "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/drawable_abc_ic_ab_back_material.xml.flat",
         "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4122b770116f2a994ed750b248532298/res/drawable/abc_ic_ab_back_material.xml"
     },
     {
         "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/anim_design_snackbar_in.xml.flat",
-<<<<<<< HEAD
-        "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fa541f110a592e672c9eb0ea7578b6dd/res/anim/design_snackbar_in.xml"
-=======
         "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/res/anim/design_snackbar_in.xml"
->>>>>>> use_navigation
     },
     {
         "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
@@ -2152,11 +2145,7 @@
     },
     {
         "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/color_mtrl_btn_text_color_selector.xml.flat",
-<<<<<<< HEAD
-        "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fa541f110a592e672c9eb0ea7578b6dd/res/color/mtrl_btn_text_color_selector.xml"
-=======
         "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/res/color/mtrl_btn_text_color_selector.xml"
->>>>>>> use_navigation
     },
     {
         "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",

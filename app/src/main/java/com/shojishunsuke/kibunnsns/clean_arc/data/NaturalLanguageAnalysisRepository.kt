@@ -12,6 +12,7 @@ import com.google.api.services.language.v1.model.Features
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LanguageAnalysisRepository
 import kotlinx.coroutines.runBlocking
+import java.math.BigDecimal
 
 
 class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepository {
@@ -28,7 +29,7 @@ class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepo
         ).build()
     }
 
-    override suspend fun getScore(text: String): Float = runBlocking {
+    override suspend fun getScore(text: String):Float= runBlocking {
         val document = Document()
         document.language = "ja_JP"
         document.type = "PLAIN_TEXT"

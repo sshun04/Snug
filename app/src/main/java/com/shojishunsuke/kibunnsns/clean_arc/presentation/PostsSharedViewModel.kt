@@ -13,11 +13,11 @@ import kotlinx.coroutines.launch
 
 class PostsSharedViewModel(context: Context) : ViewModel() {
     
-    private val _currentPosted = MutableLiveData<Post>()
+    private val _currentPost = MutableLiveData<Post>()
     private val _relatedPosts = MutableLiveData<List<Post>>()
     private val useCase: PostsSharedUseCase = PostsSharedUseCase(EmotionAnalysisRepository(context))
 
-    val currentPosted: LiveData<Post> get() = _currentPosted
+    val currentPosted: LiveData<Post> get() = _currentPost
     val relatedPosts: LiveData<List<Post>> get() = _relatedPosts
 
     fun onPost(content: String) {
@@ -28,10 +28,23 @@ class PostsSharedViewModel(context: Context) : ViewModel() {
 
             launch(Dispatchers.IO) {
 
-                _currentPosted.postValue(post)
+                _currentPost.postValue(post)
                 _relatedPosts.postValue(relatedPosts)
             }
 
+        }
+    }
+
+    fun onPostSelected(post:Post){
+        GlobalScope.launch {
+
+            val relatedPosts = useCase.loadRelatedPosts(post)
+
+            launch (Dispatchers.IO){
+
+                _currentPost.postValue(post)
+                _relatedPosts.postValue(relatedPosts)
+            }
         }
     }
 }
