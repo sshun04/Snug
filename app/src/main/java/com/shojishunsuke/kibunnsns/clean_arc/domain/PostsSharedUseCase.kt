@@ -16,8 +16,10 @@ class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisReposit
 
     suspend fun generatePost(content: String): Post = runBlocking {
 
-        val sentiScore = analysisRepository.getScore(content)
-        val post = Post(content, sentiScore, actID = "")
+        val analysisResult = analysisRepository.analyzeText(content)
+        val sentiScore = analysisResult.first
+        val category = analysisResult.second
+        val post = Post(content, sentiScore, actID = "",category = category)
 
         runBlocking {
             fireStoreRepository.savePost(post)

@@ -7,19 +7,35 @@
         android:layout_width="400dp"
         android:layout_height="560dp">
 
-    <EditText
-            android:id="@+id/contentEditText"
-            android:background="@color/alto_010"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="16dp"
-            android:textColor="@color/dark_87"
-            android:hint="今の気持ち"
-            app:layout_constraintTop_toTopOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHeight_max="400dp"
+            app:layout_constraintHeight_min="300dp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline2"
             android:layout_margin="16dp"
-    />
+            android:layout_width="0dp"
+            android:background="@color/alto_010"
+            android:layout_height="0dp">
+        <EditText
+                android:id="@+id/contentEditText"
+                android:hint="今の気持ちは？"
+                android:layout_width="0dp"
+                android:gravity="top|left"
+                android:paddingTop="4dp"
+                android:paddingStart="4dp"
+                android:layout_height="0dp"
+                android:background="#00000000"
+                android:textSize="16dp"
+                android:textColor="@color/dark_87"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/postButton"
@@ -43,16 +59,14 @@
             app:layout_constraintStart_toStartOf="@id/postButton"
             app:layout_constraintEnd_toEndOf="@id/postButton"
             android:layout_width="wrap_content"
-              android:layout_height="wrap_content"/>
-    <androidx.constraintlayout.widget.Barrier
+            android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
             android:layout_width="wrap_content"
-            android:layout_height="56dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="@id/postButton"
-            android:id="@+id/barrier"
-            app:barrierDirection="top"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/guideline2"
+            app:layout_constraintGuide_begin="300dp"
+            android:orientation="horizontal"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

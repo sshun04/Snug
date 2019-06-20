@@ -1173,6 +1173,7 @@ id always
 id async
 id auto
 id barrier
+id barrier2
 id beginning
 id blocking
 id bottom
@@ -1234,6 +1235,7 @@ id gone
 id group_divider
 id groups
 id guideline
+id guideline2
 id home
 id homeAsUp
 id icon
