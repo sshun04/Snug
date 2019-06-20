@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostsSharedViewModel
 import com.shojishunsuke.kibunnsns.model.Post
+import java.text.SimpleDateFormat
+import java.util.*
 
-class PostsRecyclerViewAdapter(private val context: Context,private val viewModel:PostsSharedViewModel, private val postsList: List<Post>) :
+class PostsRecyclerViewAdapter(private val context: Context,private val viewModel:PostsSharedViewModel, private var postsList: List<Post>) :
     RecyclerView.Adapter<PostsRecyclerViewAdapter.PostsRecyclerViewHolder>() {
 
 
@@ -19,7 +21,10 @@ class PostsRecyclerViewAdapter(private val context: Context,private val viewMode
         val post = postsList[position]
         holder.contentTextView.text = post.contentText
         holder.sentiScoreTextView.text = post.sentiScore.toString()
-        holder.dateTextView.text = post.date.toString()
+
+
+
+        holder.dateTextView.text = viewModel.formatDate(post.date)
 
         holder.contentTextView.setOnClickListener {
             viewModel.onPostSelected(post)
@@ -33,6 +38,10 @@ class PostsRecyclerViewAdapter(private val context: Context,private val viewMode
 
 
         return PostsRecyclerViewHolder(mView)
+    }
+    fun upDatePosts(list:List<Post>){
+        this.postsList = list
+        notifyDataSetChanged()
     }
 
 

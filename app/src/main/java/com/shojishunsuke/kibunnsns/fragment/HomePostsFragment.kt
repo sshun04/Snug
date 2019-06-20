@@ -13,21 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.adapter.PostsRecyclerViewAdapter
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.HomePostsFragmentViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostsSharedViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.SharedViewModelFactory
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 class HomePostsFragment : Fragment() {
-
-    lateinit var adapter: PostsRecyclerViewAdapter
-
-    companion object{
-        val newInstance= HomePostsFragment()
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home_posts, container, false)
@@ -45,7 +34,6 @@ class HomePostsFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             visibility = View.GONE
         }
-        val homePostsFragmentViewModel = ViewModelProviders.of(this).get(HomePostsFragmentViewModel::class.java)
 
         val sharedViewModel = activity?.run {
             ViewModelProviders.of(this, SharedViewModelFactory(context!!)).get(PostsSharedViewModel::class.java)
@@ -57,14 +45,15 @@ class HomePostsFragment : Fragment() {
 
             contentTextView.text = currentPost.contentText
             sentiScoreTextView.text = currentPost.sentiScore.toString()
-            dateTextView.text = currentPost.date.toString()
+            dateTextView.text = sharedViewModel.formatDate(currentPost.date)
+
         })
 
-        sharedViewModel.relatedPosts.observe(this, Observer { postsList ->
+        sharedViewModel.postsList.observe(this, Observer { postsList ->
 
-            recyclerView.adapter = PostsRecyclerViewAdapter(context!!,sharedViewModel, postsList)
+            recyclerView.adapter = PostsRecyclerViewAdapter(context!!, sharedViewModel, postsList)
             progressBar.visibility = View.GONE
-                recyclerView.visibility = View.VISIBLE
+            recyclerView.visibility = View.VISIBLE
         })
 
         return view

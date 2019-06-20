@@ -25,7 +25,9 @@
         <TextView
                 android:id="@+id/dateTextView"
                 android:textSize="12dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:text="昨日"
+                app:layout_constraintStart_toStartOf="@id/sentiScoreTextView"
+                app:layout_constraintEnd_toEndOf="@id/sentiScoreTextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:textColor="@color/dark_26"
                 android:layout_width="wrap_content"

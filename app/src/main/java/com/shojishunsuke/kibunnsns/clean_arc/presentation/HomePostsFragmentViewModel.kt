@@ -11,11 +11,6 @@ import kotlinx.coroutines.runBlocking
 
 class HomePostsFragmentViewModel:ViewModel() {
     private val useCase = HomePostsFragmentUseCase()
-    lateinit var liveAdapter : MutableLiveData<PostsRecyclerViewAdapter>
 
 
-
-//   suspend fun setUpRecyclerViewAdapter(context: Context):PostsRecyclerViewAdapter = runBlocking{
-//      return@runBlocking PostsRecyclerViewAdapter(context,useCase.getPosts("sentiScore",0))
-//    }
 }

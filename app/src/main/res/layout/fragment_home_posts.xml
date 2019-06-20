@@ -18,6 +18,8 @@
 
 
     <androidx.cardview.widget.CardView
+            android:id="@+id/currentPost"
+            android:visibility="gone"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
@@ -74,9 +76,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginHorizontal="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
     />
 
 

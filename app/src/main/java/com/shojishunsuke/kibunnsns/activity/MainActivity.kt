@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigation.setupWithNavController(navController)
 
+        mainViewModel.setupPostFragment()
+
         fab.setOnClickListener {
             mainViewModel.setupPostFragment()
         }

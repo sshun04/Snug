@@ -12,7 +12,7 @@ class FireStoreDataBaseRepository : DataBaseRepository {
 
     override suspend fun savePost(post: Post) {
 
-        dataBase.collection("posts")
+        dataBase.collection("testPosts")
             .document()
             .set(post).await()
 
@@ -22,7 +22,7 @@ class FireStoreDataBaseRepository : DataBaseRepository {
         val results = ArrayList<Post>()
 
 
-        val querySnapshot = dataBase.collection("posts")
+        val querySnapshot = dataBase.collection("testPosts")
             .whereEqualTo(fieldName, params)
             .get()
             .await()
@@ -40,7 +40,7 @@ class FireStoreDataBaseRepository : DataBaseRepository {
         val results = ArrayList<Post>()
 
 
-        val querySnapshot = dataBase.collection("posts")
+        val querySnapshot = dataBase.collection("testPosts")
             .get().await()
 
         for (result in querySnapshot) {
