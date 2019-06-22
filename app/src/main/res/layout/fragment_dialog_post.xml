@@ -1,72 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:background="@color/light_100">
 
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:background="@color/light_100"
-        android:layout_width="400dp"
-        android:layout_height="560dp">
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/Theme.AppCompat.Light">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.button.MaterialButton
+                android:id="@+id/postButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="8dp"
+                android:background="@color/colorPrimary"
+                android:backgroundTint="@color/light_100"
+                android:text="投稿"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16dp"
+                app:cornerRadius="8dp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.shojishunsuke.kibunnsns.customview.ExpandableLayout
+            android:id="@+id/expandableBox"
+            android:layout_width="0dp"
+            app:layout_constraintTop_toBottomOf="@id/textField"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHeight_max="400dp"
-            app:layout_constraintHeight_min="300dp"
-            app:layout_constraintBottom_toBottomOf="@id/guideline2"
-            android:layout_margin="16dp"
+            app:el_duration="1000"
+            app:el_expanded="true"
+            app:el_parallax="0.5"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:textSize="24dp"
+                android:text="fixedHeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    </com.shojishunsuke.kibunnsns.customview.ExpandableLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
-            android:background="@color/alto_010"
-            android:layout_height="0dp">
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
         <EditText
                 android:id="@+id/contentEditText"
-                android:hint="今の気持ちは？"
-                android:layout_width="0dp"
-                android:gravity="top|left"
-                android:paddingTop="4dp"
-                android:paddingStart="4dp"
-                android:layout_height="0dp"
-                android:background="#00000000"
-                android:textSize="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|left"
+                android:hint="メッセージ"
                 android:textColor="@color/dark_87"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-        />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textSize="16sp"/>
 
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/postButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_done_black_24dp"
-            android:textSize="16dp"
-            android:textColor="@color/alto_010"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="36dp"
-    />
-
-    <TextView
-            android:text="投稿"
-            android:textColor="@color/dark_54"
-            android:textSize="12dp"
-            android:layout_margin="8dp"
-            app:layout_constraintTop_toBottomOf="@id/postButton"
-            app:layout_constraintStart_toStartOf="@id/postButton"
-            app:layout_constraintEnd_toEndOf="@id/postButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    <androidx.constraintlayout.widget.Guideline
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/guideline2"
-            app:layout_constraintGuide_begin="300dp"
-            android:orientation="horizontal"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

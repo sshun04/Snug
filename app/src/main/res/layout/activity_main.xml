@@ -18,10 +18,12 @@
                 android:id="@+id/bottom_app_bar"
                 android:layout_gravity="bottom"
                 android:layout_width="match_parent"
-                app:fabAlignmentMode="center"
+                app:hideOnScroll="true"
+                app:layout_scrollFlags="scroll|enterAlways"
                 app:fabCradleMargin="4dp"
                 app:backgroundTint="@color/light_70"
                 app:fabCradleRoundedCornerRadius="16dp"
+                app:fabAlignmentMode="center"
                 android:layout_height="56dp">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -43,13 +45,15 @@
                 android:id="@+id/fab"
                 android:elevation="8dp"
                 app:layout_anchor="@id/bottom_app_bar"
+                app:layout_anchorGravity="bottom|center"
+                android:layout_gravity="center"
                 android:src="@drawable/ic_mode_edit_white_24dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
         <fragment
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="56dp"
                 android:layout_height="match_parent" app:defaultNavHost="true"
                 android:id="@+id/nav_host_fragment"/>
 

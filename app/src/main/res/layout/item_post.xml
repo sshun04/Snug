@@ -2,52 +2,61 @@
 <com.google.android.material.card.MaterialCardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_marginTop="8dp"
+        android:id="@+id/cardView"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="4dp"
         android:layout_width="match_parent" android:layout_height="wrap_content"
-        app:cardCornerRadius="16dp"
->
+        app:cardCornerRadius="4dp">
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:padding="4dp"
-            android:minHeight="80dp"
+            android:foreground="?android:attr/selectableItemBackground"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
         <TextView
+                android:visibility="gone"
                 android:id="@+id/sentiScoreTextView"
                 android:textColor="@color/dark_54"
                 android:textSize="16dp"
                 android:gravity="center"
                 android:text="10"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/contentTextView"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_width="64dp"
-                android:layout_height="48dp"/>
+                android:layout_width="62dp"
+                android:layout_height="53dp" android:layout_marginStart="8dp"/>
 
-        <TextView
-                android:id="@+id/dateTextView"
-                android:textSize="12dp"
-                android:text="昨日"
-                app:layout_constraintStart_toStartOf="@id/sentiScoreTextView"
-                app:layout_constraintEnd_toEndOf="@id/sentiScoreTextView"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:textColor="@color/dark_26"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"/>
-
-        <TextView
-                android:id="@+id/contentTextView"
-                android:textSize="16dp"
-                android:layout_marginHorizontal="4dp"
-                android:text="content"
-                android:textColor="@color/dark_87"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@id/dateTextView"
+        <LinearLayout
+                android:layout_margin="4dp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/sentiScoreTextView"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" app:layout_constraintDimensionRatio="w,4:3">
+            <TextView
+                    android:id="@+id/contentTextView"
+                    android:textSize="16dp"
+                    android:layout_margin="8dp"
+                    android:text="content"
+                    android:gravity="center|left"
+                    android:textColor="@color/dark_87"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/dateTextView"
+                    android:textSize="12dp"
+                    android:text="昨日"
+                    android:textColor="@color/dark_26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"/>
+
+
+        </LinearLayout>
+
+
         <androidx.constraintlayout.widget.Barrier android:layout_width="wrap_content"
                                                   android:layout_height="wrap_content" android:id="@+id/barrier2"
                                                   app:barrierDirection="left"/>

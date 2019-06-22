@@ -47,11 +47,12 @@ class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepo
 
         val response = naturalLanguageService.documents().annotateText(annotateTextRequest).execute()
         val sentiScore = response.documentSentiment.score
+
         val category = getCategory(response.entities)
 
         Log.d("SentiScore", "$sentiScore")
 
-        return@runBlocking Pair(sentiScore, category)
+        return@runBlocking Pair(sentiScore,category)
     }
 
     private fun getCategory(entities: List<com.google.api.services.language.v1.model.Entity>): String {
@@ -59,9 +60,8 @@ class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepo
             it.salience
         }
 
-        val keyWord = sortedList[0].toString()
+       return if (sortedList.isNotEmpty())sortedList[0].name else ""
 
-        return categoryDictionary[keyWord]?:""
 
 
     }

@@ -1,6 +1,7 @@
 #Internal package file, do not edit.
-#Mon Jun 17 19:53:05 JST 2019
+#Sat Jun 22 23:41:49 JST 2019
 4.path=classes.dex
+13.baseType=DIRECTORY
 8.set=DEX
 6.path=classes.dex
 0.baseType=DIRECTORY
@@ -8,13 +9,14 @@
 5.baseType=DIRECTORY
 1.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/18
 8.path=classes.dex
-12.path=wago.121808.pn
+12.path=NotoColorEmojiCompat.ttf
 3.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/15
 4.set=DEX
 5.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/14
 7.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/16
 11.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/20
 9.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/21
+13.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/merged_assets/debug/out
 1.baseType=DIRECTORY
 11.set=DEX
 0.set=DEX
@@ -34,17 +36,19 @@
 9.path=classes.dex
 6.set=DEX
 2.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/merged_assets/debug/out
+13.path=wago.121808.pn
 11.baseType=DIRECTORY
 4.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/17
 3.baseType=DIRECTORY
 6.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/11
 10.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/12
+13.set=ASSET
 8.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/13
 2.set=ASSET
 8.baseType=DIRECTORY
 12.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/merged_assets/debug/out
 9.set=DEX
-count=13
+count=14
 12.baseType=DIRECTORY
 4.baseType=DIRECTORY
 5.set=DEX

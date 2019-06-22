@@ -23,7 +23,7 @@ class PostsSharedViewModel(context: Context) : ViewModel() {
 
     init {
         GlobalScope.launch {
-            val wholePosts = useCase.loadWhollePosts()
+            val wholePosts = useCase.loadWholePosts()
 
             launch(Dispatchers.IO ) {
                 _postsList.postValue(wholePosts)

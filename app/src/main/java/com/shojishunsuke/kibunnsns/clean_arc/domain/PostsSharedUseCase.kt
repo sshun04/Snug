@@ -19,7 +19,7 @@ class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisReposit
         val analysisResult = analysisRepository.analyzeText(content)
         val sentiScore = analysisResult.first
         val category = analysisResult.second
-        val post = Post(content, sentiScore, actID = "",category = category)
+        val post = Post(content, sentiScore, actID = "",keyWord = category)
 
         runBlocking {
             fireStoreRepository.savePost(post)
@@ -28,7 +28,7 @@ class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisReposit
         return@runBlocking post
     }
 
-    suspend fun loadWhollePosts():List<Post> = runBlocking {
+    suspend fun loadWholePosts():List<Post> = runBlocking {
         fireStoreRepository.loadWholeCollection()
     }
 
@@ -40,8 +40,8 @@ class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisReposit
 
 
     fun formatDate(postedDate: Date): String {
-        val nowDate = Date()
-        val timeDiffInSec = (nowDate.time - postedDate.time) / 1000
+        val currentDate = Date()
+        val timeDiffInSec = (currentDate.time - postedDate.time) / 1000
 
 
         val hourDiff = timeDiffInSec / 3600
@@ -62,7 +62,7 @@ class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisReposit
                 "$secDiff" + "秒前"
             }
             else -> {
-                val formatter = SimpleDateFormat("yyyy年MM月dd日", Locale.JAPAN)
+                val formatter = SimpleDateFormat("MM月dd日", Locale.JAPAN)
                 formatter.format(postedDate)
             }
 

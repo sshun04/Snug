@@ -11,6 +11,6 @@ data class Post(
     val contentText:String = "",
     var sentiScore :Float = 0.0f,
     val date : Date = Date(),
-    val actID  : String = "soccer",
-    val category : String = ""
+    val actID  : String = "",
+    val keyWord : String = ""
 ){}
