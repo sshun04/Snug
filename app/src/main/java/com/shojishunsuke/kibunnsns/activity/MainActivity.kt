@@ -2,6 +2,8 @@ package com.shojishunsuke.kibunnsns.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.emoji.bundled.BundledEmojiCompatConfig
+import androidx.emoji.text.EmojiCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
@@ -22,6 +24,13 @@ class MainActivity : AppCompatActivity() {
     lateinit var bottomNavigation: BottomNavigationView
     lateinit var mainViewModel: MainActivityViewModel
     private var isInitialized = false
+
+    override fun onStart() {
+        super.onStart()
+        val emojiConfig = BundledEmojiCompatConfig(this)
+        emojiConfig.setReplaceAll(true)
+        EmojiCompat.init(emojiConfig)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

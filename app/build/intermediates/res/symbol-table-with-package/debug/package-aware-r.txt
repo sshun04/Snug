@@ -901,6 +901,9 @@ dimen design_tab_scrollable_min_width
 dimen design_tab_text_size
 dimen design_tab_text_size_2line
 dimen design_textinput_caption_translate_y
+dimen dialog_min_height
+dimen dialog_min_width_major
+dimen dialog_min_width_minor
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
 dimen fastscroll_default_thickness
@@ -1105,10 +1108,12 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_access_time_black_12dp
 drawable ic_btn_left
 drawable ic_close_black_24dp
 drawable ic_dashboard_black_24dp
 drawable ic_done_black_24dp
+drawable ic_keyboard_arrow_down_black_32dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mode_edit_white_24dp
@@ -1201,7 +1206,6 @@ id always
 id async
 id auto
 id barrier
-id barrier2
 id baseline
 id beginning
 id blocking
@@ -1228,6 +1232,7 @@ id contentEditText
 id contentPanel
 id contentTextView
 id coordinator
+id currentEmojiList
 id currentPost
 id currentPostContent
 id currentPostDate
@@ -1249,6 +1254,9 @@ id dimensions
 id direct
 id disableHome
 id edit_query
+id emojiIcon
+id emojiRecyclerView
+id emojiTextView
 id end
 id end_padder
 id enterAlways
@@ -1259,6 +1267,7 @@ id expand_activities_button
 id expandableBox
 id expanded_menu
 id fab
+id favoriteEmojiField
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1272,6 +1281,7 @@ id gone
 id group_divider
 id groups
 id guideline
+id guideline2
 id home
 id homeAsUp
 id icon
@@ -1406,6 +1416,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toggleButton
 id toolbar
 id top
 id topPanel
@@ -1496,6 +1507,7 @@ layout fragment_home_posts
 layout fragment_record
 layout frgment_yourself
 layout input_method_extract_view
+layout item_emoji
 layout item_post
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
@@ -1818,6 +1830,7 @@ style Platform_V21_AppCompat_Light
 style Platform_V25_AppCompat
 style Platform_V25_AppCompat_Light
 style Platform_Widget_AppCompat_Spinner
+style PostAlertDialog
 style RtlOverlay_DialogWindowTitle_AppCompat
 style RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
 style RtlOverlay_Widget_AppCompat_DialogTitle_Icon

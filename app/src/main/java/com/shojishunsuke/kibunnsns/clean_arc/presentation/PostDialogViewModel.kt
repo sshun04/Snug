@@ -11,6 +11,6 @@ import java.util.*
 class PostDialogViewModel:ViewModel() {
 
    private val postUseCase = PostDialogUseCase()
-
-
+   val wholeEmoji:List<String> = postUseCase.loadWholeEmoji()
+   val currentEmoji:List<String> = postUseCase.loadCurrentEmoji()
 }

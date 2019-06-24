@@ -9,8 +9,10 @@
         app:cardCornerRadius="4dp">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:foreground="?android:attr/selectableItemBackground"
+
+    <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -21,46 +23,43 @@
                 android:textSize="16dp"
                 android:gravity="center"
                 android:text="10"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="62dp"
                 android:layout_height="53dp" android:layout_marginStart="8dp"/>
 
-        <LinearLayout
-                android:layout_margin="4dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content" app:layout_constraintDimensionRatio="w,4:3">
-            <TextView
-                    android:id="@+id/contentTextView"
-                    android:textSize="16dp"
-                    android:layout_margin="8dp"
-                    android:text="content"
-                    android:gravity="center|left"
-                    android:textColor="@color/dark_87"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-            <TextView
-                    android:id="@+id/dateTextView"
-                    android:textSize="12dp"
-                    android:text="昨日"
-                    android:textColor="@color/dark_26"
-                    android:layout_width="wrap_content"
-                    android:layout_height="24dp"/>
+        <androidx.emoji.widget.EmojiTextView
+                android:id="@+id/emojiIcon"
+                android:textSize="72dp"
+                android:text="🎨"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
-        </LinearLayout>
+        <TextView
+                android:id="@+id/contentTextView"
+                android:textSize="16dp"
+                android:text="content"
+                android:gravity="center|left"
+                android:textColor="@color/dark_87"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:drawableLeft="@drawable/ic_access_time_black_12dp"
+                android:drawableTint="@color/dark_26"
+                android:id="@+id/dateTextView"
+                android:textSize="12dp"
+                android:text="昨日"
+                android:textColor="@color/dark_26"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"/>
 
 
-        <androidx.constraintlayout.widget.Barrier android:layout_width="wrap_content"
-                                                  android:layout_height="wrap_content" android:id="@+id/barrier2"
-                                                  app:barrierDirection="left"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+
+
+
 
 </com.google.android.material.card.MaterialCardView>

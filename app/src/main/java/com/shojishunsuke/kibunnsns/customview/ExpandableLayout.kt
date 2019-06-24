@@ -14,9 +14,6 @@ import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import com.shojishunsuke.kibunnsns.R
 
 
-
-
-
 class ExpandableLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
@@ -40,9 +37,10 @@ class ExpandableLayout @JvmOverloads constructor(
     private val DEFAULT_DURATION = 300
     val onExpansionUpdate: (Float, State) -> Unit = { fl: Float, i: State -> Unit }
 
+
     private var duration: Int = DEFAULT_DURATION
 
-    var expansion: Float = 0f
+    private var expansion: Float = 0f
         set(value) {
             if (field == value) return
             val delta: Float = value - field
@@ -59,7 +57,7 @@ class ExpandableLayout @JvmOverloads constructor(
             field = value
             requestLayout()
 
-            onExpansionUpdate(expansion, state)
+//            onExpansionUpdate(expansion, state)
         }
 
     private var orientation: Int = 0
@@ -82,19 +80,18 @@ class ExpandableLayout @JvmOverloads constructor(
     init {
         val array = context.obtainStyledAttributes(attrs, R.styleable.ExpandableLayout)
         duration = array.getInt(R.styleable.ExpandableLayout_el_duration, DEFAULT_DURATION)
-        expansion = if (array.getBoolean(R.styleable.ExpandableLayout_el_duration, false)) 1f else 0f
+        expansion = if (array.getBoolean(R.styleable.ExpandableLayout_el_expanded, false)) 1f else 0f
         orientation = array.getInt(R.styleable.ExpandableLayout_android_orientation, VERTICAL)
         parallax = array.getFloat(R.styleable.ExpandableLayout_el_parallax, 1f)
         state = if (expansion == 0f) State.COLLAPSED else State.EXPANDED
         isInitialized = true
     }
-
-    val isExpanded = state == State.EXPANDING || state == State.EXPANDED
+    fun isExpanded() :Boolean = state == State.EXPANDING || state == State.EXPANDED
 
     override fun onSaveInstanceState(): Parcelable? {
         val superState = super.onSaveInstanceState()
 
-        expansion = if (isExpanded) 1f else 0f
+        expansion = if (isExpanded()) 1f else 0f
 
         val bundle = Bundle().apply {
             putFloat(KEY_EXPANSION, expansion)
@@ -124,6 +121,7 @@ class ExpandableLayout @JvmOverloads constructor(
 
         val size = if (orientation == LinearLayout.HORIZONTAL) width else height
         visibility = if (expansion == 0f && size == 0) View.GONE else View.VISIBLE
+
 
         val expansionDelta = size - Math.round(size * expansion)
 
@@ -161,7 +159,7 @@ class ExpandableLayout @JvmOverloads constructor(
 
 
     fun toggle(animate: Boolean = true) {
-        if (isExpanded) {
+        if (isExpanded()) {
             collapse(animate)
         } else {
             expand(animate)
@@ -178,7 +176,7 @@ class ExpandableLayout @JvmOverloads constructor(
     }
 
     private fun setExpanded(expand: Boolean, animate: Boolean = true) {
-        if (expand == isExpanded) return
+        if (expand == isExpanded()) return
 
         val targetExpansion: Int = if (expand) 1 else 0
         if (animate) {
@@ -220,6 +218,7 @@ class ExpandableLayout @JvmOverloads constructor(
             if (!isCanceled) {
                 state = if (targetExpansion == 0) State.COLLAPSED else State.EXPANDED
                 expansion = targetExpansion.toFloat()
+
             }
         }
 

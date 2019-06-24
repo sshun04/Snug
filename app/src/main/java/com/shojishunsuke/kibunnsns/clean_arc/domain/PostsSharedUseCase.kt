@@ -43,7 +43,6 @@ class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisReposit
         val currentDate = Date()
         val timeDiffInSec = (currentDate.time - postedDate.time) / 1000
 
-
         val hourDiff = timeDiffInSec / 3600
         val minuteDiff = (timeDiffInSec % 3600) / 60
         val secDiff = timeDiffInSec % 60

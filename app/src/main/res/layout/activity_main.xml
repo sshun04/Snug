@@ -18,7 +18,6 @@
                 android:id="@+id/bottom_app_bar"
                 android:layout_gravity="bottom"
                 android:layout_width="match_parent"
-                app:hideOnScroll="true"
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:fabCradleMargin="4dp"
                 app:backgroundTint="@color/light_70"
@@ -54,7 +53,9 @@
         <fragment
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" app:defaultNavHost="true"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="56dp"
+                app:defaultNavHost="true"
                 android:id="@+id/nav_host_fragment"/>
 
 

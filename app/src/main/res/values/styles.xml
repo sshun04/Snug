@@ -13,5 +13,10 @@
         <item name="colorAccent">@color/dark_54</item>
     </style>
 
+    <style name="PostAlertDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowMinWidthMajor">@dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@dimen/dialog_min_width_minor</item>
+    </style>
+
 
 </resources>
