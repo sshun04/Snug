@@ -1136,6 +1136,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable shape
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -1196,6 +1197,7 @@ id action_mode_bar_stub
 id action_mode_close_button
 id action_text
 id actions
+id activityIcon
 id activity_chooser_view_content
 id add
 id adjust_height
@@ -1254,7 +1256,6 @@ id dimensions
 id direct
 id disableHome
 id edit_query
-id emojiIcon
 id emojiRecyclerView
 id emojiTextView
 id end
@@ -1262,7 +1263,6 @@ id end_padder
 id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
-id exp
 id expand_activities_button
 id expandableBox
 id expanded_menu
@@ -1339,7 +1339,6 @@ id progressBar
 id progress_circular
 id progress_horizontal
 id radio
-id recordTextView
 id right
 id right_icon
 id right_side
@@ -1505,7 +1504,6 @@ layout design_text_input_password_icon
 layout fragment_dialog_post
 layout fragment_home_posts
 layout fragment_record
-layout frgment_yourself
 layout input_method_extract_view
 layout item_emoji
 layout item_post

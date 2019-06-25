@@ -18,6 +18,8 @@ class PostsSharedViewModel(context: Context) : ViewModel() {
     private val _postsList = MutableLiveData<List<Post>>()
     private val useCase: PostsSharedUseCase = PostsSharedUseCase(NaturalLanguageAnalysisRepository(context))
 
+    var emojiCode = ""
+
     val currentPosted: LiveData<Post> get() = _currentPosted
     val postsList: LiveData<List<Post>> get() = _postsList
 
@@ -34,7 +36,7 @@ class PostsSharedViewModel(context: Context) : ViewModel() {
     fun onPost(content: String) {
         GlobalScope.launch {
 
-            val post = useCase.generatePost(content)
+            val post = useCase.generatePost(content,emojiCode)
             val relatedPosts = useCase.loadRelatedPosts(post)
 
             launch(Dispatchers.IO) {
@@ -60,5 +62,5 @@ class PostsSharedViewModel(context: Context) : ViewModel() {
         }
     }
 
-    fun formatDate(date: Date): String = useCase.formatDate(date)
+    fun getFormattedDate(date: Date): String = useCase.formatDate(date)
 }

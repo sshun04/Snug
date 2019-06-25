@@ -6,15 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.lifecycle.ViewModel
+import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostsSharedViewModel
 import com.shojishunsuke.kibunnsns.model.Post
-import java.text.SimpleDateFormat
-import java.util.*
 
-class PostsRecyclerViewAdapter(private val context: Context,private val viewModel:PostsSharedViewModel, private var postsList: List<Post>) :
+class PostsRecyclerViewAdapter(
+    private val context: Context,
+    private val viewModel: PostsSharedViewModel,
+    private var postsList: List<Post>
+) :
     RecyclerView.Adapter<PostsRecyclerViewAdapter.PostsRecyclerViewHolder>() {
 
 
@@ -22,11 +24,9 @@ class PostsRecyclerViewAdapter(private val context: Context,private val viewMode
         val post = postsList[position]
         holder.contentTextView.text = post.contentText
         holder.sentiScoreTextView.text = post.sentiScore.toString()
-        holder.dateTextView.text = viewModel.formatDate(post.date)
+        holder.dateTextView.text = viewModel.getFormattedDate(post.date)
+        holder.activityIcon.text = if (post.actID.isNotBlank())post.actID else ""
 
-        holder.itemCardView.setOnClickListener {
-            viewModel.onPostSelected(post)
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsRecyclerViewHolder {
@@ -37,13 +37,15 @@ class PostsRecyclerViewAdapter(private val context: Context,private val viewMode
 
         return PostsRecyclerViewHolder(mView)
     }
+
     override fun getItemCount(): Int = postsList.size
 
 
     inner class PostsRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val itemCardView = view.findViewById<CardView>(R.id.cardView)
-        val contentTextView  = view.findViewById<TextView>(R.id.contentTextView)
+        val contentTextView = view.findViewById<TextView>(R.id.contentTextView)
         val sentiScoreTextView = view.findViewById<TextView>(R.id.sentiScoreTextView)
         val dateTextView = view.findViewById<TextView>(R.id.dateTextView)
+        val activityIcon = view.findViewById<EmojiTextView>(R.id.activityIcon)
     }
 }

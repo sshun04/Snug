@@ -38,17 +38,20 @@ class PostDialogFragment : DialogFragment() {
         val editText = parentView?.findViewById<EditText>(R.id.contentEditText)
         val toggleButton = parentView?.findViewById<ImageView>(R.id.toggleButton)
         val currentEmojiRecyclerView = parentView?.findViewById<RecyclerView>(R.id.currentEmojiList).apply {
-            this?.adapter = EmojiRecyclerViewAdapter(requireContext(), dialogViewModel.currentEmoji)
+            this?.adapter = EmojiRecyclerViewAdapter(requireContext(),sharedViewModel, dialogViewModel.currentEmoji)
             this?.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
         }
 
         val wholeEmojiRecyclerView = parentView?.findViewById<RecyclerView>(R.id.emojiRecyclerView).apply {
-            this?.adapter = EmojiRecyclerViewAdapter(requireContext(), dialogViewModel.wholeEmoji)
+            this?.adapter = EmojiRecyclerViewAdapter(requireContext(),sharedViewModel, dialogViewModel.wholeEmoji)
             this?.layoutManager = GridLayoutManager(requireContext(), 5)
         }
 
 
         toggleButton?.setOnClickListener {
+            val isExpanded = expandableLayout?.isViewExpanded ?: false
+
+            dialogViewModel.toggleArrow(it,isExpanded)
             expandableLayout?.toggle()
         }
 
@@ -56,6 +59,8 @@ class PostDialogFragment : DialogFragment() {
             val contentText = editText?.text.toString()
             if (contentText.isBlank()) return@setOnClickListener
             sharedViewModel.onPost(contentText)
+
+
         }
 
 

@@ -26,6 +26,7 @@ class ExpandableLayout @JvmOverloads constructor(
         EXPANDED(3)
     }
 
+    val isViewExpanded :Boolean get() = isExpanded()
 
     private var isInitialized = false
     private val KEY_SUPER_STATE = "super_state"
@@ -86,7 +87,8 @@ class ExpandableLayout @JvmOverloads constructor(
         state = if (expansion == 0f) State.COLLAPSED else State.EXPANDED
         isInitialized = true
     }
-    fun isExpanded() :Boolean = state == State.EXPANDING || state == State.EXPANDED
+
+    private fun isExpanded(): Boolean = state == State.EXPANDING || state == State.EXPANDED
 
     override fun onSaveInstanceState(): Parcelable? {
         val superState = super.onSaveInstanceState()
@@ -152,10 +154,10 @@ class ExpandableLayout @JvmOverloads constructor(
         }
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration?) {
-        animator.cancel()
-        super.onConfigurationChanged(newConfig)
-    }
+//    override fun onConfigurationChanged(newConfig: Configuration?) {
+//
+//        super.onConfigurationChanged(newConfig)
+//    }
 
 
     fun toggle(animate: Boolean = true) {

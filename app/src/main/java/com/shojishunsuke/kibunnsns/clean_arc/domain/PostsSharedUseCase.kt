@@ -14,12 +14,12 @@ class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisReposit
     private val fireStoreRepository = FireStoreDataBaseRepository()
     private val postsLoadingAlgorithm = LoadPostsAlgorithm()
 
-    suspend fun generatePost(content: String): Post = runBlocking {
+    suspend fun generatePost(content: String,actID:String): Post = runBlocking {
 
         val analysisResult = analysisRepository.analyzeText(content)
         val sentiScore = analysisResult.first
         val category = analysisResult.second
-        val post = Post(content, sentiScore, actID = "",keyWord = category)
+        val post = Post(content, sentiScore, actID = actID,keyWord = category)
 
         runBlocking {
             fireStoreRepository.savePost(post)

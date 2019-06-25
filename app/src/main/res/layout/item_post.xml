@@ -8,13 +8,15 @@
         android:layout_width="match_parent" android:layout_height="wrap_content"
         app:cardCornerRadius="4dp">
 
-
-
     <LinearLayout
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
+            android:padding="4dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
         <TextView
                 android:visibility="gone"
@@ -27,11 +29,13 @@
                 android:layout_height="53dp" android:layout_marginStart="8dp"/>
 
         <androidx.emoji.widget.EmojiTextView
-                android:id="@+id/emojiIcon"
-                android:textSize="72dp"
+                android:id="@+id/activityIcon"
+                android:textSize="80dp"
                 android:text="🎨"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+        />
 
 
         <TextView
@@ -40,26 +44,36 @@
                 android:text="content"
                 android:gravity="center|left"
                 android:textColor="@color/dark_87"
+                android:layout_marginVertical="8dp"
+                android:layout_marginHorizontal="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
+        <View
+                android:background="@color/dark_12"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+
+        />
+
         <TextView
+                android:layout_gravity="start"
+                android:drawablePadding="4dp"
+                android:layout_marginHorizontal="4dp"
                 android:drawableLeft="@drawable/ic_access_time_black_12dp"
-                android:drawableTint="@color/dark_26"
+                android:drawableTint="@color/dark_54"
                 android:id="@+id/dateTextView"
                 android:textSize="12dp"
                 android:text="昨日"
-                android:textColor="@color/dark_26"
+                android:layout_marginVertical="4dp"
+                android:layout_marginStart="4dp"
+                android:gravity="center"
+                android:textColor="@color/dark_54"
                 android:layout_width="wrap_content"
-                android:layout_height="24dp"/>
-
+                android:layout_height="wrap_content"/>
 
 
     </LinearLayout>
-
-
-
-
 
 
 </com.google.android.material.card.MaterialCardView>

@@ -5,14 +5,14 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
 import com.shojishunsuke.kibunnsns.fragment.PostDialogFragment
 
-class MainActivityViewModel(private val fragmentManager: FragmentManager) : ViewModel() {
+class MainActivityViewModel : ViewModel() {
 
     private var postDialog = PostDialogFragment()
 
-    fun setupPostFragment() {
+    fun setupPostFragment(fragmentManager: FragmentManager) {
         Log.d("Main", "Tapped!!")
         postDialog = PostDialogFragment()
-        postDialog.show(fragmentManager, "MainActivityViewModel")
+        postDialog.showNow(fragmentManager, "MainActivityViewModel")
 
 
     }

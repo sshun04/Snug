@@ -27,7 +27,6 @@ class EmojiRepositoy : ActivityRepository {
 
 //        イベント
         "\uD83C\uDF82",
-        "\uD83C\uDFB5",
         "\uD83C\uDF81",
         "\uD83C\uDF74",
         "\uD83D\uDC87\uD83C\uDFFB",
@@ -45,7 +44,7 @@ class EmojiRepositoy : ActivityRepository {
         "\uD83C\uDFC0",
         "\uD83C\uDFD0",
         "\uD83C\uDFB5",
-        "\uD83C\uDFB5",
+        "\uD83D\uDECD️",
         "\uD83D\uDEB4",
         "\uD83D\uDE97"
     )

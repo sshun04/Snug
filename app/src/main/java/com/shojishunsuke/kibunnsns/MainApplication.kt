@@ -8,7 +8,9 @@ class MainApplication : Application() {
     override fun onCreate() {
 
         val emojiConfig = BundledEmojiCompatConfig(this)
+        emojiConfig.setReplaceAll(true)
         EmojiCompat.init(emojiConfig)
+
         super.onCreate()
     }
 }
