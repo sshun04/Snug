@@ -22,8 +22,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var mainViewModel: MainActivityViewModel
     private var isInitialized = false
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -54,13 +52,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onNavigateUp(): Boolean = findNavController(R.id.nav_host_fragment).navigateUp()
-
-
     override fun onResume() {
         super.onResume()
         mainViewModel.setupPostFragment(supportFragmentManager)
     }
+    override fun onNavigateUp(): Boolean = findNavController(R.id.nav_host_fragment).navigateUp()
+
+
+
 
 
 }

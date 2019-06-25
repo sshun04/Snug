@@ -21,6 +21,7 @@ import com.shojishunsuke.kibunnsns.customview.ExpandableLayout
 
 class PostDialogFragment : DialogFragment() {
 
+    lateinit var expandableLayout: ExpandableLayout
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
@@ -34,7 +35,7 @@ class PostDialogFragment : DialogFragment() {
         } ?: throw Exception("Invalid Activity")
 
         val postButton = parentView?.findViewById<MaterialButton>(R.id.postButton)
-        val expandableLayout = parentView?.findViewById<ExpandableLayout>(R.id.expandableBox)
+        expandableLayout = parentView?.findViewById<ExpandableLayout>(R.id.expandableBox) ?: throw IllegalArgumentException()
         val editText = parentView?.findViewById<EditText>(R.id.contentEditText)
         val toggleButton = parentView?.findViewById<ImageView>(R.id.toggleButton)
         val currentEmojiRecyclerView = parentView?.findViewById<RecyclerView>(R.id.currentEmojiList).apply {
@@ -69,5 +70,10 @@ class PostDialogFragment : DialogFragment() {
             .create()
 
         return dialog
+    }
+
+    override fun onDestroy() {
+
+        super.onDestroy()
     }
 }
