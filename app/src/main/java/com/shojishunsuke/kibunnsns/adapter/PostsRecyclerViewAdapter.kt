@@ -7,14 +7,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.emoji.widget.EmojiTextView
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.HomePostsFragmentViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostsSharedViewModel
 import com.shojishunsuke.kibunnsns.model.Post
 
 class PostsRecyclerViewAdapter(
     private val context: Context,
-    private val viewModel: PostsSharedViewModel,
+    private val fragmentViewModel:HomePostsFragmentViewModel,
     private var postsList: List<Post>
 ) :
     RecyclerView.Adapter<PostsRecyclerViewAdapter.PostsRecyclerViewHolder>() {
@@ -24,8 +26,7 @@ class PostsRecyclerViewAdapter(
         val post = postsList[position]
         holder.contentTextView.text = post.contentText
         holder.sentiScoreTextView.text = post.sentiScore.toString()
-        holder.dateTextView.text = viewModel.getFormattedDate(post.date)
-        holder.activityIcon.text = if (post.actID.isNotBlank())post.actID else ""
+        holder.activityIcon.text = if (post.actID.isNotBlank()) post.actID else fragmentViewModel.getAppropriateIcon(post.sentiScore)
 
     }
 

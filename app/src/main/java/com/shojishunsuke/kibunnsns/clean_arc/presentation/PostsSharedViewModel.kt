@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.data.NaturalLanguageAnalysisRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.SharedPrefRepository
 import com.shojishunsuke.kibunnsns.clean_arc.domain.PostsSharedUseCase
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.Dispatchers
@@ -16,7 +17,7 @@ class PostsSharedViewModel(context: Context) : ViewModel() {
 
     private val _currentPosted = MutableLiveData<Post>()
     private val _postsList = MutableLiveData<List<Post>>()
-    private val useCase: PostsSharedUseCase = PostsSharedUseCase(NaturalLanguageAnalysisRepository(context))
+    private val useCase: PostsSharedUseCase
 
     var emojiCode = ""
 
@@ -24,6 +25,12 @@ class PostsSharedViewModel(context: Context) : ViewModel() {
     val postsList: LiveData<List<Post>> get() = _postsList
 
     init {
+
+        val languageRepository = NaturalLanguageAnalysisRepository(context)
+        val dataConfigRepository = SharedPrefRepository(context)
+
+        useCase = PostsSharedUseCase(languageRepository,dataConfigRepository)
+
         GlobalScope.launch {
             val wholePosts = useCase.loadWholePosts()
 
@@ -32,6 +39,8 @@ class PostsSharedViewModel(context: Context) : ViewModel() {
             }
         }
     }
+    fun loadCurrentEmoji():List<String> = useCase.loadCurrentEmoji()
+
 
     fun onPost(content: String) {
         GlobalScope.launch {

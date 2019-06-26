@@ -49,6 +49,21 @@ class EmojiRepositoy : ActivityRepository {
         "\uD83D\uDE97"
     )
 
+    val smileys = listOf(
+
+//        smiling
+        "\uD83D\uDE00",
+//        slightly smiling
+        "\uD83D\uDE42",
+//        neutral
+        "\uD83D\uDE10",
+//        slightly frown
+        "\uD83D\uDE41",
+//        frown
+        "☹️"
+
+    )
+
 
     fun loadWholeEmoji(): List<String> {
         return uniCodeList

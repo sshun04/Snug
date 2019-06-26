@@ -3,18 +3,20 @@ package com.shojishunsuke.kibunnsns.clean_arc.domain
 
 import com.shojishunsuke.kibunnsns.algorithm.LoadPostsAlgorithm
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDataBaseRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataConfigRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LanguageAnalysisRepository
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.runBlocking
 import java.text.SimpleDateFormat
 import java.util.*
 
-class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisRepository) {
+class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisRepository,private val dataConfigRepository: DataConfigRepository) {
 
     private val fireStoreRepository = FireStoreDataBaseRepository()
     private val postsLoadingAlgorithm = LoadPostsAlgorithm()
 
     suspend fun generatePost(content: String,actID:String): Post = runBlocking {
+        dataConfigRepository.updateCollection(actID)
 
         val analysisResult = analysisRepository.analyzeText(content)
         val sentiScore = analysisResult.first
@@ -38,6 +40,7 @@ class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisReposit
         return fireStoreRepository.loadFilteredCollection("sentiScore", post.sentiScore)
     }
 
+    fun loadCurrentEmoji():List<String> = dataConfigRepository.getLatestCollection()
 
     fun formatDate(postedDate: Date): String {
         val currentDate = Date()

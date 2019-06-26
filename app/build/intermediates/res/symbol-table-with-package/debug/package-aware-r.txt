@@ -1301,6 +1301,7 @@ id left
 id light
 id line1
 id line3
+id listBorder
 id listMode
 id list_item
 id masked

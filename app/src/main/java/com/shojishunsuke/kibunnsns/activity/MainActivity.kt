@@ -2,12 +2,16 @@ package com.shojishunsuke.kibunnsns.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.children
+import androidx.core.view.forEach
 import androidx.emoji.bundled.BundledEmojiCompatConfig
 import androidx.emoji.text.EmojiCompat
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.plusAssign
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.shojishunsuke.kibunnsns.R
@@ -43,6 +47,11 @@ class MainActivity : AppCompatActivity() {
         navController.navigatorProvider += navigator
         navController.setGraph(R.navigation.navigation)
         bottomNavigation.setupWithNavController(navController)
+//        val menuView = bottomNavigation.getChildAt(0) as BottomNavigationMenuView
+//        for (i in 0 until menuView.childCount){
+//            val itemView = menuView.getChildAt(i) as BottomNavigationItemView
+//            itemView.setShifting(false)
+//        }
 
         fab.setOnClickListener {
             mainViewModel.setupPostFragment(supportFragmentManager)

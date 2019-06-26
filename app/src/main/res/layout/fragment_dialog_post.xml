@@ -92,21 +92,22 @@
 
         </LinearLayout>
 
-        <View
-                android:background="@color/dark_12"
-                android:layout_width="match_parent"
-                android:layout_marginHorizontal="2dp"
-                android:layout_height="1dp"/>
 
         <com.shojishunsuke.kibunnsns.customview.ExpandableLayout
                 android:background="@color/light_70"
                 android:id="@+id/expandableBox"
                 android:layout_width="match_parent"
                 app:el_duration="1000"
-                app:el_expanded="false"
+                app:el_expanded="true"
                 app:el_parallax="0.5"
                 android:layout_height="wrap_content">
 
+            <View
+                    android:id="@+id/listBorder"
+                    android:background="@color/dark_12"
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_height="1dp"/>
             <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/emojiRecyclerView"
                     android:layout_width="match_parent"

@@ -36,8 +36,6 @@ class ExpandableLayout @JvmOverloads constructor(
     private val VERTICAL = 1
 
     private val DEFAULT_DURATION = 300
-    val onExpansionUpdate: (Float, State) -> Unit = { fl: Float, i: State -> Unit }
-
 
     private var duration: Int = DEFAULT_DURATION
 
@@ -58,7 +56,7 @@ class ExpandableLayout @JvmOverloads constructor(
             field = value
             requestLayout()
 
-//            onExpansionUpdate(expansion, state)
+
         }
 
     private var orientation: Int = 0
@@ -162,8 +160,9 @@ class ExpandableLayout @JvmOverloads constructor(
         super.onConfigurationChanged(newConfig)
     }
 
-
-
+    interface ExpantionUpdateListener{
+        fun onExpantionUpdated(expansion:Float,state: State)
+    }
 
     fun toggle(animate: Boolean = true) {
         if (isExpanded()) {
