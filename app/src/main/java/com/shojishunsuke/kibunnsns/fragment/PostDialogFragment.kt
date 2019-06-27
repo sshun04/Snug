@@ -62,8 +62,7 @@ class PostDialogFragment : DialogFragment() {
             val contentText = editText.text.toString()
             if (contentText.isBlank()) return@setOnClickListener
             sharedViewModel.onPost(contentText)
-
-
+            dismiss()
         }
 
 

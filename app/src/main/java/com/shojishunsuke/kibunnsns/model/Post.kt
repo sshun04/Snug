@@ -13,4 +13,4 @@ data class Post(
     val date : Date = Date(),
     val actID  : String = "",
     val keyWord : String = ""
-){}
+):Item{}

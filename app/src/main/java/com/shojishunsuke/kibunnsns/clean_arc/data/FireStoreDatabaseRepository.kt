@@ -2,11 +2,12 @@ package com.shojishunsuke.kibunnsns.clean_arc.data
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataBaseRepository
+import com.shojishunsuke.kibunnsns.model.Item
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.tasks.await
 
-class FireStoreDataBaseRepository : DataBaseRepository {
+class FireStoreDatabaseRepository : DataBaseRepository {
 
     private val dataBase = FirebaseFirestore.getInstance()
 

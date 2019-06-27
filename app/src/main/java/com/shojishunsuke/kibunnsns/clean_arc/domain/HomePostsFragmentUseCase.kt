@@ -1,12 +1,12 @@
 package com.shojishunsuke.kibunnsns.clean_arc.domain
 
 import com.shojishunsuke.kibunnsns.clean_arc.data.EmojiRepositoy
-import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDataBaseRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.runBlocking
 
 class HomePostsFragmentUseCase {
-    private val fireStoreRepository = FireStoreDataBaseRepository()
+    private val fireStoreRepository = FireStoreDatabaseRepository()
     private val emojiRepositoy = EmojiRepositoy()
     val smilyEmojis = emojiRepositoy.smileys
 
