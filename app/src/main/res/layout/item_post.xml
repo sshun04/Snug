@@ -1,76 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/cardView"
-        android:layout_marginHorizontal="2dp"
-        android:layout_marginVertical="4dp"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        app:cardCornerRadius="4dp">
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="2dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="4dp">
 
     <LinearLayout
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:padding="4dp"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="4dp">
 
         <TextView
-                android:visibility="gone"
-                android:id="@+id/sentiScoreTextView"
-                android:textColor="@color/dark_54"
-                android:textSize="16sp"
+            android:id="@+id/sentiScoreTextView"
+            android:layout_width="62dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:text="10"
+            android:textColor="@color/dark_54"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center"
+                android:src="@color/colorPrimary"
+                android:layout_width="20dp"
+                android:layout_height="20dp"/>
+
+            <TextView
+                android:text="匿名"
                 android:gravity="center"
-                android:text="10"
-                android:layout_width="62dp"
-                android:layout_height="53dp" android:layout_marginStart="8dp"/>
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_87"
+                android:layout_marginStart="8dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
+
+
+
+        </LinearLayout>
 
         <androidx.emoji.widget.EmojiTextView
-                android:id="@+id/activityIcon"
-                android:textSize="80sp"
-                android:text="🎨"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-        />
+            android:id="@+id/activityIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="🎨"
+            android:textSize="80sp" />
 
 
         <TextView
-                android:id="@+id/contentTextView"
-                android:textSize="16sp"
-                android:text="content"
-                android:gravity="center|left"
-                android:textColor="@color/dark_87"
-                android:layout_marginVertical="8dp"
-                android:layout_marginHorizontal="4dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+            android:id="@+id/contentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginVertical="8dp"
+            android:gravity="center|left"
+            android:text="content"
+            android:textColor="@color/dark_87"
+            android:textSize="16sp" />
 
         <View
-                android:background="@color/dark_12"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-
-        />
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/dark_12" />
 
         <TextView
-                android:layout_gravity="start"
-                android:drawablePadding="4dp"
-                android:layout_marginHorizontal="4dp"
-                android:drawableLeft="@drawable/ic_access_time_black_12dp"
-                android:drawableTint="@color/dark_54"
-                android:id="@+id/dateTextView"
-                android:textSize="12sp"
-                android:text="昨日"
-                android:layout_marginVertical="4dp"
-                android:layout_marginStart="4dp"
-                android:gravity="center"
-                android:textColor="@color/dark_54"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+            android:id="@+id/dateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginVertical="4dp"
+            android:layout_marginStart="4dp"
+            android:drawableLeft="@drawable/ic_access_time_black_12dp"
+            android:drawablePadding="4dp"
+            android:drawableTint="@color/dark_54"
+            android:gravity="center"
+            android:text="昨日"
+            android:textColor="@color/dark_54"
+            android:textSize="12sp" />
 
 
     </LinearLayout>

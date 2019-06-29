@@ -51,6 +51,7 @@ MERGED from [androidx.activity:activity:1.0.0-beta01] /Users/shojishunsuke/.grad
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fd36bc547348be2a639f01303b1f8450/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.emoji:emoji-bundled:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/110ce598db2144b2d150879029eaab95/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.room:room-runtime:2.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d08fe0547a279a59d79db42cf11c0daa/AndroidManifest.xml:17:1-30:12
+MERGED from [de.hdodenhof:circleimageview:3.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/03d795ef4353388cb7539f7af99d3712/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/76e9271e57e58320121be189831f409e/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d6b45078786ffa80c98cf751aa1de303/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/190e680d0cef83318299a07022481546/AndroidManifest.xml:17:1-22:12
@@ -150,6 +151,8 @@ MERGED from [com.google.android.gms:play-services-basement:16.2.0] /Users/shojis
 MERGED from [com.google.android.gms:play-services-basement:16.2.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e90ddc8f195512f4152a6f73b872f125/AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.room:room-runtime:2.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d08fe0547a279a59d79db42cf11c0daa/AndroidManifest.xml:24:5-28:19
 MERGED from [androidx.room:room-runtime:2.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d08fe0547a279a59d79db42cf11c0daa/AndroidManifest.xml:24:5-28:19
+MERGED from [de.hdodenhof:circleimageview:3.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/03d795ef4353388cb7539f7af99d3712/AndroidManifest.xml:9:5-20
+MERGED from [de.hdodenhof:circleimageview:3.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/03d795ef4353388cb7539f7af99d3712/AndroidManifest.xml:9:5-20
 MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/32d6f782eb93a611006be059af399d38/AndroidManifest.xml:22:5-28:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/32d6f782eb93a611006be059af399d38/AndroidManifest.xml:22:5-28:19
 MERGED from [androidx.core:core:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/49d90330101795e74c1029fabf4ae19e/AndroidManifest.xml:24:5-89
@@ -286,6 +289,8 @@ MERGED from [androidx.emoji:emoji-bundled:1.0.0] /Users/shojishunsuke/.gradle/ca
 MERGED from [androidx.emoji:emoji-bundled:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/110ce598db2144b2d150879029eaab95/AndroidManifest.xml:20:5-44
 MERGED from [androidx.room:room-runtime:2.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d08fe0547a279a59d79db42cf11c0daa/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.room:room-runtime:2.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d08fe0547a279a59d79db42cf11c0daa/AndroidManifest.xml:20:5-22:41
+MERGED from [de.hdodenhof:circleimageview:3.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/03d795ef4353388cb7539f7af99d3712/AndroidManifest.xml:5:5-7:41
+MERGED from [de.hdodenhof:circleimageview:3.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/03d795ef4353388cb7539f7af99d3712/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/76e9271e57e58320121be189831f409e/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0-alpha01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/76e9271e57e58320121be189831f409e/AndroidManifest.xml:20:5-44
 MERGED from [androidx.navigation:navigation-common-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d6b45078786ffa80c98cf751aa1de303/AndroidManifest.xml:20:5-22:41

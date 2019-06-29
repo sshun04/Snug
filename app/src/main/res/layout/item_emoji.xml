@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_margin="2dp"
-                android:layout_width="48dp"
-                android:layout_height="48dp">
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:layout_margin="2dp">
 
     <androidx.emoji.widget.EmojiTextView
-            android:id="@+id/emojiTextView"
-            android:textSize="36dp"
-            android:text="\ud83e\udd5d"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+        android:id="@+id/emojiTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="\ud83e\udd5d"
+        android:textSize="36dp" />
 
 </RelativeLayout>

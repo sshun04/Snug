@@ -28,6 +28,7 @@ class PostsRecyclerViewAdapter(
         holder.sentiScoreTextView.text = post.sentiScore.toString()
         holder.activityIcon.text = if (post.actID.isNotBlank()) post.actID else fragmentViewModel.getAppropriateIcon(post.sentiScore)
 
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsRecyclerViewHolder {

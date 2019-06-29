@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <item type="dimen" name="dialog_min_width_major">90%</item>
     <item type="dimen" name="dialog_min_width_minor">90%</item>
     <item type="dimen" name="dialog_min_height">60%</item>
+    <dimen name="design_navigation_icon_size" tools:override="true">40dp</dimen>
 </resources>

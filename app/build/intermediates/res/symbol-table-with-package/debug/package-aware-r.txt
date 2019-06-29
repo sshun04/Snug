@@ -11,6 +11,7 @@ anim abc_slide_out_bottom
 anim abc_slide_out_top
 anim abc_tooltip_enter
 anim abc_tooltip_exit
+anim animation_recyclerview
 anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
@@ -19,6 +20,7 @@ anim nav_default_enter_anim
 anim nav_default_exit_anim
 anim nav_default_pop_enter_anim
 anim nav_default_pop_exit_anim
+anim slide_from_buttom
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -155,6 +157,10 @@ attr chipStrokeColor
 attr chipStrokeWidth
 attr chipStyle
 attr circleCrop
+attr civ_border_color
+attr civ_border_overlay
+attr civ_border_width
+attr civ_circle_background_color
 attr closeIcon
 attr closeIconEnabled
 attr closeIconEndPadding
@@ -1091,6 +1097,7 @@ drawable ic_btn_left
 drawable ic_close_black_24dp
 drawable ic_dashboard_black_24dp
 drawable ic_done_black_24dp
+drawable ic_format_list_bulleted_black_24dp
 drawable ic_keyboard_arrow_down_black_32dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -1099,6 +1106,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_person_black_24dp
+drawable image
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1123,6 +1131,7 @@ id FUNCTION
 id META
 id SHIFT
 id SYM
+id acIcon
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
 id accessibility_custom_action_1
@@ -1195,6 +1204,9 @@ id button
 id buttonPanel
 id cancel_action
 id cardView
+id cardView2
+id cardView3
+id cardViw1
 id center
 id center_horizontal
 id center_vertical
@@ -1211,10 +1223,6 @@ id contentPanel
 id contentTextView
 id coordinator
 id currentEmojiList
-id currentPost
-id currentPostContent
-id currentPostDate
-id currentPostSentiScore
 id custom
 id customPanel
 id dark
@@ -1252,10 +1260,12 @@ id fixed
 id forever
 id ghost_view
 id gone
+id grid
 id group_divider
 id groups
-id guideline
 id guideline2
+id guideline3
+id headerGroup
 id home
 id homeAsUp
 id icon
@@ -1275,6 +1285,7 @@ id left
 id light
 id line1
 id line3
+id linear
 id listBorder
 id listMode
 id list_item
@@ -2114,6 +2125,7 @@ styleable ButtonBarLayout allowStacking
 styleable CardView android_minWidth android_minHeight cardBackgroundColor cardCornerRadius cardElevation cardMaxElevation cardPreventCornerOverlap cardUseCompatPadding contentPadding contentPaddingBottom contentPaddingLeft contentPaddingRight contentPaddingTop
 styleable Chip android_textAppearance android_ellipsize android_maxWidth android_text android_checkable checkedIcon checkedIconEnabled checkedIconVisible chipBackgroundColor chipCornerRadius chipEndPadding chipIcon chipIconEnabled chipIconSize chipIconTint chipIconVisible chipMinHeight chipStartPadding chipStrokeColor chipStrokeWidth closeIcon closeIconEnabled closeIconEndPadding closeIconSize closeIconStartPadding closeIconTint closeIconVisible hideMotionSpec iconEndPadding iconStartPadding rippleColor showMotionSpec textEndPadding textStartPadding
 styleable ChipGroup checkedChip chipSpacing chipSpacingHorizontal chipSpacingVertical singleLine singleSelection
+styleable CircleImageView civ_border_color civ_border_overlay civ_border_width civ_circle_background_color
 styleable CollapsingToolbarLayout collapsedTitleGravity collapsedTitleTextAppearance contentScrim expandedTitleGravity expandedTitleMargin expandedTitleMarginBottom expandedTitleMarginEnd expandedTitleMarginStart expandedTitleMarginTop expandedTitleTextAppearance scrimAnimationDuration scrimVisibleHeightTrigger statusBarScrim title titleEnabled toolbarId
 styleable CollapsingToolbarLayout_Layout layout_collapseMode layout_collapseParallaxMultiplier
 styleable ColorStateListItem android_color android_alpha alpha
