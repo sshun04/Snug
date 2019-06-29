@@ -3,6 +3,7 @@ package com.shojishunsuke.kibunnsns.clean_arc.domain
 
 import com.shojishunsuke.kibunnsns.algorithm.LoadPostsAlgorithm
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.RoomDatabaseRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataConfigRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LanguageAnalysisRepository
 import com.shojishunsuke.kibunnsns.model.Post
@@ -13,10 +14,12 @@ import java.util.*
 class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisRepository,private val dataConfigRepository: DataConfigRepository) {
 
     private val fireStoreRepository = FireStoreDatabaseRepository()
+    private val roomRepository = RoomDatabaseRepository()
     private val postsLoadingAlgorithm = LoadPostsAlgorithm()
 
     suspend fun generatePost(content: String,actID:String): Post = runBlocking {
         dataConfigRepository.updateCollection(actID)
+
 
         val analysisResult = analysisRepository.analyzeText(content)
         val sentiScore = analysisResult.first
@@ -25,6 +28,7 @@ class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisReposit
 
         runBlocking {
             fireStoreRepository.savePost(post)
+            roomRepository.savePost(post)
         }
 
         return@runBlocking post

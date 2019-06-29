@@ -17,10 +17,10 @@ import kotlinx.coroutines.runBlocking
 class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepository {
 
     private val naturalLanguageService: CloudNaturalLanguage
-    private val categoryDictionary :Map<String,String> = mutableMapOf()
 
     init {
         val apiKey = context.resources.getString(R.string.api_key)
+
 
         naturalLanguageService = CloudNaturalLanguage.Builder(
             AndroidHttp.newCompatibleTransport(), AndroidJsonFactory(), null

@@ -68,8 +68,6 @@ attr alertDialogButtonGroupStyle
 attr alertDialogCenterButtons
 attr alertDialogStyle
 attr alertDialogTheme
-attr alignContent
-attr alignItems
 attr allowStacking
 attr alpha
 attr alphabeticModifiers
@@ -217,9 +215,6 @@ attr dialogPreferredPadding
 attr dialogTheme
 attr displayOptions
 attr divider
-attr dividerDrawable
-attr dividerDrawableHorizontal
-attr dividerDrawableVertical
 attr dividerHorizontal
 attr dividerPadding
 attr dividerVertical
@@ -263,8 +258,6 @@ attr fastScrollHorizontalTrackDrawable
 attr fastScrollVerticalThumbDrawable
 attr fastScrollVerticalTrackDrawable
 attr firstBaselineToTopHeight
-attr flexDirection
-attr flexWrap
 attr floatingActionButtonStyle
 attr font
 attr fontFamily
@@ -323,14 +316,12 @@ attr itemTextAppearance
 attr itemTextAppearanceActive
 attr itemTextAppearanceInactive
 attr itemTextColor
-attr justifyContent
 attr keylines
 attr labelVisibilityMode
 attr lastBaselineToBottomHeight
 attr launchSingleTop
 attr layout
 attr layoutManager
-attr layout_alignSelf
 attr layout_anchor
 attr layout_anchorGravity
 attr layout_behavior
@@ -380,9 +371,6 @@ attr layout_constraintWidth_percent
 attr layout_dodgeInsetEdges
 attr layout_editor_absoluteX
 attr layout_editor_absoluteY
-attr layout_flexBasisPercent
-attr layout_flexGrow
-attr layout_flexShrink
 attr layout_goneMarginBottom
 attr layout_goneMarginEnd
 attr layout_goneMarginLeft
@@ -391,15 +379,9 @@ attr layout_goneMarginStart
 attr layout_goneMarginTop
 attr layout_insetEdge
 attr layout_keyline
-attr layout_maxHeight
-attr layout_maxWidth
-attr layout_minHeight
-attr layout_minWidth
 attr layout_optimizationLevel
-attr layout_order
 attr layout_scrollFlags
 attr layout_scrollInterpolator
-attr layout_wrapBefore
 attr liftOnScroll
 attr lineHeight
 attr lineSpacing
@@ -422,7 +404,6 @@ attr maxActionInlineWidth
 attr maxButtonHeight
 attr maxEmojiCount
 attr maxImageSize
-attr maxLine
 attr measureWithLargestChild
 attr menu
 attr multiChoiceItemLayout
@@ -476,9 +457,6 @@ attr seekBarStyle
 attr selectableItemBackground
 attr selectableItemBackgroundBorderless
 attr showAsAction
-attr showDivider
-attr showDividerHorizontal
-attr showDividerVertical
 attr showDividers
 attr showMotionSpec
 attr showText
@@ -1208,12 +1186,12 @@ id always
 id async
 id auto
 id barrier
-id baseline
 id beginning
 id blocking
 id bottom
 id bottom_app_bar
 id bottom_navigation
+id button
 id buttonPanel
 id cancel_action
 id cardView
@@ -1226,8 +1204,6 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
-id column
-id column_reverse
 id container
 id content
 id contentEditText
@@ -1273,8 +1249,6 @@ id fill_horizontal
 id fill_vertical
 id filled
 id fixed
-id flex_end
-id flex_start
 id forever
 id ghost_view
 id gone
@@ -1325,7 +1299,6 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
-id nowrap
 id outline
 id packed
 id parallax
@@ -1340,11 +1313,10 @@ id progressBar
 id progress_circular
 id progress_horizontal
 id radio
+id recordRecyclerView
 id right
 id right_icon
 id right_side
-id row
-id row_reverse
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1376,9 +1348,6 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
-id space_around
-id space_between
-id space_evenly
 id spacer
 id split_action_bar
 id spread
@@ -1407,7 +1376,6 @@ id textField
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id textView2
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1436,7 +1404,6 @@ id wide
 id withText
 id wrap
 id wrap_content
-id wrap_reverse
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration
@@ -1507,6 +1474,7 @@ layout fragment_home_posts
 layout fragment_record
 layout input_method_extract_view
 layout item_emoji
+layout item_local_record
 layout item_post
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
@@ -2161,8 +2129,6 @@ styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color dra
 styleable EmojiEditText maxEmojiCount
 styleable EmojiExtractTextLayout emojiReplaceStrategy
 styleable ExpandableLayout android_orientation el_duration el_expanded el_parallax
-styleable FlexboxLayout alignContent alignItems dividerDrawable dividerDrawableHorizontal dividerDrawableVertical flexDirection flexWrap justifyContent maxLine showDivider showDividerHorizontal showDividerVertical
-styleable FlexboxLayout_Layout layout_alignSelf layout_flexBasisPercent layout_flexGrow layout_flexShrink layout_maxHeight layout_maxWidth layout_minHeight layout_minWidth layout_order layout_wrapBefore
 styleable FloatingActionButton backgroundTint backgroundTintMode borderWidth elevation fabCustomSize fabSize hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor showMotionSpec useCompatPadding
 styleable FloatingActionButton_Behavior_Layout behavior_autoHide
 styleable FlowLayout itemSpacing lineSpacing

@@ -6,13 +6,13 @@ import com.shojishunsuke.kibunnsns.model.LocalPost
 @Dao
 interface LoacalDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun createLocalPost(post:LocalPost)
+    fun createLocalPost(post: LocalPost)
 
-    @Query("SELECT * FROM LocalPost")
+    @Query("SELECT * FROM post_table")
     fun findAll():List<LocalPost>
 
     @Update
-    fun updateLocalPost(post:LocalPost)
+    fun updateLocalPost(post: LocalPost)
 
     @Delete
     fun delete(post: LocalPost)

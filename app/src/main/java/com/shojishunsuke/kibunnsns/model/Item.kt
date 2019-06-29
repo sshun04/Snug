@@ -1,4 +1,7 @@
 package com.shojishunsuke.kibunnsns.model
 
-interface Item {
+import androidx.room.Entity
+
+
+abstract interface Item {
 }
