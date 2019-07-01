@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.AppCompat.ProgressBar"
@@ -18,30 +17,25 @@
 
     <LinearLayout
         android:id="@+id/headerGroup"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_height="wrap_content">
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/linear"
-            android:src="@drawable/ic_format_list_bulleted_black_24dp"
             android:layout_width="36dp"
-            android:layout_height="36dp" />
-
+            android:layout_height="36dp"
+            android:src="@drawable/ic_format_list_bulleted_black_24dp" />
 
         <ImageView
             android:id="@+id/grid"
-            android:src="@drawable/ic_dashboard_black_24dp"
             android:layout_width="36dp"
-            android:layout_height="36dp" />
-
-
+            android:layout_height="36dp"
+            android:src="@drawable/ic_dashboard_black_24dp" />
 
     </LinearLayout>
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/postsRecyclerView"
@@ -52,7 +46,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headerGroup" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

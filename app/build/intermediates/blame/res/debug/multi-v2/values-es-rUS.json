@@ -38,23 +38,6 @@
                     }
                 },
                 {
-                    "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e90ddc8f195512f4152a6f73b872f125/res/values-es-rUS/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "204",
-                        "endOffsets": "455"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "4031",
-                        "endColumns": "204",
-                        "endOffsets": "4231"
-                    }
-                },
-                {
                     "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/04d371cb0b43ff7a61b9d34112f926be/res/values-es-rUS/values-es-rUS.xml",
                     "from": {
                         "startLines": "2,3",
@@ -72,7 +55,24 @@
                     }
                 },
                 {
-                    "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8aaf3cb032afb5e9dca4f5a7cbbc42d2/res/values-es-rUS/values.xml",
+                    "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5e8c6cc355d19313cd2e25f6cb47690b/res/values-es-rUS/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "204",
+                        "endOffsets": "455"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "4031",
+                        "endColumns": "204",
+                        "endOffsets": "4231"
+                    }
+                },
+                {
+                    "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/2bac2d081979811523383f990e13bbd9/res/values-es-rUS/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",

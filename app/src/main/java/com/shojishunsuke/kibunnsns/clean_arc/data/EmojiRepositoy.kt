@@ -61,7 +61,6 @@ class EmojiRepositoy : ActivityRepository {
         "\uD83D\uDE41",
 //        frown
         "☹️"
-
     )
 
 

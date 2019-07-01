@@ -21,14 +21,13 @@
             app:backgroundTint="@color/light_70"
             app:fabAlignmentMode="center"
             app:fabCradleMargin="4dp"
-            app:fabCradleRoundedCornerRadius="16dp"
+            app:fabCradleRoundedCornerRadius="8dp"
             app:layout_scrollFlags="scroll|enterAlways">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottom_navigation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:elevation="8dp"
                 app:itemHorizontalTranslationEnabled="true"
                 app:itemIconTint="@drawable/bottom_navigation_colors"
                 app:itemTextColor="@drawable/bottom_navigation_colors"

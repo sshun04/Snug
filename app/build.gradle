@@ -38,23 +38,24 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation "org.atilika.kuromoji:kuromoji:0.7.7"
     implementation 'com.google.android.material:material:1.0.0'
-    implementation 'com.google.firebase:firebase-core:16.0.9'
+    implementation 'com.google.firebase:firebase-core:17.0.0'
 
     implementation 'com.google.apis:google-api-services-language:v1-rev388-1.22.0' exclude group: 'com.google.guava'
     implementation 'com.google.api-client:google-api-client-android:1.22.0' exclude group: 'com.google.guava'
-
 
     def coroutines_version = '1.0.1' //Kotlin coroutines用ライブラリ(async, await)のバージョン
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     //Kotlin coroutines用ライブラリ(async, await)
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
-    implementation 'com.google.firebase:firebase-firestore:19.0.2'
+    implementation 'com.google.firebase:firebase-firestore:20.1.0'
+    implementation 'com.google.firebase:firebase-auth:18.0.0'
+    implementation 'com.google.firebase:firebase-storage:18.0.0'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha01"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-alpha01"
-    implementation "android.arch.lifecycle:viewmodel:1.1.0"
-    implementation "android.arch.lifecycle:extensions:1.1.0"
+    implementation "android.arch.lifecycle:viewmodel:1.1.1"
+    implementation "android.arch.lifecycle:extensions:1.1.1"
     implementation "androidx.navigation:navigation-fragment-ktx:2.1.0-alpha05"
     implementation "androidx.navigation:navigation-ui-ktx:2.1.0-alpha05"
     implementation "androidx.emoji:emoji-bundled:1.0.0"
@@ -62,9 +63,10 @@ dependencies {
     def room_version = "2.1.0"
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
-    kapt "android.arch.persistence.room:compiler:1.0.0"
+    kapt "android.arch.persistence.room:compiler:1.1.1"
 
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
