@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Jul 02 00:43:51 JST 2019
+#Wed Jul 03 02:25:20 JST 2019
 4.path=classes.dex
 13.baseType=DIRECTORY
 8.set=DEX
@@ -10,7 +10,7 @@
 1.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/18
 8.path=classes.dex
 12.path=NotoColorEmojiCompat.ttf
-3.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/merged_assets/debug/out
+3.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/15
 4.set=DEX
 5.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/14
 7.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/16
@@ -22,12 +22,12 @@
 0.set=DEX
 6.baseType=DIRECTORY
 7.set=DEX
-3.set=ASSET
+3.set=DEX
 2.baseType=DIRECTORY
 10.baseType=DIRECTORY
 1.path=classes.dex
 7.baseType=DIRECTORY
-3.path=pn.csv.m3.120408.trim
+3.path=classes.dex
 10.set=DEX
 5.path=classes.dex
 0.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/19
@@ -35,7 +35,7 @@
 11.path=classes.dex
 9.path=classes.dex
 6.set=DEX
-2.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/15
+2.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/merged_assets/debug/out
 13.path=wago.121808.pn
 11.baseType=DIRECTORY
 4.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/17
@@ -44,7 +44,7 @@
 10.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/12
 13.set=ASSET
 8.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/transforms/dexMerger/debug/13
-2.set=DEX
+2.set=ASSET
 8.baseType=DIRECTORY
 12.base=/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/merged_assets/debug/out
 9.set=DEX
@@ -56,4 +56,4 @@ count=14
 0.path=classes.dex
 12.set=ASSET
 1.set=DEX
-2.path=classes.dex
+2.path=pn.csv.m3.120408.trim

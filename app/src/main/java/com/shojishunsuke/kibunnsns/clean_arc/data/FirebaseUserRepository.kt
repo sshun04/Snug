@@ -19,8 +19,6 @@ class FirebaseUserRepository:AuthRepository {
         val profileUpdate = UserProfileChangeRequest.Builder()
             .setDisplayName(userName)
             .build()
-
-
         user?.updateProfile(profileUpdate)
             ?.addOnCompleteListener {task->
                 if (task.isSuccessful){
@@ -32,9 +30,9 @@ class FirebaseUserRepository:AuthRepository {
             }
     }
 
-    override fun getUserPhotoUri(): Uri {
+    override fun getUserPhotoUri(): Uri? {
 //        TODO Uriが見つからなかった場合デフォルトのUriを返すようにする
-        return user?.photoUrl?:throw IllegalArgumentException("Could not find photo Uri.")
+        return user?.photoUrl
     }
 
     override fun updateUserPhoto(uri: Uri) {

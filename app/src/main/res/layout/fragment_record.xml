@@ -47,6 +47,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.4" />
 
+    <at.markushi.ui.CircleButton
+        android:id="@+id/editImageButton"
+        app:layout_constraintEnd_toEndOf="@id/acIcon"
+        app:layout_constraintBottom_toBottomOf="@id/acIcon"
+        android:src="@drawable/ic_photo_camera_black_24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 
     <TextView
         android:id="@+id/nameTextView"
@@ -67,8 +75,9 @@
         app:layout_constraintTop_toTopOf="@id/nameTextView"
         app:layout_constraintBottom_toBottomOf="@id/nameTextView"
         android:src="@drawable/ic_mode_edit_white_24dp"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:padding="2dp"
         android:layout_marginStart="12dp"
         />
 

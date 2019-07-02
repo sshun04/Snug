@@ -24,7 +24,7 @@ class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisReposit
         val analysisResult = analysisRepository.analyzeText(content)
         val sentiScore = analysisResult.first
         val category = analysisResult.second
-        val post = Post(content, sentiScore, actID = actID,keyWord = category)
+        val post = Post(contentText = content,sentiScore =  sentiScore, actID = actID,keyWord = category)
 
         runBlocking {
             fireStoreRepository.savePost(post)

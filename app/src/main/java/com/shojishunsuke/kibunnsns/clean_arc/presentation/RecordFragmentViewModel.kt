@@ -1,40 +1,35 @@
 package com.shojishunsuke.kibunnsns.clean_arc.presentation
 
-import android.content.Context
-import android.view.LayoutInflater
+import android.graphics.Bitmap
+import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.shojishunsuke.kibunnsns.R
+import com.google.firebase.storage.StorageReference
+import com.shojishunsuke.kibunnsns.clean_arc.data.CloudStorageRepository
 import com.shojishunsuke.kibunnsns.clean_arc.domain.RecordFragmentUsecase
-import com.shojishunsuke.kibunnsns.model.LocalPost
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class RecordFragmentViewModel : ViewModel() {
+class RecordFragmentViewModel : ViewModel(), CloudStorageRepository.ImageUploadListener {
 
-    private val _liveData = MutableLiveData<List<LocalPost>>()
-    private val useCase = RecordFragmentUsecase()
 
-    val liveData get() = _liveData
+    private val useCase = RecordFragmentUsecase(this)
 
 
     val userName = MutableLiveData<String>()
+    val userIcon = MutableLiveData<Bitmap>()
 
     init {
         getUserName()
+
     }
-//
-//    fun loadWholeCollection() {
-//        GlobalScope.launch {
-//            val list = useCase.loadCollcetion()
-//            launch(Dispatchers.IO) {
-//                _liveData.postValue(list)
-//            }
-//        }
-//    }
 
+    fun saveUserIcon(bitmap: Bitmap) {
+        GlobalScope.launch {
+            useCase.saveIconToCloud(bitmap)
+        }
 
+    }
 
     fun saveUserName(name: String) {
 
@@ -44,5 +39,17 @@ class RecordFragmentViewModel : ViewModel() {
 
     private fun getUserName() {
         userName.value = useCase.getUserName()
+    }
+
+    fun getIconRef(): StorageReference {
+        return useCase.getIconStorageRef()
+    }
+
+    override fun onDownloadTaskComplete(result: Bitmap) {
+        userIcon.postValue(result)
+    }
+
+    override fun onUploadTaskComplete(result: Uri) {
+        useCase.saveLocalPhotoUri(result)
     }
 }
