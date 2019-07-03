@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity() {
             mainViewModel.setupPostFragment(supportFragmentManager)
             isInitialized = true
         }
+        mainViewModel.setupPostFragment(supportFragmentManager)
     }
 
     override fun onStart() {
@@ -81,11 +82,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-    override fun onResume() {
-        super.onResume()
-        mainViewModel.setupPostFragment(supportFragmentManager)
-    }
 
     override fun onNavigateUp(): Boolean = findNavController(R.id.nav_host_fragment).navigateUp()
 
