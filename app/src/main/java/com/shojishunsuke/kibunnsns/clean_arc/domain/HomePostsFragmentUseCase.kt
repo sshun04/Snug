@@ -1,17 +1,27 @@
 package com.shojishunsuke.kibunnsns.clean_arc.domain
 
+import android.graphics.Bitmap
+import android.net.Uri
+import com.google.firebase.storage.StorageReference
+import com.shojishunsuke.kibunnsns.clean_arc.data.CloudStorageRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.EmojiRepositoy
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.FirebaseUserRepository
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.runBlocking
 
-class HomePostsFragmentUseCase {
+class HomePostsFragmentUseCase :CloudStorageRepository.ImageUploadListener{
     private val fireStoreRepository = FireStoreDatabaseRepository()
+    private val cloudStorageRepository = CloudStorageRepository(this)
     private val emojiRepositoy = EmojiRepositoy()
     val smilyEmojis = emojiRepositoy.smileys
 
     suspend fun getPosts(fieldName: String, params: Any): List<Post> = runBlocking {
         return@runBlocking fireStoreRepository.loadWholeCollection()
+    }
+
+    fun getIconStorageRef(uriString: String): StorageReference {
+        return cloudStorageRepository.getStorageRefByUri(uriString)
     }
 
     fun getSmilyes(sentiScore: Float): String {
@@ -24,5 +34,9 @@ class HomePostsFragmentUseCase {
             else -> smilyEmojis[2]
         }
     }
+
+    override fun onDownloadTaskComplete(result: Bitmap) {}
+
+    override suspend fun onUploadTaskComplete(result: Uri) {}
 
 }

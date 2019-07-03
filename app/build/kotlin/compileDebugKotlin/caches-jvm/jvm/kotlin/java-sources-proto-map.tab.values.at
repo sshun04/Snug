@@ -1,4 +1,100 @@
-yout_constraintVertical_weight
+traintLayout_Layout_layout_constraintLeft_toRightOf
+6ConstraintLayout_Layout_layout_constraintRight_creator
+7ConstraintLayout_Layout_layout_constraintRight_toLeftOf
+8ConstraintLayout_Layout_layout_constraintRight_toRightOf
+6ConstraintLayout_Layout_layout_constraintStart_toEndOf
+8ConstraintLayout_Layout_layout_constraintStart_toStartOf
+4ConstraintLayout_Layout_layout_constraintTop_creator
+7ConstraintLayout_Layout_layout_constraintTop_toBottomOf
+4ConstraintLayout_Layout_layout_constraintTop_toTopOf
+6ConstraintLayout_Layout_layout_constraintVertical_bias
+<ConstraintLayout_Layout_layout_constraintVertical_chainStyle
+8ConstraintLayout_Layout_layout_constraintVertical_weight
+6ConstraintLayout_Layout_layout_constraintWidth_default
+2ConstraintLayout_Layout_layout_constraintWidth_max
+2ConstraintLayout_Layout_layout_constraintWidth_min
+6ConstraintLayout_Layout_layout_constraintWidth_percent
+/ConstraintLayout_Layout_layout_editor_absoluteX
+/ConstraintLayout_Layout_layout_editor_absoluteY
+/ConstraintLayout_Layout_layout_goneMarginBottom
+,ConstraintLayout_Layout_layout_goneMarginEnd
+-ConstraintLayout_Layout_layout_goneMarginLeft
+.ConstraintLayout_Layout_layout_goneMarginRight
+.ConstraintLayout_Layout_layout_goneMarginStart
+,ConstraintLayout_Layout_layout_goneMarginTop
+0ConstraintLayout_Layout_layout_optimizationLevel
+ConstraintLayout_placeholder
+$ConstraintLayout_placeholder_content
+,ConstraintLayout_placeholder_emptyVisibility
+ConstraintSet
+ConstraintSet_android_alpha
+ConstraintSet_android_elevation
+ConstraintSet_android_id
+#ConstraintSet_android_layout_height
+)ConstraintSet_android_layout_marginBottom
+&ConstraintSet_android_layout_marginEnd
+'ConstraintSet_android_layout_marginLeft
+(ConstraintSet_android_layout_marginRight
+(ConstraintSet_android_layout_marginStart
+&ConstraintSet_android_layout_marginTop
+"ConstraintSet_android_layout_width
+ConstraintSet_android_maxHeight
+ConstraintSet_android_maxWidth
+ConstraintSet_android_minHeight
+ConstraintSet_android_minWidth
+!ConstraintSet_android_orientation
+ConstraintSet_android_rotation
+ConstraintSet_android_rotationX
+ConstraintSet_android_rotationY
+ConstraintSet_android_scaleX
+ConstraintSet_android_scaleY
+%ConstraintSet_android_transformPivotX
+%ConstraintSet_android_transformPivotY
+"ConstraintSet_android_translationX
+"ConstraintSet_android_translationY
+"ConstraintSet_android_translationZ
+ ConstraintSet_android_visibility
+&ConstraintSet_barrierAllowsGoneWidgets
+ConstraintSet_barrierDirection
+ConstraintSet_chainUseRtl
+'ConstraintSet_constraint_referenced_ids
+&ConstraintSet_layout_constrainedHeight
+%ConstraintSet_layout_constrainedWidth
+/ConstraintSet_layout_constraintBaseline_creator
+4ConstraintSet_layout_constraintBaseline_toBaselineOf
+-ConstraintSet_layout_constraintBottom_creator
+0ConstraintSet_layout_constraintBottom_toBottomOf
+-ConstraintSet_layout_constraintBottom_toTopOf
+%ConstraintSet_layout_constraintCircle
+*ConstraintSet_layout_constraintCircleAngle
++ConstraintSet_layout_constraintCircleRadius
+-ConstraintSet_layout_constraintDimensionRatio
+*ConstraintSet_layout_constraintEnd_toEndOf
+,ConstraintSet_layout_constraintEnd_toStartOf
+*ConstraintSet_layout_constraintGuide_begin
+(ConstraintSet_layout_constraintGuide_end
+,ConstraintSet_layout_constraintGuide_percent
+-ConstraintSet_layout_constraintHeight_default
+)ConstraintSet_layout_constraintHeight_max
+)ConstraintSet_layout_constraintHeight_min
+-ConstraintSet_layout_constraintHeight_percent
+.ConstraintSet_layout_constraintHorizontal_bias
+4ConstraintSet_layout_constraintHorizontal_chainStyle
+0ConstraintSet_layout_constraintHorizontal_weight
++ConstraintSet_layout_constraintLeft_creator
+,ConstraintSet_layout_constraintLeft_toLeftOf
+-ConstraintSet_layout_constraintLeft_toRightOf
+,ConstraintSet_layout_constraintRight_creator
+-ConstraintSet_layout_constraintRight_toLeftOf
+.ConstraintSet_layout_constraintRight_toRightOf
+,ConstraintSet_layout_constraintStart_toEndOf
+.ConstraintSet_layout_constraintStart_toStartOf
+*ConstraintSet_layout_constraintTop_creator
+-ConstraintSet_layout_constraintTop_toBottomOf
+*ConstraintSet_layout_constraintTop_toTopOf
+,ConstraintSet_layout_constraintVertical_bias
+2ConstraintSet_layout_constraintVertical_chainStyle
+.ConstraintSet_layout_constraintVertical_weight
 ,ConstraintSet_layout_constraintWidth_default
 (ConstraintSet_layout_constraintWidth_max
 (ConstraintSet_layout_constraintWidth_min
@@ -27,6 +123,19 @@ $ConstraintSet_layout_goneMarginStart
 DesignTheme_bottomSheetStyle
 DialogFragmentNavigator
 $DialogFragmentNavigator_android_name
+DialogPreference
+#DialogPreference_android_dialogIcon
+%DialogPreference_android_dialogLayout
+&DialogPreference_android_dialogMessage
+$DialogPreference_android_dialogTitle
++DialogPreference_android_negativeButtonText
++DialogPreference_android_positiveButtonText
+DialogPreference_dialogIcon
+DialogPreference_dialogLayout
+DialogPreference_dialogMessage
+DialogPreference_dialogTitle
+#DialogPreference_negativeButtonText
+#DialogPreference_positiveButtonText
 DrawerArrowToggle
 !DrawerArrowToggle_arrowHeadLength
 "DrawerArrowToggle_arrowShaftLength
@@ -126,6 +235,11 @@ $LinearLayoutCompat_android_weightSum
 ListPopupWindow
 0ListPopupWindow_android_dropDownHorizontalOffset
 .ListPopupWindow_android_dropDownVerticalOffset
+ListPreference
+ListPreference_android_entries
+"ListPreference_android_entryValues
+ListPreference_entries
+ListPreference_entryValues
 LoadingImageView
 LoadingImageView_circleCrop
 !LoadingImageView_imageAspectRatio
@@ -224,6 +338,11 @@ $MaterialComponentsTheme_colorPrimary
 %MenuView_android_windowAnimationStyle
 MenuView_preserveIconSpacing
 MenuView_subMenuArrow
+MultiSelectListPreference
+)MultiSelectListPreference_android_entries
+-MultiSelectListPreference_android_entryValues
+!MultiSelectListPreference_entries
+%MultiSelectListPreference_entryValues
 	NavAction
 NavAction_android_id
 NavAction_destination
@@ -272,6 +391,86 @@ $NavigationView_itemHorizontalPadding
 'PopupWindow_android_popupAnimationStyle
 #PopupWindow_android_popupBackground
 PopupWindow_overlapAnchor
+
+Preference
+PreferenceFragment
+PreferenceFragmentCompat
+2PreferenceFragmentCompat_allowDividerAfterLastItem
+(PreferenceFragmentCompat_android_divider
+.PreferenceFragmentCompat_android_dividerHeight
+'PreferenceFragmentCompat_android_layout
+,PreferenceFragment_allowDividerAfterLastItem
+"PreferenceFragment_android_divider
+(PreferenceFragment_android_dividerHeight
+!PreferenceFragment_android_layout
+PreferenceGroup
+'PreferenceGroup_android_orderingFromXml
+,PreferenceGroup_initialExpandedChildrenCount
+PreferenceGroup_orderingFromXml
+PreferenceImageView
+%PreferenceImageView_android_maxHeight
+$PreferenceImageView_android_maxWidth
+PreferenceImageView_maxHeight
+PreferenceImageView_maxWidth
+PreferenceTheme
+'PreferenceTheme_checkBoxPreferenceStyle
+%PreferenceTheme_dialogPreferenceStyle
+'PreferenceTheme_dropdownPreferenceStyle
+'PreferenceTheme_editTextPreferenceStyle
+'PreferenceTheme_preferenceActivityStyle
+'PreferenceTheme_preferenceCategoryStyle
+-PreferenceTheme_preferenceFragmentCompatStyle
++PreferenceTheme_preferenceFragmentListStyle
+-PreferenceTheme_preferenceFragmentPaddingSide
+'PreferenceTheme_preferenceFragmentStyle
+*PreferenceTheme_preferenceHeaderPanelStyle
+*PreferenceTheme_preferenceInformationStyle
+%PreferenceTheme_preferenceLayoutChild
+#PreferenceTheme_preferenceListStyle
+$PreferenceTheme_preferencePanelStyle
+%PreferenceTheme_preferenceScreenStyle
+PreferenceTheme_preferenceStyle
+PreferenceTheme_preferenceTheme
+'PreferenceTheme_ringtonePreferenceStyle
+&PreferenceTheme_seekBarPreferenceStyle
++PreferenceTheme_switchPreferenceCompatStyle
+%PreferenceTheme_switchPreferenceStyle
+$PreferenceTheme_yesNoPreferenceStyle
+Preference_allowDividerAbove
+Preference_allowDividerBelow
+Preference_android_defaultValue
+Preference_android_dependency
+Preference_android_enabled
+Preference_android_fragment
+Preference_android_icon
+$Preference_android_iconSpaceReserved
+Preference_android_key
+Preference_android_layout
+Preference_android_order
+Preference_android_persistent
+Preference_android_selectable
+$Preference_android_shouldDisableView
+"Preference_android_singleLineTitle
+Preference_android_summary
+Preference_android_title
+Preference_android_widgetLayout
+Preference_defaultValue
+Preference_dependency
+Preference_enabled
+Preference_fragment
+Preference_icon
+Preference_iconSpaceReserved
+Preference_isPreferenceVisible
+Preference_key
+Preference_layout
+Preference_order
+Preference_persistent
+Preference_selectable
+Preference_shouldDisableView
+Preference_singleLineTitle
+Preference_summary
+Preference_title
+Preference_widgetLayout
 RecycleListView
 &RecycleListView_paddingBottomNoButtons
 !RecycleListView_paddingTopNoTitle
@@ -310,6 +509,13 @@ SearchView
 SearchView_submitBackground
 SearchView_suggestionRowLayout
 SearchView_voiceIcon
+SeekBarPreference
+SeekBarPreference_adjustable
+ SeekBarPreference_android_layout
+SeekBarPreference_android_max
+SeekBarPreference_min
+"SeekBarPreference_seekBarIncrement
+"SeekBarPreference_showSeekBarValue
 SignInButton
 SignInButton_buttonSize
 SignInButton_colorScheme
@@ -351,6 +557,28 @@ SearchView
 SwitchCompat_track
 SwitchCompat_trackTint
 SwitchCompat_trackTintMode
+SwitchPreference
+SwitchPreferenceCompat
+5SwitchPreferenceCompat_android_disableDependentsState
+)SwitchPreferenceCompat_android_summaryOff
+(SwitchPreferenceCompat_android_summaryOn
+,SwitchPreferenceCompat_android_switchTextOff
++SwitchPreferenceCompat_android_switchTextOn
+-SwitchPreferenceCompat_disableDependentsState
+!SwitchPreferenceCompat_summaryOff
+ SwitchPreferenceCompat_summaryOn
+$SwitchPreferenceCompat_switchTextOff
+#SwitchPreferenceCompat_switchTextOn
+/SwitchPreference_android_disableDependentsState
+#SwitchPreference_android_summaryOff
+"SwitchPreference_android_summaryOn
+&SwitchPreference_android_switchTextOff
+%SwitchPreference_android_switchTextOn
+'SwitchPreference_disableDependentsState
+SwitchPreference_summaryOff
+SwitchPreference_summaryOn
+SwitchPreference_switchTextOff
+SwitchPreference_switchTextOn
 TabItem
 TabItem_android_icon
 TabItem_android_layout
@@ -486,7 +714,7 @@ View_theme   E
  
  
  
-Ÿ ¡    !20B R0X†Pº	€€ððÀ>   @
+¬ ¡    !20B R0X†Pº	€€ððÀ>   @
 com
 shojishunsuke
 	kibunnsns
@@ -593,8 +821,9 @@ Deprecated
 )
  '
 !* 
-!- Å?   )20B R0X†Pº	€€ØðÀ>R	0X†Pº	‚€ØðÀ>R
-0X†Pº	„€ØðÀ>R0X†Pº	†€ØðÀ>R0X†Pº	ˆ€ØðÀ>R0X†Pº	Š€ØðÀ>R0X†Pº	Œ€ØðÀ>R0X†Pº	Ž€ØðÀ>R0X†Pº	€ØðÀ>R0X†Pº	’€ØðÀ>R0X†Pº	”€ØðÀ>R0X†Pº	–€ØðÀ>R0X†Pº	˜€ØðÀ>R0X†Pº	š€ØðÀ>R0X†Pº	œ€ØðÀ>R0X†Pº	ž€ØðÀ>R0X†Pº	 €ØðÀ>R0X†Pº	¢€ØðÀ>R0X†Pº	¤€ØðÀ>R0X†Pº	¦€ØðÀ>R0X†Pº	¨€ØðÀ>R0X†Pº	ª€ØðÀ>R0X†Pº	¬€ØðÀ>R0X†Pº	®€ØðÀ>R 0X†Pº	°€ØðÀ>R!0X†Pº	²€ØðÀ>R"0X†Pº	´€ØðÀ>R#0X†Pº	¶€ØðÀ>R$0X†Pº	¸€ØðÀ>R%0X†Pº	º€ØðÀ>R&0X†Pº	¼€ØðÀ>R'0X†Pº	¾€ØðÀ>R(0X†Pº	À€ØðÀ>R)0X†Pº	Â€ØðÀ>R*0X†Pº	Ä€ØðÀ>R+0X†Pº	Æ€ØðÀ>R,0X†Pº	È€ØðÀ>R-0X†Pº	Ê€ØðÀ>R.0X†Pº	Ì€ØðÀ>R/0X†Pº	Î€ØðÀ>R00X†Pº	Ð€ØðÀ>R10X†Pº	Ò€ØðÀ>R20X†Pº	Ô€ØðÀ>R30X†Pº	Ö€ØðÀ>R40X†Pº	Ø€ØðÀ>R50X†Pº	Ú€ØðÀ>R60X†Pº	Ü€ØðÀ>R70X†Pº	Þ€ØðÀ>R80X†Pº	à€ØðÀ>R90X†Pº	â€ØðÀ>R:0X†Pº	ä€ØðÀ>R;0X†Pº	æ€ØðÀ>R<0X†Pº	è€ØðÀ>R=0X†Pº	ê€ØðÀ>R>0X†Pº	ì€ØðÀ>R?0X†Pº	î€ØðÀ>R@0X†Pº	ð€ØðÀ>RA0X†Pº	ò€ØðÀ>RB0X†Pº	ô€ØðÀ>RC0X†Pº	ö€ØðÀ>RD0X†Pº	ø€ØðÀ>RE0X†Pº	ú€ØðÀ>RF0X†Pº	ü€ØðÀ>RG0X†Pº	þ€ØðÀ>RH0X†Pº	€ØðÀ>RI0X†Pº	‚ØðÀ>RJ0X†Pº	„ØðÀ>RK0X†Pº	†ØðÀ>RL0X†Pº	ˆØðÀ>RM0X†Pº	ŠØðÀ>RN0X†Pº	ŒØðÀ>RO0X†Pº	ŽØðÀ>RP0X†Pº	ØðÀ>  \
+!- ÍM   ë20B R0X†Pº	€€ØðÀ>R	0X†Pº	‚€ØðÀ>R
+0X†Pº	„€ØðÀ>R0X†Pº	†€ØðÀ>R0X†Pº	ˆ€ØðÀ>R0X†Pº	Š€ØðÀ>R0X†Pº	Œ€ØðÀ>R0X†Pº	Ž€ØðÀ>R0X†Pº	€ØðÀ>R0X†Pº	’€ØðÀ>R0X†Pº	”€ØðÀ>R0X†Pº	–€ØðÀ>R0X†Pº	˜€ØðÀ>R0X†Pº	š€ØðÀ>R0X†Pº	œ€ØðÀ>R0X†Pº	ž€ØðÀ>R0X†Pº	 €ØðÀ>R0X†Pº	¢€ØðÀ>R0X†Pº	¤€ØðÀ>R0X†Pº	¦€ØðÀ>R0X†Pº	¨€ØðÀ>R0X†Pº	ª€ØðÀ>R0X†Pº	¬€ØðÀ>R0X†Pº	®€ØðÀ>R 0X†Pº	°€ØðÀ>R!0X†Pº	²€ØðÀ>R"0X†Pº	´€ØðÀ>R#0X†Pº	¶€ØðÀ>R$0X†Pº	¸€ØðÀ>R%0X†Pº	º€ØðÀ>R&0X†Pº	¼€ØðÀ>R'0X†Pº	¾€ØðÀ>R(0X†Pº	À€ØðÀ>R)0X†Pº	Â€ØðÀ>R*0X†Pº	Ä€ØðÀ>R+0X†Pº	Æ€ØðÀ>R,0X†Pº	È€ØðÀ>R-0X†Pº	Ê€ØðÀ>R.0X†Pº	Ì€ØðÀ>R/0X†Pº	Î€ØðÀ>R00X†Pº	Ð€ØðÀ>R10X†Pº	Ò€ØðÀ>R20X†Pº	Ô€ØðÀ>R30X†Pº	Ö€ØðÀ>R40X†Pº	Ø€ØðÀ>R50X†Pº	Ú€ØðÀ>R60X†Pº	Ü€ØðÀ>R70X†Pº	Þ€ØðÀ>R80X†Pº	à€ØðÀ>R90X†Pº	â€ØðÀ>R:0X†Pº	ä€ØðÀ>R;0X†Pº	æ€ØðÀ>R<0X†Pº	è€ØðÀ>R=0X†Pº	ê€ØðÀ>R>0X†Pº	ì€ØðÀ>R?0X†Pº	î€ØðÀ>R@0X†Pº	ð€ØðÀ>RA0X†Pº	ò€ØðÀ>RB0X†Pº	ô€ØðÀ>RC0X†Pº	ö€ØðÀ>RD0X†Pº	ø€ØðÀ>RE0X†Pº	ú€ØðÀ>RF0X†Pº	ü€ØðÀ>RG0X†Pº	þ€ØðÀ>RH0X†Pº	€ØðÀ>RI0X†Pº	‚ØðÀ>RJ0X†Pº	„ØðÀ>RK0X†Pº	†ØðÀ>RL0X†Pº	ˆØðÀ>RM0X†Pº	ŠØðÀ>RN0X†Pº	ŒØðÀ>RO0X†Pº	ŽØðÀ>RP0X†Pº	ØðÀ>RQ0X†Pº	’ØðÀ>RR0X†Pº	”ØðÀ>RS0X†Pº	–ØðÀ>RT0X†Pº	˜ØðÀ>RU0X†Pº	šØðÀ>RV0X†Pº	œØðÀ>RW0X†Pº	žØðÀ>RX0X†Pº	 ØðÀ>RY0X†Pº	¢ØðÀ>RZ0X†Pº	¤ØðÀ>R[0X†Pº	¦ØðÀ>R\0X†Pº	¨ØðÀ>R]0X†Pº	ªØðÀ>R^0X†Pº	¬ØðÀ>R_0X†Pº	®ØðÀ>R`0X†Pº	°ØðÀ>Ra0X†Pº	²ØðÀ>Rb0X†Pº	´ØðÀ>  
+"
 com
 shojishunsuke
 	kibunnsns
@@ -632,6 +861,7 @@ $abc_search_dropdown_item_icons_2line
 abc_select_dialog_material
 abc_tooltip
 activity_main
+activity_setting
 custom_dialog
 design_bottom_navigation_item
 design_bottom_sheet_dialog
@@ -647,6 +877,7 @@ $abc_search_dropdown_item_icons_2line
 design_navigation_menu
 design_navigation_menu_item
 design_text_input_password_icon
+expand_button
 fragment_dialog_edit_name
 fragment_dialog_post
 fragment_home_posts
@@ -673,6 +904,23 @@ item_emoji
 "notification_template_media_custom
 &notification_template_part_chronometer
 notification_template_part_time
+
+preference
+preference_category
+preference_category_material
+preference_dialog_edittext
+preference_dropdown
+preference_dropdown_material
+preference_information
+preference_information_material
+preference_list_fragment
+preference_material
+preference_recyclerview
+preference_widget_checkbox
+preference_widget_seekbar
+"preference_widget_seekbar_material
+preference_widget_switch
+preference_widget_switch_compat
 select_dialog_item_material
 "select_dialog_multichoice_material
 #select_dialog_singlechoice_material

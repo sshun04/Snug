@@ -35,6 +35,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/settingIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/icon_setting_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/acIcon"
@@ -49,11 +58,11 @@
 
     <at.markushi.ui.CircleButton
         android:id="@+id/editImageButton"
-        app:layout_constraintEnd_toEndOf="@id/acIcon"
-        app:layout_constraintBottom_toBottomOf="@id/acIcon"
-        android:src="@drawable/ic_photo_camera_black_24dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_photo_camera_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@id/acIcon"
+        app:layout_constraintEnd_toEndOf="@id/acIcon" />
 
 
     <TextView
@@ -71,15 +80,14 @@
 
     <ImageView
         android:id="@+id/editNameIcon"
-        app:layout_constraintStart_toEndOf="@id/nameTextView"
-        app:layout_constraintTop_toTopOf="@id/nameTextView"
-        app:layout_constraintBottom_toBottomOf="@id/nameTextView"
-        android:src="@drawable/ic_mode_edit_white_24dp"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:padding="2dp"
         android:layout_marginStart="12dp"
-        />
+        android:padding="2dp"
+        android:src="@drawable/ic_mode_edit_white_24dp"
+        app:layout_constraintBottom_toBottomOf="@id/nameTextView"
+        app:layout_constraintStart_toEndOf="@id/nameTextView"
+        app:layout_constraintTop_toTopOf="@id/nameTextView" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -88,8 +96,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.33" />
-
-
 
 
     <androidx.cardview.widget.CardView
@@ -124,6 +130,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="12dp"
+        android:visibility="gone"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/cardViw1"

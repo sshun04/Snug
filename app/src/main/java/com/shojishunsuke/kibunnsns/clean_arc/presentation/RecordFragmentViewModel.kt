@@ -49,7 +49,7 @@ class RecordFragmentViewModel : ViewModel(), CloudStorageRepository.ImageUploadL
         userIcon.postValue(result)
     }
 
-    override fun onUploadTaskComplete(result: Uri) {
+    override suspend fun onUploadTaskComplete(result: Uri) {
         useCase.saveLocalPhotoUri(result)
     }
 }

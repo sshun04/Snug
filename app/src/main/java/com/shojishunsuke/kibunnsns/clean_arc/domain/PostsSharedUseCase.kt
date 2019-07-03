@@ -3,6 +3,7 @@ package com.shojishunsuke.kibunnsns.clean_arc.domain
 
 import com.shojishunsuke.kibunnsns.algorithm.LoadPostsAlgorithm
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.FirebaseUserRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.RoomDatabaseRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataConfigRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LanguageAnalysisRepository
@@ -11,30 +12,46 @@ import kotlinx.coroutines.runBlocking
 import java.text.SimpleDateFormat
 import java.util.*
 
-class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisRepository,private val dataConfigRepository: DataConfigRepository) {
+class PostsSharedUseCase(
+    private val analysisRepository: LanguageAnalysisRepository,
+    private val dataConfigRepository: DataConfigRepository
+) {
 
     private val fireStoreRepository = FireStoreDatabaseRepository()
     private val roomRepository = RoomDatabaseRepository()
+    private val userInfoRepository = FirebaseUserRepository()
     private val postsLoadingAlgorithm = LoadPostsAlgorithm()
 
-    suspend fun generatePost(content: String,actID:String): Post = runBlocking {
+    suspend fun generatePost(content: String, actID: String): Post = runBlocking {
         dataConfigRepository.updateCollection(actID)
 
 
+        val userName = userInfoRepository.getUserName()
+        val userId = userInfoRepository.getUserId()
+        val iconUri = userInfoRepository.getUserPhotoUri()
         val analysisResult = analysisRepository.analyzeText(content)
         val sentiScore = analysisResult.first
         val category = analysisResult.second
-        val post = Post(contentText = content,sentiScore =  sentiScore, actID = actID,keyWord = category)
+
+        val post = Post(
+            userName = userName,
+            userId = userId,
+            iconPhotoLink = "$iconUri",
+            contentText = content,
+            sentiScore = sentiScore,
+            actID = actID,
+            keyWord = category
+        )
 
         runBlocking {
             fireStoreRepository.savePost(post)
-            roomRepository.savePost(post)
+//            roomRepository.savePost(post)
         }
 
         return@runBlocking post
     }
 
-    suspend fun loadWholePosts():List<Post> = runBlocking {
+    suspend fun loadWholePosts(): List<Post> = runBlocking {
         fireStoreRepository.loadWholeCollection()
     }
 
@@ -44,7 +61,7 @@ class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisReposit
         return fireStoreRepository.loadFilteredCollection("sentiScore", post.sentiScore)
     }
 
-    fun loadCurrentEmoji():List<String> = dataConfigRepository.getLatestCollection()
+    fun loadCurrentEmoji(): List<String> = dataConfigRepository.getLatestCollection()
 
     fun formatDate(postedDate: Date): String {
         val currentDate = Date()
@@ -73,7 +90,6 @@ class PostsSharedUseCase(private val analysisRepository: LanguageAnalysisReposit
             }
 
         }
-
         return outPutText
 
     }

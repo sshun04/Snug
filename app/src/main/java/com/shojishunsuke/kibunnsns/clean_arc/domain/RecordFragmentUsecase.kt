@@ -34,9 +34,8 @@ class RecordFragmentUsecase(uploadListener: CloudStorageRepository.ImageUploadLi
     }
 
     fun getIconStorageRef(): StorageReference {
-        val uri = userInfoRepository.getUserPhotoUri()
-            ?: Uri.parse("https://firebasestorage.googleapis.com/v0/b/firestore-tutorial-ff769.appspot.com/o/icons%2Fe2289e48-7128-435e-81f9-7d3c1cead54d.png?alt=media&token=a2b357a3-b31e-4bae-9aa9-d430510f860c")
-        return cloutStorageRepository.getStorageRefByUri(uri)
+        val uriString = userInfoRepository.getUserPhotoUri().toString()
+             return cloutStorageRepository.getStorageRefByUri(uriString)
     }
 
 

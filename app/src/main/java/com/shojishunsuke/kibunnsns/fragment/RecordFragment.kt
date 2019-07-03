@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProviders
 import at.markushi.ui.CircleButton
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
+import com.shojishunsuke.kibunnsns.activity.SettingActivity
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.RecordFragmentViewModel
 import de.hdodenhof.circleimageview.CircleImageView
 
@@ -42,6 +43,13 @@ class RecordFragment : Fragment() {
         val nameTextView = view.findViewById<TextView>(R.id.nameTextView)
         val editNameIcon = view.findViewById<ImageView>(R.id.editNameIcon)
         val editImageIcon = view.findViewById<CircleButton>(R.id.editImageButton)
+        val settingIcon = view.findViewById<ImageView>(R.id.settingIcon)
+
+
+        settingIcon.setOnClickListener {
+            val intent = Intent(requireContext(),SettingActivity::class.java)
+            startActivity(intent)
+        }
 
 
         editImageIcon.setOnClickListener {
