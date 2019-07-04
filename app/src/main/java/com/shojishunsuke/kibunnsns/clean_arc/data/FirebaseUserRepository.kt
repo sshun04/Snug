@@ -5,6 +5,7 @@ import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.AuthRepository
+import kotlinx.coroutines.runBlocking
 
 class FirebaseUserRepository : AuthRepository {
     private val user = FirebaseAuth.getInstance().currentUser
@@ -39,7 +40,7 @@ class FirebaseUserRepository : AuthRepository {
             ?: Uri.parse("https://firebasestorage.googleapis.com/v0/b/firestore-tutorial-ff769.appspot.com/o/icons%2Fe2289e48-7128-435e-81f9-7d3c1cead54d.png?alt=media&token=a2b357a3-b31e-4bae-9aa9-d430510f860c")
     }
 
-    override fun updateUserPhoto(uri: Uri) {
+    override suspend fun updateUserPhoto(uri: Uri) = runBlocking{
         val profileUpdate = UserProfileChangeRequest.Builder()
             .setPhotoUri(uri)
             .build()
@@ -52,7 +53,10 @@ class FirebaseUserRepository : AuthRepository {
                     Log.w(TAG, "Failure User profile photo updating.")
                 }
             }
+
+        return@runBlocking
     }
+
 
 
 }

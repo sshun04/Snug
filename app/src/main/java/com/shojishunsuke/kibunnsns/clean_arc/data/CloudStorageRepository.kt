@@ -23,24 +23,24 @@ class CloudStorageRepository(private val uploadListener: ImageUploadListener) : 
     lateinit var bitmap: Bitmap
 
 
-    override suspend fun downloadImage(url: Uri) {
-        val islandRef = storage.getReferenceFromUrl("$url")
-        val TEN_MEGABYTE: Long = 1024 * 1024 * 10
-
-//        var bitmap: Bitmap = Resources.getSystem().getDrawable(R.drawable.hasikan).toBitmap()
-
-
-        islandRef.getBytes(TEN_MEGABYTE).addOnSuccessListener {
-            bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
-            Log.d(TAG, "Success downloading image from cloud storage")
-            uploadListener.onDownloadTaskComplete(bitmap)
-
-        }.addOnFailureListener {
-            it.printStackTrace()
-            Log.d(TAG, "Failure downloading image from clout storage")
-        }
-
-    }
+//    override suspend fun downloadImage(url: Uri) {
+//        val islandRef = storage.getReferenceFromUrl("$url")
+//        val TEN_MEGABYTE: Long = 1024 * 1024 * 10
+//
+////        var bitmap: Bitmap = Resources.getSystem().getDrawable(R.drawable.hasikan).toBitmap()
+//
+//
+//        islandRef.getBytes(TEN_MEGABYTE).addOnSuccessListener {
+//            bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
+//            Log.d(TAG, "Success downloading image from cloud storage")
+//            uploadListener.onDownloadTaskComplete(bitmap)
+//
+//        }.addOnFailureListener {
+//            it.printStackTrace()
+//            Log.d(TAG, "Failure downloading image from clout storage")
+//        }
+//
+//    }
 
     override suspend fun uploadImage(bitmap: Bitmap) {
 
@@ -79,6 +79,6 @@ class CloudStorageRepository(private val uploadListener: ImageUploadListener) : 
 
     interface ImageUploadListener {
         suspend fun onUploadTaskComplete(result: Uri)
-        fun onDownloadTaskComplete(result: Bitmap)
+//        fun onDownloadTaskComplete(result: Bitmap)
     }
 }

@@ -7,6 +7,7 @@ import com.shojishunsuke.kibunnsns.clean_arc.data.CloudStorageRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.FirebaseUserRepository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class RecordFragmentUsecase(uploadListener: CloudStorageRepository.ImageUploadListener) {
     //    private val roomRepository = RoomDatabaseRepository()
@@ -29,7 +30,7 @@ class RecordFragmentUsecase(uploadListener: CloudStorageRepository.ImageUploadLi
         }
     }
 
-    fun saveLocalPhotoUri(uri: Uri) {
+    suspend fun saveLocalPhotoUri(uri: Uri)  = runBlocking{
         userInfoRepository.updateUserPhoto(uri)
     }
 

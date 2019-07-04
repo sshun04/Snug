@@ -31,9 +31,6 @@ class PostsRecyclerViewAdapter(
         holder.activityIcon.text =
             if (post.actID.isNotBlank()) post.actID else fragmentViewModel.getAppropriateIcon(post.sentiScore)
 
-//        val iconUri = if (post.iconPhotoLink.isNotBlank())post.iconPhotoLink else "https://firebasestorage.googleapis.com/v0/b/firestore-tutorial-ff769.appspot.com/o/icons%2F79c7cea2-bbcf-4147-bf4e-dcd7dbcb79d7.png?alt=media&token=83fcd12a-f6d1-45c8-bdfa-08a0fe46a255"
-//
-
         if (post.iconPhotoLink.isNotBlank()) {
             GlideApp.with(context)
                 .load(fragmentViewModel.getIconRef(post.iconPhotoLink))
@@ -46,7 +43,6 @@ class PostsRecyclerViewAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsRecyclerViewHolder {
         val inflater = LayoutInflater.from(context)
         val mView = inflater.inflate(R.layout.item_post, parent, false)
-
 
         return PostsRecyclerViewHolder(mView)
     }

@@ -35,7 +35,7 @@ class HomePostsFragmentUseCase :CloudStorageRepository.ImageUploadListener{
         }
     }
 
-    override fun onDownloadTaskComplete(result: Bitmap) {}
+//    override fun onDownloadTaskComplete(result: Bitmap) {}
 
     override suspend fun onUploadTaskComplete(result: Uri) {}
 

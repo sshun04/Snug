@@ -6,5 +6,5 @@ import android.net.Uri
 interface StorageRepository {
 //    ダウンロードに必要なUriを返す
     suspend fun uploadImage(bitmap: Bitmap)
-    suspend fun downloadImage(url:Uri)
+//    suspend fun downloadImage(url:Uri)
 }

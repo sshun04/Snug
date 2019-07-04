@@ -16,19 +16,19 @@ class RecordFragmentViewModel : ViewModel(), CloudStorageRepository.ImageUploadL
     private val useCase = RecordFragmentUsecase(this)
 
 
+    var currentBitmap: Bitmap? = null
+
     val userName = MutableLiveData<String>()
-    val userIcon = MutableLiveData<Bitmap>()
 
     init {
         getUserName()
-
     }
 
     fun saveUserIcon(bitmap: Bitmap) {
         GlobalScope.launch {
             useCase.saveIconToCloud(bitmap)
         }
-
+        currentBitmap = bitmap
     }
 
     fun saveUserName(name: String) {
@@ -45,11 +45,16 @@ class RecordFragmentViewModel : ViewModel(), CloudStorageRepository.ImageUploadL
         return useCase.getIconStorageRef()
     }
 
-    override fun onDownloadTaskComplete(result: Bitmap) {
-        userIcon.postValue(result)
-    }
+//    override fun onDownloadTaskComplete(result: Bitmap) {
+//       currentBitmap = null
+//    }
 
     override suspend fun onUploadTaskComplete(result: Uri) {
-        useCase.saveLocalPhotoUri(result)
+        GlobalScope.launch {
+            useCase.saveLocalPhotoUri(result)
+        }
+//
     }
+
+
 }

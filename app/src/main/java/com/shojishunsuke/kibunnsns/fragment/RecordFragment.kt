@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import at.markushi.ui.CircleButton
+import com.bumptech.glide.Glide
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.activity.SettingActivity
@@ -63,19 +64,9 @@ class RecordFragment : Fragment() {
             nameTextView.text = userName
         })
 
-        viewModel.userIcon.observe(this, Observer {
-            iconView.setImageBitmap(it)
-        })
-
         editNameIcon.setOnClickListener {
             setUpEditNmameDialog(inflater)
         }
-
-
-        GlideApp.with(requireContext())
-            .load(viewModel.getIconRef())
-            .into(iconView)
-
         return view
     }
 
@@ -87,11 +78,27 @@ class RecordFragment : Fragment() {
             val inputStream = requireContext().contentResolver.openInputStream(uri)
             val bitmap = BitmapFactory.decodeStream(inputStream)
             viewModel.saveUserIcon(bitmap)
-            iconView.setImageBitmap(bitmap)
-
         } else {
             Toast.makeText(requireContext(), "アイコン画像の選択に失敗しました", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (viewModel.currentBitmap != null){
+            Glide.with(requireContext())
+                .load(viewModel.currentBitmap)
+                .into(iconView)
+        }else{
+            GlideApp.with(requireContext())
+                .load(viewModel.getIconRef())
+                .into(iconView)
+        }
+
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
     }
 
     private fun setUpEditNmameDialog(inflater: LayoutInflater) {
@@ -107,5 +114,9 @@ class RecordFragment : Fragment() {
 
         editDialog.setView(parentView)
         editDialog.show()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
     }
 }

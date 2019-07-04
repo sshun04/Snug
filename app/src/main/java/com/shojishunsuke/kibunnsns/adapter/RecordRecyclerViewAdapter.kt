@@ -18,8 +18,6 @@ class RecordRecyclerViewAdapter(private val context: Context, private val list: 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val localPost = list[position]
 
-
-
         holder.contentTextView.text = localPost.contentText
         holder.activityIcon.text = localPost.actId
         holder.dateTextView.text = localPost.date.toString()
