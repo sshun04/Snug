@@ -45,14 +45,9 @@ class HomePostsFragment : Fragment() {
             visibility = View.GONE
         }
 
-
-
         val controller = AnimationUtils.loadLayoutAnimation(recyclerView.context, R.anim.animation_recyclerview)
 
-
-
         linearButton.setOnClickListener {
-
             recyclerView.layoutManager = LinearLayoutManager(requireContext(),RecyclerView.VERTICAL,false)
             recyclerView.layoutAnimation= controller
             recyclerView.adapter?.notifyDataSetChanged()

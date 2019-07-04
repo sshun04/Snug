@@ -29,7 +29,6 @@ class RecordRecyclerViewAdapter(private val context: Context, private val list: 
         return ViewHolder(view)
     }
 
-
     override fun getItemCount(): Int = list.size
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

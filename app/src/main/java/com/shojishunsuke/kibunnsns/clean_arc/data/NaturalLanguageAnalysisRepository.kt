@@ -30,7 +30,7 @@ class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepo
 
     }
 
-    override suspend fun analyzeText(text: String): Pair<Float, String> = runBlocking {
+    override suspend fun analyzeText(text: String):Triple<Float,Float, String> = runBlocking {
         val document = Document()
         document.language = "ja_JP"
         document.type = "PLAIN_TEXT"
@@ -47,15 +47,16 @@ class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepo
 
         val response = naturalLanguageService.documents().annotateText(annotateTextRequest).execute()
         val sentiScore = response.documentSentiment.score
+        val magnitude = response.documentSentiment.magnitude
 
-        val category = getCategory(response.entities)
+        val category = getKeyWord(response.entities)
 
         Log.d("SentiScore", "$sentiScore")
 
-        return@runBlocking Pair(sentiScore,category)
+        return@runBlocking Triple(sentiScore,magnitude,category)
     }
 
-    private fun getCategory(entities: List<com.google.api.services.language.v1.model.Entity>): String {
+    private fun getKeyWord(entities: List<com.google.api.services.language.v1.model.Entity>): String {
         val sortedList = entities.sortedByDescending {
             it.salience
         }

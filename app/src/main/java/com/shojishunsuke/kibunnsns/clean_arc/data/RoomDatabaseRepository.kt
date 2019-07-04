@@ -16,23 +16,28 @@ class RoomDatabaseRepository : DataBaseRepository {
         dao.createUser(user)
     }
 
-    suspend fun getUserName():String{
+    suspend fun getUserName(): String {
         return dao.findUser()[0].name
     }
 
-    suspend fun editUserName(name:String){
-        dao.updateUserName(name,userId)
+    suspend fun editUserName(name: String) {
+        dao.updateUserName(name, userId)
     }
 
-    suspend fun editIcon(iconInfo:String){
-        dao.updateIcon(iconInfo,userId)
+    suspend fun editIcon(iconInfo: String) {
+        dao.updateIcon(iconInfo, userId)
     }
 
-    suspend fun editTheme(themeInfo:Int){
-        dao.updateTheme(themeInfo,userId)
+    suspend fun editTheme(themeInfo: Int) {
+        dao.updateTheme(themeInfo, userId)
     }
 
-    override suspend fun loadFilteredCollection(fieldName: String, params: Any): List<LocalPost> {
+    override suspend fun loadFilteredCollection(
+        sentiScore: Float,
+        magnitude: Float,
+        keyWord: String,
+        activityCode: String
+    ): List<LocalPost> {
         return dao.findAll()
     }
 

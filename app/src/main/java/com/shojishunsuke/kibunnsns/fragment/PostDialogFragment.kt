@@ -51,7 +51,6 @@ class PostDialogFragment : DialogFragment() {
             this?.layoutManager = GridLayoutManager(requireContext(), 5)
         }
 
-
         toggleButton?.setOnClickListener {
             val isExpanded = expandableLayout.isViewExpanded
             dialogViewModel.toggleArrow(it,isExpanded)
@@ -64,7 +63,6 @@ class PostDialogFragment : DialogFragment() {
             sharedViewModel.onPost(contentText)
             dismiss()
         }
-
 
         val dialog = AlertDialog.Builder(requireContext())
             .setView(parentView)

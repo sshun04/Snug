@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.GlideApp
@@ -13,6 +12,8 @@ import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.HomePostsFragmentViewModel
 import com.shojishunsuke.kibunnsns.model.Post
 import de.hdodenhof.circleimageview.CircleImageView
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PostsRecyclerViewAdapter(
     private val context: Context,
@@ -27,7 +28,7 @@ class PostsRecyclerViewAdapter(
         holder.userNameTextView.text = if (post.userName.isNotBlank()) post.userName else "匿名"
         holder.contentTextView.text = post.contentText
         holder.sentiScoreTextView.text = post.sentiScore.toString()
-        holder.dateTextView.text = post.date.toString()
+        holder.dateTextView.text = formatDate(post.date)
         holder.activityIcon.text =
             if (post.actID.isNotBlank()) post.actID else fragmentViewModel.getAppropriateIcon(post.sentiScore)
 
@@ -51,7 +52,6 @@ class PostsRecyclerViewAdapter(
 
 
     inner class PostsRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val itemCardView = view.findViewById<CardView>(R.id.cardView)
         val userNameTextView = view.findViewById<TextView>(R.id.userName)
         val userIcon = view.findViewById<CircleImageView>(R.id.userIcon)
         val contentTextView = view.findViewById<TextView>(R.id.contentTextView)
@@ -61,6 +61,37 @@ class PostsRecyclerViewAdapter(
     }
 
     override fun onViewRecycled(holder: PostsRecyclerViewHolder) {
+
+    }
+
+    private fun formatDate(postedDate: Date): String {
+        val currentDate = Date()
+        val timeDiffInSec = (currentDate.time - postedDate.time) / 1000
+
+        val hourDiff = timeDiffInSec / 3600
+        val minuteDiff = (timeDiffInSec % 3600) / 60
+        val secDiff = timeDiffInSec % 60
+
+        val outPutText = when {
+            timeDiffInSec in 3600 * 24 until 3600 * 48 -> {
+                "昨日"
+            }
+            timeDiffInSec in 3600 until 3600 * 24 -> {
+                "$hourDiff" + "時間前"
+            }
+            timeDiffInSec in 360 until 3600 -> {
+                "$minuteDiff" + "分前"
+            }
+            timeDiffInSec < 360 -> {
+                "$secDiff" + "秒前"
+            }
+            else -> {
+                val formatter = SimpleDateFormat("MM月dd日", Locale.JAPAN)
+                formatter.format(postedDate)
+            }
+
+        }
+        return outPutText
 
     }
 }

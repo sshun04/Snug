@@ -14,7 +14,8 @@ data class Post(
     var userName:String = "",
     val iconPhotoLink :String = "",
     val contentText:String = "",
-    var sentiScore :Float = 0.0f,
+    val sentiScore :Float = 0.0f,
+    val magnitude:Float = 0.0f,
     val date : Date = Date(),
     val actID  : String = "",
     val keyWord : String = ""

@@ -2,7 +2,6 @@ package com.shojishunsuke.kibunnsns.clean_arc.data
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataBaseRepository
-import com.shojishunsuke.kibunnsns.model.Item
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.tasks.await
@@ -19,12 +18,19 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
     }
 
-    override suspend fun loadFilteredCollection(fieldName: String, params: Any): List<Post> = runBlocking {
+    override suspend fun loadFilteredCollection(
+        sentiScore: Float,
+        magnitude: Float,
+        keyWord: String,
+        activityCode: String
+    ): List<Post> = runBlocking {
         val results = ArrayList<Post>()
 
 
         val querySnapshot = dataBase.collection("testPosts")
-            .whereEqualTo(fieldName, params)
+//            .whereEqualTo("sentiScore",sentiScore)
+            .whereEqualTo("actID",activityCode)
+            .limit(1)
             .get()
             .await()
 

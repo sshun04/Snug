@@ -67,7 +67,7 @@ class EmotionAnalysisRepository(context: Context) : LanguageAnalysisRepository {
 
     }
 
-    override suspend fun analyzeText(text: String):Pair<Float,String> = runBlocking {
+    override suspend fun analyzeText(text: String):Triple<Float,Float,String> = runBlocking {
         val tokens = tokenize(text)
 
         var score = 0
@@ -82,7 +82,7 @@ class EmotionAnalysisRepository(context: Context) : LanguageAnalysisRepository {
 
         val convertedScore =   BigDecimal(score).divide(BigDecimal(10))
 
-        Pair(convertedScore.toFloat(),"")
+        Triple(convertedScore.toFloat(),0.0f,"")
     }
 
 

@@ -8,7 +8,6 @@ import kotlinx.coroutines.launch
 class MainActivityUsecase(private val dataConfigRepository: DataConfigRepository) {
 
 //    private val roomRepository = RoomDatabaseRepository()
-
     fun initialize(){
         val isInitialized= dataConfigRepository.isInitialized()
         if (!isInitialized){

@@ -25,13 +25,13 @@ class PostsSharedUseCase(
     suspend fun generatePost(content: String, actID: String): Post = runBlocking {
         dataConfigRepository.updateCollection(actID)
 
-
         val userName = userInfoRepository.getUserName()
         val userId = userInfoRepository.getUserId()
         val iconUri = userInfoRepository.getUserPhotoUri()
         val analysisResult = analysisRepository.analyzeText(content)
-        val sentiScore = analysisResult.first
-        val category = analysisResult.second
+        val sentiScore: Float = analysisResult.first
+        val magnitude: Float = analysisResult.second
+        val category: String = analysisResult.third
 
         val post = Post(
             userName = userName,
@@ -39,6 +39,7 @@ class PostsSharedUseCase(
             iconPhotoLink = "$iconUri",
             contentText = content,
             sentiScore = sentiScore,
+            magnitude = magnitude,
             actID = actID,
             keyWord = category
         )
@@ -58,7 +59,7 @@ class PostsSharedUseCase(
     suspend fun loadRelatedPosts(post: Post): List<Post> {
 //        TODO 関連した投稿を取得するアルゴリズムを実装
 
-        return fireStoreRepository.loadFilteredCollection("sentiScore", post.sentiScore)
+        return fireStoreRepository.loadFilteredCollection(post.sentiScore, post.magnitude, post.keyWord, post.actID)
     }
 
     fun loadCurrentEmoji(): List<String> = dataConfigRepository.getLatestCollection()

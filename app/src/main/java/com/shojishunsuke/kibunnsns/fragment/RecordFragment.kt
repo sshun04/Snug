@@ -46,12 +46,10 @@ class RecordFragment : Fragment() {
         val editImageIcon = view.findViewById<CircleButton>(R.id.editImageButton)
         val settingIcon = view.findViewById<ImageView>(R.id.settingIcon)
 
-
         settingIcon.setOnClickListener {
             val intent = Intent(requireContext(),SettingActivity::class.java)
             startActivity(intent)
         }
-
 
         editImageIcon.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
@@ -97,10 +95,6 @@ class RecordFragment : Fragment() {
 
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-    }
-
     private fun setUpEditNmameDialog(inflater: LayoutInflater) {
         val parentView = inflater.inflate(R.layout.fragment_dialog_edit_name, null)
         val editText = parentView.findViewById<EditText>(R.id.editNickNameEditText)
@@ -114,9 +108,5 @@ class RecordFragment : Fragment() {
 
         editDialog.setView(parentView)
         editDialog.show()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
     }
 }

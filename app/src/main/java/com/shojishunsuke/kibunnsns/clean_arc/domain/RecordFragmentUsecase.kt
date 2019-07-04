@@ -39,7 +39,6 @@ class RecordFragmentUsecase(uploadListener: CloudStorageRepository.ImageUploadLi
              return cloutStorageRepository.getStorageRefByUri(uriString)
     }
 
-
     fun getUserName(): String {
         return userInfoRepository.getUserName()
     }
