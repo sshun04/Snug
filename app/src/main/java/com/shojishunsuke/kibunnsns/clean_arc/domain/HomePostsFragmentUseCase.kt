@@ -1,16 +1,14 @@
 package com.shojishunsuke.kibunnsns.clean_arc.domain
 
-import android.graphics.Bitmap
 import android.net.Uri
 import com.google.firebase.storage.StorageReference
 import com.shojishunsuke.kibunnsns.clean_arc.data.CloudStorageRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.EmojiRepositoy
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
-import com.shojishunsuke.kibunnsns.clean_arc.data.FirebaseUserRepository
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.runBlocking
 
-class HomePostsFragmentUseCase :CloudStorageRepository.ImageUploadListener{
+class HomePostsFragmentUseCase : CloudStorageRepository.ImageUploadListener {
     private val fireStoreRepository = FireStoreDatabaseRepository()
     private val cloudStorageRepository = CloudStorageRepository(this)
     private val emojiRepositoy = EmojiRepositoy()
@@ -30,9 +28,18 @@ class HomePostsFragmentUseCase :CloudStorageRepository.ImageUploadListener{
             sentiScore <= 0.6 && sentiScore > 0.2 -> smilyEmojis[1]
             sentiScore <= 0.2 && sentiScore > -0.2 -> smilyEmojis[2]
             sentiScore <= -0.2 && sentiScore >= -0.6 -> smilyEmojis[3]
-            sentiScore <-0.6 -> smilyEmojis[4]
+            sentiScore < -0.6 -> smilyEmojis[4]
             else -> smilyEmojis[2]
         }
+    }
+
+    suspend fun loadRelatedPosts(post: Post): List<Post> = runBlocking {
+        return@runBlocking fireStoreRepository.loadWholeCollection()
+//            post.sentiScore,
+//            post.magnitude,
+//            post.keyWord,
+//            post.actID
+
     }
 
     override suspend fun onUploadTaskComplete(result: Uri) {}

@@ -21,6 +21,8 @@ anim nav_default_exit_anim
 anim nav_default_pop_enter_anim
 anim nav_default_pop_exit_anim
 anim slide_from_bottom
+anim slide_from_right
+anim slide_to_left
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -1241,6 +1243,7 @@ id accessibility_custom_action_7
 id accessibility_custom_action_8
 id accessibility_custom_action_9
 id action0
+id action_back_to_home_from_detail
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1257,6 +1260,8 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
+id action_move_to_detail_from_home
+id action_navigation_home_to_navigation_second
 id action_text
 id actions
 id activityIcon
@@ -1279,7 +1284,6 @@ id bottom_navigation
 id button
 id buttonPanel
 id cancel_action
-id cardView
 id cardView2
 id cardView3
 id cardViw1
@@ -1311,11 +1315,13 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id detailToolbar
 id dialog_button
 id dimensions
 id direct
 id disableHome
 id editImageButton
+id editNameDialogHeaderTextView
 id editNameIcon
 id editNickNameEditText
 id edit_query
@@ -1344,8 +1350,12 @@ id grid
 id group_divider
 id groups
 id guideline3
+id headerActIcon
+id headerContentText
+id headerDate
 id headerGroup
-id headerTextView
+id headerUserIcon
+id headerUserName
 id home
 id homeAsUp
 id icon
@@ -1382,6 +1392,7 @@ id nameTextView
 id nav_controller_view_tag
 id nav_host_fragment
 id navigation
+id navigation_detail
 id navigation_header_container
 id navigation_home
 id navigation_second
@@ -1400,6 +1411,7 @@ id parentPanel
 id parent_matrix
 id percent
 id pin
+id postBaseView
 id postButton
 id postsRecyclerView
 id progressBar
@@ -1408,6 +1420,7 @@ id progress_horizontal
 id radio
 id recordRecyclerView
 id recycler_view
+id relatedPostsRecyclerView
 id right
 id right_icon
 id right_side
@@ -1577,11 +1590,13 @@ layout expand_button
 layout fragment_dialog_edit_name
 layout fragment_dialog_post
 layout fragment_home_posts
+layout fragment_posts_detail
 layout fragment_record
 layout input_method_extract_view
 layout item_emoji
 layout item_local_record
 layout item_post
+layout item_post_linear
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action

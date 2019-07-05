@@ -4,23 +4,28 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.HomePostsFragmentViewModel
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostsFragmentsViewModel
 import com.shojishunsuke.kibunnsns.model.Post
 import de.hdodenhof.circleimageview.CircleImageView
 import java.text.SimpleDateFormat
 import java.util.*
 
-class PostsRecyclerViewAdapter(
+class PostsHomeRecyclerViewAdapter(
     private val context: Context,
-    private val fragmentViewModel: HomePostsFragmentViewModel,
-    private var postsList: List<Post>
+    private val fragmentViewModel: PostsFragmentsViewModel,
+    private var postsList: List<Post>,
+    private val isHome:Boolean
 ) :
-    RecyclerView.Adapter<PostsRecyclerViewAdapter.PostsRecyclerViewHolder>() {
+    RecyclerView.Adapter<PostsHomeRecyclerViewAdapter.PostsRecyclerViewHolder>() {
+
+
 
 
     override fun onBindViewHolder(holder: PostsRecyclerViewHolder, position: Int) {
@@ -39,19 +44,26 @@ class PostsRecyclerViewAdapter(
         } else {
             holder.userIcon.setImageResource(R.color.colorPrimary)
         }
+
+        holder.cardView.setOnClickListener {
+            fragmentViewModel.onPostSelected(it,post,isHome)
+        }
+
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsRecyclerViewHolder {
         val inflater = LayoutInflater.from(context)
-        val mView = inflater.inflate(R.layout.item_post, parent, false)
-
+        val layoutResource = R.layout.item_post
+        val mView = inflater.inflate(layoutResource, parent, false)
         return PostsRecyclerViewHolder(mView)
     }
 
     override fun getItemCount(): Int = postsList.size
 
-
     inner class PostsRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val cardView = view.findViewById<LinearLayout>(R.id.postBaseView)
         val userNameTextView = view.findViewById<TextView>(R.id.userName)
         val userIcon = view.findViewById<CircleImageView>(R.id.userIcon)
         val contentTextView = view.findViewById<TextView>(R.id.contentTextView)
@@ -60,9 +72,7 @@ class PostsRecyclerViewAdapter(
         val activityIcon = view.findViewById<EmojiTextView>(R.id.activityIcon)
     }
 
-    override fun onViewRecycled(holder: PostsRecyclerViewHolder) {
 
-    }
 
     private fun formatDate(postedDate: Date): String {
         val currentDate = Date()

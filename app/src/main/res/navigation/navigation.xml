@@ -1,20 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-            app:startDestination="@+id/navigation_home"
-            android:id="@+id/navigation">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@+id/navigation_home">
 
     <custom_fragment
-            android:id="@+id/navigation_home"
-            android:name="com.shojishunsuke.kibunnsns.fragment.HomePostsFragment"
-            android:label="HomePostsFragment"
-            tools:layout="@layout/fragment_home_posts"
-    />
-    <custom_fragment
-            android:id="@+id/navigation_second"
-            android:name="com.shojishunsuke.kibunnsns.fragment.RecordFragment"
-            android:label="RecordFragment"
-            tools:layout="@layout/fragment_record"
-    />
+        android:id="@+id/navigation_home"
+        android:name="com.shojishunsuke.kibunnsns.fragment.HomePostsFragment"
+        android:label="HomePostsFragment"
+        tools:layout="@layout/fragment_home_posts">
+        <action
+            android:id="@+id/action_move_to_detail_from_home"
+            app:destination="@+id/navigation_detail"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_second"
+            app:destination="@id/navigation_second" />
 
+    </custom_fragment>
+
+    <custom_fragment
+        android:id="@+id/navigation_second"
+        android:name="com.shojishunsuke.kibunnsns.fragment.RecordFragment"
+        android:label="RecordFragment"
+        tools:layout="@layout/fragment_record" />
+
+    <custom_fragment
+        android:id="@+id/navigation_detail"
+        android:name="com.shojishunsuke.kibunnsns.fragment.PostsDetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/fragment_posts_detail">
+
+
+        <action
+            android:id="@+id/action_back_to_home_from_detail"
+            app:destination="@id/navigation_home" />
+
+    </custom_fragment>
 </navigation>

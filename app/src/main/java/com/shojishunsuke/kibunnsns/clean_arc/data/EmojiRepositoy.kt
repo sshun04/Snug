@@ -18,7 +18,6 @@ class EmojiRepositoy : ActivityRepository {
 //        音楽
         "\uD83C\uDFB5",
         "\uD83C\uDFA4",
-
 //        アウトドア
         "\uD83C\uDFD5️",
         "\uD83C\uDFD6️",
