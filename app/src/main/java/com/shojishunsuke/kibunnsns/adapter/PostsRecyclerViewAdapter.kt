@@ -30,7 +30,7 @@ class PostsRecyclerViewAdapter(
         holder.sentiScoreTextView.text = post.sentiScore.toString()
         holder.dateTextView.text = formatDate(post.date)
         holder.activityIcon.text =
-            if (post.actID.isNotBlank()) post.actID else "\uD83C\uDFD0"
+            if (post.actID.isNotBlank()) post.actID else "\uD83D\uDE42"
 
         if (post.iconPhotoLink.isNotBlank()) {
             GlideApp.with(context)

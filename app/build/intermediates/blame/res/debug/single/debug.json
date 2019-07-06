@@ -1308,6 +1308,10 @@
         "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4122b770116f2a994ed750b248532298/res/drawable-xhdpi-v4/abc_list_selector_disabled_holo_light.9.png"
     },
     {
+        "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/layout_fragment_detail.xml.flat",
+        "source": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/res/layout/fragment_detail.xml"
+    },
+    {
         "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/animator_design_fab_show_motion_spec.xml.flat",
         "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/res/animator/design_fab_show_motion_spec.xml"
     },
@@ -1582,6 +1586,10 @@
     {
         "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/layout-v21_preference_information_material.xml.flat",
         "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f5be4757d8dbe033b3d860dcc62bdbf2/res/layout-v21/preference_information_material.xml"
+    },
+    {
+        "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/drawable_defaultback.png.flat",
+        "source": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/res/drawable/defaultback.png"
     },
     {
         "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_arrow_down_24dp.png.flat",

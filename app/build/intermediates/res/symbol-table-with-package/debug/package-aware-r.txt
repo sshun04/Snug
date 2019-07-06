@@ -1157,6 +1157,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable defaultback
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1313,6 +1314,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id detailPostsRecyclerView
 id detailRelatedPostsRecyclerView
 id detailToolbar
 id dialog_button
@@ -1421,6 +1423,7 @@ id recycler_view
 id right
 id right_icon
 id right_side
+id rootFragment
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1444,6 +1447,11 @@ id seekbar
 id seekbar_value
 id select_dialog_listview
 id selected
+id selectedActIcon
+id selectedContentText
+id selectedDate
+id selectedUserIcon
+id selectedUserName
 id sentiScoreTextView
 id settingIcon
 id settingToolbar
@@ -1585,6 +1593,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout expand_button
+layout fragment_detail
 layout fragment_dialog_edit_name
 layout fragment_dialog_post
 layout fragment_home_posts

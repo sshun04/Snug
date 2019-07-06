@@ -2,6 +2,7 @@ package com.shojishunsuke.kibunnsns.activity
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
@@ -23,11 +24,14 @@ class MainActivity : AppCompatActivity() {
     private var isInitialized = false
     private lateinit var auth: FirebaseAuth
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
         setContentView(R.layout.activity_main)
 
         auth = FirebaseAuth.getInstance()
+
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
 
@@ -50,6 +54,7 @@ class MainActivity : AppCompatActivity() {
             isInitialized = true
         }
         mainViewModel.setupPostFragment(supportFragmentManager)
+
     }
 
     override fun onStart() {

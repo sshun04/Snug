@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.activity.PostsDetailActivity
 import com.shojishunsuke.kibunnsns.adapter.PostsRecyclerViewAdapter
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.HomeFragmentViewModel
 import com.shojishunsuke.kibunnsns.model.Post
@@ -72,6 +71,7 @@ class HomePostsFragment : Fragment() {
     }
 
     private fun setUpDetailActivity(post: Post) {
-        PostsDetailActivity.start(requireContext(), post)
+        DetailFragment.setupFragment(post,requireFragmentManager())
     }
+
 }
