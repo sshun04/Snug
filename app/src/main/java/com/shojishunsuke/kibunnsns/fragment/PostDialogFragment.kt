@@ -31,9 +31,9 @@ class PostDialogFragment : DialogFragment() {
 
         val dialogViewModel = ViewModelProviders.of(this).get(PostDialogViewModel::class.java)
 
-        val sharedViewModel = activity?.run {
+        val sharedViewModel = requireActivity().run {
             ViewModelProviders.of(this, SharedViewModelFactory(requireContext())).get(PostsSharedViewModel::class.java)
-        } ?: throw Exception("Invalid Activity")
+        }
 
         val state = ExpandableLayout.State.COLLAPSED
         expandableLayout = parentView.findViewById<ExpandableLayout>(R.id.expandableBox)

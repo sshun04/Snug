@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.GlideApp
@@ -21,11 +20,10 @@ class PostsHomeRecyclerViewAdapter(
     private val context: Context,
     private val fragmentViewModel: PostsFragmentsViewModel,
     private var postsList: List<Post>,
-    private val isHome:Boolean
-) :
+    private val isHome: Boolean,
+    private val listener: (Post) -> Unit
+    ) :
     RecyclerView.Adapter<PostsHomeRecyclerViewAdapter.PostsRecyclerViewHolder>() {
-
-
 
 
     override fun onBindViewHolder(holder: PostsRecyclerViewHolder, position: Int) {
@@ -46,9 +44,8 @@ class PostsHomeRecyclerViewAdapter(
         }
 
         holder.cardView.setOnClickListener {
-            fragmentViewModel.onPostSelected(it,post,isHome)
+            fragmentViewModel.onPostSelected(it, post, isHome)
         }
-
 
 
     }
@@ -71,7 +68,6 @@ class PostsHomeRecyclerViewAdapter(
         val dateTextView = view.findViewById<TextView>(R.id.dateTextView)
         val activityIcon = view.findViewById<EmojiTextView>(R.id.activityIcon)
     }
-
 
 
     private fun formatDate(postedDate: Date): String {

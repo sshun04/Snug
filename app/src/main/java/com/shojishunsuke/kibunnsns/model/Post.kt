@@ -5,6 +5,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.IgnoreExtraProperties
+import java.io.Serializable
 import java.math.BigDecimal
 import java.util.*
 
@@ -19,4 +20,4 @@ data class Post(
     val date : Date = Date(),
     val actID  : String = "",
     val keyWord : String = ""
-):Item{}
+):Item,Serializable{}

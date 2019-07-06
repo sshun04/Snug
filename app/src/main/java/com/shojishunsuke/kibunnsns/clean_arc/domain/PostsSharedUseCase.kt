@@ -8,6 +8,8 @@ import com.shojishunsuke.kibunnsns.clean_arc.data.RoomDatabaseRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataConfigRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LanguageAnalysisRepository
 import com.shojishunsuke.kibunnsns.model.Post
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.text.SimpleDateFormat
 import java.util.*
@@ -17,8 +19,14 @@ class PostsSharedUseCase(
     private val dataConfigRepository: DataConfigRepository
 ) {
 
+    fun initialize(){
+        val isInitialized= dataConfigRepository.isInitialized()
+        if (!isInitialized){
+            dataConfigRepository.updateInitializationState()
+        }
+    }
+
     private val fireStoreRepository = FireStoreDatabaseRepository()
-    private val roomRepository = RoomDatabaseRepository()
     private val userInfoRepository = FirebaseUserRepository()
     private val postsLoadingAlgorithm = LoadPostsAlgorithm()
 

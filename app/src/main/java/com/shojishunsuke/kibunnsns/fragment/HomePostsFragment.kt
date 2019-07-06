@@ -61,7 +61,9 @@ class HomePostsFragment : Fragment() {
 
         sharedViewModel.postsList.observe(this, Observer { postsList ->
 
-            recyclerView.adapter = PostsHomeRecyclerViewAdapter(requireContext(),fragmentViewModel, postsList,true)
+            recyclerView.adapter = PostsHomeRecyclerViewAdapter(requireContext(),fragmentViewModel, postsList,true){
+
+            }
             recyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
 //                LinearLayoutManager(requireContext(),RecyclerView.VERTICAL,false)
             progressBar.visibility = View.GONE

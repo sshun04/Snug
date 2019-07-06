@@ -48,12 +48,10 @@ class PostsDetailFragment : Fragment() {
 
 
         viewModel.relatedPosts.observe(this, Observer {
-            recyclerView.adapter = PostsHomeRecyclerViewAdapter(requireContext(), viewModel, it,false)
+            recyclerView.adapter = PostsHomeRecyclerViewAdapter(requireContext(), viewModel, it,false) {
+
+            }
         })
-
-
-
-
 
         return view
     }

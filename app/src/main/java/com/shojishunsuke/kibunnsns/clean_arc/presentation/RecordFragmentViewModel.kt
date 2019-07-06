@@ -45,10 +45,6 @@ class RecordFragmentViewModel : ViewModel(), CloudStorageRepository.ImageUploadL
         return useCase.getIconStorageRef()
     }
 
-//    override fun onDownloadTaskComplete(result: Bitmap) {
-//       currentBitmap = null
-//    }
-
     override suspend fun onUploadTaskComplete(result: Uri) {
         GlobalScope.launch {
             useCase.saveLocalPhotoUri(result)
