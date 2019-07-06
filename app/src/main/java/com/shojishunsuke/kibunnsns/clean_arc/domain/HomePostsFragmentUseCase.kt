@@ -14,9 +14,6 @@ class HomePostsFragmentUseCase : CloudStorageRepository.ImageUploadListener {
     private val emojiRepositoy = EmojiRepositoy()
     val smilyEmojis = emojiRepositoy.smileys
 
-    suspend fun getPosts(fieldName: String, params: Any): List<Post> = runBlocking {
-        return@runBlocking fireStoreRepository.loadWholeCollection()
-    }
 
     fun getIconStorageRef(uriString: String): StorageReference {
         return cloudStorageRepository.getStorageRefByUri(uriString)
@@ -33,13 +30,8 @@ class HomePostsFragmentUseCase : CloudStorageRepository.ImageUploadListener {
         }
     }
 
-    suspend fun loadRelatedPosts(post: Post): List<Post> = runBlocking {
+    suspend fun loadWholePosts(): List<Post> = runBlocking {
         return@runBlocking fireStoreRepository.loadWholeCollection()
-//            post.sentiScore,
-//            post.magnitude,
-//            post.keyWord,
-//            post.actID
-
     }
 
     override suspend fun onUploadTaskComplete(result: Uri) {}

@@ -14,24 +14,21 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.adapter.PostsHomeRecyclerViewAdapter
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostsFragmentsViewModel
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostsSharedViewModel
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.SharedViewModelFactory
+import com.shojishunsuke.kibunnsns.activity.PostsDetailActivity
+import com.shojishunsuke.kibunnsns.adapter.PostsRecyclerViewAdapter
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.HomeFragmentViewModel
+import com.shojishunsuke.kibunnsns.model.Post
 
 class HomePostsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home_posts, container, false)
 
-        val fragmentViewModel = requireActivity().run {  ViewModelProviders.of(this).get(PostsFragmentsViewModel::class.java)}
-        val sharedViewModel = requireActivity().run {
-            ViewModelProviders.of(this, SharedViewModelFactory(context!!)).get(PostsSharedViewModel::class.java)
-        }
-
+        val fragmentViewModel =
+            requireActivity().run { ViewModelProviders.of(this).get(HomeFragmentViewModel::class.java) }
 
         val linearButton = view.findViewById<ImageView>(R.id.linear)
-        val gridButton  = view.findViewById<ImageView>(R.id.grid)
+        val gridButton = view.findViewById<ImageView>(R.id.grid)
 
         val progressBar = view.findViewById<ProgressBar>(R.id.progressBar).apply {
             max = 100
@@ -47,7 +44,7 @@ class HomePostsFragment : Fragment() {
 
 
         linearButton.setOnClickListener {
-            recyclerView.layoutManager = LinearLayoutManager(requireContext(),RecyclerView.VERTICAL,false)
+            recyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.scheduleLayoutAnimation()
         }
@@ -59,9 +56,10 @@ class HomePostsFragment : Fragment() {
         }
 
 
-        sharedViewModel.postsList.observe(this, Observer { postsList ->
+        fragmentViewModel.postsList.observe(this, Observer { postsList ->
 
-            recyclerView.adapter = PostsHomeRecyclerViewAdapter(requireContext(),fragmentViewModel, postsList,true){
+            recyclerView.adapter = PostsRecyclerViewAdapter(requireContext(), postsList) {
+                setUpDetailActivity(it)
 
             }
             recyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
@@ -70,8 +68,10 @@ class HomePostsFragment : Fragment() {
             recyclerView.visibility = View.VISIBLE
         })
 
-
-
         return view
+    }
+
+    private fun setUpDetailActivity(post: Post) {
+        PostsDetailActivity.start(requireContext(), post)
     }
 }

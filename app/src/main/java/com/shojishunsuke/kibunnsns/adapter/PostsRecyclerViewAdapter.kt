@@ -10,20 +10,17 @@ import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostsFragmentsViewModel
 import com.shojishunsuke.kibunnsns.model.Post
 import de.hdodenhof.circleimageview.CircleImageView
 import java.text.SimpleDateFormat
 import java.util.*
 
-class PostsHomeRecyclerViewAdapter(
+class PostsRecyclerViewAdapter(
     private val context: Context,
-    private val fragmentViewModel: PostsFragmentsViewModel,
     private var postsList: List<Post>,
-    private val isHome: Boolean,
     private val listener: (Post) -> Unit
     ) :
-    RecyclerView.Adapter<PostsHomeRecyclerViewAdapter.PostsRecyclerViewHolder>() {
+    RecyclerView.Adapter<PostsRecyclerViewAdapter.PostsRecyclerViewHolder>() {
 
 
     override fun onBindViewHolder(holder: PostsRecyclerViewHolder, position: Int) {
@@ -33,21 +30,19 @@ class PostsHomeRecyclerViewAdapter(
         holder.sentiScoreTextView.text = post.sentiScore.toString()
         holder.dateTextView.text = formatDate(post.date)
         holder.activityIcon.text =
-            if (post.actID.isNotBlank()) post.actID else fragmentViewModel.getAppropriateIcon(post.sentiScore)
+            if (post.actID.isNotBlank()) post.actID else "\uD83C\uDFD0"
 
         if (post.iconPhotoLink.isNotBlank()) {
             GlideApp.with(context)
-                .load(fragmentViewModel.getIconRef(post.iconPhotoLink))
+                .load(post.iconPhotoLink)
                 .into(holder.userIcon)
         } else {
             holder.userIcon.setImageResource(R.color.colorPrimary)
         }
 
         holder.cardView.setOnClickListener {
-            fragmentViewModel.onPostSelected(it, post, isHome)
+            listener(post)
         }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsRecyclerViewHolder {

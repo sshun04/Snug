@@ -1,6 +1,5 @@
 package com.shojishunsuke.kibunnsns.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -14,9 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.MainActivityViewModel
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostsSharedViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.MainActivityViewModelFactory
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.SharedViewModelFactory
 import com.shojishunsuke.kibunnsns.navigation.CustomNavigator
 
 class MainActivity : AppCompatActivity() {
@@ -34,11 +31,8 @@ class MainActivity : AppCompatActivity() {
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
 
-        mainViewModel =
+        mainViewModel = run {
             ViewModelProviders.of(this, MainActivityViewModelFactory(this)).get(MainActivityViewModel::class.java)
-
-        val sharedViewModel = this.run {
-            ViewModelProviders.of(this, SharedViewModelFactory(this)).get(PostsSharedViewModel::class.java)
         }
 
         val navController = findNavController(R.id.nav_host_fragment)

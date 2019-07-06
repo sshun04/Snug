@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".activity.PostsDetailActivity">
+
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/detailToolbar"
         style="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:elevation="4dp"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:elevation="4dp" />
 
 
     <androidx.core.widget.NestedScrollView
@@ -18,14 +21,15 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
             android:orientation="vertical">
+
             <androidx.cardview.widget.CardView
-                android:layout_marginHorizontal="4dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -37,8 +41,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center|start"
                         android:layout_marginBottom="12dp"
+                        android:gravity="center|start"
                         android:orientation="horizontal">
 
                         <de.hdodenhof.circleimageview.CircleImageView
@@ -58,14 +62,14 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:textSize="12sp"
-                            android:layout_gravity="center"
-                            android:gravity="bottom"
-                            android:layout_marginStart="4dp"
-                            android:textColor="@color/dark_54"
-                            android:text="さんのつぶやき"
                             android:layout_width="wrap_content"
-                            android:layout_height="20sp" />
+                            android:layout_height="20sp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="4dp"
+                            android:gravity="bottom"
+                            android:text="さんのつぶやき"
+                            android:textColor="@color/dark_54"
+                            android:textSize="12sp" />
 
                         <androidx.emoji.widget.EmojiTextView
                             android:id="@+id/headerActIcon"
@@ -79,10 +83,10 @@
                         android:id="@+id/headerContentText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/dark_87"
                         android:layout_marginBottom="8dp"
                         android:paddingStart="4dp"
                         android:text="content"
+                        android:textColor="@color/dark_87"
                         android:textSize="28sp" />
 
                     <TextView
@@ -103,18 +107,17 @@
 
 
             <TextView
-                android:text="似た投稿"
-                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
+                android:text="似た投稿"
+                android:textSize="16sp" />
 
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/relatedPostsRecyclerView"
+                android:id="@+id/detailRelatedPostsRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 

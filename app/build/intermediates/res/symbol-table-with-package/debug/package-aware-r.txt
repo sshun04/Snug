@@ -1243,7 +1243,6 @@ id accessibility_custom_action_7
 id accessibility_custom_action_8
 id accessibility_custom_action_9
 id action0
-id action_back_to_home_from_detail
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1260,7 +1259,6 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_move_to_detail_from_home
 id action_navigation_home_to_navigation_second
 id action_text
 id actions
@@ -1315,6 +1313,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id detailRelatedPostsRecyclerView
 id detailToolbar
 id dialog_button
 id dimensions
@@ -1392,7 +1391,6 @@ id nameTextView
 id nav_controller_view_tag
 id nav_host_fragment
 id navigation
-id navigation_detail
 id navigation_header_container
 id navigation_home
 id navigation_second
@@ -1420,7 +1418,6 @@ id progress_horizontal
 id radio
 id recordRecyclerView
 id recycler_view
-id relatedPostsRecyclerView
 id right
 id right_icon
 id right_side
@@ -1570,6 +1567,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout activity_posts_detail
 layout activity_setting
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -1590,7 +1588,6 @@ layout expand_button
 layout fragment_dialog_edit_name
 layout fragment_dialog_post
 layout fragment_home_posts
-layout fragment_posts_detail
 layout fragment_record
 layout input_method_extract_view
 layout item_emoji

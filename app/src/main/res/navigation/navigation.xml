@@ -10,11 +10,7 @@
         android:name="com.shojishunsuke.kibunnsns.fragment.HomePostsFragment"
         android:label="HomePostsFragment"
         tools:layout="@layout/fragment_home_posts">
-        <action
-            android:id="@+id/action_move_to_detail_from_home"
-            app:destination="@+id/navigation_detail"
-            app:enterAnim="@anim/slide_from_right"
-            app:exitAnim="@anim/slide_to_left" />
+
         <action
             android:id="@+id/action_navigation_home_to_navigation_second"
             app:destination="@id/navigation_second" />
@@ -27,16 +23,5 @@
         android:label="RecordFragment"
         tools:layout="@layout/fragment_record" />
 
-    <custom_fragment
-        android:id="@+id/navigation_detail"
-        android:name="com.shojishunsuke.kibunnsns.fragment.PostsDetailFragment"
-        android:label="DetailFragment"
-        tools:layout="@layout/fragment_posts_detail">
 
-
-        <action
-            android:id="@+id/action_back_to_home_from_detail"
-            app:destination="@id/navigation_home" />
-
-    </custom_fragment>
 </navigation>
