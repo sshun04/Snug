@@ -1315,7 +1315,6 @@ id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
 id detailPostsRecyclerView
-id detailRelatedPostsRecyclerView
 id detailToolbar
 id dialog_button
 id dimensions
@@ -1351,12 +1350,7 @@ id grid
 id group_divider
 id groups
 id guideline3
-id headerActIcon
-id headerContentText
-id headerDate
 id headerGroup
-id headerUserIcon
-id headerUserName
 id home
 id homeAsUp
 id icon
@@ -1575,7 +1569,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
-layout activity_posts_detail
 layout activity_setting
 layout custom_dialog
 layout design_bottom_navigation_item
