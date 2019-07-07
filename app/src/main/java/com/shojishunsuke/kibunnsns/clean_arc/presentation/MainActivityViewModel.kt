@@ -30,7 +30,7 @@ class MainActivityViewModel(context: Context) : ViewModel() {
     fun setupPostFragment(fragmentManager: FragmentManager) {
         Log.d("Main", "Tapped!!")
         val postDialog = PostDialogFragment()
-        postDialog.showNow(fragmentManager, "MainActivityViewModel")
+        postDialog.show(fragmentManager.beginTransaction(),"a")
     }
 
 }

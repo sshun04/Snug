@@ -17,14 +17,14 @@ import kotlinx.android.synthetic.main.fragment_dialog_post.view.*
 
 class PostDialogFragment : DialogFragment() {
 
-    lateinit var selectedEmojiCode: String
+    var selectedEmojiCode: String = ""
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         val parentView = requireActivity().layoutInflater.inflate(R.layout.fragment_dialog_post, null)
 
 
-        val postViewModel = requireActivity().run {
+        val postViewModel = this.run {
             ViewModelProviders.of(this, PostDialogViewModelFactory(requireContext()))
                 .get(PostDialogViewModel::class.java)
         }

@@ -61,4 +61,8 @@ class PostDialogViewModel(context: Context) : ViewModel() {
     fun addCurrentEmoji(emojiCode:String){
         postUseCase.updateCurrentEmoji(emojiCode)
     }
+
+    override fun onCleared() {
+
+    }
 }
