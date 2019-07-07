@@ -1157,6 +1157,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable defaultback
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1243,7 +1244,6 @@ id accessibility_custom_action_7
 id accessibility_custom_action_8
 id accessibility_custom_action_9
 id action0
-id action_back_to_home_from_detail
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1260,7 +1260,6 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_move_to_detail_from_home
 id action_navigation_home_to_navigation_second
 id action_text
 id actions
@@ -1315,6 +1314,8 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id detailPostsRecyclerView
+id detailRelatedPostsRecyclerView
 id detailToolbar
 id dialog_button
 id dimensions
@@ -1392,7 +1393,6 @@ id nameTextView
 id nav_controller_view_tag
 id nav_host_fragment
 id navigation
-id navigation_detail
 id navigation_header_container
 id navigation_home
 id navigation_second
@@ -1420,10 +1420,10 @@ id progress_horizontal
 id radio
 id recordRecyclerView
 id recycler_view
-id relatedPostsRecyclerView
 id right
 id right_icon
 id right_side
+id rootFragment
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1447,6 +1447,11 @@ id seekbar
 id seekbar_value
 id select_dialog_listview
 id selected
+id selectedActIcon
+id selectedContentText
+id selectedDate
+id selectedUserIcon
+id selectedUserName
 id sentiScoreTextView
 id settingIcon
 id settingToolbar
@@ -1570,6 +1575,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout activity_posts_detail
 layout activity_setting
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -1587,10 +1593,10 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout expand_button
+layout fragment_detail
 layout fragment_dialog_edit_name
 layout fragment_dialog_post
 layout fragment_home_posts
-layout fragment_posts_detail
 layout fragment_record
 layout input_method_extract_view
 layout item_emoji

@@ -1,8 +1,8 @@
 package com.shojishunsuke.kibunnsns.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
@@ -14,9 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.MainActivityViewModel
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostsSharedViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.MainActivityViewModelFactory
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.SharedViewModelFactory
 import com.shojishunsuke.kibunnsns.navigation.CustomNavigator
 
 class MainActivity : AppCompatActivity() {
@@ -26,19 +24,19 @@ class MainActivity : AppCompatActivity() {
     private var isInitialized = false
     private lateinit var auth: FirebaseAuth
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
         setContentView(R.layout.activity_main)
 
         auth = FirebaseAuth.getInstance()
 
+
         val fab = findViewById<FloatingActionButton>(R.id.fab)
 
-        mainViewModel =
+        mainViewModel = run {
             ViewModelProviders.of(this, MainActivityViewModelFactory(this)).get(MainActivityViewModel::class.java)
-
-        val sharedViewModel = this.run {
-            ViewModelProviders.of(this, SharedViewModelFactory(this)).get(PostsSharedViewModel::class.java)
         }
 
         val navController = findNavController(R.id.nav_host_fragment)
@@ -56,6 +54,7 @@ class MainActivity : AppCompatActivity() {
             isInitialized = true
         }
         mainViewModel.setupPostFragment(supportFragmentManager)
+
     }
 
     override fun onStart() {
