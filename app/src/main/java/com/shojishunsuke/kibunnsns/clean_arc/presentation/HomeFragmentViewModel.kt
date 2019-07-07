@@ -1,10 +1,13 @@
 package com.shojishunsuke.kibunnsns.clean_arc.presentation
 
 import android.view.View
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.Navigation
+import com.firebase.ui.firestore.paging.FirestorePagingOptions
 import com.google.firebase.storage.StorageReference
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.domain.HomePostsFragmentUseCase
@@ -15,23 +18,8 @@ import kotlinx.coroutines.launch
 
 class HomeFragmentViewModel:ViewModel() {
     private val useCase = HomePostsFragmentUseCase()
-    private val _postsList = MutableLiveData<List<Post>>()
 
-    val postsList:LiveData<List<Post>> get() = _postsList
-
-    init {
-        GlobalScope.launch {
-            val wholePosts = useCase.loadWholePosts()
-
-            launch(Dispatchers.IO ) {
-                _postsList.postValue(wholePosts)
-            }
-        }
+    fun requestPagingOptionBuilder(lifecycleOwner:LifecycleOwner):FirestorePagingOptions<Post>{
+        return useCase.getPagingOptionBuilder(lifecycleOwner)
     }
-
-
-
-
-
-
 }
