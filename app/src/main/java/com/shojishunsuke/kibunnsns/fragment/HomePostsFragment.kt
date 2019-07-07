@@ -71,7 +71,7 @@ class HomePostsFragment : Fragment() {
     }
 
     private fun setUpDetailActivity(post: Post) {
-        DetailFragment.setupFragment(post,requireFragmentManager())
+        DetaiPostslFragment.setupFragment(post,requireFragmentManager())
     }
 
 }

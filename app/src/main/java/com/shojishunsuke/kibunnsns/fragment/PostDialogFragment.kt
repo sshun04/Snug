@@ -63,7 +63,7 @@ class PostDialogFragment : DialogFragment() {
             .create()
 
         postViewModel.currentPosted.observe(this, Observer {
-            DetailFragment.setupFragment(it, requireFragmentManager())
+            DetaiPostslFragment.setupFragment(it, requireFragmentManager())
             dismiss()
         })
 

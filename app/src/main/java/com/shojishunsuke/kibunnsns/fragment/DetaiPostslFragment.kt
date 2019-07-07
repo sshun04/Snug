@@ -16,11 +16,11 @@ import androidx.transition.TransitionSet
 import com.bumptech.glide.Glide
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.adapter.PostsRecyclerViewAdapter
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostDetailActivityViewModel
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.DetailPostsFragmentViewModel
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 
-class DetailFragment : Fragment() {
+class DetaiPostslFragment : Fragment() {
 
     companion object {
         private const val EXRA_POST = "post"
@@ -50,11 +50,11 @@ class DetailFragment : Fragment() {
             }
         }
 
-        private fun getInstance(post: Post): DetailFragment {
+        private fun getInstance(post: Post): DetaiPostslFragment {
             val bundle = Bundle().apply {
                 putSerializable(EXRA_POST, post)
             }
-            return DetailFragment().apply {
+            return DetaiPostslFragment().apply {
                 arguments = bundle
                 enterTransition = enterTransitionSet
                 exitTransition = exitTransitionSet
@@ -67,7 +67,7 @@ class DetailFragment : Fragment() {
         val post = arguments?.getSerializable(EXRA_POST) as Post
 
         val viewModel = requireActivity().run {
-            ViewModelProviders.of(this).get(PostDetailActivityViewModel::class.java)
+            ViewModelProviders.of(this).get(DetailPostsFragmentViewModel::class.java)
         }.also { it.requestRelatedPosts(post) }
 
         view.detailPostsRecyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
