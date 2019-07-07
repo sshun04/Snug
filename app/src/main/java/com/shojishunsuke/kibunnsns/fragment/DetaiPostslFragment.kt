@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -15,7 +14,7 @@ import androidx.transition.Slide
 import androidx.transition.TransitionSet
 import com.bumptech.glide.Glide
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.adapter.PostsRecyclerViewAdapter
+import com.shojishunsuke.kibunnsns.adapter.CustomPagingAdapter
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.DetailPostsFragmentViewModel
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.android.synthetic.main.fragment_detail.view.*
@@ -32,7 +31,7 @@ class DetaiPostslFragment : Fragment() {
             }
             addTransition(slideAnim)
         }
-       private val exitTransitionSet = TransitionSet().apply {
+        private val exitTransitionSet = TransitionSet().apply {
             val slideAnim = Slide().apply {
                 slideEdge = Gravity.RIGHT
                 duration = 400
@@ -62,15 +61,15 @@ class DetaiPostslFragment : Fragment() {
         }
     }
 
+    lateinit var pagingAdapter: CustomPagingAdapter
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_detail, container, false)
         val post = arguments?.getSerializable(EXRA_POST) as Post
 
         val viewModel = requireActivity().run {
             ViewModelProviders.of(this).get(DetailPostsFragmentViewModel::class.java)
-        }.also { it.requestRelatedPosts(post) }
-
-        view.detailPostsRecyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
+        }
 
         view.selectedUserName.text = if (post.userName.isNotBlank()) post.userName else "匿名"
 
@@ -82,16 +81,28 @@ class DetaiPostslFragment : Fragment() {
         view.selectedDate.text = post.date.toString()
         view.selectedContentText.text = post.contentText
 
+        val pagingOptions = viewModel.requestPagingOptionBuilder(requireActivity())
 
-        viewModel.relatedPosts.observe(this, Observer { relatedPosts ->
-            view.detailPostsRecyclerView.adapter =
-                PostsRecyclerViewAdapter(requireContext(), relatedPosts) { selectedPost ->
-                    setupFragment(selectedPost, requireFragmentManager())
-                }
-        })
+        pagingAdapter = CustomPagingAdapter(requireContext(), pagingOptions, {}) {
+            setupFragment(it, requireFragmentManager())
+        }
 
+        view.detailPostsRecyclerView.apply {
+            adapter = pagingAdapter
+            layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
+        }
 
         return view
+    }
+
+    override fun onStart() {
+        pagingAdapter.startListening()
+        super.onStart()
+    }
+
+    override fun onDestroy() {
+        pagingAdapter.stopListening()
+        super.onDestroy()
     }
 
 

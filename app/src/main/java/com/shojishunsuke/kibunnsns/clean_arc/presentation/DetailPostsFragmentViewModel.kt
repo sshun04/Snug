@@ -1,8 +1,11 @@
 package com.shojishunsuke.kibunnsns.clean_arc.presentation
 
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.firebase.ui.firestore.paging.FirestorePagingOptions
 import com.shojishunsuke.kibunnsns.clean_arc.domain.DetailPostsFragmentUsecase
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.Dispatchers
@@ -11,17 +14,8 @@ import kotlinx.coroutines.launch
 
 class DetailPostsFragmentViewModel : ViewModel() {
     private val useCase = DetailPostsFragmentUsecase()
-    private val _relatedPosts = MutableLiveData<List<Post>>()
-    val relatedPosts:LiveData<List<Post>> get() = _relatedPosts
 
-    fun requestRelatedPosts(post:Post){
-        GlobalScope.launch {
-            val posts = useCase.loadRelatedPosts(post)
-
-            launch(Dispatchers.IO) {
-                _relatedPosts.postValue(posts)
-            }
-        }
+    fun requestPagingOptionBuilder(lifecycleOwner:LifecycleOwner):FirestorePagingOptions<Post>{
+        return useCase.getPagingOptionBuilder(lifecycleOwner)
     }
-
 }

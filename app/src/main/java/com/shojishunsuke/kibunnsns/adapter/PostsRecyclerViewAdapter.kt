@@ -47,8 +47,7 @@ class PostsRecyclerViewAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsRecyclerViewHolder {
         val inflater = LayoutInflater.from(context)
-        val layoutResource = R.layout.item_post
-        val mView = inflater.inflate(layoutResource, parent, false)
+        val mView = inflater.inflate(R.layout.item_post, parent, false)
         return PostsRecyclerViewHolder(mView)
     }
 
