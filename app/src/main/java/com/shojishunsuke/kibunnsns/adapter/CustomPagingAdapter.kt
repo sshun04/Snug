@@ -62,7 +62,7 @@ class CustomPagingAdapter(
             LoadingState.LOADING_MORE -> {
             }
             LoadingState.LOADED -> {
-
+//
                 if (isFirstLoad) {
                     notifyDataSetChanged()
                     firstLoadedListenre()
@@ -105,6 +105,7 @@ class CustomPagingAdapter(
         return outPutText
 
     }
+
 
     inner class PostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val cardView = view.findViewById<LinearLayout>(R.id.postBaseView)

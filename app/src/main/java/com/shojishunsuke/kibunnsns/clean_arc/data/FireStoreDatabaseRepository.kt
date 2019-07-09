@@ -26,7 +26,9 @@ class FireStoreDatabaseRepository : DataBaseRepository {
     }
 
 
-    private val baseQuery = dataBase.collection(COLLECTION_PATH)
+    private val baseQuery= dataBase.collection(COLLECTION_PATH)
+//    private val secondQuery = dataBase.collection(COLLECTION_PATH)
+//        .whereEqualTo("sentiScore",0.5)
 
 
     override suspend fun loadFilteredCollection(
@@ -73,6 +75,8 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
         return@runBlocking results
     }
+
+
 
    fun loadPagingOptions(lifeCycleOwner:LifecycleOwner):FirestorePagingOptions<Post>{
         val config = PagedList.Config.Builder()

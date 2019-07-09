@@ -34,7 +34,6 @@ class HomePostsFragment : Fragment() {
         val progressBar = view.progressBar.apply {
             max = 100
             setProgress(84, true)
-            visibility = View.GONE
         }
 
         val recyclerView = view.postsRecyclerView.apply {

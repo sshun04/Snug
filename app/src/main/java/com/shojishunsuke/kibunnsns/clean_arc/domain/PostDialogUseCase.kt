@@ -7,6 +7,7 @@ import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataConfigRepositor
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LanguageAnalysisRepository
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.runBlocking
+import java.math.BigDecimal
 
 class PostDialogUseCase(
     private val dataConfigRepository: DataConfigRepository,
