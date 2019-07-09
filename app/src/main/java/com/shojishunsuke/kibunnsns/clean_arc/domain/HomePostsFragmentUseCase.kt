@@ -18,4 +18,8 @@ class HomePostsFragmentUseCase : CloudStorageRepository.ImageUploadListener {
 
     override suspend fun onUploadTaskComplete(result: Uri) {}
 
+    suspend fun load16items():List<Post>{
+        return fireStoreRepository.loadWholeCollection()
+    }
+
 }

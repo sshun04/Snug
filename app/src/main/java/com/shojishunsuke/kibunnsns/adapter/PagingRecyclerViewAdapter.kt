@@ -15,16 +15,17 @@ import de.hdodenhof.circleimageview.CircleImageView
 import java.text.SimpleDateFormat
 import java.util.*
 
-class PostsRecyclerViewAdapter(
+class PagingRecyclerViewAdapter(
     private val context: Context,
-    private var postsList: List<Post>,
+    private var postsList: MutableList<Post> = mutableListOf(),
     private val listener: (Post) -> Unit
     ) :
-    RecyclerView.Adapter<PostsRecyclerViewAdapter.PostsRecyclerViewHolder>() {
+  PagingBaseAdapter<PagingRecyclerViewAdapter.PostsRecyclerViewHolder>(postsList) {
 
 
-    override fun onBindViewHolder(holder: PostsRecyclerViewHolder, position: Int) {
+    override fun onBindViewHolder(holder:RecyclerView.ViewHolder, position: Int) {
         val post = postsList[position]
+        holder as PostsRecyclerViewHolder
         holder.userNameTextView.text = if (post.userName.isNotBlank()) post.userName else "匿名"
         holder.contentTextView.text = post.contentText
         holder.sentiScoreTextView.text = post.sentiScore.toString()
@@ -50,8 +51,6 @@ class PostsRecyclerViewAdapter(
         val mView = inflater.inflate(R.layout.item_post, parent, false)
         return PostsRecyclerViewHolder(mView)
     }
-
-    override fun getItemCount(): Int = postsList.size
 
     inner class PostsRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val cardView = view.findViewById<LinearLayout>(R.id.postBaseView)

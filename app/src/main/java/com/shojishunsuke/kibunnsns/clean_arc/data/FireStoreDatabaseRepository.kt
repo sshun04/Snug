@@ -66,6 +66,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
 
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
+            .limit(16)
             .get().await()
 
         for (result in querySnapshot) {

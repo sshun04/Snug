@@ -67,7 +67,7 @@ class DetaiPostslFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_detail, container, false)
         val post = arguments?.getSerializable(EXRA_POST) as Post
 
-        val viewModel = requireActivity().run {
+        val viewModel = this.run {
             ViewModelProviders.of(this).get(DetailPostsFragmentViewModel::class.java)
         }
 
