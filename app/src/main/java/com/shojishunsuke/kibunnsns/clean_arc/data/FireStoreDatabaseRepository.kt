@@ -28,58 +28,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
     }
 
 
-    private val baseQuery = dataBase.collection(COLLECTION_PATH)
-//    private val secondQuery = dataBase.collection(COLLECTION_PATH)
-//        .whereEqualTo("sentiScore",0.5)
-
-
-    override suspend fun loadFilteredCollection(
-        sentiScore: Float,
-        magnitude: Float,
-        keyWord: String,
-        activityCode: String
-    ): List<Post> = runBlocking {
-        val results = ArrayList<Post>()
-
-
-        val querySnapshot = dataBase.collection(COLLECTION_PATH)
-//            .whereEqualTo("sentiScore",sentiScore)
-            .whereEqualTo("actID", activityCode)
-            .limit(20)
-            .get()
-            .addOnSuccessListener {
-
-            }
-            .await()
-
-
-
-        for (result in querySnapshot) {
-            val post = result.toObject(Post::class.java)
-            results.add(post)
-        }
-
-        return@runBlocking results
-    }
-
-    override suspend fun loadWholeCollection(): List<Post> = runBlocking {
-
-        val results = ArrayList<Post>()
-
-
-        val querySnapshot = dataBase.collection(COLLECTION_PATH)
-            .limit(10)
-            .get().await()
-
-        for (result in querySnapshot) {
-            val post = result.toObject(Post::class.java)
-            results.add(post)
-        }
-
-        return@runBlocking results
-    }
-
-    suspend fun loadNextCollection(basePost: Post, startPoint: Float, endPosint: Float): List<Post> {
+   override suspend fun loadNextSortedCollection(basePost: Post, startPoint: Float, endPoint: Float): List<Post> {
 
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .orderBy("sentiScore", Query.Direction.ASCENDING)
@@ -99,7 +48,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         return results
     }
 
-    suspend fun loadFollowingCollection(previousPost: Post):List<Post>{
+    override suspend fun loadFollowingCollection(previousPost: Post):List<Post>{
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .orderBy("date",Query.Direction.DESCENDING)
             .startAfter(previousPost.date)
@@ -116,23 +65,4 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
         return results
     }
-
-
-    fun loadPagingOptions(lifeCycleOwner: LifecycleOwner): FirestorePagingOptions<Post> {
-        val config = PagedList.Config.Builder()
-            .setEnablePlaceholders(false)
-            .setPrefetchDistance(5)
-            .setPageSize(10)
-            .build()
-
-        val options = FirestorePagingOptions.Builder<Post>()
-            .setQuery(baseQuery, config, Post::class.java)
-            .setLifecycleOwner(lifeCycleOwner)
-            .build()
-
-        return options
-
-    }
-
-
 }

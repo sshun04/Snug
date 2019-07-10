@@ -15,10 +15,6 @@ class DetailPostsFragmentViewModel : ViewModel() {
     val nextPosts = MutableLiveData<List<Post>>()
     private var previousPost: Post? = null
 
-    fun requestPagingOptionBuilder(lifecycleOwner: LifecycleOwner): FirestorePagingOptions<Post> {
-        return useCase.getPagingOptionBuilder(lifecycleOwner)
-    }
-
     fun requestNextPosts(selectedPost: Post) {
         GlobalScope.launch {
             val posts = useCase.loadNextRelatedPosts(selectedPost, previousPost)

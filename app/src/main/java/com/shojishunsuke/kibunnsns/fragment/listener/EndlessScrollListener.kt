@@ -26,8 +26,6 @@ class EndlessScrollListener(
         } else {
             loading = false
         }
-
-
     }
 
 }

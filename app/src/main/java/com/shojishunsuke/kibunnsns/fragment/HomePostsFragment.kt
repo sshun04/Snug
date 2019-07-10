@@ -59,18 +59,6 @@ class HomePostsFragment : Fragment() {
             recyclerView.scheduleLayoutAnimation()
         }
 
-//        val pagingOptions = fragmentViewModel.requestPagingOptionBuilder(requireActivity())
-
-//        pagingAdapter =
-//            CustomPagingAdapter(requireContext(), pagingOptions, {
-//                recyclerView.scheduleLayoutAnimation()
-//                progressBar.visibility = View.GONE
-//            }) {
-//                setUpDetailFragment(it)
-//            }
-//
-//        recyclerView.adapter = pagingAdapter
-
 
         viewModel.nextPosts.observe(this, Observer {
             progressBar.visibility = View.GONE
@@ -85,13 +73,6 @@ class HomePostsFragment : Fragment() {
         super.onStart()
         viewModel.reflesh()
     }
-
-    override fun onDestroy() {
-//        pagingAdapter.stopListening()
-        super.onDestroy()
-
-    }
-
 
     private fun setUpDetailFragment(post: Post) {
         DetailPostsFragment.setupFragment(post, requireFragmentManager())

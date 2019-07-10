@@ -35,12 +35,11 @@ class FirebaseUserRepository : AuthRepository {
     }
 
     override fun getUserPhotoUri(): Uri {
-//        TODO Uriが見つからなかった場合デフォルトのUriを返すようにする
         return user?.photoUrl
             ?: Uri.parse("https://firebasestorage.googleapis.com/v0/b/firestore-tutorial-ff769.appspot.com/o/icons%2Fe2289e48-7128-435e-81f9-7d3c1cead54d.png?alt=media&token=a2b357a3-b31e-4bae-9aa9-d430510f860c")
     }
 
-    override suspend fun updateUserPhoto(uri: Uri) = runBlocking{
+    override suspend fun updateUserPhoto(uri: Uri) = runBlocking {
         val profileUpdate = UserProfileChangeRequest.Builder()
             .setPhotoUri(uri)
             .build()
@@ -56,7 +55,6 @@ class FirebaseUserRepository : AuthRepository {
 
         return@runBlocking
     }
-
 
 
 }

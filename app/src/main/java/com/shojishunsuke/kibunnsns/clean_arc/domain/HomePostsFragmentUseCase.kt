@@ -12,11 +12,6 @@ import java.util.*
 class HomePostsFragmentUseCase : CloudStorageRepository.ImageUploadListener {
     private val fireStoreRepository = FireStoreDatabaseRepository()
 
-
-    fun getPagingOptionBuilder(lifecycleOwner: LifecycleOwner): FirestorePagingOptions<Post> {
-        return fireStoreRepository.loadPagingOptions(lifecycleOwner)
-    }
-
     override suspend fun onUploadTaskComplete(result: Uri) {}
 
     suspend fun load16items(post: Post?): List<Post> {

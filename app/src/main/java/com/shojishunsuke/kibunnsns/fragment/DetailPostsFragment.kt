@@ -16,8 +16,8 @@ import androidx.transition.TransitionSet
 import com.bumptech.glide.Glide
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.adapter.PagingRecyclerViewAdapter
-import com.shojishunsuke.kibunnsns.fragment.listener.NestedEndlessScrollListener
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.DetailPostsFragmentViewModel
+import com.shojishunsuke.kibunnsns.fragment.listener.NestedEndlessScrollListener
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 
@@ -83,8 +83,8 @@ class DetailPostsFragment : Fragment() {
 
 
         val stagLayoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
-        val pagingAdapter  = PagingRecyclerViewAdapter(requireContext()){
-            setupFragment(it,requireFragmentManager())
+        val pagingAdapter = PagingRecyclerViewAdapter(requireContext()) {
+            setupFragment(it, requireFragmentManager())
         }
         val recyclerView = view.detailPostsRecyclerView.apply {
             adapter = pagingAdapter

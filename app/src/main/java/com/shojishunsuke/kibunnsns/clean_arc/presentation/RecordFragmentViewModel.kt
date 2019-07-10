@@ -12,9 +12,7 @@ import kotlinx.coroutines.launch
 
 class RecordFragmentViewModel : ViewModel(), CloudStorageRepository.ImageUploadListener {
 
-
     private val useCase = RecordFragmentUsecase(this)
-
 
     var currentBitmap: Bitmap? = null
 

@@ -10,17 +10,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 class RecordFragmentUsecase(uploadListener: CloudStorageRepository.ImageUploadListener) {
-    //    private val roomRepository = RoomDatabaseRepository()
     private val userInfoRepository = FirebaseUserRepository()
     private val cloutStorageRepository = CloudStorageRepository(uploadListener)
 
-    //    suspend fun loadCollcetion(): List<LocalPost> {
-////        return roomRepository.loadWholeCollection()
-//    }
     fun saveUserName(name: String) {
-        GlobalScope.launch {
-            //            roomRepository.editUserName(name)
-        }
         userInfoRepository.updateUserName(name)
     }
 
