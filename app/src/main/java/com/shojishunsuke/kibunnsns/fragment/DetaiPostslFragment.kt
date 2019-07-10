@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -15,6 +16,9 @@ import androidx.transition.TransitionSet
 import com.bumptech.glide.Glide
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.adapter.CustomPagingAdapter
+import com.shojishunsuke.kibunnsns.adapter.PagingRecyclerViewAdapter
+import com.shojishunsuke.kibunnsns.adapter.listener.EndlessScrollListener
+import com.shojishunsuke.kibunnsns.adapter.listener.NestedEndlessScrollListener
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.DetailPostsFragmentViewModel
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.android.synthetic.main.fragment_detail.view.*
@@ -61,7 +65,7 @@ class DetaiPostslFragment : Fragment() {
         }
     }
 
-    lateinit var pagingAdapter: CustomPagingAdapter
+//    lateinit var pagingAdapter: CustomPagingAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_detail, container, false)
@@ -81,27 +85,39 @@ class DetaiPostslFragment : Fragment() {
         view.selectedDate.text = post.date.toString()
         view.selectedContentText.text = post.contentText
 
-        val pagingOptions = viewModel.requestPagingOptionBuilder(requireActivity())
 
-        pagingAdapter = CustomPagingAdapter(requireContext(), pagingOptions, {}) {
-            setupFragment(it, requireFragmentManager())
+        val stagLayoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
+        val pagingAdapter  = PagingRecyclerViewAdapter(requireContext()){
+            setupFragment(it,requireFragmentManager())
         }
-
-        view.detailPostsRecyclerView.apply {
+        val recyclerView = view.detailPostsRecyclerView.apply {
             adapter = pagingAdapter
-            layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
+            layoutManager = stagLayoutManager
+            isNestedScrollingEnabled = false
         }
+
+        val endlessScrollListener = NestedEndlessScrollListener(stagLayoutManager,recyclerView){
+            viewModel.requestNextPosts(post)
+        }
+        view.nestedScrollView.setOnScrollChangeListener(endlessScrollListener)
+
+
+        viewModel.requestNextPosts(post)
+        viewModel.nextPosts.observe(this, Observer {
+            pagingAdapter.addNextCollection(it)
+        })
+
 
         return view
     }
 
     override fun onStart() {
-        pagingAdapter.startListening()
+//        pagingAdapter.startListening()
         super.onStart()
     }
 
     override fun onDestroy() {
-        pagingAdapter.stopListening()
+//        pagingAdapter.stopListening()
         super.onDestroy()
     }
 

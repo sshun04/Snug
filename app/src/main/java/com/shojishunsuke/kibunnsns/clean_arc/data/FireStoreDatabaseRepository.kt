@@ -1,11 +1,10 @@
 package com.shojishunsuke.kibunnsns.clean_arc.data
 
-import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.paging.PagedList
 import com.firebase.ui.firestore.paging.FirestorePagingOptions
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.runBlocking
@@ -14,9 +13,11 @@ import kotlinx.coroutines.tasks.await
 class FireStoreDatabaseRepository : DataBaseRepository {
 
     private val dataBase = FirebaseFirestore.getInstance()
-    companion object{
+
+    companion object {
         private const val COLLECTION_PATH = "testPosts"
     }
+
     override suspend fun savePost(post: Post) {
 
         dataBase.collection(COLLECTION_PATH)
@@ -26,7 +27,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
     }
 
 
-    private val baseQuery= dataBase.collection(COLLECTION_PATH)
+    private val baseQuery = dataBase.collection(COLLECTION_PATH)
 //    private val secondQuery = dataBase.collection(COLLECTION_PATH)
 //        .whereEqualTo("sentiScore",0.5)
 
@@ -42,7 +43,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
 //            .whereEqualTo("sentiScore",sentiScore)
-            .whereEqualTo("actID",activityCode)
+            .whereEqualTo("actID", activityCode)
             .limit(20)
             .get()
             .addOnSuccessListener {
@@ -66,7 +67,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
 
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
-            .limit(16)
+            .limit(10)
             .get().await()
 
         for (result in querySnapshot) {
@@ -77,21 +78,39 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         return@runBlocking results
     }
 
+    suspend fun loadNextCollection(basePost: Post, startPoint: Float, endPosint: Float): List<Post> {
+
+        val querySnapshot = dataBase.collection(COLLECTION_PATH)
+            .orderBy("sentiScore", Query.Direction.ASCENDING)
+//            .startAfter(basePost)
+            .limit(12)
+            .get()
+            .await()
+
+        val results = ArrayList<Post>()
+
+        querySnapshot.forEach {
+            val post = it.toObject(Post::class.java)
+            results.add(post)
+        }
+
+        return results
+    }
 
 
-   fun loadPagingOptions(lifeCycleOwner:LifecycleOwner):FirestorePagingOptions<Post>{
+    fun loadPagingOptions(lifeCycleOwner: LifecycleOwner): FirestorePagingOptions<Post> {
         val config = PagedList.Config.Builder()
             .setEnablePlaceholders(false)
             .setPrefetchDistance(5)
             .setPageSize(10)
             .build()
 
-       val options = FirestorePagingOptions.Builder<Post>()
-           .setQuery(baseQuery,config,Post::class.java)
-           .setLifecycleOwner(lifeCycleOwner)
-           .build()
+        val options = FirestorePagingOptions.Builder<Post>()
+            .setQuery(baseQuery, config, Post::class.java)
+            .setLifecycleOwner(lifeCycleOwner)
+            .build()
 
-       return options
+        return options
 
     }
 

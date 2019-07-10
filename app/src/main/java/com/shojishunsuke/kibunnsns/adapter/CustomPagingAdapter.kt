@@ -34,8 +34,11 @@ class CustomPagingAdapter(
         holder.contentTextView.text = post.contentText
         holder.sentiScoreTextView.text = post.sentiScore.toString()
         holder.dateTextView.text = formatDate(post.date)
-        holder.activityIcon.text =
-            if (post.actID.isNotBlank()) post.actID else "\uD83D\uDE42"
+        if(post.actID.isNotBlank()){
+            holder.activityIcon.text = post.actID
+        }else{
+            holder.activityIcon.visibility = View.GONE
+        }
 
         if (post.iconPhotoLink.isNotBlank()) {
             GlideApp.with(context)

@@ -13,5 +13,12 @@ class DetailPostsFragmentUsecase {
         return fireStoreRepository.loadPagingOptions(lifecycleOwner)
     }
 
+    suspend fun loadNextRelatedPosts(post: Post,previousPost:Post?):List<Post>{
+
+
+        val basePost = previousPost?: post
+        return fireStoreRepository.loadNextCollection(basePost,0.0f,0.0f)
+    }
+
 
 }

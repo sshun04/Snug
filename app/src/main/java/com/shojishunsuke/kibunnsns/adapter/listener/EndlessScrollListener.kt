@@ -14,9 +14,10 @@ class EndlessScrollListener(
         super.onScrolled(recyclerView, dx, dy)
 
         val totalItemCount = layoutManager.itemCount
-        val lastVisiblePosition = layoutManager.findLastVisibleItemPositions(null).max()?.plus(2)
+        val visiblePosition = layoutManager.findLastCompletelyVisibleItemPositions(null)
+        val lastVisibleItemCount = visiblePosition.max()?.plus(1)
 
-        if (!loading && lastVisiblePosition == totalItemCount) {
+        if (!loading && lastVisibleItemCount == totalItemCount) {
 
             loading = true
             recyclerView.post {
