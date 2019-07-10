@@ -13,17 +13,19 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.adapter.PagingRecyclerViewAdapter
-import com.shojishunsuke.kibunnsns.adapter.listener.EndlessScrollListener
+import com.shojishunsuke.kibunnsns.fragment.listener.EndlessScrollListener
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.HomeFragmentViewModel
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.android.synthetic.main.fragment_home_posts.view.*
 
 class HomePostsFragment : Fragment() {
 
+    lateinit var viewModel: HomeFragmentViewModel
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home_posts, container, false)
 
-        val viewModel =
+         viewModel =
             requireActivity().run { ViewModelProviders.of(this).get(HomeFragmentViewModel::class.java) }
 
         val progressBar = view.progressBar.apply {
@@ -81,8 +83,7 @@ class HomePostsFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-//        pagingAdapter.startListening()
-
+        viewModel.reflesh()
     }
 
     override fun onDestroy() {
@@ -93,7 +94,7 @@ class HomePostsFragment : Fragment() {
 
 
     private fun setUpDetailFragment(post: Post) {
-        DetaiPostslFragment.setupFragment(post, requireFragmentManager())
+        DetailPostsFragment.setupFragment(post, requireFragmentManager())
     }
 
 }

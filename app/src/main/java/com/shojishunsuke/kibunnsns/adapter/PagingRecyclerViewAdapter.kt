@@ -32,6 +32,7 @@ class PagingRecyclerViewAdapter(
         holder.dateTextView.text = formatDate(post.date)
 
         if(post.actID.isNotBlank()){
+            holder.activityIcon.visibility = View.VISIBLE
             holder.activityIcon.text = post.actID
         }else{
             holder.activityIcon.visibility = View.GONE

@@ -13,10 +13,7 @@ import kotlinx.coroutines.launch
 class HomeFragmentViewModel : ViewModel() {
     private val useCase = HomePostsFragmentUseCase()
     val nextPosts = MutableLiveData<List<Post>>()
-
-    init {
-        requestNextPosts()
-    }
+    private var previousPost: Post? = null
 
     fun requestPagingOptionBuilder(lifecycleOwner: LifecycleOwner): FirestorePagingOptions<Post> {
         return useCase.getPagingOptionBuilder(lifecycleOwner)
@@ -24,10 +21,16 @@ class HomeFragmentViewModel : ViewModel() {
 
     fun requestNextPosts() {
         GlobalScope.launch {
-            val posts = useCase.load16items()
+            val posts = useCase.load16items(previousPost).also{
+                if (it.isNotEmpty()) previousPost = it.last()
+            }
             launch(Dispatchers.IO) {
                 nextPosts.postValue(posts)
             }
         }
+    }
+    fun reflesh(){
+        previousPost = null
+        requestNextPosts()
     }
 }

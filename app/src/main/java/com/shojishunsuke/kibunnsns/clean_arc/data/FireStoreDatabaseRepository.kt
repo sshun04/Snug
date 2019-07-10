@@ -5,6 +5,7 @@ import androidx.paging.PagedList
 import com.firebase.ui.firestore.paging.FirestorePagingOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QuerySnapshot
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.runBlocking
@@ -82,8 +83,27 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .orderBy("sentiScore", Query.Direction.ASCENDING)
-//            .startAfter(basePost)
+            .orderBy("date",Query.Direction.DESCENDING)
+            .startAfter(basePost.sentiScore,basePost.date)
             .limit(12)
+            .get()
+            .await()
+
+        val results = ArrayList<Post>()
+
+        querySnapshot.forEach {
+            val post = it.toObject(Post::class.java)
+            results.add(post)
+        }
+
+        return results
+    }
+
+    suspend fun loadFollowingCollection(previousPost: Post):List<Post>{
+        val querySnapshot = dataBase.collection(COLLECTION_PATH)
+            .orderBy("date",Query.Direction.DESCENDING)
+            .startAfter(previousPost.date)
+            .limit(16)
             .get()
             .await()
 

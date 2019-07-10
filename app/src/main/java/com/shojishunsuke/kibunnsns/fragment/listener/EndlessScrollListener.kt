@@ -1,4 +1,4 @@
-package com.shojishunsuke.kibunnsns.adapter.listener
+package com.shojishunsuke.kibunnsns.fragment.listener
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager

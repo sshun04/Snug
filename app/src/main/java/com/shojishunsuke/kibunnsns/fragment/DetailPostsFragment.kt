@@ -15,18 +15,16 @@ import androidx.transition.Slide
 import androidx.transition.TransitionSet
 import com.bumptech.glide.Glide
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.adapter.CustomPagingAdapter
 import com.shojishunsuke.kibunnsns.adapter.PagingRecyclerViewAdapter
-import com.shojishunsuke.kibunnsns.adapter.listener.EndlessScrollListener
-import com.shojishunsuke.kibunnsns.adapter.listener.NestedEndlessScrollListener
+import com.shojishunsuke.kibunnsns.fragment.listener.NestedEndlessScrollListener
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.DetailPostsFragmentViewModel
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 
-class DetaiPostslFragment : Fragment() {
+class DetailPostsFragment : Fragment() {
 
     companion object {
-        private const val EXRA_POST = "post"
+        private const val EXTRA_POST = "post"
 
         private val enterTransitionSet = TransitionSet().apply {
             val slideAnim = Slide().apply {
@@ -53,11 +51,11 @@ class DetaiPostslFragment : Fragment() {
             }
         }
 
-        private fun getInstance(post: Post): DetaiPostslFragment {
+        private fun getInstance(post: Post): DetailPostsFragment {
             val bundle = Bundle().apply {
-                putSerializable(EXRA_POST, post)
+                putSerializable(EXTRA_POST, post)
             }
-            return DetaiPostslFragment().apply {
+            return DetailPostsFragment().apply {
                 arguments = bundle
                 enterTransition = enterTransitionSet
                 exitTransition = exitTransitionSet
@@ -65,11 +63,9 @@ class DetaiPostslFragment : Fragment() {
         }
     }
 
-//    lateinit var pagingAdapter: CustomPagingAdapter
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_detail, container, false)
-        val post = arguments?.getSerializable(EXRA_POST) as Post
+        val post = arguments?.getSerializable(EXTRA_POST) as Post
 
         val viewModel = this.run {
             ViewModelProviders.of(this).get(DetailPostsFragmentViewModel::class.java)
@@ -96,30 +92,18 @@ class DetaiPostslFragment : Fragment() {
             isNestedScrollingEnabled = false
         }
 
-        val endlessScrollListener = NestedEndlessScrollListener(stagLayoutManager,recyclerView){
-            viewModel.requestNextPosts(post)
-        }
+        val endlessScrollListener =
+            NestedEndlessScrollListener(stagLayoutManager, recyclerView) {
+                viewModel.requestNextPosts(post)
+            }
         view.nestedScrollView.setOnScrollChangeListener(endlessScrollListener)
-
 
         viewModel.requestNextPosts(post)
         viewModel.nextPosts.observe(this, Observer {
             pagingAdapter.addNextCollection(it)
         })
 
-
         return view
     }
-
-    override fun onStart() {
-//        pagingAdapter.startListening()
-        super.onStart()
-    }
-
-    override fun onDestroy() {
-//        pagingAdapter.stopListening()
-        super.onDestroy()
-    }
-
 
 }

@@ -1,4 +1,4 @@
-package com.shojishunsuke.kibunnsns.adapter.listener
+package com.shojishunsuke.kibunnsns.fragment.listener
 
 import android.util.Log
 import androidx.core.widget.NestedScrollView
@@ -10,7 +10,6 @@ class NestedEndlessScrollListener(
     private val recyclerView: RecyclerView,
     private val onLoadMoreListener: () -> Unit
 ) : NestedScrollView.OnScrollChangeListener {
-
 
     override fun onScrollChange(v: NestedScrollView?, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
 
