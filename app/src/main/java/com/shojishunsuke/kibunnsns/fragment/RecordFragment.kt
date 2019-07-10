@@ -47,7 +47,7 @@ class RecordFragment : Fragment() {
         val settingIcon = view.findViewById<ImageView>(R.id.settingIcon)
 
         settingIcon.setOnClickListener {
-            val intent = Intent(requireContext(),SettingActivity::class.java)
+            val intent = Intent(requireContext(), SettingActivity::class.java)
             startActivity(intent)
         }
 
@@ -83,11 +83,11 @@ class RecordFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        if (viewModel.currentBitmap != null){
+        if (viewModel.currentBitmap != null) {
             Glide.with(requireContext())
                 .load(viewModel.currentBitmap)
                 .into(iconView)
-        }else{
+        } else {
             GlideApp.with(requireContext())
                 .load(viewModel.getIconRef())
                 .into(iconView)

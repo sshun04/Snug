@@ -15,11 +15,6 @@ import java.util.*
 
 class CloudStorageRepository(private val uploadListener: ImageUploadListener) : StorageRepository {
     private val storage = FirebaseStorage.getInstance()
-    private val storageRef = storage.reference
-
-
-    private val TAG = "CloudStorageRepository"
-    lateinit var bitmap: Bitmap
 
     override suspend fun uploadImage(bitmap: Bitmap) {
 
@@ -52,6 +47,5 @@ class CloudStorageRepository(private val uploadListener: ImageUploadListener) : 
 
     interface ImageUploadListener {
         suspend fun onUploadTaskComplete(result: Uri)
-//        fun onDownloadTaskComplete(result: Bitmap)
     }
 }

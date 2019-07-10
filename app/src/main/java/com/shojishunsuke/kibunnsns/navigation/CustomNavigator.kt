@@ -27,16 +27,16 @@ class CustomNavigator(
         var currentFragment = manager.primaryNavigationFragment
         if (currentFragment != null) {
             transAction.detach(currentFragment)
-        }else{
+        } else {
             initialNavigate = true
         }
 
         var fragment = manager.findFragmentByTag(tag)
         if (fragment == null) {
             val className = destination.className
-            fragment =  manager.fragmentFactory.instantiate(context.classLoader, className)
-            transAction.add(containerId,fragment,tag)
-        }else {
+            fragment = manager.fragmentFactory.instantiate(context.classLoader, className)
+            transAction.add(containerId, fragment, tag)
+        } else {
             transAction.attach(fragment)
         }
 

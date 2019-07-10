@@ -21,8 +21,7 @@ class PostDialogViewModel(context: Context) : ViewModel() {
     private val _currentPosted = MutableLiveData<Post>()
 
     val currentPosted:LiveData<Post> get() = _currentPosted
-
-
+    
     init {
         val analysisRepository = NaturalLanguageAnalysisRepository(context)
         val dataConfigRepository = SharedPrefRepository(context)

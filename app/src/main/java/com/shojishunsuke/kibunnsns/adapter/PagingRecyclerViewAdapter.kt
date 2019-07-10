@@ -8,9 +8,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
-import com.firebase.ui.firestore.paging.FirestorePagingAdapter
-import com.firebase.ui.firestore.paging.FirestorePagingOptions
-import com.firebase.ui.firestore.paging.LoadingState
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.model.Post
@@ -18,24 +15,29 @@ import de.hdodenhof.circleimageview.CircleImageView
 import java.text.SimpleDateFormat
 import java.util.*
 
-class CustomPagingAdapter(
+class PagingRecyclerViewAdapter(
     private val context: Context,
-    pagingOptions: FirestorePagingOptions<Post>,
-    private val firstLoadedListenre: () -> Unit,
-    private val tapListener: (Post) -> Unit
-) :
-    FirestorePagingAdapter<Post, CustomPagingAdapter.PostViewHolder>(pagingOptions) {
+    private var postsList: MutableList<Post> = mutableListOf(),
+    private val listener: (Post) -> Unit
+    ) :
+  PagingBaseAdapter<PagingRecyclerViewAdapter.PostsRecyclerViewHolder>(postsList) {
 
-    private val inflater = LayoutInflater.from(context)
-    private var isFirstLoad = true
 
-    override fun onBindViewHolder(holder: PostViewHolder, position: Int, post: Post) {
+    override fun onBindViewHolder(holder:RecyclerView.ViewHolder, position: Int) {
+        val post = postsList[position]
+        holder as PostsRecyclerViewHolder
         holder.userNameTextView.text = if (post.userName.isNotBlank()) post.userName else "匿名"
         holder.contentTextView.text = post.contentText
         holder.sentiScoreTextView.text = post.sentiScore.toString()
         holder.dateTextView.text = formatDate(post.date)
-        holder.activityIcon.text =
-            if (post.actID.isNotBlank()) post.actID else "\uD83D\uDE42"
+
+        if(post.actID.isNotBlank()){
+            holder.activityIcon.visibility = View.VISIBLE
+            holder.activityIcon.text = post.actID
+        }else{
+            holder.activityIcon.visibility = View.GONE
+        }
+
 
         if (post.iconPhotoLink.isNotBlank()) {
             GlideApp.with(context)
@@ -46,34 +48,26 @@ class CustomPagingAdapter(
         }
 
         holder.cardView.setOnClickListener {
-            tapListener(post)
+            listener(post)
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsRecyclerViewHolder {
+        val inflater = LayoutInflater.from(context)
         val mView = inflater.inflate(R.layout.item_post, parent, false)
-        return PostViewHolder(mView)
+        return PostsRecyclerViewHolder(mView)
     }
 
-    override fun onLoadingStateChanged(state: LoadingState) {
-        when (state) {
-            LoadingState.LOADING_INITIAL -> {
-            }
-            LoadingState.LOADING_MORE -> {
-            }
-            LoadingState.LOADED -> {
-//
-                if (isFirstLoad) {
-                    notifyDataSetChanged()
-                    firstLoadedListenre()
-                    isFirstLoad = false
-                }
-            }
-            LoadingState.ERROR -> {
-            }
-        }
-
+    inner class PostsRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val cardView = view.findViewById<LinearLayout>(R.id.postBaseView)
+        val userNameTextView = view.findViewById<TextView>(R.id.userName)
+        val userIcon = view.findViewById<CircleImageView>(R.id.userIcon)
+        val contentTextView = view.findViewById<TextView>(R.id.contentTextView)
+        val sentiScoreTextView = view.findViewById<TextView>(R.id.sentiScoreTextView)
+        val dateTextView = view.findViewById<TextView>(R.id.dateTextView)
+        val activityIcon = view.findViewById<EmojiTextView>(R.id.activityIcon)
     }
+
 
     private fun formatDate(postedDate: Date): String {
         val currentDate = Date()
@@ -104,16 +98,5 @@ class CustomPagingAdapter(
         }
         return outPutText
 
-    }
-
-
-    inner class PostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val cardView = view.findViewById<LinearLayout>(R.id.postBaseView)
-        val userNameTextView = view.findViewById<TextView>(R.id.userName)
-        val userIcon = view.findViewById<CircleImageView>(R.id.userIcon)
-        val contentTextView = view.findViewById<TextView>(R.id.contentTextView)
-        val sentiScoreTextView = view.findViewById<TextView>(R.id.sentiScoreTextView)
-        val dateTextView = view.findViewById<TextView>(R.id.dateTextView)
-        val activityIcon = view.findViewById<EmojiTextView>(R.id.activityIcon)
     }
 }

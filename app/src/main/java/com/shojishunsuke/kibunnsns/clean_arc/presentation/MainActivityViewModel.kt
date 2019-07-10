@@ -17,14 +17,11 @@ import kotlinx.coroutines.launch
 class MainActivityViewModel(context: Context) : ViewModel() {
 
     private val useCase:MainActivityUsecase
-    private val _postsList = MutableLiveData<List<Post>>()
 
     init {
         val dataConfigRepository = SharedPrefRepository(context)
         useCase = MainActivityUsecase(dataConfigRepository)
         useCase.initialize()
-
-
     }
 
     fun setupPostFragment(fragmentManager: FragmentManager) {
