@@ -31,7 +31,7 @@
         android:layout_height="0dp"
         android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.42"
+        app:layout_constraintHeight_percent="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,7 +69,7 @@
         android:id="@+id/nameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="はしかん"
+        android:text="匿名"
         android:textColor="@color/light_100"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.33" />
+        app:layout_constraintGuide_percent="0.31" />
 
 
     <androidx.cardview.widget.CardView

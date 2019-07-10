@@ -69,6 +69,4 @@ class PostDialogFragment : DialogFragment() {
 
         return dialog
     }
-
-
 }
