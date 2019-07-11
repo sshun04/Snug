@@ -28,8 +28,6 @@ class SettingActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(R.id.pref_container, PreferenceFragment())
             .commit()
-
-
     }
 
 

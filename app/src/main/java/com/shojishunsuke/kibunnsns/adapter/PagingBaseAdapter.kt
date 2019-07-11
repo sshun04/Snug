@@ -2,10 +2,13 @@ package com.shojishunsuke.kibunnsns.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.model.Post
+import java.text.SimpleDateFormat
+import java.util.*
 
 abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder>(private val posts: MutableList<Post>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    var viewType = 1
     private fun add(post: Post) {
         val position = posts.size
         posts.add(position, post)
@@ -16,5 +19,40 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder>(private val posts
         nextPosts.forEach { add(it) }
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return this.viewType
+    }
+
     override fun getItemCount(): Int = posts.size
+
+    fun formatDate(postedDate: Date): String {
+        val currentDate = Date()
+        val timeDiffInSec = (currentDate.time - postedDate.time) / 1000
+
+        val hourDiff = timeDiffInSec / 3600
+        val minuteDiff = (timeDiffInSec % 3600) / 60
+        val secDiff = timeDiffInSec % 60
+
+        val outPutText = when {
+            timeDiffInSec in 3600 * 24 until 3600 * 48 -> {
+                "昨日"
+            }
+            timeDiffInSec in 3600 until 3600 * 24 -> {
+                "$hourDiff" + "時間前"
+            }
+            timeDiffInSec in 360 until 3600 -> {
+                "$minuteDiff" + "分前"
+            }
+            timeDiffInSec < 360 -> {
+                "$secDiff" + "秒前"
+            }
+            else -> {
+                val formatter = SimpleDateFormat("MM月dd日", Locale.JAPAN)
+                formatter.format(postedDate)
+            }
+
+        }
+        return outPutText
+
+    }
 }

@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="4dp"
-    android:layout_marginHorizontal="2dp"
-    android:layout_marginVertical="4dp"
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/postBaseView"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="12dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -40,6 +40,7 @@
                 android:textStyle="bold" />
 
             <androidx.emoji.widget.EmojiTextView
+                android:id="@+id/activityIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -59,7 +60,7 @@
             android:gravity="left"
             android:text="content"
             android:textColor="@color/dark_87"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
 
         <TextView
@@ -71,9 +72,14 @@
             android:drawableTint="@color/dark_54"
             android:text="昨日"
             android:layout_marginBottom="4dp"
-            android:textColor="@color/dark_54"
-            android:textSize="12sp" />
-
+            android:textColor="@color/dark_54"/>
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:background="@color/dark_12"
+        android:layout_height="1dp"/>
+
 </androidx.cardview.widget.CardView>

@@ -49,12 +49,14 @@ class HomePostsFragment : Fragment() {
 
         view.linear.setOnClickListener {
             recyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+            pagingAdapter.viewType =2
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.scheduleLayoutAnimation()
         }
 
         view.grid.setOnClickListener {
             recyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
+            pagingAdapter.viewType = 1
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.scheduleLayoutAnimation()
         }

@@ -25,7 +25,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.shojishunsuke.kibunnsns.activity.CalendarActivity" />
+        <activity
+            android:name="com.shojishunsuke.kibunnsns.activity.CalendarActivity"
+            android:parentActivityName="com.shojishunsuke.kibunnsns.activity.MainActivity" />
         <activity
             android:name="com.shojishunsuke.kibunnsns.activity.SettingActivity"
             android:parentActivityName="com.shojishunsuke.kibunnsns.activity.MainActivity" />
