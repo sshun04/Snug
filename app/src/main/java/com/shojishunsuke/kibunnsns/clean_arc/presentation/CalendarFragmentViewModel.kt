@@ -14,7 +14,7 @@ class CalendarFragmentViewModel:ViewModel() {
     val postsByDate = MutableLiveData<List<Post>>()
     private val useCase = CalendarFragmentUsecase()
 
-    fun requestPostsByDate(date:Date){
+    fun requestPostsByDate(date:String){
         GlobalScope.launch {
             val posts = useCase.loadPostsByDate(date)
             launch (Dispatchers.IO){

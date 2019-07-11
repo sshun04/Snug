@@ -3,6 +3,7 @@ package com.shojishunsuke.kibunnsns.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.CalendarView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -37,7 +38,8 @@ class CalendarActivity : AppCompatActivity() {
         val calender = findViewById<CalendarView>(R.id.calendarView)
 
         calender.setOnDateChangeListener { calendarView, year, month, day ->
-            viewModel.requestPostsByDate(Date(calendarView.date))
+            val dateString = "${year}/${month+1}/${day}"
+            viewModel.requestPostsByDate(dateString)
         }
 
         this.datePostsRecyclerView.apply {

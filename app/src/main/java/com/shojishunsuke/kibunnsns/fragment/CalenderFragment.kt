@@ -27,7 +27,7 @@ class CalenderFragment : Fragment() {
         val calender = view.findViewById<CalendarView>(R.id.calendarView)
 
         calender.setOnDateChangeListener { calendarView, year, month, day ->
-            viewModel.requestPostsByDate(Date(calendarView.date))
+            viewModel.requestPostsByDate("")
         }
 
         view.datePostsRecyclerView.apply {

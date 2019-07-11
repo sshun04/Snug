@@ -7,7 +7,7 @@ import java.util.*
 class CalendarFragmentUsecase {
     private val fireStoreRepository = FireStoreDatabaseRepository()
 
-   suspend fun loadPostsByDate(date: Date):List<Post>{
+   suspend fun loadPostsByDate(date: String):List<Post>{
       return  fireStoreRepository.loadCollectionsByDate(date)
     }
 }
