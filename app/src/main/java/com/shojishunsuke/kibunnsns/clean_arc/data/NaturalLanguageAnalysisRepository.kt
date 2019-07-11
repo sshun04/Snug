@@ -20,8 +20,6 @@ class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepo
 
     init {
         val apiKey = context.resources.getString(R.string.api_key)
-
-
         naturalLanguageService = CloudNaturalLanguage.Builder(
             AndroidHttp.newCompatibleTransport(), AndroidJsonFactory(), null
         ).setCloudNaturalLanguageRequestInitializer(
@@ -62,9 +60,6 @@ class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepo
         }
 
        return if (sortedList.isNotEmpty())sortedList[0].name else ""
-
-
-
     }
 
 }

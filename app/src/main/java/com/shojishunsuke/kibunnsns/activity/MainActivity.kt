@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         val currentUser = auth.currentUser
         if (currentUser != null) {
-
+            Log.d("Auth is Anonymous","${currentUser.isAnonymous}")
         } else {
             auth.signInAnonymously()
                 .addOnCompleteListener { task ->

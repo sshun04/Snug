@@ -2,7 +2,7 @@ package com.shojishunsuke.kibunnsns.clean_arc.domain
 
 import android.net.Uri
 import androidx.lifecycle.LifecycleOwner
-import com.firebase.ui.firestore.paging.FirestorePagingOptions
+
 import com.shojishunsuke.kibunnsns.clean_arc.data.CloudStorageRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.model.Post

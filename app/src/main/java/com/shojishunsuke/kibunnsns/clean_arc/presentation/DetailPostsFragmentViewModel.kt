@@ -3,7 +3,6 @@ package com.shojishunsuke.kibunnsns.clean_arc.presentation
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.firebase.ui.firestore.paging.FirestorePagingOptions
 import com.shojishunsuke.kibunnsns.clean_arc.domain.DetailPostsFragmentUsecase
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.Dispatchers

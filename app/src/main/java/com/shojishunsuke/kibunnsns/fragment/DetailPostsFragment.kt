@@ -20,6 +20,8 @@ import com.shojishunsuke.kibunnsns.clean_arc.presentation.DetailPostsFragmentVie
 import com.shojishunsuke.kibunnsns.fragment.listener.NestedEndlessScrollListener
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.android.synthetic.main.fragment_detail.view.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DetailPostsFragment : Fragment() {
 
@@ -78,7 +80,9 @@ class DetailPostsFragment : Fragment() {
             .error(R.drawable.defaultback)
             .into(view.selectedUserIcon)
         view.selectedActIcon.text = if (post.actID.isNotBlank()) post.actID else "\uD83D\uDE42"
-        view.selectedDate.text = post.date.toString()
+
+        val formatter = SimpleDateFormat("YYYY年MM月dd日HH時mm分", Locale.JAPAN)
+        view.selectedDate.text = formatter.format(post.date)
         view.selectedContentText.text = post.contentText
 
 

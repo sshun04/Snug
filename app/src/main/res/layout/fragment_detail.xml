@@ -82,7 +82,7 @@
                         android:id="@+id/selectedContentText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginBottom="12dp"
                         android:paddingStart="4dp"
                         android:text="content"
                         android:textColor="@color/dark_87"
@@ -93,9 +93,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/ic_access_time_black_12dp"
-                        android:drawableTint="@color/dark_26"
+                        android:drawableTint="@color/dark_54"
                         android:text="date"
-                        android:textColor="@color/dark_26"
+                        android:textColor="@color/dark_54"
                         android:textSize="12sp" />
 
 
@@ -108,10 +108,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="4dp"
-                android:text="似た投稿"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:text="似ている投稿"
                 android:textSize="16sp" />
 
 

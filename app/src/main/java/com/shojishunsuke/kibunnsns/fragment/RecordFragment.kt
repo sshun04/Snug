@@ -22,9 +22,12 @@ import at.markushi.ui.CircleButton
 import com.bumptech.glide.Glide
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
+import com.shojishunsuke.kibunnsns.activity.CalendarActivity
 import com.shojishunsuke.kibunnsns.activity.SettingActivity
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.RecordFragmentViewModel
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.synthetic.main.fragment_record.*
+import kotlinx.android.synthetic.main.fragment_record.view.*
 
 class RecordFragment : Fragment() {
 
@@ -64,6 +67,10 @@ class RecordFragment : Fragment() {
 
         editNameIcon.setOnClickListener {
             setUpEditNmameDialog(inflater)
+        }
+
+       view.cardViewCalender.setOnClickListener {
+           CalendarActivity.start(requireContext())
         }
         return view
     }

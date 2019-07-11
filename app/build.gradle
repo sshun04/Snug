@@ -74,7 +74,8 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'com.github.markushi:circlebutton:1.1'
 
-    implementation 'com.firebaseui:firebase-ui-firestore:5.0.0'
+    implementation 'com.firebaseui:firebase-ui-auth:5.0.0'
+    implementation 'com.firebaseui:firebase-ui-database:5.0.0'
     implementation 'android.arch.paging:runtime:1.0.1'
 
 

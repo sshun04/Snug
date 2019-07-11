@@ -19,11 +19,11 @@ class PagingRecyclerViewAdapter(
     private val context: Context,
     private var postsList: MutableList<Post> = mutableListOf(),
     private val listener: (Post) -> Unit
-    ) :
-  PagingBaseAdapter<PagingRecyclerViewAdapter.PostsRecyclerViewHolder>(postsList) {
+) :
+    PagingBaseAdapter<PagingRecyclerViewAdapter.PostsRecyclerViewHolder>(postsList) {
 
 
-    override fun onBindViewHolder(holder:RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val post = postsList[position]
         holder as PostsRecyclerViewHolder
         holder.userNameTextView.text = if (post.userName.isNotBlank()) post.userName else "匿名"
@@ -31,10 +31,10 @@ class PagingRecyclerViewAdapter(
         holder.sentiScoreTextView.text = post.sentiScore.toString()
         holder.dateTextView.text = formatDate(post.date)
 
-        if(post.actID.isNotBlank()){
+        if (post.actID.isNotBlank()) {
             holder.activityIcon.visibility = View.VISIBLE
             holder.activityIcon.text = post.actID
-        }else{
+        } else {
             holder.activityIcon.visibility = View.GONE
         }
 

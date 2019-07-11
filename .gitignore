@@ -10,8 +10,7 @@
 .DS_Store
 /build
 /captures
-.externalNativeBuildgi
+.externalNativeBuild
 
 
 
-api_keys.xml

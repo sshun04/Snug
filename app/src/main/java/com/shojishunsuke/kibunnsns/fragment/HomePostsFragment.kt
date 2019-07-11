@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.adapter.PagingRecyclerViewAdapter
-import com.shojishunsuke.kibunnsns.fragment.listener.EndlessScrollListener
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.HomeFragmentViewModel
+import com.shojishunsuke.kibunnsns.fragment.listener.EndlessScrollListener
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.android.synthetic.main.fragment_home_posts.view.*
 
@@ -25,8 +25,8 @@ class HomePostsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home_posts, container, false)
 
-         viewModel =
-            requireActivity().run { ViewModelProviders.of(this).get(HomeFragmentViewModel::class.java) }
+        viewModel =
+           this.run { ViewModelProviders.of(this).get(HomeFragmentViewModel::class.java) }
 
         val progressBar = view.progressBar.apply {
             max = 100
@@ -37,7 +37,7 @@ class HomePostsFragment : Fragment() {
         val scrollListener = EndlessScrollListener(stagLayoutManager) {
             viewModel.requestNextPosts()
         }
-        val pagingAdapter = PagingRecyclerViewAdapter(requireContext()){
+        val pagingAdapter = PagingRecyclerViewAdapter(requireContext()) {
             setUpDetailFragment(it)
         }
         val recyclerView = view.postsRecyclerView.apply {
@@ -59,19 +59,18 @@ class HomePostsFragment : Fragment() {
             recyclerView.scheduleLayoutAnimation()
         }
 
-
         viewModel.nextPosts.observe(this, Observer {
             progressBar.visibility = View.GONE
             pagingAdapter.addNextCollection(it)
+
         })
 
         return view
     }
 
-
     override fun onStart() {
         super.onStart()
-        viewModel.reflesh()
+        viewModel.refresh()
     }
 
     private fun setUpDetailFragment(post: Post) {
