@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.CalendarView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,13 +18,13 @@ import java.util.*
 
 class CalendarActivity : AppCompatActivity() {
 
-    companion object{
-        fun start(context: Context){
+    companion object {
+        fun start(context: Context) {
             context.startActivity(createIntent(context))
         }
 
-        private fun createIntent(context: Context):Intent{
-            return Intent(context,CalendarActivity::class.java)
+        private fun createIntent(context: Context): Intent {
+            return Intent(context, CalendarActivity::class.java)
         }
     }
 
@@ -43,7 +44,7 @@ class CalendarActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@CalendarActivity, RecyclerView.VERTICAL, false)
         }
 
-        viewModel.postsByDate.observe(this, androidx.lifecycle.Observer {
+        viewModel.postsByDate.observe(this, Observer {
             this.datePostsRecyclerView.adapter =
                 PagingRecyclerViewAdapter(this, it as MutableList<Post>, {})
         })
