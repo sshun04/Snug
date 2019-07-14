@@ -1,6 +1,7 @@
 package com.shojishunsuke.kibunnsns.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,8 +37,11 @@ class CalenderFragment : Fragment() {
 
         viewModel.postsByDate.observe(this, androidx.lifecycle.Observer {
             view.datePostsRecyclerView.adapter =
-                PagingRecyclerViewAdapter(requireContext(), it as MutableList<Post>, {})
+                PagingRecyclerViewAdapter(requireContext(), {}).apply {
+                    addNextCollection(it)
+                }
         })
+
 
         return view
     }

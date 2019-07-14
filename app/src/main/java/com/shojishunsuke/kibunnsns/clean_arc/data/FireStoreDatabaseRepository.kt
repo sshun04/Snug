@@ -69,7 +69,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         return results
     }
 
-    suspend fun loadCollectionsByDate(date:String):List<Post>{
+    suspend fun loadOwnCollectionsByDate(userId:String, date:String):List<Post>{
 
         val dateStart = "${date} 00:00:00"
         val dateEnd  = "${date} 23:59:59"
@@ -78,6 +78,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
 
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
+            .whereEqualTo("userId",userId)
             .orderBy("date",Query.Direction.DESCENDING)
             .startAt(sdf.parse(dateEnd))
             .endAt(sdf.parse(dateStart))

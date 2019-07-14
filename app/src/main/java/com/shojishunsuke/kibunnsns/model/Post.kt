@@ -11,6 +11,7 @@ import java.util.*
 
 @IgnoreExtraProperties
 data class Post(
+    val postId:String = UUID.randomUUID().toString(),
     val userId :String = "",
     var userName:String = "",
     val iconPhotoLink :String = "",

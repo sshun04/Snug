@@ -1183,6 +1183,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable anonymous_person
 drawable avd_hide_password
 drawable avd_show_password
 drawable bottom_navigation_colors
@@ -1246,6 +1247,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_person_black_24dp
 drawable ic_photo_camera_black_24dp
+drawable ic_today_black_24dp
 drawable icon_setting_24
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
@@ -1266,6 +1268,7 @@ drawable preference_list_divider_material
 drawable shape
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable usericon_default
 id ALT
 id CTRL
 id FUNCTION
@@ -1434,6 +1437,7 @@ id fill_horizontal
 id fill_vertical
 id filled
 id fixed
+id focusTodayButton
 id forever
 id fragment_phone
 id fragment_register_email
@@ -1571,6 +1575,7 @@ id showHome
 id showTitle
 id sign_in_email_sent_header_text
 id sign_in_email_sent_text
+id simpleDateTextView
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -1749,6 +1754,8 @@ layout input_method_extract_view
 layout item_emoji
 layout item_post
 layout item_post_linear
+layout item_post_record
+layout item_post_vertical
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action

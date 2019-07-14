@@ -25,7 +25,7 @@
                 android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="4dp"
-                android:src="@color/colorPrimary" />
+                android:src="@drawable/anonymous_person" />
 
             <TextView
                 android:id="@+id/userName"
@@ -59,7 +59,7 @@
             android:layout_marginBottom="8dp"
             android:gravity="left"
             android:text="content"
-            android:textColor="@color/dark_87"
+            android:textColor="@color/dark_54"
             android:textSize="20sp" />
 
 
@@ -80,6 +80,7 @@
         android:layout_width="match_parent"
         android:layout_gravity="bottom"
         android:background="@color/dark_12"
+        android:layout_marginHorizontal="8dp"
         android:layout_height="1dp"/>
 
 </androidx.cardview.widget.CardView>

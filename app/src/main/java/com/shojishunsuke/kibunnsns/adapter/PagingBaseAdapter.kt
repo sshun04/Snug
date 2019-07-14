@@ -5,8 +5,19 @@ import com.shojishunsuke.kibunnsns.model.Post
 import java.text.SimpleDateFormat
 import java.util.*
 
-abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder>(private val posts: MutableList<Post>) :
+abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder>() :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    //    private val Diff_CALLBACK = object : DiffUtil.ItemCallback<Post>(){
+//        override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean {
+//           return oldItem == newItem
+//        }
+//
+//        override fun areItemsTheSame(oldItem: Post, newItem: Post): Boolean {
+//            return oldItem.postId == newItem.postId
+//        }
+//    }
+    val posts = mutableListOf<Post>()
 
     var viewType = 1
     private fun add(post: Post) {
@@ -55,4 +66,19 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder>(private val posts
         return outPutText
 
     }
+
+    fun takeTimeFromDate(date: Date): String {
+        val formatter = SimpleDateFormat("HH:mm", Locale.JAPAN)
+        return formatter.format(date)
+    }
+
+    fun getAppropriateIconFromSentiScore(sentiScore: Float): String {
+        return when {
+            sentiScore > 0.4f -> "\uD83D\uDE01"
+            sentiScore <= 0.4f && sentiScore >= -0.4f -> "\uD83D\uDE10"
+            sentiScore < -0.4f -> "☹️"
+            else -> "\uD83D\uDE10"
+        }
+    }
+
 }

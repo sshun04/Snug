@@ -129,6 +129,12 @@
         app:layout_constraintStart_toStartOf="@id/cardViw1"
         app:layout_constraintTop_toBottomOf="@id/cardViw1">
 
+        <TextView
+            android:text="過去の投稿を見る"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -142,6 +148,7 @@
         app:layout_constraintEnd_toEndOf="@id/cardViw1"
         app:layout_constraintStart_toStartOf="@id/cardViw1"
         app:layout_constraintTop_toBottomOf="@id/cardViewCalender">
+
 
     </androidx.cardview.widget.CardView>
 

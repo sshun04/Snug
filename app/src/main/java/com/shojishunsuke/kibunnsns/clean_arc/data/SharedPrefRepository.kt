@@ -38,11 +38,13 @@ class SharedPrefRepository(context: Context) : DataConfigRepository {
 
     override fun updateCollection(value: String) {
 
-        val editor = sharedPreferences.edit()
+        if (value.isNotBlank()) {
+            val editor = sharedPreferences.edit()
 //        同じオブジェクトの比較だと保存してくれないのでコピーする
-        val latestCollection = sharedPreferences.getStringSet(key_collection, mutableSetOf()).toMutableSet()
-        latestCollection.add(value)
-        editor.putStringSet(key_collection, latestCollection)
-        editor.apply()
+            val latestCollection = sharedPreferences.getStringSet(key_collection, mutableSetOf()).toMutableSet()
+            latestCollection.add(value)
+            editor.putStringSet(key_collection, latestCollection)
+            editor.apply()
+        }
     }
 }
