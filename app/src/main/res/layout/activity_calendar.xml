@@ -79,7 +79,6 @@
                     android:layout_height="wrap_content"
                     android:text="さらに表示"
                     android:textColor="@color/dark_54"
-
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

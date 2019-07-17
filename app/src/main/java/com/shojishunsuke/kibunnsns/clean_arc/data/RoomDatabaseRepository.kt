@@ -41,7 +41,7 @@ import com.shojishunsuke.kibunnsns.model.User
 //
 //    }
 //
-//    override suspend fun loadNextSortedCollection(basePost: Post, startPoint: Float, endPoint: Float): List<Post> {
+//    override suspend fun loadSortedNextCollection(basePost: Post, startPoint: Float, endPoint: Float): List<Post> {
 //
 //    }
 //

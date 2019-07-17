@@ -31,12 +31,33 @@ class FireStoreDatabaseRepository : DataBaseRepository {
     }
 
 
-   override suspend fun loadNextSortedCollection(basePost: Post, startPoint: Float, endPoint: Float): List<Post> {
+   override suspend fun loadSortedNextCollection(basePost: Post): List<Post> {
+
+        val querySnapshot = dataBase.collection(COLLECTION_PATH)
+            .whereEqualTo("actID",basePost.actID)
+            .orderBy("sentiScore", Query.Direction.ASCENDING)
+            .orderBy("date",Query.Direction.DESCENDING)
+            .startAfter(basePost.sentiScore,basePost.date)
+            .limit(12)
+            .get()
+            .await()
+
+        val results = ArrayList<Post>()
+
+        querySnapshot.forEach {
+            val post = it.toObject(Post::class.java)
+            results.add(post)
+        }
+
+        return results
+    }
+
+    suspend fun loadWideRangeNextCollection(post: Post):List<Post>{
 
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .orderBy("sentiScore", Query.Direction.ASCENDING)
             .orderBy("date",Query.Direction.DESCENDING)
-            .startAfter(basePost.sentiScore,basePost.date)
+            .startAfter(post.sentiScore,post.date)
             .limit(12)
             .get()
             .await()
@@ -95,14 +116,4 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         return results
     }
 
-    private suspend fun queryToList(querySnapshot: QuerySnapshot):List<Post>{
-        val results = ArrayList<Post>()
-
-        querySnapshot.forEach {
-            val post = it.toObject(Post::class.java)
-            results.add(post)
-        }
-
-        return results
-    }
 }

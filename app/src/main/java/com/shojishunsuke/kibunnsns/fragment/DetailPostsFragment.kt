@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.adapter.PagingRecyclerViewAdapter
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.DetailPostsFragmentViewModel
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.DetailPostsFragmentViewModelFactory
 import com.shojishunsuke.kibunnsns.fragment.listener.NestedEndlessScrollListener
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.android.synthetic.main.fragment_detail.view.*
@@ -70,7 +71,7 @@ class DetailPostsFragment : Fragment() {
         val post = arguments?.getSerializable(EXTRA_POST) as Post
 
         val viewModel = this.run {
-            ViewModelProviders.of(this).get(DetailPostsFragmentViewModel::class.java)
+            ViewModelProviders.of(this,DetailPostsFragmentViewModelFactory(post)).get(DetailPostsFragmentViewModel::class.java)
         }
 
         view.selectedUserName.text = if (post.userName.isNotBlank()) post.userName else "匿名"
@@ -98,11 +99,10 @@ class DetailPostsFragment : Fragment() {
 
         val endlessScrollListener =
             NestedEndlessScrollListener(stagLayoutManager, recyclerView) {
-                viewModel.requestNextPosts(post)
+                viewModel.requestNextPosts()
             }
         view.nestedScrollView.setOnScrollChangeListener(endlessScrollListener)
 
-        viewModel.requestNextPosts(post)
         viewModel.nextPosts.observe(this, Observer {
             pagingAdapter.addNextCollection(it)
         })
