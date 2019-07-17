@@ -49,7 +49,7 @@ class DetailPostsFragment : Fragment() {
             fragmentManager.beginTransaction().also {
                 it.add(R.id.rootFragment, getInstance(post))
                     .setCustomAnimations(R.anim.slide_from_right, R.anim.slide_to_left)
-                    .addToBackStack(null)
+                    .addToBackStack("detail")
                     .commit()
             }
         }
@@ -71,7 +71,14 @@ class DetailPostsFragment : Fragment() {
         val post = arguments?.getSerializable(EXTRA_POST) as Post
 
         val viewModel = this.run {
-            ViewModelProviders.of(this,DetailPostsFragmentViewModelFactory(post)).get(DetailPostsFragmentViewModel::class.java)
+            ViewModelProviders.of(this, DetailPostsFragmentViewModelFactory(post))
+                .get(DetailPostsFragmentViewModel::class.java)
+        }
+
+        view.detailFragmentToolbar.setNavigationOnClickListener {
+            for (i in 0 until requireFragmentManager().backStackEntryCount) {
+                requireFragmentManager().popBackStack()
+            }
         }
 
         view.selectedUserName.text = if (post.userName.isNotBlank()) post.userName else "匿名"

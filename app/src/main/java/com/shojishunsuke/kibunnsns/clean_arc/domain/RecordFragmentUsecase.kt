@@ -23,7 +23,7 @@ class RecordFragmentUsecase(uploadListener: CloudStorageRepository.ImageUploadLi
         }
     }
 
-    suspend fun saveLocalPhotoUri(uri: Uri)  = runBlocking{
+    suspend fun saveLocalPhotoUri(uri: Uri){
         userInfoRepository.updateUserPhoto(uri)
     }
 

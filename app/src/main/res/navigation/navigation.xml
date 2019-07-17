@@ -24,4 +24,25 @@
         tools:layout="@layout/fragment_record" />
 
 
+    <custom_fragment
+        android:id="@+id/detailFragment"
+        android:name="com.shojishunsuke.kibunnsns.fragment.DetailPostsFragment"
+        android:label="DetailPostsFragment"
+        tools:layout="@layout/fragment_detail">
+
+        <action
+            android:id="@+id/action_detailFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+
+    </custom_fragment>
+
+
+
+
+
+
+
+
+
+
 </navigation>

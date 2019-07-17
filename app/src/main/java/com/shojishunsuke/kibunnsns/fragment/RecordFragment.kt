@@ -26,7 +26,6 @@ import com.shojishunsuke.kibunnsns.activity.CalendarActivity
 import com.shojishunsuke.kibunnsns.activity.SettingActivity
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.RecordFragmentViewModel
 import de.hdodenhof.circleimageview.CircleImageView
-import kotlinx.android.synthetic.main.fragment_record.*
 import kotlinx.android.synthetic.main.fragment_record.view.*
 
 class RecordFragment : Fragment() {
@@ -66,7 +65,7 @@ class RecordFragment : Fragment() {
         })
 
         editNameIcon.setOnClickListener {
-            setUpEditNmameDialog(inflater)
+            setUpEditNameDialog(inflater)
         }
 
        view.cardViewCalender.setOnClickListener {
@@ -102,9 +101,11 @@ class RecordFragment : Fragment() {
 
     }
 
-    private fun setUpEditNmameDialog(inflater: LayoutInflater) {
+    private fun setUpEditNameDialog(inflater: LayoutInflater) {
         val parentView = inflater.inflate(R.layout.fragment_dialog_edit_name, null)
         val editText = parentView.findViewById<EditText>(R.id.editNickNameEditText)
+
+        editText.setText(viewModel.userName.value)
 
         val editDialog = AlertDialog.Builder(requireContext())
             .setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->

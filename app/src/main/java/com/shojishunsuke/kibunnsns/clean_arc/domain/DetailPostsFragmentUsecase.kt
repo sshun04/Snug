@@ -30,10 +30,10 @@ class DetailPostsFragmentUsecase(basePost: Post) {
         if (sortRange == 0) {
             val sameActCollection = loadSameActCollection()
             result.addAll(sameActCollection)
-            result.shuffle()
         }
 
-        return result
+
+        return result.shuffled()
     }
 
     private suspend fun loadWideRangeCollection(): List<Post> {
