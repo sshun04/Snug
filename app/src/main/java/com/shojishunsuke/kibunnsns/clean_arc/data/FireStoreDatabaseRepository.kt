@@ -72,6 +72,43 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         return results
     }
 
+    suspend fun loadPositivePostsOnly(previousPost: Post):List<Post>{
+        val querySnapshot = dataBase.collection(COLLECTION_PATH)
+            .orderBy("date",Query.Direction.DESCENDING)
+            .startAfter(previousPost.date)
+            .limit(20)
+            .get()
+            .await()
+
+        val results = ArrayList<Post>()
+
+        querySnapshot.forEach {
+            val post = it.toObject(Post::class.java)
+            if (post.sentiScore >= -0.35f) results.add(post)
+        }
+
+        return results
+    }
+
+    suspend fun loadFromWholePosts(previousPost: Post):List<Post>{
+        val querySnapshot = dataBase.collection(COLLECTION_PATH)
+            .orderBy("date",Query.Direction.DESCENDING)
+            .startAfter(previousPost.date)
+            .limit(12)
+            .get()
+            .await()
+
+        val results = ArrayList<Post>()
+
+        querySnapshot.forEach {
+            val post = it.toObject(Post::class.java)
+            results.add(post)
+        }
+
+        return results
+    }
+
+
     override suspend fun loadDefaultCollection(previousPost: Post):List<Post>{
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .orderBy("date",Query.Direction.DESCENDING)

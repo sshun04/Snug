@@ -12,10 +12,10 @@ class HomeFragmentViewModel : ViewModel() {
     private val useCase = HomePostsFragmentUseCase()
     val nextPosts = MutableLiveData<MutableList<Post>>()
     private var previousPost: Post? = null
-    private var showNegativeOrNot = false
+    private var showNegative = false
 
     init {
-        requestFilteredPost(showNegativeOrNot)
+        requestNextPosts()
     }
 
     fun onScrollBottom() {
@@ -24,7 +24,7 @@ class HomeFragmentViewModel : ViewModel() {
 
     private fun requestNextPosts() {
         GlobalScope.launch {
-            val posts = useCase.load16items(previousPost)
+            val posts = useCase.load16items(showNegative, previousPost)
             if (posts.isNotEmpty()) previousPost = posts.last()
 
             posts as MutableList<Post>
@@ -36,22 +36,14 @@ class HomeFragmentViewModel : ViewModel() {
 
     fun onSortChanged(showNegative: Boolean, listener: () -> Unit) {
         listener()
-        showNegativeOrNot = showNegative
-        requestFilteredPost(showNegativeOrNot)
+        this.showNegative = showNegative
+        refresh()
     }
 
-    private fun requestFilteredPost(showNegative: Boolean) {
-        GlobalScope.launch {
-            val posts = useCase.loadFilteredPost(showNegative) as MutableList<Post>
-            if (posts.isNotEmpty()) previousPost = posts.last()
-            launch(Dispatchers.IO) { nextPosts.postValue(posts) }
-        }
-
-    }
 
     fun refresh() {
         previousPost = null
         nextPosts.value?.clear()
-        requestFilteredPost(showNegativeOrNot)
+        requestNextPosts()
     }
 }

@@ -12,17 +12,13 @@ class HomePostsFragmentUseCase : CloudStorageRepository.ImageUploadListener {
 
     override suspend fun onUploadTaskComplete(result: Uri) {}
 
-    suspend fun load16items(post: Post?): List<Post> {
+    suspend fun load16items(showNegative: Boolean, post: Post?): List<Post> {
         val previousPost = post ?: Post(date = Date())
-        return fireStoreRepository.loadWideRangeNextCollection(previousPost)
-    }
-
-    suspend fun loadFilteredPost(showNegative: Boolean): List<Post> {
-        val baseSentiScore = if (showNegative) -1.0f else -0.3f
-        val basePost = Post(sentiScore = baseSentiScore)
-
-        return fireStoreRepository.loadWideRangeNextCollection(basePost)
+        return if (showNegative) fireStoreRepository.loadFromWholePosts(previousPost)
+        else fireStoreRepository.loadPositivePostsOnly(previousPost)
 
     }
+
+
 
 }

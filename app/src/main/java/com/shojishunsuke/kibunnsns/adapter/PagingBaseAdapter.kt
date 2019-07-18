@@ -8,15 +8,6 @@ import java.util.*
 abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder>() :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    //    private val Diff_CALLBACK = object : DiffUtil.ItemCallback<Post>(){
-//        override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean {
-//           return oldItem == newItem
-//        }
-//
-//        override fun areItemsTheSame(oldItem: Post, newItem: Post): Boolean {
-//            return oldItem.postId == newItem.postId
-//        }
-//    }
     val posts = mutableListOf<Post>()
 
     var viewType = 1
