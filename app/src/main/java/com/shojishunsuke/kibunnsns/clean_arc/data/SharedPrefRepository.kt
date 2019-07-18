@@ -24,25 +24,26 @@ class SharedPrefRepository(context: Context) : DataConfigRepository {
     }
 
     override fun getLatestCollection(): List<String> {
-        val savedCollection = sharedPreferences.getStringSet(key_collection, mutableSetOf())
-
-        return if (savedCollection.isNotEmpty()) savedCollection.toList() else mutableListOf(
+        val savedCollection = sharedPreferences.getStringSet(key_collection, mutableSetOf())?: mutableSetOf()
+        val defaultList = mutableListOf(
             "\uD83C\uDFC0",
             "\uD83C\uDFD0",
             "\uD83C\uDFC8",
             "\uD83C\uDFC9",
             "\uD83C\uDFBE"
         )
+
+        return if (savedCollection.isNotEmpty()) savedCollection.toList() else defaultList
     }
 
 
-    override fun updateCollection(value: String) {
+    override fun updateCollection(currentValue: String) {
 
-        if (value.isNotBlank()) {
+        if (currentValue.isNotBlank()) {
             val editor = sharedPreferences.edit()
 //        同じオブジェクトの比較だと保存してくれないのでコピーする
-            val latestCollection = sharedPreferences.getStringSet(key_collection, mutableSetOf()).toMutableSet()
-            latestCollection.add(value)
+            val latestCollection = sharedPreferences.getStringSet(key_collection, mutableSetOf())?.toMutableSet()
+            latestCollection?.add(currentValue)
             editor.putStringSet(key_collection, latestCollection)
             editor.apply()
         }

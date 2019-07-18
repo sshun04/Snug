@@ -1,14 +1,9 @@
 package com.shojishunsuke.kibunnsns.clean_arc.data
 
-import androidx.lifecycle.LifecycleOwner
-import androidx.paging.PagedList
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.QuerySnapshot
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataBaseRepository
-import com.shojishunsuke.kibunnsns.clean_arc.utils.DateTimeConverter
 import com.shojishunsuke.kibunnsns.model.Post
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.tasks.await
 import java.text.SimpleDateFormat
 import java.util.*
@@ -65,8 +60,8 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         val results = ArrayList<Post>()
 
         querySnapshot.forEach {
-            val post = it.toObject(Post::class.java)
-            results.add(post)
+            val result = it.toObject(Post::class.java)
+            results.add(result)
         }
 
         return results
@@ -90,14 +85,13 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         return results
     }
 
-    suspend fun loadFromWholePosts(previousPost: Post):List<Post>{
+    override suspend fun loadFollowingCollection(previousPost: Post): List<Post> {
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .orderBy("date",Query.Direction.DESCENDING)
             .startAfter(previousPost.date)
             .limit(12)
             .get()
             .await()
-
         val results = ArrayList<Post>()
 
         querySnapshot.forEach {
@@ -109,23 +103,6 @@ class FireStoreDatabaseRepository : DataBaseRepository {
     }
 
 
-    override suspend fun loadDefaultCollection(previousPost: Post):List<Post>{
-        val querySnapshot = dataBase.collection(COLLECTION_PATH)
-            .orderBy("date",Query.Direction.DESCENDING)
-            .startAfter(previousPost.date)
-            .limit(16)
-            .get()
-            .await()
-
-        val results = ArrayList<Post>()
-
-        querySnapshot.forEach {
-            val post = it.toObject(Post::class.java)
-            results.add(post)
-        }
-
-        return results
-    }
 
     suspend fun loadOwnCollectionsByDate(userId:String, date:String):List<Post>{
 

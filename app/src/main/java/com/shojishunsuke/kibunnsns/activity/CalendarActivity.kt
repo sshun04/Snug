@@ -39,8 +39,8 @@ class CalendarActivity : AppCompatActivity() {
         val viewModel = this.run { ViewModelProviders.of(this).get(CalendarFragmentViewModel::class.java) }
 
         calendarView.apply {
-            setOnDateChangeListener { calendarView, year, month, date ->
-                val dateString = "${year}/${month + 1}/${date}"
+            setOnDateChangeListener { _, year, month, date ->
+                val dateString = "$year/${month + 1}/$date"
                 viewModel.requestPostsByDate(dateString)
                 simpleDateTextView.text = "${month + 1}月${date}日"
             }

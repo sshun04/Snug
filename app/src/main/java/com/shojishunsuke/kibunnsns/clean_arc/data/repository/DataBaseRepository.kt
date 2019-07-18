@@ -5,5 +5,5 @@ import com.shojishunsuke.kibunnsns.model.Post
 interface DataBaseRepository {
     suspend fun savePost(post: Post)
     suspend fun loadSortedNextCollection(basePost: Post): List<Post>
-    suspend fun loadDefaultCollection(previousPost: Post): List<Post>
+    suspend fun loadFollowingCollection(previousPost: Post): List<Post>
 }

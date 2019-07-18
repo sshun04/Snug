@@ -42,7 +42,6 @@ class CalenderFragment : Fragment() {
                 }
         })
 
-
         return view
     }
 }
