@@ -37,7 +37,7 @@ import com.shojishunsuke.kibunnsns.model.User
 //        return dao.findAll()
 //    }
 //
-//    override suspend fun loadFollowingCollection(previousPost: Post): List<Post> {
+//    override suspend fun loadDefaultCollection(previousPost: Post): List<Post> {
 //
 //    }
 //

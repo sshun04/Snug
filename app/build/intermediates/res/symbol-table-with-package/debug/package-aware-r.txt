@@ -1247,6 +1247,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_person_black_24dp
 drawable ic_photo_camera_black_24dp
+drawable ic_search_black_24dp
 drawable ic_today_black_24dp
 drawable icon_setting_24
 drawable mtrl_snackbar_background
@@ -1499,6 +1500,7 @@ id navigation
 id navigation_header_container
 id navigation_home
 id navigation_second
+id negativeSwitch
 id nestedScrollView
 id never
 id nonExistent

@@ -1,8 +1,6 @@
 package com.shojishunsuke.kibunnsns.clean_arc.domain
 
 import android.net.Uri
-import androidx.lifecycle.LifecycleOwner
-
 import com.shojishunsuke.kibunnsns.clean_arc.data.CloudStorageRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.model.Post
@@ -16,7 +14,15 @@ class HomePostsFragmentUseCase : CloudStorageRepository.ImageUploadListener {
 
     suspend fun load16items(post: Post?): List<Post> {
         val previousPost = post ?: Post(date = Date())
-        return fireStoreRepository.loadFollowingCollection(previousPost)
+        return fireStoreRepository.loadWideRangeNextCollection(previousPost)
+    }
+
+    suspend fun loadFilteredPost(showNegative: Boolean): List<Post> {
+        val baseSentiScore = if (showNegative) -1.0f else -0.3f
+        val basePost = Post(sentiScore = baseSentiScore)
+
+        return fireStoreRepository.loadWideRangeNextCollection(basePost)
+
     }
 
 }

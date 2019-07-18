@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment_home_posts.view.*
 class HomePostsFragment : Fragment() {
 
     lateinit var viewModel: HomeFragmentViewModel
+    lateinit var pagingAdapter:PagingRecyclerViewAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home_posts, container, false)
@@ -35,9 +36,9 @@ class HomePostsFragment : Fragment() {
 
         val stagLayoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         val scrollListener = EndlessScrollListener(stagLayoutManager) {
-            viewModel.requestNextPosts()
+            viewModel.onScrollBottom()
         }
-        val pagingAdapter = PagingRecyclerViewAdapter(requireContext()) {
+        pagingAdapter = PagingRecyclerViewAdapter(requireContext()) {
             setUpDetailFragment(it)
         }
         val recyclerView = view.postsRecyclerView.apply {
@@ -61,10 +62,15 @@ class HomePostsFragment : Fragment() {
             recyclerView.scheduleLayoutAnimation()
         }
 
+        view.negativeSwitch.setOnCheckedChangeListener { _, boolean ->
+            viewModel.onSortChanged(boolean){
+                pagingAdapter.clear()
+            }
+        }
+
         viewModel.nextPosts.observe(this, Observer {
             progressBar.visibility = View.GONE
             pagingAdapter.addNextCollection(it)
-
         })
 
         return view
@@ -72,6 +78,7 @@ class HomePostsFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        pagingAdapter.clear()
         viewModel.refresh()
     }
 

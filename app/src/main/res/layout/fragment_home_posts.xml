@@ -16,6 +16,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Switch
+        android:checked="false"
+        android:id="@+id/negativeSwitch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/negativeSwitch"
+        app:layout_constraintTop_toTopOf="@id/negativeSwitch"
+        android:text="ネガティブな投稿も表示"
+        app:layout_constraintBottom_toBottomOf="@id/negativeSwitch"
+        android:layout_height="wrap_content" />
+
+
+    <LinearLayout
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_height="36dp">
+
+        <TextView
+            android:drawableStart="@drawable/ic_search_black_24dp"
+            android:text="ソート"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/headerGroup"
         android:gravity="end"

@@ -72,7 +72,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         return results
     }
 
-    override suspend fun loadFollowingCollection(previousPost: Post):List<Post>{
+    override suspend fun loadDefaultCollection(previousPost: Post):List<Post>{
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .orderBy("date",Query.Direction.DESCENDING)
             .startAfter(previousPost.date)

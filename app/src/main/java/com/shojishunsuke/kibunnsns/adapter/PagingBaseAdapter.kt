@@ -26,8 +26,14 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder>() :
         notifyItemInserted(position)
     }
 
+
     fun addNextCollection(nextPosts: List<Post>) {
         nextPosts.forEach { add(it) }
+    }
+
+    fun clear() {
+        posts.clear()
+        notifyDataSetChanged()
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -36,7 +42,7 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder>() :
 
     override fun getItemCount(): Int = posts.size
 
-    fun formatDate(postedDate: Date): String {
+   protected fun formatDate(postedDate: Date): String {
         val currentDate = Date()
         val timeDiffInSec = (currentDate.time - postedDate.time) / 1000
 
@@ -67,12 +73,12 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder>() :
 
     }
 
-    fun takeTimeFromDate(date: Date): String {
+    protected fun takeTimeFromDate(date: Date): String {
         val formatter = SimpleDateFormat("HH:mm", Locale.JAPAN)
         return formatter.format(date)
     }
 
-    fun getAppropriateIconFromSentiScore(sentiScore: Float): String {
+   protected fun getAppropriateIconFromSentiScore(sentiScore: Float): String {
         return when {
             sentiScore > 0.4f -> "\uD83D\uDE01"
             sentiScore <= 0.4f && sentiScore >= -0.4f -> "\uD83D\uDE10"
