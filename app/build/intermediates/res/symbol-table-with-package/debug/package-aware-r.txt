@@ -1234,6 +1234,7 @@ drawable hasikan
 drawable ic_access_time_black_12dp
 drawable ic_arrow_down_24dp
 drawable ic_btn_left
+drawable ic_check_black_24dp
 drawable ic_close_black_24dp
 drawable ic_dashboard_black_24dp
 drawable ic_done_black_24dp
@@ -1406,6 +1407,7 @@ id design_navigation_view
 id detailFragment
 id detailFragmentToolbar
 id detailPostsRecyclerView
+id dialogToolbar
 id dialog_button
 id dimensions
 id direct
@@ -1523,7 +1525,6 @@ id phone_layout
 id phone_number
 id pin
 id postBaseView
-id postButton
 id postsRecyclerView
 id pref_container
 id progressBar
@@ -1625,7 +1626,6 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggleButton
-id toolbar
 id top
 id topPanel
 id top_level_view
@@ -1705,6 +1705,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_calendar
+layout activity_chart
 layout activity_main
 layout activity_setting
 layout browser_actions_context_menu_page

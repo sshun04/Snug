@@ -11,6 +11,7 @@ class NestedEndlessScrollListener(
     private val onLoadMoreListener: () -> Unit
 ) : NestedScrollView.OnScrollChangeListener {
 
+
     override fun onScrollChange(v: NestedScrollView?, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
 
         val totalItemCount = layoutManager.itemCount
@@ -27,6 +28,7 @@ class NestedEndlessScrollListener(
                 recyclerView.post {
                     onLoadMoreListener()
                 }
+
             }
         }
     }

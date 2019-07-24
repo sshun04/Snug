@@ -26,6 +26,8 @@ import java.util.*
 
 class DetailPostsFragment : Fragment() {
 
+    private var isLoading = false
+
     companion object {
         private const val EXTRA_POST = "post"
 
@@ -106,12 +108,16 @@ class DetailPostsFragment : Fragment() {
 
         val endlessScrollListener =
             NestedEndlessScrollListener(stagLayoutManager, recyclerView) {
-                viewModel.requestNextPosts()
+                if (!isLoading) {
+                    isLoading = true
+                    viewModel.requestNextPosts()
+                }
             }
         view.nestedScrollView.setOnScrollChangeListener(endlessScrollListener)
 
         viewModel.nextPosts.observe(this, Observer {
             pagingAdapter.addNextCollection(it)
+            isLoading = false
         })
 
         return view

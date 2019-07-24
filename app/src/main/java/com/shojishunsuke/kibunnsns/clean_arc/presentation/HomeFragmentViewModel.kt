@@ -15,6 +15,10 @@ class HomeFragmentViewModel : ViewModel() {
     private var hideNegative = true
 
 
+    init {
+        requestNextPosts()
+    }
+
     fun onScrollBottom() {
         requestNextPosts()
     }
@@ -41,6 +45,6 @@ class HomeFragmentViewModel : ViewModel() {
     fun refresh() {
         previousPost = null
         nextPosts.value?.clear()
-        requestNextPosts()
+//        requestNextPosts()
     }
 }

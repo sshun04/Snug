@@ -21,13 +21,14 @@ import kotlinx.android.synthetic.main.fragment_home_posts.view.*
 class HomePostsFragment : Fragment() {
 
     lateinit var viewModel: HomeFragmentViewModel
-    lateinit var pagingAdapter:PagingRecyclerViewAdapter
+    lateinit var pagingAdapter: PagingRecyclerViewAdapter
+    private var isLoading = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home_posts, container, false)
 
         viewModel =
-           this.run { ViewModelProviders.of(this).get(HomeFragmentViewModel::class.java) }
+            this.run { ViewModelProviders.of(this).get(HomeFragmentViewModel::class.java) }
 
         val progressBar = view.progressBar.apply {
             max = 100
@@ -36,7 +37,11 @@ class HomePostsFragment : Fragment() {
 
         val stagLayoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         val scrollListener = EndlessScrollListener(stagLayoutManager) {
-            viewModel.onScrollBottom()
+            if (!isLoading) {
+                isLoading = true
+                viewModel.onScrollBottom()
+            }
+
         }
         pagingAdapter = PagingRecyclerViewAdapter(requireContext()) {
             setUpDetailFragment(it)
@@ -50,7 +55,7 @@ class HomePostsFragment : Fragment() {
 
         view.linear.setOnClickListener {
             recyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-            pagingAdapter.viewType =2
+            pagingAdapter.viewType = 2
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.scheduleLayoutAnimation()
         }
@@ -63,7 +68,7 @@ class HomePostsFragment : Fragment() {
         }
 
         view.negativeSwitch.setOnCheckedChangeListener { _, boolean ->
-            viewModel.onSortChanged(boolean){
+            viewModel.onSortChanged(boolean) {
                 pagingAdapter.clear()
             }
         }
@@ -71,14 +76,15 @@ class HomePostsFragment : Fragment() {
         viewModel.nextPosts.observe(this, Observer {
             progressBar.visibility = View.GONE
             pagingAdapter.addNextCollection(it)
+            isLoading = false
         })
 
         return view
     }
 
-    override fun onStart() {
-        super.onStart()
-        pagingAdapter.clear()
+    override fun onResume() {
+        super.onResume()
+//        pagingAdapter.clear()
         viewModel.refresh()
     }
 

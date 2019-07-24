@@ -117,27 +117,27 @@ class PagingRecyclerViewAdapter(
     }
 
     inner class RecordRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val activityIcon = view.findViewById<EmojiTextView>(R.id.activityIcon)
-        val contentTextView = view.findViewById<TextView>(R.id.contentTextView)
-        val timeTextView = view.findViewById<TextView>(R.id.dateTextView)
+        val activityIcon: EmojiTextView = view.findViewById(R.id.activityIcon)
+        val contentTextView: TextView = view.findViewById(R.id.contentTextView)
+        val timeTextView: TextView = view.findViewById(R.id.dateTextView)
     }
 
     inner class LinearRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val itemParent = view.findViewById<ConstraintLayout>(R.id.postBaseView)
-        val userNameTextView = view.findViewById<TextView>(R.id.userName)
-        val userIcon = view.findViewById<CircleImageView>(R.id.userIcon)
-        val contentTextView = view.findViewById<TextView>(R.id.contentTextView)
-        val dateTextView = view.findViewById<TextView>(R.id.dateTextView)
-        val activityIcon = view.findViewById<EmojiTextView>(R.id.activityIcon)
+        val itemParent: ConstraintLayout = view.findViewById(R.id.postBaseView)
+        val userNameTextView: TextView = view.findViewById(R.id.userName)
+        val userIcon: CircleImageView = view.findViewById(R.id.userIcon)
+        val contentTextView: TextView = view.findViewById(R.id.contentTextView)
+        val dateTextView: TextView = view.findViewById(R.id.dateTextView)
+        val activityIcon: EmojiTextView = view.findViewById(R.id.activityIcon)
     }
 
     inner class GridRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val itemParent = view.findViewById<LinearLayout>(R.id.postBaseView)
-        val userNameTextView = view.findViewById<TextView>(R.id.userName)
-        val userIcon = view.findViewById<CircleImageView>(R.id.userIcon)
-        val contentTextView = view.findViewById<TextView>(R.id.contentTextView)
-        val dateTextView = view.findViewById<TextView>(R.id.dateTextView)
-        val activityIcon = view.findViewById<EmojiTextView>(R.id.activityIcon)
+        val itemParent: LinearLayout = view.findViewById(R.id.postBaseView)
+        val userNameTextView: TextView = view.findViewById(R.id.userName)
+        val userIcon: CircleImageView = view.findViewById(R.id.userIcon)
+        val contentTextView: TextView = view.findViewById(R.id.contentTextView)
+        val dateTextView: TextView = view.findViewById(R.id.dateTextView)
+        val activityIcon: EmojiTextView = view.findViewById(R.id.activityIcon)
     }
 
 
