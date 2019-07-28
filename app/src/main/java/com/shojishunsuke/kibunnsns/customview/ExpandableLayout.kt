@@ -156,12 +156,9 @@ class ExpandableLayout @JvmOverloads constructor(
 
 //TODO アニメーションの最中に画面回転したらアニメーションキャンセルできるようにする
 //        このままだと lateinit property animator has not been initialized
+
 //        animator.cancel()
         super.onConfigurationChanged(newConfig)
-    }
-
-    interface ExpantionUpdateListener{
-        fun onExpantionUpdated(expansion:Float,state: State)
     }
 
     fun toggle(animate: Boolean = true) {

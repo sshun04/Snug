@@ -9,6 +9,7 @@ import androidx.preference.PreferenceFragmentCompat
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.fragment.CalenderFragment
 import com.shojishunsuke.kibunnsns.fragment.PreferenceFragment
+import kotlinx.android.synthetic.main.activity_setting.*
 import kotlinx.android.synthetic.main.fragment_record.*
 
 class SettingActivity : AppCompatActivity() {
@@ -17,12 +18,9 @@ class SettingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
 
-        val toolbar = this.findViewById<Toolbar>(R.id.settingToolbar)
-        setSupportActionBar(toolbar)
-
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.setHomeButtonEnabled(true)
+        settingToolbar.setNavigationOnClickListener {
+            finish()
+        }
 
         supportFragmentManager
             .beginTransaction()

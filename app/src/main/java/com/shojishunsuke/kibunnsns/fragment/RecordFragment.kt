@@ -23,6 +23,7 @@ import com.bumptech.glide.Glide
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.activity.CalendarActivity
+import com.shojishunsuke.kibunnsns.activity.ChartActivity
 import com.shojishunsuke.kibunnsns.activity.SettingActivity
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.RecordFragmentViewModel
 import de.hdodenhof.circleimageview.CircleImageView
@@ -68,8 +69,12 @@ class RecordFragment : Fragment() {
             setUpEditNameDialog(inflater)
         }
 
-       view.cardViewCalender.setOnClickListener {
-           CalendarActivity.start(requireContext())
+        view.chartViewBase.setOnClickListener {
+            ChartActivity.start(requireContext())
+        }
+
+        view.cardViewCalender.setOnClickListener {
+            CalendarActivity.start(requireContext())
         }
         return view
     }

@@ -1235,6 +1235,8 @@ drawable ic_access_time_black_12dp
 drawable ic_arrow_down_24dp
 drawable ic_btn_left
 drawable ic_check_black_24dp
+drawable ic_chevron_left_black_24dp
+drawable ic_chevron_right_black_24dp
 drawable ic_close_black_24dp
 drawable ic_dashboard_black_24dp
 drawable ic_done_black_24dp
@@ -1369,11 +1371,12 @@ id calendarView
 id cancel_action
 id cardView3
 id cardViewCalender
-id cardViw1
 id center
 id center_horizontal
 id center_vertical
 id chains
+id chartToolBar
+id chartViewBase
 id checkbox
 id chronometer
 id circular
@@ -1443,6 +1446,7 @@ id fill_vertical
 id filled
 id fixed
 id focusTodayButton
+id focusedDateTextView
 id forever
 id fragment_phone
 id fragment_register_email
@@ -1479,6 +1483,8 @@ id left
 id light
 id line1
 id line3
+id lineChart
+id lineChartParent
 id linear
 id listBorder
 id listMode
@@ -1505,6 +1511,7 @@ id navigation_second
 id negativeSwitch
 id nestedScrollView
 id never
+id next
 id nonExistent
 id none
 id normal
@@ -1523,14 +1530,19 @@ id percent
 id phone_button
 id phone_layout
 id phone_number
+id pieChart
+id pieChartParent
 id pin
 id postBaseView
+id postButton
 id postsRecyclerView
 id pref_container
+id previous
 id progressBar
 id progress_circular
 id progress_horizontal
 id radio
+id rangeGroup
 id recordContainer
 id recordRecyclerView
 id recycler_view
@@ -1562,6 +1574,9 @@ id search_src_text
 id search_voice_btn
 id seekbar
 id seekbar_value
+id selectDate
+id selectMonth
+id selectWeek
 id select_dialog_listview
 id selected
 id selectedActIcon
@@ -1587,6 +1602,7 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
+id specificRangePicker
 id spinner
 id split_action_bar
 id spread

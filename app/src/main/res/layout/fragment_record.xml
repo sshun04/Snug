@@ -105,7 +105,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViw1"
+        android:id="@+id/chartViewBase"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginHorizontal="30dp"
@@ -125,9 +125,9 @@
         android:layout_marginVertical="24dp"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toTopOf="@id/cardView3"
-        app:layout_constraintEnd_toEndOf="@id/cardViw1"
-        app:layout_constraintStart_toStartOf="@id/cardViw1"
-        app:layout_constraintTop_toBottomOf="@id/cardViw1">
+        app:layout_constraintEnd_toEndOf="@id/chartViewBase"
+        app:layout_constraintStart_toStartOf="@id/chartViewBase"
+        app:layout_constraintTop_toBottomOf="@id/chartViewBase">
 
         <TextView
             android:text="過去の投稿を見る"
@@ -145,8 +145,8 @@
         android:visibility="gone"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/cardViw1"
-        app:layout_constraintStart_toStartOf="@id/cardViw1"
+        app:layout_constraintEnd_toEndOf="@id/chartViewBase"
+        app:layout_constraintStart_toStartOf="@id/chartViewBase"
         app:layout_constraintTop_toBottomOf="@id/cardViewCalender">
 
 

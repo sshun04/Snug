@@ -57,7 +57,7 @@ class PostDialogFragment : DialogFragment() {
                 postViewModel.addCurrentEmoji(emojiCode)
                 selectedEmojiCode = emojiCode
             }
-            layoutManager = GridLayoutManager(requireContext(), 5)
+            layoutManager = GridLayoutManager(requireContext(), 7)
         }
         parentView.toggleButton.setOnClickListener {
             val isExpanded = parentView.expandableBox.isViewExpanded
@@ -65,6 +65,9 @@ class PostDialogFragment : DialogFragment() {
             parentView.expandableBox.toggle()
         }
 
+        parentView.postButton.setOnClickListener {
+            postViewModel.requestPost(parentView.contentEditText.text.toString(),selectedEmojiCode)
+        }
 
         val dialog = AlertDialog.Builder(requireContext())
             .setView(parentView)

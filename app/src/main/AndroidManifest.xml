@@ -11,12 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.ChartActivity"></activity>
-        <activity
-            android:name=".activity.CalendarActivity"
-            android:parentActivityName=".activity.MainActivity" />
-        <activity
-            android:name=".activity.SettingActivity"
-            android:parentActivityName=".activity.MainActivity" />
+        <activity android:name=".activity.CalendarActivity" />
+        <activity android:name=".activity.SettingActivity" />
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait">

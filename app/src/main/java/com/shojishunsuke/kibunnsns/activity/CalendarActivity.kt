@@ -31,10 +31,9 @@ class CalendarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
 
-        setSupportActionBar(calendarToolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.setHomeButtonEnabled(true)
+        calendarToolbar.setNavigationOnClickListener {
+            finish()
+        }
 
         val viewModel = this.run { ViewModelProviders.of(this).get(CalendarFragmentViewModel::class.java) }
 

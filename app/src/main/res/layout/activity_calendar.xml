@@ -11,6 +11,7 @@
         android:id="@+id/calendarToolbar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        app:navigationIcon="?attr/homeAsUpIndicator"
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/Theme.AppCompat.Light" />

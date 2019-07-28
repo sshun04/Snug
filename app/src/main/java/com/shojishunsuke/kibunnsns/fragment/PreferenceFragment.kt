@@ -44,7 +44,7 @@ class PreferenceFragment : PreferenceFragmentCompat() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == RC_SIGN_IN) {
-//           TODO error   com.firebase.ui.auth.FirebaseUiException: Code: 12500, message: 12500で落ちる
+//           TODO error   com.firebase.ui.auth.FirebaseUiException: Code: 12500, message: 12500
             val response = IdpResponse.fromResultIntent(data)
             if (resultCode == RESULT_OK) {
                 fireBaseAuthWithGoogle(response!!.idpToken!!)
