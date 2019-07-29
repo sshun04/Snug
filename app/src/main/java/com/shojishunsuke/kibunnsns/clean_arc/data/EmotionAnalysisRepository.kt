@@ -3,7 +3,7 @@ package com.shojishunsuke.kibunnsns.clean_arc.data
 import android.content.Context
 import android.util.Log
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LanguageAnalysisRepository
-import com.shojishunsuke.kibunnsns.clean_arc.utils.tokenize
+import com.shojishunsuke.kibunnsns.utils.tokenize
 import kotlinx.coroutines.runBlocking
 import java.io.BufferedReader
 import java.io.InputStreamReader

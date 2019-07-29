@@ -1,6 +1,5 @@
 package com.shojishunsuke.kibunnsns.algorithm
 
-import com.shojishunsuke.kibunnsns.clean_arc.utils.bd
 import java.math.BigDecimal
 import kotlin.random.Random
 

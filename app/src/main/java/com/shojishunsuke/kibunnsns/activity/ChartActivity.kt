@@ -29,12 +29,9 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
             return Intent(context, ChartActivity::class.java)
         }
     }
-    private val exData = listOf<Entry>(
-    )
 
-    lateinit var viewModel: ChartActivityViewModel
-
-    private val months = listOf(
+    private lateinit var viewModel: ChartActivityViewModel
+    private val hours = listOf(
         "0:00",
         "1:00",
         "2:00",
@@ -73,7 +70,6 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         "☹️"
     )
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chart)
@@ -88,19 +84,25 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
 
 
         lineChart.scrollX = LineChart.SCROLL_AXIS_HORIZONTAL
+        lineChart.scrollY = LineChart.SCROLL_AXIS_VERTICAL
 
         lineChart.xAxis.apply {
             position = XAxis.XAxisPosition.BOTTOM
+            valueFormatter = IndexAxisValueFormatter(hours)
             granularity = 1f
-            valueFormatter = IndexAxisValueFormatter(months)
+            mAxisRange = 24f
+            axisMaximum = 24f
+            axisMinimum = 0f
+
         }
 
 
         lineChart.axisLeft.apply {
             valueFormatter = IndexAxisValueFormatter(modes.reversed())
-            granularity = 0.4f
-            axisMinimum = -1f
-            mAxisMaximum = 1f
+            granularity = 1f
+            mAxisRange = 4f
+            axisMaximum = 4f
+            axisMinimum = 0f
 
         }
 
@@ -111,7 +113,7 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
                 .apply {
                     lineWidth = 1.75f
                     circleRadius = 5f
-                    circleHoleRadius =2.5f
+                    circleHoleRadius = 2.5f
                     setDrawValues(false)
                 }
             val dataSet = listOf(lineDataSet1)
@@ -131,6 +133,11 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         previous.setOnClickListener(this)
 
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.onRangeSelected(Calendar.DATE)
     }
 
     override fun onClick(view: View?) {

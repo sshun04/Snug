@@ -19,14 +19,14 @@ class ChartActivityViewModel : ViewModel() {
 
 
     init {
-        date.time = Date()
         livedataDate.postValue("${date.get(Calendar.YEAR)}/${date.get(Calendar.MONTH) + 1}/${date.get(Calendar.DATE)}")
     }
 
     private val usecase = ChartActivityUsecase()
 
     fun onRangeSelected(field: Int) {
-        requestPosts()
+        rangeField = field
+        requestDataOfDate()
     }
 
     fun waverRange(value: Int) {
@@ -42,17 +42,16 @@ class ChartActivityViewModel : ViewModel() {
                 livedataDate.postValue("${date.get(Calendar.YEAR)}/${date.get(Calendar.MONTH) + 1}")
             }
         }
-        requestPosts()
+        requestDataOfDate()
     }
 
-    private fun requestPosts() {
+    private fun requestDataOfDate() {
 
-        GlobalScope.launch{
-            val date = "2019/07/27"
-//                "${date.get(Calendar.YEAR)}/${date.get(Calendar.MONTH) + 1}/${date.get(Calendar.DATE)}"
+        GlobalScope.launch {
+            val date = "${date.get(Calendar.YEAR)}/${date.get(Calendar.MONTH) + 1}/${date.get(Calendar.DATE)}"
             val data = usecase.requestDataOfDate(date)
             launch(Dispatchers.IO) {
-                if (!data.isNullOrEmpty()) entries.postValue(data)
+                 entries.postValue(data)
             }
         }
     }
