@@ -19,5 +19,10 @@
     <color name="alto_010">#E2E2E2</color>
     <color name="alto_020">#D4D4D4</color>
 
+
+    <color name="color_positive">#fbc02d</color>
+    <color name="color_neutral">#aed581</color>
+    <color name="color_negative">#64b5f6</color>
+
 </resources>
 

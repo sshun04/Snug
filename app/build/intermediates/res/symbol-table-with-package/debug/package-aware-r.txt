@@ -741,6 +741,9 @@ color colorAccent
 color colorPrimary
 color colorPrimaryDark
 color colorPrimaryLight
+color color_negative
+color color_neutral
+color color_positive
 color common_google_signin_btn_text_dark
 color common_google_signin_btn_text_dark_default
 color common_google_signin_btn_text_dark_disabled

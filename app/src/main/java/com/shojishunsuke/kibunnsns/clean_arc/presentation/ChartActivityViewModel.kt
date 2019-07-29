@@ -3,6 +3,7 @@ package com.shojishunsuke.kibunnsns.clean_arc.presentation
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.PieEntry
 import com.shojishunsuke.kibunnsns.clean_arc.domain.ChartActivityUsecase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -14,7 +15,8 @@ class ChartActivityViewModel : ViewModel() {
     private var rangeField = Calendar.DATE
     private val date: Calendar = Calendar.getInstance()
 
-    val entries = MutableLiveData<List<Entry>>()
+    val lineEntries = MutableLiveData<List<Entry>>()
+    val pieEntries = MutableLiveData<List<PieEntry>>()
     val livedataDate = MutableLiveData<String>()
 
 
@@ -49,9 +51,12 @@ class ChartActivityViewModel : ViewModel() {
 
         GlobalScope.launch {
             val date = "${date.get(Calendar.YEAR)}/${date.get(Calendar.MONTH) + 1}/${date.get(Calendar.DATE)}"
-            val data = usecase.requestDataOfDate(date)
+            val datas = usecase.requestDataOfDate(date)
+            val lineData = datas.first
+            val pieData = datas.second
             launch(Dispatchers.IO) {
-                 entries.postValue(data)
+                lineEntries.postValue(lineData)
+                pieEntries.postValue(pieData)
             }
         }
     }

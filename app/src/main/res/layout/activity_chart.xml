@@ -123,6 +123,7 @@
                 android:textSize="16sp" />
 
             <com.github.mikephil.charting.charts.LineChart
+                android:layout_margin="8dp"
                 android:id="@+id/lineChart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">

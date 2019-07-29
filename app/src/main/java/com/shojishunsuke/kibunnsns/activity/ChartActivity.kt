@@ -2,6 +2,7 @@ package com.shojishunsuke.kibunnsns.activity
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -9,10 +10,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
-import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.github.mikephil.charting.formatter.PercentFormatter
+import com.github.mikephil.charting.utils.ColorTemplate
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.ChartActivityViewModel
 import kotlinx.android.synthetic.main.activity_chart.*
@@ -77,17 +81,74 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         viewModel = this.run {
             ViewModelProviders.of(this).get(ChartActivityViewModel::class.java)
         }
-
         chartToolBar.setNavigationOnClickListener {
             finish()
         }
 
-
         lineChart.scrollX = LineChart.SCROLL_AXIS_HORIZONTAL
         lineChart.scrollY = LineChart.SCROLL_AXIS_VERTICAL
 
+        lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
+
+        lineChart.axisLeft.apply {
+            valueFormatter = IndexAxisValueFormatter(modes.reversed())
+            axisLineColor = Color.rgb(255, 255, 255)
+            gridLineWidth = 1f
+            gridColor = R.color.dark_26
+            granularity = 1f
+            mAxisRange = 4f
+            axisMaximum = 4f
+            axisMinimum = 0f
+        }
+
+        lineChart.axisRight.isEnabled = false
+
+        viewModel.lineEntries.observe(this, Observer {
+            val lineDataSet = LineDataSet(it, "")
+                .apply {
+                    lineWidth = 2.5f
+                    circleRadius = 5f
+                    setDrawValues(false)
+                }
+
+            val data = LineData(lineDataSet)
+            lineChart.data = data
+            lineChart.data.notifyDataChanged()
+            lineChart.notifyDataSetChanged()
+            lineChart.invalidate()
+        })
+
+        viewModel.pieEntries.observe(this, Observer {
+            val pieDataSet = PieDataSet(it, "割合").apply {
+                setDrawValues(true)
+                colors = listOf(Color.rgb(250,210,218),Color.rgb(169,255,242),Color.rgb(170,240,255))
+            }
+            val pieData = PieData(pieDataSet).apply {
+                setValueFormatter(PercentFormatter())
+                setValueTextColor(R.color.dark_26)
+            }
+
+            pieChart.data = pieData
+            pieChart.invalidate()
+        })
+
+        viewModel.livedataDate.observe(this, Observer {
+            focusedDateTextView.text = it
+        })
+
+        setupDateChart()
+
+        selectDate.setOnClickListener(this)
+        selectWeek.setOnClickListener(this)
+        selectMonth.setOnClickListener(this)
+        next.setOnClickListener(this)
+        previous.setOnClickListener(this)
+
+
+    }
+
+    private fun setupDateChart() {
         lineChart.xAxis.apply {
-            position = XAxis.XAxisPosition.BOTTOM
             valueFormatter = IndexAxisValueFormatter(hours)
             granularity = 1f
             mAxisRange = 24f
@@ -96,42 +157,14 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
 
         }
 
+    }
 
-        lineChart.axisLeft.apply {
-            valueFormatter = IndexAxisValueFormatter(modes.reversed())
-            granularity = 1f
-            mAxisRange = 4f
-            axisMaximum = 4f
-            axisMinimum = 0f
-
+    private fun setupWeekChart() {
+        lineChart.xAxis.apply {
         }
+    }
 
-        lineChart.axisRight.isEnabled = false
-
-        viewModel.entries.observe(this, Observer {
-            val lineDataSet1 = LineDataSet(it, "Data Set 1")
-                .apply {
-                    lineWidth = 1.75f
-                    circleRadius = 5f
-                    circleHoleRadius = 2.5f
-                    setDrawValues(false)
-                }
-            val dataSet = listOf(lineDataSet1)
-            val data = LineData(dataSet)
-            lineChart.data = data
-            lineChart.invalidate()
-        })
-
-        viewModel.livedataDate.observe(this, Observer {
-            focusedDateTextView.text = it
-        })
-
-        selectDate.setOnClickListener(this)
-        selectWeek.setOnClickListener(this)
-        selectMonth.setOnClickListener(this)
-        next.setOnClickListener(this)
-        previous.setOnClickListener(this)
-
+    private fun setupMonthChart() {
 
     }
 
