@@ -16,7 +16,6 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.PercentFormatter
-import com.github.mikephil.charting.utils.ColorTemplate
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.ChartActivityViewModel
 import kotlinx.android.synthetic.main.activity_chart.*
@@ -33,6 +32,8 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
             return Intent(context, ChartActivity::class.java)
         }
     }
+
+    private val days = listOf("日","月","火","水","木","金","土")
 
     private lateinit var viewModel: ChartActivityViewModel
     private val hours = listOf(
@@ -121,7 +122,7 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         viewModel.pieEntries.observe(this, Observer {
             val pieDataSet = PieDataSet(it, "割合").apply {
                 setDrawValues(true)
-                colors = listOf(Color.rgb(250,210,218),Color.rgb(169,255,242),Color.rgb(170,240,255))
+                colors = listOf(Color.rgb(250, 210, 218), Color.rgb(169, 255, 242), Color.rgb(170, 240, 255))
             }
             val pieData = PieData(pieDataSet).apply {
                 setValueFormatter(PercentFormatter())
@@ -136,7 +137,7 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
             focusedDateTextView.text = it
         })
 
-        setupDateChart()
+        setupDateAxis()
 
         selectDate.setOnClickListener(this)
         selectWeek.setOnClickListener(this)
@@ -147,7 +148,7 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    private fun setupDateChart() {
+    private fun setupDateAxis() {
         lineChart.xAxis.apply {
             valueFormatter = IndexAxisValueFormatter(hours)
             granularity = 1f
@@ -159,13 +160,16 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    private fun setupWeekChart() {
+    private fun setupWeekAxis() {
         lineChart.xAxis.apply {
+            valueFormatter = IndexAxisValueFormatter()
         }
     }
 
-    private fun setupMonthChart() {
+    private fun setupMonthAxis() {
+        lineChart.xAxis.apply {
 
+        }
     }
 
     override fun onStart() {
@@ -177,12 +181,25 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         when (view?.id) {
             R.id.selectDate -> {
                 viewModel.onRangeSelected(Calendar.DATE)
+                setupDateAxis()
+                selectDate.setBackgroundColor(resources.getColor(R.color.dark_26))
+                selectWeek.setBackgroundColor(Color.TRANSPARENT)
+                selectMonth.setBackgroundColor(Color.TRANSPARENT)
             }
             R.id.selectWeek -> {
                 viewModel.onRangeSelected(Calendar.WEEK_OF_YEAR)
+                setupWeekAxis()
+                selectWeek.setBackgroundColor(resources.getColor(R.color.dark_26))
+                selectDate.setBackgroundColor(Color.TRANSPARENT)
+                selectMonth.setBackgroundColor(Color.TRANSPARENT)
             }
             R.id.selectMonth -> {
                 viewModel.onRangeSelected(Calendar.MONTH)
+                setupMonthAxis()
+                selectMonth.setBackgroundColor(resources.getColor(R.color.dark_26))
+                selectDate.setBackgroundColor(Color.TRANSPARENT)
+                selectWeek.setBackgroundColor(Color.TRANSPARENT)
+
             }
             R.id.next -> {
                 viewModel.waverRange(1)

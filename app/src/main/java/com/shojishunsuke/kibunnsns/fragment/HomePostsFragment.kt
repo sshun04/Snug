@@ -84,7 +84,7 @@ class HomePostsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-//        pagingAdapter.clear()
+        pagingAdapter.clear()
         viewModel.refresh()
     }
 

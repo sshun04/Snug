@@ -45,6 +45,6 @@ class HomeFragmentViewModel : ViewModel() {
     fun refresh() {
         previousPost = null
         nextPosts.value?.clear()
-//        requestNextPosts()
+        requestNextPosts()
     }
 }
