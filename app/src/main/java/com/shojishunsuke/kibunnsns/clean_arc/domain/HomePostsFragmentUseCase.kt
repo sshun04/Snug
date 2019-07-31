@@ -10,7 +10,7 @@ class HomePostsFragmentUseCase {
 
     suspend fun requestPosts(hideNegative: Boolean, post: Post?): List<Post> {
         val previousPost = post ?: Post(date = Date())
-        return if (hideNegative) fireStoreRepository.loadPositivePostsOnly(previousPost)
+        return if (hideNegative) fireStoreRepository.loadPositiveCollection(previousPost)
         else fireStoreRepository.loadFollowingCollection(previousPost)
     }
 }

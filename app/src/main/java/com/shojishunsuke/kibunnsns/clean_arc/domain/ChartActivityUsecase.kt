@@ -13,7 +13,8 @@ class ChartActivityUsecase {
     private val useRepository = FirebaseUserRepository()
     private val userId = useRepository.getUserId()
 
-    suspend fun requestDataOfDate(date: String): Pair<List<Entry>, List<PieEntry>> = runBlocking {
+
+    suspend fun getDataOfDate(date: String): Pair<List<Entry>, List<PieEntry>> = runBlocking {
         val posts = fireStoreRepository.loadOwnCollectionsByDate(userId, date)
         val lineEntryList = mutableListOf<Entry>()
 
@@ -29,6 +30,29 @@ class ChartActivityUsecase {
         Pair(lineEntryList, pieEntryList)
     }
 
+    suspend fun getDataOfWeek(firstDayOfWeek: String): Pair<List<Entry>, List<PieEntry>> = runBlocking {
+        val posts = fireStoreRepository.loadOwnCollectioonOfWeek(userId, firstDayOfWeek)
+        val lineEntryList = mutableListOf<Entry>()
+//        TODO
+        if (posts.isNotEmpty()) {
+
+        }
+
+        val pieEntryList = getPieEntryListByScore(posts)
+
+        Pair(listOf(Entry(0f, 0f)), pieEntryList)
+    }
+
+    suspend fun getDataOfMonth(yearMonth: String, daysOfMonth: Int): Pair<List<Entry>, List<PieEntry>> = runBlocking {
+        val posts = fireStoreRepository.loadOwnCollectionOfMonth(userId, yearMonth, daysOfMonth)
+
+//        TODO
+        val pieEntryList = getPieEntryListByScore(posts)
+
+        Pair(listOf(Entry(0f, 0f)), pieEntryList)
+    }
+
+
     private fun getPieEntryListByScore(posts: List<Post>): List<PieEntry> = runBlocking {
         var positiveCount = 0f
         var neutralCount = 0f
@@ -41,7 +65,7 @@ class ChartActivityUsecase {
             }
         }
         val values = listOf(positiveCount, neutralCount, negativeCount)
-        val labels = listOf("Positive", "neutral", "Negative")
+        val labels = listOf("Positive", "Neutral", "Negative")
         val pieEntries = mutableListOf<PieEntry>()
         for (i in values.indices) {
             val entry = PieEntry(values[i], labels[i])
@@ -61,5 +85,10 @@ class ChartActivityUsecase {
     private fun formatSentiScore(score: Float): Float {
 
         return ((score * 10) + 10) / 5
+    }
+
+    private fun getAverageScoreListForEachDay(posts: List<Post>): List<Float> {
+//        TODO
+        return listOf(0f)
     }
 }

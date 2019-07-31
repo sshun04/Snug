@@ -29,12 +29,13 @@
         app:layout_constraintTop_toBottomOf="@id/chartToolBar">
 
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/selectDate"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="80dp"
             android:layout_height="48dp"
-            android:backgroundTint="@android:color/transparent"
+            android:background="@drawable/button_state"
+            android:backgroundTintMode="add"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -44,12 +45,13 @@
             app:cornerRadius="4dp" />
 
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/selectWeek"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="80dp"
             android:layout_height="48dp"
-            android:backgroundTint="@android:color/transparent"
+            android:background="@drawable/button_state"
+            android:backgroundTintMode="add"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -58,12 +60,13 @@
             android:textSize="12sp"
             app:cornerRadius="4dp" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/selectMonth"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="80dp"
             android:layout_height="48dp"
-            android:backgroundTint="@android:color/transparent"
+            android:background="@drawable/button_state"
+            android:backgroundTintMode="add"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"

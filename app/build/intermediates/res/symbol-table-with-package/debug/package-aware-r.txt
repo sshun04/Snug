@@ -1190,6 +1190,7 @@ drawable anonymous_person
 drawable avd_hide_password
 drawable avd_show_password
 drawable bottom_navigation_colors
+drawable button_state
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused

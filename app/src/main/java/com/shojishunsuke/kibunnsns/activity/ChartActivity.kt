@@ -33,7 +33,7 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private val days = listOf("日","月","火","水","木","金","土")
+    private val days = listOf("日", "月", "火", "水", "木", "金", "土")
 
     private lateinit var viewModel: ChartActivityViewModel
     private val hours = listOf(
@@ -105,7 +105,7 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         lineChart.axisRight.isEnabled = false
 
         viewModel.lineEntries.observe(this, Observer {
-            val lineDataSet = LineDataSet(it, "")
+            val lineDataSet = LineDataSet(it, "投稿")
                 .apply {
                     lineWidth = 2.5f
                     circleRadius = 5f
@@ -120,26 +120,29 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         })
 
         viewModel.pieEntries.observe(this, Observer {
-            val pieDataSet = PieDataSet(it, "割合").apply {
+            val pieDataSet = PieDataSet(it, "").apply {
                 setDrawValues(true)
                 colors = listOf(Color.rgb(250, 210, 218), Color.rgb(169, 255, 242), Color.rgb(170, 240, 255))
             }
             val pieData = PieData(pieDataSet).apply {
                 setValueFormatter(PercentFormatter())
-                setValueTextColor(R.color.dark_26)
+                setValueTextColor(resources.getColor(R.color.dark_26))
             }
 
             pieChart.data = pieData
             pieChart.invalidate()
         })
 
-        viewModel.livedataDate.observe(this, Observer {
+        viewModel.liveDate.observe(this, Observer {
             focusedDateTextView.text = it
         })
 
         setupDateAxis()
 
-        selectDate.setOnClickListener(this)
+        selectDate.apply {
+            setOnClickListener(this@ChartActivity)
+            isSelected = true
+        }
         selectWeek.setOnClickListener(this)
         selectMonth.setOnClickListener(this)
         next.setOnClickListener(this)
@@ -147,6 +150,7 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
 
 
     }
+
 
     private fun setupDateAxis() {
         lineChart.xAxis.apply {
@@ -162,7 +166,7 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun setupWeekAxis() {
         lineChart.xAxis.apply {
-            valueFormatter = IndexAxisValueFormatter()
+            valueFormatter = IndexAxisValueFormatter(days)
         }
     }
 
@@ -182,24 +186,23 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
             R.id.selectDate -> {
                 viewModel.onRangeSelected(Calendar.DATE)
                 setupDateAxis()
-                selectDate.setBackgroundColor(resources.getColor(R.color.dark_26))
-                selectWeek.setBackgroundColor(Color.TRANSPARENT)
-                selectMonth.setBackgroundColor(Color.TRANSPARENT)
+                selectDate.isSelected = true
+                selectWeek.isSelected = false
+                selectMonth.isSelected = false
             }
             R.id.selectWeek -> {
                 viewModel.onRangeSelected(Calendar.WEEK_OF_YEAR)
                 setupWeekAxis()
-                selectWeek.setBackgroundColor(resources.getColor(R.color.dark_26))
-                selectDate.setBackgroundColor(Color.TRANSPARENT)
-                selectMonth.setBackgroundColor(Color.TRANSPARENT)
+                selectDate.isSelected = false
+                selectWeek.isSelected = true
+                selectMonth.isSelected = false
             }
             R.id.selectMonth -> {
                 viewModel.onRangeSelected(Calendar.MONTH)
                 setupMonthAxis()
-                selectMonth.setBackgroundColor(resources.getColor(R.color.dark_26))
-                selectDate.setBackgroundColor(Color.TRANSPARENT)
-                selectWeek.setBackgroundColor(Color.TRANSPARENT)
-
+                selectDate.isSelected = false
+                selectWeek.isSelected = false
+                selectMonth.isSelected = true
             }
             R.id.next -> {
                 viewModel.waverRange(1)

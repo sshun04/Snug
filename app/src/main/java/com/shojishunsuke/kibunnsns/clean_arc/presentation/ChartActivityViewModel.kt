@@ -17,41 +17,46 @@ class ChartActivityViewModel : ViewModel() {
 
     val lineEntries = MutableLiveData<List<Entry>>()
     val pieEntries = MutableLiveData<List<PieEntry>>()
-    val livedataDate = MutableLiveData<String>()
+    val liveDate = MutableLiveData<String>()
 
 
     init {
-        livedataDate.postValue("${date.get(Calendar.YEAR)}/${date.get(Calendar.MONTH) + 1}/${date.get(Calendar.DATE)}")
+        liveDate.postValue("${date.get(Calendar.YEAR)}/${date.get(Calendar.MONTH) + 1}/${date.get(Calendar.DATE)}")
     }
 
     private val usecase = ChartActivityUsecase()
 
     fun onRangeSelected(field: Int) {
-        rangeField = field
-        requestDataOfDate()
+        this.rangeField = field
+        when (rangeField) {
+            Calendar.DATE -> requestDataOfDate()
+            Calendar.WEEK_OF_YEAR -> requestDataOfWeek()
+            Calendar.MONTH -> requestDataOfMonth()
+        }
     }
 
     fun waverRange(value: Int) {
         date.add(rangeField, value)
         when (rangeField) {
             Calendar.DATE -> {
-                livedataDate.postValue("${date.get(Calendar.YEAR)}/${date.get(Calendar.MONTH) + 1}/${date.get(Calendar.DATE)}")
+                liveDate.postValue("${date.get(Calendar.YEAR)}/${date.get(Calendar.MONTH) + 1}/${date.get(Calendar.DATE)}")
+                requestDataOfDate()
             }
             Calendar.WEEK_OF_YEAR -> {
-                livedataDate.postValue("${date.firstDayOfWeek}")
+                liveDate.postValue("${date.firstDayOfWeek}-${date.firstDayOfWeek + 6}")
             }
             Calendar.MONTH -> {
-                livedataDate.postValue("${date.get(Calendar.YEAR)}/${date.get(Calendar.MONTH) + 1}")
+                liveDate.postValue("${date.get(Calendar.YEAR)}/${date.get(Calendar.MONTH) + 1}")
             }
         }
-        requestDataOfDate()
+
     }
 
     private fun requestDataOfDate() {
 
         GlobalScope.launch {
             val date = "${date.get(Calendar.YEAR)}/${date.get(Calendar.MONTH) + 1}/${date.get(Calendar.DATE)}"
-            val datas = usecase.requestDataOfDate(date)
+            val datas = usecase.getDataOfDate(date)
             val lineData = datas.first
             val pieData = datas.second
             launch(Dispatchers.IO) {
@@ -60,6 +65,39 @@ class ChartActivityViewModel : ViewModel() {
             }
         }
     }
+
+    private fun requestDataOfWeek() {
+
+        GlobalScope.launch {
+            val firstDayOfWeek = date.firstDayOfWeek
+            val datas = usecase.getDataOfWeek(firstDayOfWeek.toString())
+            val lineData = datas.first
+            val pieData = datas.second
+            launch(Dispatchers.IO) {
+                lineEntries.postValue(lineData)
+                pieEntries.postValue(pieData)
+            }
+        }
+    }
+
+    private fun requestDataOfMonth() {
+        GlobalScope.launch {
+            val year = date.get(Calendar.YEAR)
+            val month = date.get(Calendar.MONTH)
+            val yearMonth = "$year/$month"
+            val daysOfMonth = date.getActualMaximum(Calendar.DAY_OF_MONTH)
+            val datas = usecase.getDataOfMonth(yearMonth, daysOfMonth)
+            val lineData = datas.first
+            val pieData = datas.second
+            launch(Dispatchers.IO) {
+                lineEntries.postValue(lineData)
+                pieEntries.postValue(pieData)
+            }
+        }
+    }
+
+
+
 
 
 }
