@@ -30,10 +30,13 @@ class HomePostsFragment : Fragment() {
         viewModel =
             this.run { ViewModelProviders.of(this).get(HomeFragmentViewModel::class.java) }
 
+
         val progressBar = view.progressBar.apply {
             max = 100
             setProgress(84, true)
         }
+
+        view.homeToolBar.title = "KibunnSNS"
 
         val stagLayoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         val scrollListener = EndlessScrollListener(stagLayoutManager) {
@@ -41,10 +44,10 @@ class HomePostsFragment : Fragment() {
                 isLoading = true
                 viewModel.onScrollBottom()
             }
-
         }
         pagingAdapter = PagingRecyclerViewAdapter(requireContext()) {
             setUpDetailFragment(it)
+
         }
         val recyclerView = view.postsRecyclerView.apply {
             addOnScrollListener(scrollListener)

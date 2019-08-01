@@ -1190,7 +1190,7 @@ drawable anonymous_person
 drawable avd_hide_password
 drawable avd_show_password
 drawable bottom_navigation_colors
-drawable button_state
+drawable chart_button_state
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -1235,6 +1235,7 @@ drawable fui_idp_button_background_twitter
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable hasikan
+drawable home_button_state
 drawable ic_access_time_black_12dp
 drawable ic_arrow_down_24dp
 drawable ic_btn_left
@@ -1274,6 +1275,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable preference_list_divider_material
 drawable shape
+drawable state_pressed_ripple
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable usericon_default
@@ -1412,6 +1414,7 @@ id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
 id detailFragment
+id detailFragmentContainer
 id detailFragmentToolbar
 id detailPostsRecyclerView
 id dialogToolbar
@@ -1467,6 +1470,7 @@ id header_text
 id heading
 id home
 id homeAsUp
+id homeToolBar
 id horizontal
 id icon
 id icon_frame
@@ -1556,7 +1560,6 @@ id right
 id right_icon
 id right_side
 id root
-id rootFragment
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1646,6 +1649,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggleButton
+id toolBarParent
 id top
 id topPanel
 id top_level_view

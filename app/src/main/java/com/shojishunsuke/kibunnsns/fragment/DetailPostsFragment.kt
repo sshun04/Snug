@@ -49,7 +49,7 @@ class DetailPostsFragment : Fragment() {
 
         fun setupFragment(post: Post, fragmentManager: FragmentManager) {
             fragmentManager.beginTransaction().also {
-                it.add(R.id.rootFragment, getInstance(post))
+                it.add(R.id.detailFragmentContainer, getInstance(post))
                     .setCustomAnimations(R.anim.slide_from_right, R.anim.slide_to_left)
                     .addToBackStack("detail")
                     .commit()
