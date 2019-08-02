@@ -72,8 +72,6 @@ class CalendarActivity : AppCompatActivity() {
                     viewType = 3
                 }
         })
-
-
     }
 
 }

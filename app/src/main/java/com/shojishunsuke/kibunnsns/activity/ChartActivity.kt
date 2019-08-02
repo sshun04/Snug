@@ -8,7 +8,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
@@ -16,6 +15,7 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.PercentFormatter
+import com.github.mikephil.charting.utils.EntryXComparator
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.ChartActivityViewModel
 import kotlinx.android.synthetic.main.activity_chart.*
@@ -34,6 +34,17 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private val days = listOf("日", "月", "火", "水", "木", "金", "土")
+
+    private val pieColorsList = mapOf<String, Int>(
+        "Positive" to Color.rgb(250, 210, 218),
+        "Neutral" to Color.rgb(169, 255, 242),
+        "Negative" to Color.rgb(170, 240, 255)
+    )
+    private val monthDays = mutableListOf<String>().apply {
+        for (i in 1..32) {
+            this.add("7/$i")
+        }
+    }
 
     private lateinit var viewModel: ChartActivityViewModel
     private val hours = listOf(
@@ -86,8 +97,6 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
             finish()
         }
 
-        lineChart.scrollX = LineChart.SCROLL_AXIS_HORIZONTAL
-        lineChart.scrollY = LineChart.SCROLL_AXIS_VERTICAL
 
         lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
 
@@ -105,6 +114,8 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         lineChart.axisRight.isEnabled = false
 
         viewModel.lineEntries.observe(this, Observer {
+
+            Collections.sort(it,EntryXComparator())
             val lineDataSet = LineDataSet(it, "投稿")
                 .apply {
                     lineWidth = 2.5f
@@ -120,16 +131,24 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         })
 
         viewModel.pieEntries.observe(this, Observer {
+            val colorList = mutableListOf<Int>()
+            it.forEach {
+                val label = it.label ?: "Neutral"
+                val color = pieColorsList[label] ?: Color.rgb(169, 255, 242)
+                colorList.add(color)
+            }
+
             val pieDataSet = PieDataSet(it, "").apply {
                 setDrawValues(true)
-                colors = listOf(Color.rgb(250, 210, 218), Color.rgb(169, 255, 242), Color.rgb(170, 240, 255))
+                colors = colorList
             }
             val pieData = PieData(pieDataSet).apply {
                 setValueFormatter(PercentFormatter())
-                setValueTextColor(resources.getColor(R.color.dark_26))
+                setValueTextColor(Color.BLACK)
             }
 
             pieChart.data = pieData
+            pieChart.setEntryLabelColor(R.color.dark_87)
             pieChart.invalidate()
         })
 
@@ -153,10 +172,11 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
 
 
     private fun setupDateAxis() {
+        lineChart.setVisibleXRangeMaximum(8f)
         lineChart.xAxis.apply {
             valueFormatter = IndexAxisValueFormatter(hours)
             granularity = 1f
-            mAxisRange = 24f
+            mAxisRange = 10f
             axisMaximum = 24f
             axisMinimum = 0f
 
@@ -167,12 +187,17 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
     private fun setupWeekAxis() {
         lineChart.xAxis.apply {
             valueFormatter = IndexAxisValueFormatter(days)
+
         }
     }
 
     private fun setupMonthAxis() {
         lineChart.xAxis.apply {
-
+            valueFormatter = IndexAxisValueFormatter(monthDays)
+            granularity = 1f
+            mAxisRange = 32f
+            axisMaximum = 32f
+            axisMinimum = 1f
         }
     }
 

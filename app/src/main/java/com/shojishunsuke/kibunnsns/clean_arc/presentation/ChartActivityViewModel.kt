@@ -47,6 +47,7 @@ class ChartActivityViewModel : ViewModel() {
             }
             Calendar.MONTH -> {
                 liveDate.postValue("${date.get(Calendar.YEAR)}/${date.get(Calendar.MONTH) + 1}")
+                requestDataOfMonth()
             }
         }
 
@@ -83,7 +84,7 @@ class ChartActivityViewModel : ViewModel() {
     private fun requestDataOfMonth() {
         GlobalScope.launch {
             val year = date.get(Calendar.YEAR)
-            val month = date.get(Calendar.MONTH)
+            val month = date.get(Calendar.MONTH)+1
             val yearMonth = "$year/$month"
             val daysOfMonth = date.getActualMaximum(Calendar.DAY_OF_MONTH)
             val datas = usecase.getDataOfMonth(yearMonth, daysOfMonth)
@@ -92,6 +93,7 @@ class ChartActivityViewModel : ViewModel() {
             launch(Dispatchers.IO) {
                 lineEntries.postValue(lineData)
                 pieEntries.postValue(pieData)
+                liveDate.postValue(yearMonth)
             }
         }
     }

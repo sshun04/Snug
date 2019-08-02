@@ -164,9 +164,9 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .whereEqualTo("userId", userId)
-            .orderBy("date", Query.Direction.ASCENDING)
-            .startAt(sdf.parse(monthStart))
-            .endAt(sdf.parse(monthEnd))
+            .orderBy("date", Query.Direction.DESCENDING)
+            .startAt(sdf.parse(monthEnd))
+            .endAt(sdf.parse(monthStart))
             .get()
             .await()
 

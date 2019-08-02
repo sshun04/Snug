@@ -25,35 +25,47 @@ class ChartActivityUsecase {
                 lineEntryList.add(entry)
             }
         }
-        val pieEntryList = getPieEntryListByScore(posts)
+        val pieEntryList = getPieEntryListBasedOnScore(posts)
 
         Pair(lineEntryList, pieEntryList)
     }
 
     suspend fun getDataOfWeek(firstDayOfWeek: String): Pair<List<Entry>, List<PieEntry>> = runBlocking {
         val posts = fireStoreRepository.loadOwnCollectioonOfWeek(userId, firstDayOfWeek)
+        val sentiScoreMap = getAverageScoreMap(posts)
+
         val lineEntryList = mutableListOf<Entry>()
-//        TODO
-        if (posts.isNotEmpty()) {
-
+        sentiScoreMap.keys.forEach { day ->
+            val floatDay = day.toFloat()
+            val sentiScore = sentiScoreMap[day] ?: 0f
+            val entry = Entry(floatDay, formatSentiScore(sentiScore))
+            lineEntryList.add(entry)
         }
+        val pieEntryList = getPieEntryListBasedOnScore(posts)
 
-        val pieEntryList = getPieEntryListByScore(posts)
-
-        Pair(listOf(Entry(0f, 0f)), pieEntryList)
+        Pair(lineEntryList, pieEntryList)
     }
 
     suspend fun getDataOfMonth(yearMonth: String, daysOfMonth: Int): Pair<List<Entry>, List<PieEntry>> = runBlocking {
         val posts = fireStoreRepository.loadOwnCollectionOfMonth(userId, yearMonth, daysOfMonth)
+        val sentiScoreMap = getAverageScoreMap(posts)
 
-//        TODO
-        val pieEntryList = getPieEntryListByScore(posts)
+        val lineEntryList = mutableListOf<Entry>()
+        sentiScoreMap.keys.forEach { day ->
+            val floatDay = day.toFloat()
+            val sentiScore = sentiScoreMap[day] ?: 2f
+            val entry = Entry(floatDay, formatSentiScore(sentiScore))
+            lineEntryList.add(entry)
+        }
 
-        Pair(listOf(Entry(0f, 0f)), pieEntryList)
+
+        val pieEntryList = getPieEntryListBasedOnScore(posts)
+
+        Pair(lineEntryList, pieEntryList)
     }
 
 
-    private fun getPieEntryListByScore(posts: List<Post>): List<PieEntry> = runBlocking {
+    private fun getPieEntryListBasedOnScore(posts: List<Post>): List<PieEntry> = runBlocking {
         var positiveCount = 0f
         var neutralCount = 0f
         var negativeCount = 0f
@@ -68,8 +80,10 @@ class ChartActivityUsecase {
         val labels = listOf("Positive", "Neutral", "Negative")
         val pieEntries = mutableListOf<PieEntry>()
         for (i in values.indices) {
-            val entry = PieEntry(values[i], labels[i])
-            pieEntries.add(entry)
+            if (values[i] > 0) {
+                val entry = PieEntry(values[i], labels[i])
+                pieEntries.add(entry)
+            }
         }
         pieEntries
     }
@@ -83,12 +97,31 @@ class ChartActivityUsecase {
     }
 
     private fun formatSentiScore(score: Float): Float {
-
         return ((score * 10) + 10) / 5
     }
 
-    private fun getAverageScoreListForEachDay(posts: List<Post>): List<Float> {
-//        TODO
-        return listOf(0f)
+    private fun getAverageScoreMap(posts: List<Post>): Map<Int, Float> {
+
+        val defMap = mutableMapOf<Int, MutableList<Float>>()
+        posts.forEach {
+            val calendar = Calendar.getInstance()
+            calendar.time = it.date
+            val date = calendar.get(Calendar.DAY_OF_MONTH)
+            if (defMap.containsKey(date)) {
+                defMap[date]?.add(it.sentiScore)
+            } else {
+                defMap.set(date, mutableListOf(it.sentiScore))
+            }
+        }
+
+        val resultMap = mutableMapOf<Int, Float>()
+        defMap.keys.forEach { day ->
+            val scoreList = defMap[day]
+            val average = scoreList?.average()?.toFloat() ?: 0f
+            resultMap.set(day, average)
+        }
+
+
+        return resultMap
     }
 }
