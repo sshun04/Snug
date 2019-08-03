@@ -153,6 +153,26 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
         return results
     }
+    suspend fun loadDateRangedCollection(userId: String,startDate:Date,endDate: Date):List<Post>{
+
+        val querySnapshot = dataBase.collection(COLLECTION_PATH)
+            .whereEqualTo("userId", userId)
+            .orderBy("date", Query.Direction.DESCENDING)
+            .startAt(endDate)
+            .endAt(startDate)
+            .get()
+            .await()
+
+        val results = ArrayList<Post>()
+
+        querySnapshot.forEach {
+            val post = it.toObject(Post::class.java)
+            results.add(post)
+        }
+
+        return results
+
+    }
 
     suspend fun loadOwnCollectionOfMonth(userId: String,yearMonth:String,nuberOfDay:Int):List<Post>{
 

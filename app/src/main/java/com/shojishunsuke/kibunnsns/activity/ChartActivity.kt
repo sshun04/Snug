@@ -33,58 +33,7 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private val days = listOf("日", "月", "火", "水", "木", "金", "土")
-
-    private val pieColorsList = mapOf<String, Int>(
-        "Positive" to Color.rgb(250, 210, 218),
-        "Neutral" to Color.rgb(169, 255, 242),
-        "Negative" to Color.rgb(170, 240, 255)
-    )
-    private val monthDays = mutableListOf<String>().apply {
-        for (i in 1..32) {
-            this.add("7/$i")
-        }
-    }
-
     private lateinit var viewModel: ChartActivityViewModel
-    private val hours = listOf(
-        "0:00",
-        "1:00",
-        "2:00",
-        "3:00",
-        "4:00",
-        "5:00",
-        "6:00",
-        "7:00",
-        "8:00",
-        "9:00",
-        "10:00",
-        "11:00",
-        "12:00",
-        "13:00",
-        "14:00",
-        "15:00",
-        "16:00",
-        "17:00",
-        "18:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00",
-        "23:00",
-        "24:00"
-    )
-    private val modes = listOf(
-        "\uD83D\uDE00",
-//        slightly smiling
-        "\uD83D\uDE42",
-//        neutral
-        "\uD83D\uDE10",
-//        slightly frown
-        "\uD83D\uDE41",
-//        frown
-        "☹️"
-    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,12 +45,10 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         chartToolBar.setNavigationOnClickListener {
             finish()
         }
-
-
         lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
 
         lineChart.axisLeft.apply {
-            valueFormatter = IndexAxisValueFormatter(modes.reversed())
+            valueFormatter = IndexAxisValueFormatter(viewModel.modes)
             axisLineColor = Color.rgb(255, 255, 255)
             gridLineWidth = 1f
             gridColor = R.color.dark_26
@@ -114,40 +61,14 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         lineChart.axisRight.isEnabled = false
 
         viewModel.lineEntries.observe(this, Observer {
-
-            Collections.sort(it,EntryXComparator())
-            val lineDataSet = LineDataSet(it, "投稿")
-                .apply {
-                    lineWidth = 2.5f
-                    circleRadius = 5f
-                    setDrawValues(false)
-                }
-
-            val data = LineData(lineDataSet)
-            lineChart.data = data
+            lineChart.data = viewModel.getLineChartData()
             lineChart.data.notifyDataChanged()
             lineChart.notifyDataSetChanged()
             lineChart.invalidate()
         })
 
         viewModel.pieEntries.observe(this, Observer {
-            val colorList = mutableListOf<Int>()
-            it.forEach {
-                val label = it.label ?: "Neutral"
-                val color = pieColorsList[label] ?: Color.rgb(169, 255, 242)
-                colorList.add(color)
-            }
-
-            val pieDataSet = PieDataSet(it, "").apply {
-                setDrawValues(true)
-                colors = colorList
-            }
-            val pieData = PieData(pieDataSet).apply {
-                setValueFormatter(PercentFormatter())
-                setValueTextColor(Color.BLACK)
-            }
-
-            pieChart.data = pieData
+            pieChart.data = viewModel.getPieChartData()
             pieChart.setEntryLabelColor(R.color.dark_87)
             pieChart.invalidate()
         })
@@ -157,46 +78,45 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         })
 
         setupDateAxis()
-
         selectDate.apply {
             setOnClickListener(this@ChartActivity)
             isSelected = true
         }
+
         selectWeek.setOnClickListener(this)
         selectMonth.setOnClickListener(this)
-        next.setOnClickListener(this)
-        previous.setOnClickListener(this)
-
-
+        next.setOnClickListener {
+            viewModel.waverRange(it.id)
+        }
+        previous.setOnClickListener {
+            viewModel.waverRange(it.id)
+        }
     }
-
 
     private fun setupDateAxis() {
         lineChart.setVisibleXRangeMaximum(8f)
         lineChart.xAxis.apply {
-            valueFormatter = IndexAxisValueFormatter(hours)
+            valueFormatter = IndexAxisValueFormatter(viewModel.hours)
             granularity = 1f
             mAxisRange = 10f
             axisMaximum = 24f
             axisMinimum = 0f
-
         }
-
     }
 
     private fun setupWeekAxis() {
         lineChart.xAxis.apply {
-            valueFormatter = IndexAxisValueFormatter(days)
-
+            valueFormatter = IndexAxisValueFormatter(viewModel.weekOfDays)
         }
     }
 
     private fun setupMonthAxis() {
         lineChart.xAxis.apply {
-            valueFormatter = IndexAxisValueFormatter(monthDays)
+            val axisValue = viewModel.getDaysOfMonth()
+            valueFormatter = IndexAxisValueFormatter(axisValue)
             granularity = 1f
-            mAxisRange = 32f
-            axisMaximum = 32f
+            mAxisRange = axisValue.size.toFloat()
+            axisMaximum = axisValue.size.toFloat()
             axisMinimum = 1f
         }
     }
@@ -229,13 +149,6 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
                 selectWeek.isSelected = false
                 selectMonth.isSelected = true
             }
-            R.id.next -> {
-                viewModel.waverRange(1)
-            }
-            R.id.previous -> {
-                viewModel.waverRange(-1)
-            }
-
         }
     }
 }

@@ -10,9 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.adapter.PagingRecyclerViewAdapter
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.CalendarFragmentViewModel
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.CalendarActivityViewModel
 import kotlinx.android.synthetic.main.activity_calendar.*
-import java.util.*
 
 class CalendarActivity : AppCompatActivity() {
 
@@ -26,7 +25,6 @@ class CalendarActivity : AppCompatActivity() {
         }
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
@@ -35,37 +33,27 @@ class CalendarActivity : AppCompatActivity() {
             finish()
         }
 
-        val viewModel = this.run { ViewModelProviders.of(this).get(CalendarFragmentViewModel::class.java) }
+        val viewModel = this.run { ViewModelProviders.of(this).get(CalendarActivityViewModel::class.java) }
 
         calendarView.apply {
             setOnDateChangeListener { _, year, month, date ->
-                val dateString = "$year/${month + 1}/$date"
-                viewModel.requestPostsByDate(dateString)
-                simpleDateTextView.text = "${month + 1}月${date}日"
+                viewModel.setDate(year, month, date)
             }
         }
 
-        val calendar = Calendar.getInstance().apply {
-            time = Date()
-        }
-        simpleDateTextView.text = "${calendar.get(Calendar.MONTH) + 1}月${calendar.get(Calendar.DATE)}日"
-
-        val stringToday =
-            "${calendar.get(Calendar.YEAR)}/${calendar.get(Calendar.MONTH) + 1}/${calendar.get(Calendar.DATE)}"
-
-        viewModel.requestPostsByDate(stringToday)
-
         focusTodayButton.setOnClickListener {
-            calendarView.date = calendar.timeInMillis
-            viewModel.requestPostsByDate(stringToday)
-            simpleDateTextView.text = "${calendar.get(Calendar.MONTH) + 1}月${calendar.get(Calendar.DATE)}日"
+            viewModel.onFocusToday()
+            calendarView.date = viewModel.getDateInLong()
         }
 
         datePostsRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@CalendarActivity, RecyclerView.VERTICAL, false)
         }
 
-        viewModel.postsByDate.observe(this, Observer {
+        viewModel.dateText.observe(this, Observer {
+            simpleDateTextView.text = it
+        })
+        viewModel.postsOfDate.observe(this, Observer {
             datePostsRecyclerView.adapter =
                 PagingRecyclerViewAdapter(this, {}).apply {
                     addNextCollection(it)

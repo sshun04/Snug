@@ -20,7 +20,6 @@ class PagingRecyclerViewAdapter(
 ) :
     PagingBaseAdapter<RecyclerView.ViewHolder>() {
 
-
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val post = posts[position]
         when (viewType) {
@@ -37,7 +36,6 @@ class PagingRecyclerViewAdapter(
                     holder.activityIcon.visibility = View.GONE
                 }
 
-
                 if (post.iconPhotoLink.isNotBlank()) {
                     GlideApp.with(context)
                         .load(post.iconPhotoLink)
@@ -52,6 +50,7 @@ class PagingRecyclerViewAdapter(
                     listener(post)
                 }
             }
+
             2 -> {
                 holder as LinearRecyclerViewHolder
                 holder.userNameTextView.text = if (post.userName.isNotBlank()) post.userName else "匿名"

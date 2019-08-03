@@ -46,7 +46,6 @@ class DetailPostsFragment : Fragment() {
             addTransition(slideAnim)
         }
 
-
         fun setupFragment(post: Post, fragmentManager: FragmentManager) {
             fragmentManager.beginTransaction().also {
                 it.add(R.id.detailFragmentContainer, getInstance(post))
@@ -94,7 +93,6 @@ class DetailPostsFragment : Fragment() {
         val formatter = SimpleDateFormat("YYYY年MM月dd日HH時mm分", Locale.JAPAN)
         view.selectedDate.text = formatter.format(post.date)
         view.selectedContentText.text = post.contentText
-
 
         val stagLayoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         val pagingAdapter = PagingRecyclerViewAdapter(requireContext()) {
