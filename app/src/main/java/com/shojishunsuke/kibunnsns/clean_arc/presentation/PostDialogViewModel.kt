@@ -30,7 +30,6 @@ class PostDialogViewModel(context: Context) : ViewModel() {
         requestCurrentEmojiList()
     }
 
-
     fun toggleArrow(view: View, isExpanded: Boolean = false) {
         if (isExpanded) {
             startRotate(view, -180f, 0f)

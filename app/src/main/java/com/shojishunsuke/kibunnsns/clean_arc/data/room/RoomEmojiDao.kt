@@ -1,4 +1,4 @@
-package com.shojishunsuke.kibunnsns.clean_arc.data.dao
+package com.shojishunsuke.kibunnsns.clean_arc.data.room
 
 import androidx.room.*
 import com.shojishunsuke.kibunnsns.model.EmojiItem
