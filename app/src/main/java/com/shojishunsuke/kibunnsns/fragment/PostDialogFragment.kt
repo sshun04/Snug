@@ -28,18 +28,7 @@ class PostDialogFragment : DialogFragment() {
             ViewModelProviders.of(this, PostDialogViewModelFactory(requireContext()))
                 .get(PostDialogViewModel::class.java)
         }
-//        val toolbar = parentView.findViewById<Toolbar>(R.id.dialogToolbar)
-//
-////        toolbar.setNavigationOnClickListener {
-//            if (posted) return@setNavigationOnClickListener
-//            val contentText = parentView.contentEditText.text.toString()
-//            if (contentText.isBlank()) {
-//                return@setNavigationOnClickListener
-//            } else {
-//                postViewModel.requestPost(contentText, selectedEmojiCode)
-//                posted = true
-//            }
-//        }
+
         val currentEmojiListAdapter = EmojiRecyclerViewAdapter(requireContext()) { emojiCode ->
             selectedEmojiCode = emojiCode
         }

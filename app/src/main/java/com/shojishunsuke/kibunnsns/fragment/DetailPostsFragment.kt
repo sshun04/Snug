@@ -26,8 +26,6 @@ import java.util.*
 
 class DetailPostsFragment : Fragment() {
 
-    private var isLoading = false
-
     companion object {
         private const val EXTRA_POST = "post"
 
