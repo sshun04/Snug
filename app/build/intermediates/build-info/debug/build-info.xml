@@ -1,48 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="arm64-v8a,armeabi-v7a,armeabi"
-    api-level="29"
+    abi="x86"
+    api-level="28"
     build-mode="COLD"
     density="560dpi"
     format="10"
-    ir-eligibility="FIELD_ADDED"
+    ir-eligibility="CLASS_ANNOTATION_CHANGE"
     plugin-version="3.4.1"
-    timestamp="1564807529956"
+    timestamp="1565063155903"
     token="-2050260483129571213"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="102" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="219" />
+        duration="96" />
     <task
         name="verifier"
-        duration="8" />
+        duration="20" />
 
     <artifact
         location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
         type="SPLIT" />
-    <artifact
-        location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
-        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1564807018140"
+        timestamp="1564809836291"
         verifier="FULL_BUILD_REQUESTED" >
-        <artifact
-            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
-            type="SPLIT" />
         <artifact
             location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
         <artifact
+            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            type="SPLIT" />
+        <artifact
             location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
             location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
@@ -51,16 +54,10 @@
             location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
-            type="SPLIT_MAIN" />
-        <artifact
             location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
         <artifact
             location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
             location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
@@ -72,19 +69,70 @@
             location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
             type="SPLIT" />
         <artifact
+            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="CLASS_ADDED"
+        timestamp="1565057441437"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="CLASS_ADDED"
+        timestamp="1565061817422"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="CLASS_ADDED"
+        timestamp="1565062813162"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            type="SPLIT" />
+        <artifact
             location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
     </build>
     <build
         build-mode="COLD"
         ir-eligibility="FIELD_ADDED"
-        timestamp="1564807529956"
+        timestamp="1565063088986"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="CLASS_ANNOTATION_CHANGE"
+        timestamp="1565063155903"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
     </build>
 

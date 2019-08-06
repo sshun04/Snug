@@ -10,7 +10,7 @@ import com.shojishunsuke.kibunnsns.R
 
 class EmojiRecyclerViewAdapter(
     context: Context,
-    private val unicodeList: List<String>,
+    private val unicodeList:MutableList<String> = mutableListOf(),
     private val emojiListener: (String) -> Unit
 ) :
     RecyclerView.Adapter<EmojiRecyclerViewAdapter.ViewHolder>() {
@@ -34,5 +34,10 @@ class EmojiRecyclerViewAdapter(
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val emojiTextView = view.findViewById<EmojiTextView>(R.id.emojiTextView)
+    }
+
+    fun setValue(list: List<String>){
+        unicodeList.addAll(list)
+        notifyDataSetChanged()
     }
 }

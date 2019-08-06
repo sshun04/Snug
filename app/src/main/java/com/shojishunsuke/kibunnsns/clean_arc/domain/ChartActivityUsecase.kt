@@ -14,8 +14,21 @@ class ChartActivityUsecase {
     private val userId = useRepository.getUserId()
 
 
-    suspend fun getDataOfDate(date: String): Pair<List<Entry>, List<PieEntry>> = runBlocking {
-        val posts = fireStoreRepository.loadOwnCollectionsByDate(userId, date)
+    suspend fun getDataOfDate(date: Calendar): Pair<List<Entry>, List<PieEntry>> = runBlocking {
+        val dateStart = date.clone() as Calendar
+        dateStart.apply {
+            set(Calendar.HOUR_OF_DAY,0)
+            set(Calendar.MINUTE,0)
+            set(Calendar.SECOND,0)
+        }
+        val dateEnd = date.clone() as Calendar
+        dateEnd.apply {
+            set(Calendar.HOUR_OF_DAY,23)
+            set(Calendar.MINUTE,59)
+            set(Calendar.SECOND,59)
+        }
+
+        val posts = fireStoreRepository.loadDateRangedCollection(userId,dateStart.time,dateEnd.time)
         val lineEntryList = mutableListOf<Entry>()
 
         if (posts.isNotEmpty()) {
@@ -46,8 +59,25 @@ class ChartActivityUsecase {
         Pair(lineEntryList, pieEntryList)
     }
 
-    suspend fun getDataOfMonth(yearMonth: String, daysOfMonth: Int): Pair<List<Entry>, List<PieEntry>> = runBlocking {
-        val posts = fireStoreRepository.loadOwnCollectionOfMonth(userId, yearMonth, daysOfMonth)
+    suspend fun getDataOfMonth(date:Calendar): Pair<List<Entry>, List<PieEntry>> = runBlocking {
+        val firstDayOfMonth = date.clone()as Calendar
+        firstDayOfMonth.apply {
+            set(Calendar.DAY_OF_MONTH,1)
+            set(Calendar.HOUR_OF_DAY,0)
+            set(Calendar.MINUTE,0)
+            set(Calendar.SECOND,0)
+        }
+
+        val lastDayOfMonth = date.clone() as Calendar
+
+        lastDayOfMonth.apply {
+            set(Calendar.DAY_OF_MONTH,getActualMaximum(Calendar.DAY_OF_MONTH))
+            set(Calendar.HOUR_OF_DAY,23)
+            set(Calendar.MINUTE, 59)
+            set(Calendar.SECOND,59)
+        }
+
+        val posts = fireStoreRepository.loadDateRangedCollection(userId,firstDayOfMonth.time,lastDayOfMonth.time)
         val sentiScoreMap = getAverageScoreMap(posts)
 
         val lineEntryList = mutableListOf<Entry>()

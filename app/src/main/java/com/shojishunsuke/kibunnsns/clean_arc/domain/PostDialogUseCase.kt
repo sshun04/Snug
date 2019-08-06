@@ -3,14 +3,14 @@ package com.shojishunsuke.kibunnsns.clean_arc.domain
 import com.shojishunsuke.kibunnsns.clean_arc.data.EmojiRepositoy
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.FirebaseUserRepository
-import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataConfigRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LanguageAnalysisRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LocalDataBaseRepository
+import com.shojishunsuke.kibunnsns.model.EmojiItem
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.runBlocking
-import java.math.BigDecimal
 
 class PostDialogUseCase(
-    private val dataConfigRepository: DataConfigRepository,
+    private val localDataBaseRepository: LocalDataBaseRepository,
     private val analysisRepository: LanguageAnalysisRepository
 ) {
     private val emojiRepository = EmojiRepositoy()
@@ -18,8 +18,9 @@ class PostDialogUseCase(
     private val userInfoRepository = FirebaseUserRepository()
 
 
-    suspend fun generatePost(content: String, actID: String): Post = runBlocking {
-        dataConfigRepository.updateCollection(actID)
+    suspend fun generatePost(content: String, emojiCode: String): Post = runBlocking {
+
+        localDataBaseRepository.registerItem(emojiCode)
 
         val userName = userInfoRepository.getUserName()
         val userId = userInfoRepository.getUserId()
@@ -36,7 +37,7 @@ class PostDialogUseCase(
             contentText = content,
             sentiScore = sentiScore,
             magnitude = magnitude,
-            actID = actID,
+            actID = emojiCode,
             keyWord = category
         )
 
@@ -48,9 +49,14 @@ class PostDialogUseCase(
 
     fun loadWholeEmoji(): List<String> = emojiRepository.loadWholeEmoji()
 
-    fun loadCurrentEmoji(): List<String> = dataConfigRepository.getLatestCollection()
-
-    fun updateCurrentEmoji(emojiCode:String){
-        dataConfigRepository.updateCollection(emojiCode)
+  suspend fun loadCurrentEmoji(): List<String>{
+        val  defaultCollection:List<EmojiItem> = localDataBaseRepository.loadLatestCollection() as List<EmojiItem>
+        val stringList = mutableListOf<String>()
+        defaultCollection.forEach {
+            stringList.add(it.emojiCode)
+        }
+        return stringList
     }
+
+
 }

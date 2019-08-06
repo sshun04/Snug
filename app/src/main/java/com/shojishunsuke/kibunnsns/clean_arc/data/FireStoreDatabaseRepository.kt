@@ -102,32 +102,6 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         return results
     }
 
-    suspend fun loadOwnCollectionsByDate(userId: String, date: String): List<Post> {
-
-        val dateStart = "$date 00:00:00"
-        val dateEnd = "$date 23:59:59"
-
-        val sdf = SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.JAPAN)
-
-
-        val querySnapshot = dataBase.collection(COLLECTION_PATH)
-            .whereEqualTo("userId", userId)
-            .orderBy("date", Query.Direction.DESCENDING)
-            .startAt(sdf.parse(dateEnd))
-            .endAt(sdf.parse(dateStart))
-            .get()
-            .await()
-
-        val results = ArrayList<Post>()
-
-        querySnapshot.forEach {
-            val post = it.toObject(Post::class.java)
-            results.add(post)
-        }
-
-        return results
-    }
-
     suspend fun loadOwnCollectioonOfWeek(userId: String, firstDayOfWeek: String): List<Post> {
 
         val weekStart = "$firstDayOfWeek 00:00:00"
@@ -173,33 +147,4 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         return results
 
     }
-
-    suspend fun loadOwnCollectionOfMonth(userId: String,yearMonth:String,nuberOfDay:Int):List<Post>{
-
-        val monthStart = "$yearMonth/01 00:00:00"
-        val monthEnd = "$yearMonth/$nuberOfDay 23:59:59"
-
-        val sdf = SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.JAPAN)
-
-
-        val querySnapshot = dataBase.collection(COLLECTION_PATH)
-            .whereEqualTo("userId", userId)
-            .orderBy("date", Query.Direction.DESCENDING)
-            .startAt(sdf.parse(monthEnd))
-            .endAt(sdf.parse(monthStart))
-            .get()
-            .await()
-
-        val results = ArrayList<Post>()
-
-        querySnapshot.forEach {
-            val post = it.toObject(Post::class.java)
-            results.add(post)
-        }
-
-        return results
-
-    }
-
-
 }

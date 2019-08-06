@@ -1,8 +1,9 @@
 package com.shojishunsuke.kibunnsns.clean_arc.data
 
-import com.shojishunsuke.kibunnsns.clean_arc.data.repository.ActivityRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataConfigRepository
 
-class EmojiRepositoy : ActivityRepository {
+
+class EmojiRepositoy  {
     val uniCodeList = listOf(
 //        スポーツ
         "\u26BD",

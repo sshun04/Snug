@@ -47,10 +47,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:src="@drawable/icon_annonymous"
         android:id="@+id/acIcon"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        android:src="@drawable/hasikan"
+        android:backgroundTint="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -115,6 +116,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline3">
 
+        <TextView
+            android:text="気分の記録"
+            android:textSize="24sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
     </androidx.cardview.widget.CardView>
 
 
@@ -130,8 +139,8 @@
         app:layout_constraintTop_toBottomOf="@id/chartViewBase">
 
         <TextView
-            android:text="過去の投稿を見る"
-            android:textSize="20sp"
+            android:text="過去の投稿"
+            android:textSize="24sp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

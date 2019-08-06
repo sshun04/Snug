@@ -15,13 +15,11 @@ import com.shojishunsuke.kibunnsns.adapter.EmojiRecyclerViewAdapter
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostDialogViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.PostDialogViewModelFactory
 import kotlinx.android.synthetic.main.fragment_dialog_post.view.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 class PostDialogFragment : DialogFragment() {
 
-   private var selectedEmojiCode: String = ""
-   private var  posted = false
+    private var selectedEmojiCode: String = ""
+    private var posted = false
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val parentView = requireActivity().layoutInflater.inflate(R.layout.fragment_dialog_post, null)
@@ -30,31 +28,29 @@ class PostDialogFragment : DialogFragment() {
             ViewModelProviders.of(this, PostDialogViewModelFactory(requireContext()))
                 .get(PostDialogViewModel::class.java)
         }
-        val toolbar = parentView.findViewById<Toolbar>(R.id.dialogToolbar)
-
-        toolbar.setNavigationOnClickListener {
-            if (posted)return@setNavigationOnClickListener
-            val contentText = parentView.contentEditText.text.toString()
-            if (contentText.isBlank()) {
-                return@setNavigationOnClickListener
-            } else {
-                postViewModel.requestPost(contentText, selectedEmojiCode)
-                posted = true
-            }
+//        val toolbar = parentView.findViewById<Toolbar>(R.id.dialogToolbar)
+//
+////        toolbar.setNavigationOnClickListener {
+//            if (posted) return@setNavigationOnClickListener
+//            val contentText = parentView.contentEditText.text.toString()
+//            if (contentText.isBlank()) {
+//                return@setNavigationOnClickListener
+//            } else {
+//                postViewModel.requestPost(contentText, selectedEmojiCode)
+//                posted = true
+//            }
+//        }
+        val currentEmojiListAdapter = EmojiRecyclerViewAdapter(requireContext()) { emojiCode ->
+            selectedEmojiCode = emojiCode
         }
-
         parentView.currentEmojiList.apply {
-            adapter =
-                EmojiRecyclerViewAdapter(requireContext(), postViewModel.requestCurrentEmoji()) { emojiCode ->
-                    postViewModel.addCurrentEmoji(emojiCode)
-                    selectedEmojiCode = emojiCode
-                }
+            adapter = currentEmojiListAdapter
+
             this.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
         }
 
         parentView.emojiRecyclerView.apply {
             adapter = EmojiRecyclerViewAdapter(requireContext(), postViewModel.requestWholeEmoji()) { emojiCode ->
-                postViewModel.addCurrentEmoji(emojiCode)
                 selectedEmojiCode = emojiCode
             }
             layoutManager = GridLayoutManager(requireContext(), 7)
@@ -63,10 +59,6 @@ class PostDialogFragment : DialogFragment() {
             val isExpanded = parentView.expandableBox.isViewExpanded
             postViewModel.toggleArrow(it, isExpanded)
             parentView.expandableBox.toggle()
-        }
-
-        parentView.postButton.setOnClickListener {
-            postViewModel.requestPost(parentView.contentEditText.text.toString(),selectedEmojiCode)
         }
 
         val dialog = AlertDialog.Builder(requireContext())
@@ -78,6 +70,16 @@ class PostDialogFragment : DialogFragment() {
             dismiss()
         })
 
+        parentView.postButton.setOnClickListener {
+            postViewModel.requestPost(parentView.contentEditText.text.toString(),selectedEmojiCode)
+        }
+
+
+
+        postViewModel.currentEmojiList.observe(this, Observer {
+            currentEmojiListAdapter.setValue(it)
+            posted = true
+        })
         return dialog
     }
 }
