@@ -1513,7 +1513,6 @@ id button_done
 id button_next
 id button_resend_email
 id button_sign_in
-id calendarToolbar
 id calendarView
 id cancel_action
 id center
@@ -1521,7 +1520,6 @@ id center_horizontal
 id center_vertical
 id chain
 id chains
-id chartToolBar
 id checkbox
 id chronometer
 id circular
@@ -1910,8 +1908,6 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_calendar
-layout activity_chart
 layout activity_main
 layout activity_setting
 layout browser_actions_context_menu_page
@@ -1933,6 +1929,7 @@ layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout expand_button
 layout fragment_calendar
+layout fragment_chart
 layout fragment_detail
 layout fragment_dialog_edit_name
 layout fragment_dialog_post

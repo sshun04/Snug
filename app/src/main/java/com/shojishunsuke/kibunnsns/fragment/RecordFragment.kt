@@ -22,9 +22,10 @@ import at.markushi.ui.CircleButton
 import com.bumptech.glide.Glide
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.activity.CalendarActivity
-import com.shojishunsuke.kibunnsns.activity.ChartActivity
+//import com.shojishunsuke.kibunnsns.activity.CalendarActivity
+//import com.shojishunsuke.kibunnsns.activity.ChartActivity
 import com.shojishunsuke.kibunnsns.activity.SettingActivity
+import com.shojishunsuke.kibunnsns.adapter.PagerAdapter
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.RecordFragmentViewModel
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.fragment_record.view.*
@@ -69,13 +70,17 @@ class RecordFragment : Fragment() {
             setUpEditNameDialog(inflater)
         }
 
-//        view.chartViewBase.setOnClickListener {
-//            ChartActivity.start(requireContext())
-//        }
-//
-//        view.cardViewCalender.setOnClickListener {
-//            CalendarActivity.start(requireContext())
-//        }
+        view.tabLayout.apply {
+            addTab(newTab().setText("投稿"))
+            addTab(newTab().setText("気分"))
+        }
+        view.viewPager.apply {
+            adapter = PagerAdapter(requireFragmentManager())
+        }
+
+        view.tabLayout.setupWithViewPager(view.viewPager)
+
+
         return view
     }
 

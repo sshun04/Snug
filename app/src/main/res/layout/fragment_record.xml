@@ -5,16 +5,16 @@
     android:id="@+id/recordContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutDescription="@xml/motion_scene"
     android:orientation="vertical"
+    app:layoutDescription="@xml/motion_scene"
     tools:showPaths="true">
 
 
     <View
         android:id="@+id/headerBackGround"
-        android:background="@color/colorPrimary"
         android:layout_width="0dp"
-        android:layout_height="280dp"/>
+        android:layout_height="280dp"
+        android:background="@color/colorPrimary" />
 
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -23,8 +23,9 @@
         android:layout_height="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:visibility="gone"
+        android:elevation="4dp"
         android:src="@drawable/icon_setting_24"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,23 +80,33 @@
         app:layout_constraintTop_toTopOf="@id/nameTextView" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:id="@+id/tabContainer"
         android:layout_width="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/headerBackGround"
+        android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_height="0dp">
-        <com.google.android.material.tabs.TabLayout
-            android:elevation="4dp"
-            android:id="@+id/tabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerBackGround">
+
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/light_100">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="4dp" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

@@ -11,55 +11,51 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.adapter.PagingRecyclerViewAdapter
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.CalendarActivityViewModel
-import kotlinx.android.synthetic.main.activity_calendar.*
+import kotlinx.android.synthetic.main.fragment_calendar.*
 
-class CalendarActivity : AppCompatActivity() {
-
-    companion object {
-        fun start(context: Context) {
-            context.startActivity(createIntent(context))
-        }
-
-        private fun createIntent(context: Context): Intent {
-            return Intent(context, CalendarActivity::class.java)
-        }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_calendar)
-
-        calendarToolbar.setNavigationOnClickListener {
-            finish()
-        }
-
-        val viewModel = this.run { ViewModelProviders.of(this).get(CalendarActivityViewModel::class.java) }
-
-        calendarView.apply {
-            setOnDateChangeListener { _, year, month, date ->
-                viewModel.setDate(year, month, date)
-            }
-        }
-
-        focusTodayButton.setOnClickListener {
-            viewModel.onFocusToday()
-            calendarView.date = viewModel.getDateInLong()
-        }
-
-        datePostsRecyclerView.apply {
-            layoutManager = LinearLayoutManager(this@CalendarActivity, RecyclerView.VERTICAL, false)
-        }
-
-        viewModel.dateText.observe(this, Observer {
-            simpleDateTextView.text = it
-        })
-        viewModel.postsOfDate.observe(this, Observer {
-            datePostsRecyclerView.adapter =
-                PagingRecyclerViewAdapter(this, {}).apply {
-                    addNextCollection(it)
-                    viewType = 3
-                }
-        })
-    }
-
-}
+//class CalendarActivity : AppCompatActivity() {
+//
+//    companion object {
+//        fun start(context: Context) {
+//            context.startActivity(createIntent(context))
+//        }
+//
+//        private fun createIntent(context: Context): Intent {
+//            return Intent(context, CalendarActivity::class.java)
+//        }
+//    }
+//
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContentView(R.layout.fragment_calendar)
+//
+//        val viewModel = this.run { ViewModelProviders.of(this).get(CalendarActivityViewModel::class.java) }
+//
+//        calendarView.apply {
+//            setOnDateChangeListener { _, year, month, date ->
+//                viewModel.setDate(year, month, date)
+//            }
+//        }
+//
+//        focusTodayButton.setOnClickListener {
+//            viewModel.onFocusToday()
+//            calendarView.date = viewModel.getDateInLong()
+//        }
+//
+//        datePostsRecyclerView.apply {
+//            layoutManager = LinearLayoutManager(this@CalendarActivity, RecyclerView.VERTICAL, false)
+//        }
+//
+//        viewModel.dateText.observe(this, Observer {
+//            simpleDateTextView.text = it
+//        })
+//        viewModel.postsOfDate.observe(this, Observer {
+//            datePostsRecyclerView.adapter =
+//                PagingRecyclerViewAdapter(this, {}).apply {
+//                    addNextCollection(it)
+//                    viewType = 3
+//                }
+//        })
+//    }
+//
+//}
