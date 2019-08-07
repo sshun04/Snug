@@ -908,6 +908,10 @@
         "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/2bac2d081979811523383f990e13bbd9/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
     },
     {
+        "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/drawable_icon_annonymous.png.flat",
+        "source": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/res/drawable/icon_annonymous.png"
+    },
+    {
         "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/drawable_abc_btn_check_material.xml.flat",
         "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4122b770116f2a994ed750b248532298/res/drawable/abc_btn_check_material.xml"
     },

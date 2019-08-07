@@ -26,8 +26,6 @@ import java.util.*
 
 class DetailPostsFragment : Fragment() {
 
-    private var isLoading = false
-
     companion object {
         private const val EXTRA_POST = "post"
 
@@ -45,7 +43,6 @@ class DetailPostsFragment : Fragment() {
             }
             addTransition(slideAnim)
         }
-
 
         fun setupFragment(post: Post, fragmentManager: FragmentManager) {
             fragmentManager.beginTransaction().also {
@@ -83,23 +80,22 @@ class DetailPostsFragment : Fragment() {
             }
         }
 
-        view.selectedUserName.text = if (post.userName.isNotBlank()) post.userName else "匿名"
+        view.selectedUserName.text = viewModel.getUserName()
 
         Glide.with(requireContext())
             .load(post.iconPhotoLink)
             .error(R.drawable.defaultback)
             .into(view.selectedUserIcon)
-        view.selectedActIcon.text = if (post.actID.isNotBlank()) post.actID else "\uD83D\uDE42"
 
-        val formatter = SimpleDateFormat("YYYY年MM月dd日HH時mm分", Locale.JAPAN)
-        view.selectedDate.text = formatter.format(post.date)
-        view.selectedContentText.text = post.contentText
-
+        view.selectedActIcon.text = viewModel.getEmojiCode()
+        view.selectedDate.text = viewModel.getFormattedDate()
+        view.selectedContentText.text = viewModel.getContentText()
 
         val stagLayoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         val pagingAdapter = PagingRecyclerViewAdapter(requireContext()) {
             setupFragment(it, requireFragmentManager())
         }
+
         val recyclerView = view.detailPostsRecyclerView.apply {
             adapter = pagingAdapter
             layoutManager = stagLayoutManager
@@ -108,16 +104,12 @@ class DetailPostsFragment : Fragment() {
 
         val endlessScrollListener =
             NestedEndlessScrollListener(stagLayoutManager, recyclerView) {
-                if (!isLoading) {
-                    isLoading = true
-                    viewModel.requestNextPosts()
-                }
+                    viewModel.onScrollBottom()
             }
         view.nestedScrollView.setOnScrollChangeListener(endlessScrollListener)
 
         viewModel.nextPosts.observe(this, Observer {
             pagingAdapter.addNextCollection(it)
-            isLoading = false
         })
 
         return view

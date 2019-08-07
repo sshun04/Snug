@@ -8,14 +8,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
-import com.github.mikephil.charting.data.LineData
-import com.github.mikephil.charting.data.LineDataSet
-import com.github.mikephil.charting.data.PieData
-import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
-import com.github.mikephil.charting.formatter.PercentFormatter
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.ChartActivityViewModel
 import kotlinx.android.synthetic.main.activity_chart.*
@@ -33,47 +27,7 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private val days = listOf("日", "月", "火", "水", "木", "金", "土")
-
     private lateinit var viewModel: ChartActivityViewModel
-    private val hours = listOf(
-        "0:00",
-        "1:00",
-        "2:00",
-        "3:00",
-        "4:00",
-        "5:00",
-        "6:00",
-        "7:00",
-        "8:00",
-        "9:00",
-        "10:00",
-        "11:00",
-        "12:00",
-        "13:00",
-        "14:00",
-        "15:00",
-        "16:00",
-        "17:00",
-        "18:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00",
-        "23:00",
-        "24:00"
-    )
-    private val modes = listOf(
-        "\uD83D\uDE00",
-//        slightly smiling
-        "\uD83D\uDE42",
-//        neutral
-        "\uD83D\uDE10",
-//        slightly frown
-        "\uD83D\uDE41",
-//        frown
-        "☹️"
-    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,16 +39,13 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         chartToolBar.setNavigationOnClickListener {
             finish()
         }
-
-        lineChart.scrollX = LineChart.SCROLL_AXIS_HORIZONTAL
-        lineChart.scrollY = LineChart.SCROLL_AXIS_VERTICAL
-
         lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
 
         lineChart.axisLeft.apply {
-            valueFormatter = IndexAxisValueFormatter(modes.reversed())
+            valueFormatter = IndexAxisValueFormatter(viewModel.modes)
             axisLineColor = Color.rgb(255, 255, 255)
             gridLineWidth = 1f
+            textSize = 12f
             gridColor = R.color.dark_26
             granularity = 1f
             mAxisRange = 4f
@@ -105,31 +56,26 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
         lineChart.axisRight.isEnabled = false
 
         viewModel.lineEntries.observe(this, Observer {
-            val lineDataSet = LineDataSet(it, "投稿")
-                .apply {
-                    lineWidth = 2.5f
-                    circleRadius = 5f
-                    setDrawValues(false)
-                }
-
-            val data = LineData(lineDataSet)
-            lineChart.data = data
+            lineChart.data = viewModel.getLineChartData()
             lineChart.data.notifyDataChanged()
             lineChart.notifyDataSetChanged()
             lineChart.invalidate()
         })
 
-        viewModel.pieEntries.observe(this, Observer {
-            val pieDataSet = PieDataSet(it, "").apply {
-                setDrawValues(true)
-                colors = listOf(Color.rgb(250, 210, 218), Color.rgb(169, 255, 242), Color.rgb(170, 240, 255))
+        viewModel.axisValue.observe(this, Observer {
+            lineChart.xAxis.apply {
+                valueFormatter = IndexAxisValueFormatter(it)
+                granularity = 1f
+                mAxisRange = it.size.toFloat()
+                axisMaximum = it.size.toFloat()
+                axisMinimum = 1f
+                axisMinimum = 0f
             }
-            val pieData = PieData(pieDataSet).apply {
-                setValueFormatter(PercentFormatter())
-                setValueTextColor(resources.getColor(R.color.dark_26))
-            }
+        })
 
-            pieChart.data = pieData
+        viewModel.pieEntries.observe(this, Observer {
+            pieChart.data = viewModel.getPieChartData()
+            pieChart.setEntryLabelColor(R.color.dark_87)
             pieChart.invalidate()
         })
 
@@ -137,80 +83,74 @@ class ChartActivity : AppCompatActivity(), View.OnClickListener {
             focusedDateTextView.text = it
         })
 
-        setupDateAxis()
-
         selectDate.apply {
             setOnClickListener(this@ChartActivity)
             isSelected = true
         }
+
         selectWeek.setOnClickListener(this)
         selectMonth.setOnClickListener(this)
-        next.setOnClickListener(this)
-        previous.setOnClickListener(this)
-
-
-    }
-
-
-    private fun setupDateAxis() {
-        lineChart.xAxis.apply {
-            valueFormatter = IndexAxisValueFormatter(hours)
-            granularity = 1f
-            mAxisRange = 24f
-            axisMaximum = 24f
-            axisMinimum = 0f
-
+        next.setOnClickListener {
+            viewModel.waverRange(it.id)
         }
-
-    }
-
-    private fun setupWeekAxis() {
-        lineChart.xAxis.apply {
-            valueFormatter = IndexAxisValueFormatter(days)
+        previous.setOnClickListener {
+            viewModel.waverRange(it.id)
         }
     }
 
-    private fun setupMonthAxis() {
-        lineChart.xAxis.apply {
-
-        }
-    }
+//    private fun setupDateAxis() {
+//        lineChart.setVisibleXRangeMaximum(8f)
+//        lineChart.xAxis.apply {
+//            valueFormatter = IndexAxisValueFormatter(viewModel.hours)
+//            granularity = 1f
+//            mAxisRange = 10f
+//            axisMaximum = 24f
+//            axisMinimum = 0f
+//        }
+//    }
+//
+//    private fun setupWeekAxis() {
+//        lineChart.xAxis.apply {
+//            valueFormatter = IndexAxisValueFormatter(viewModel.weekOfDays)
+//        }
+//    }
+//
+//    private fun setupMonthAxis() {
+//        lineChart.xAxis.apply {
+//            val axisValue = viewModel.getDaysOfMonth()
+//            valueFormatter = IndexAxisValueFormatter(axisValue)
+//            granularity = 1f
+//            mAxisRange = axisValue.size.toFloat()
+//            axisMaximum = axisValue.size.toFloat()
+//            axisMinimum = 1f
+//        }
+//    }
 
     override fun onStart() {
         super.onStart()
-        viewModel.onRangeSelected(Calendar.DATE)
+
     }
 
     override fun onClick(view: View?) {
         when (view?.id) {
             R.id.selectDate -> {
                 viewModel.onRangeSelected(Calendar.DATE)
-                setupDateAxis()
                 selectDate.isSelected = true
                 selectWeek.isSelected = false
                 selectMonth.isSelected = false
             }
             R.id.selectWeek -> {
                 viewModel.onRangeSelected(Calendar.WEEK_OF_YEAR)
-                setupWeekAxis()
                 selectDate.isSelected = false
                 selectWeek.isSelected = true
                 selectMonth.isSelected = false
             }
             R.id.selectMonth -> {
                 viewModel.onRangeSelected(Calendar.MONTH)
-                setupMonthAxis()
                 selectDate.isSelected = false
                 selectWeek.isSelected = false
                 selectMonth.isSelected = true
             }
-            R.id.next -> {
-                viewModel.waverRange(1)
-            }
-            R.id.previous -> {
-                viewModel.waverRange(-1)
-            }
-
         }
     }
 }

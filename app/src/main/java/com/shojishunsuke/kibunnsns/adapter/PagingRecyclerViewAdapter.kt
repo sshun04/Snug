@@ -20,7 +20,6 @@ class PagingRecyclerViewAdapter(
 ) :
     PagingBaseAdapter<RecyclerView.ViewHolder>() {
 
-
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val post = posts[position]
         when (viewType) {
@@ -37,7 +36,6 @@ class PagingRecyclerViewAdapter(
                     holder.activityIcon.visibility = View.GONE
                 }
 
-
                 if (post.iconPhotoLink.isNotBlank()) {
                     GlideApp.with(context)
                         .load(post.iconPhotoLink)
@@ -52,8 +50,9 @@ class PagingRecyclerViewAdapter(
                     listener(post)
                 }
             }
+
             2 -> {
-                holder as LinearRecyclerViewHolder
+                holder as VerticalRecyclerViewHolder
                 holder.userNameTextView.text = if (post.userName.isNotBlank()) post.userName else "匿名"
                 holder.contentTextView.text = post.contentText
                 holder.dateTextView.text = formatDate(post.date)
@@ -103,7 +102,7 @@ class PagingRecyclerViewAdapter(
 
             2 -> {
                 val mView = inflater.inflate(R.layout.item_post_vertical, parent, false)
-                return LinearRecyclerViewHolder(mView)
+                return VerticalRecyclerViewHolder(mView)
             }
             3 -> {
                 val mView = inflater.inflate(R.layout.item_post_record, parent, false)
@@ -122,7 +121,7 @@ class PagingRecyclerViewAdapter(
         val timeTextView: TextView = view.findViewById(R.id.dateTextView)
     }
 
-    inner class LinearRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class VerticalRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val itemParent: ConstraintLayout = view.findViewById(R.id.postBaseView)
         val userNameTextView: TextView = view.findViewById(R.id.userName)
         val userIcon: CircleImageView = view.findViewById(R.id.userIcon)

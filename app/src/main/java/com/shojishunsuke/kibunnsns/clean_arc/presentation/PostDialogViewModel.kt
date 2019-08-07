@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.data.NaturalLanguageAnalysisRepository
-import com.shojishunsuke.kibunnsns.clean_arc.data.SharedPrefRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.RoomRepository
 import com.shojishunsuke.kibunnsns.clean_arc.domain.PostDialogUseCase
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.Dispatchers
@@ -20,14 +20,15 @@ class PostDialogViewModel(context: Context) : ViewModel() {
     private val postUseCase: PostDialogUseCase
     private val _currentPosted = MutableLiveData<Post>()
 
-    val currentPosted:LiveData<Post> get() = _currentPosted
-    
+    val currentPosted: LiveData<Post> get() = _currentPosted
+    val currentEmojiList: MutableLiveData<List<String>> = MutableLiveData()
+
     init {
         val analysisRepository = NaturalLanguageAnalysisRepository(context)
-        val dataConfigRepository = SharedPrefRepository(context)
-        postUseCase = PostDialogUseCase(dataConfigRepository,analysisRepository)
+        val roomRepository = RoomRepository()
+        postUseCase = PostDialogUseCase(roomRepository, analysisRepository)
+        requestCurrentEmojiList()
     }
-
 
     fun toggleArrow(view: View, isExpanded: Boolean = false) {
         if (isExpanded) {
@@ -45,7 +46,7 @@ class PostDialogViewModel(context: Context) : ViewModel() {
         view.startAnimation(rotateAnimation)
     }
 
-    fun requestPost(content: String, emojiCode: String){
+    fun requestPost(content: String, emojiCode: String) {
         GlobalScope.launch {
             val post = postUseCase.generatePost(content, emojiCode)
             launch(Dispatchers.IO) {
@@ -54,11 +55,17 @@ class PostDialogViewModel(context: Context) : ViewModel() {
 
         }
     }
-    fun requestWholeEmoji() = postUseCase.loadWholeEmoji()
-    fun requestCurrentEmoji() = postUseCase.loadCurrentEmoji()
 
-    fun addCurrentEmoji(emojiCode:String){
-        postUseCase.updateCurrentEmoji(emojiCode)
+    fun requestWholeEmoji(): MutableList<String> = postUseCase.loadWholeEmoji() as MutableList<String>
+
+    private fun requestCurrentEmojiList() {
+        GlobalScope.launch {
+            val emojiList = postUseCase.loadCurrentEmoji()
+            launch(Dispatchers.IO) {
+                currentEmojiList.postValue(emojiList)
+            }
+        }
+
     }
 
     override fun onCleared() {
