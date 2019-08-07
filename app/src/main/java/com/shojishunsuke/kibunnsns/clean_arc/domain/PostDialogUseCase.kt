@@ -20,7 +20,9 @@ class PostDialogUseCase(
 
     suspend fun generatePost(content: String, emojiCode: String): Post = runBlocking {
 
-        localDataBaseRepository.registerItem(emojiCode)
+        if (emojiCode.isNotBlank()) {
+            localDataBaseRepository.registerItem(emojiCode)
+        }
 
         val userName = userInfoRepository.getUserName()
         val userId = userInfoRepository.getUserId()
@@ -49,8 +51,8 @@ class PostDialogUseCase(
 
     fun loadWholeEmoji(): List<String> = emojiRepository.loadWholeEmoji()
 
-  suspend fun loadCurrentEmoji(): List<String>{
-        val  defaultCollection:List<EmojiItem> = localDataBaseRepository.loadLatestCollection() as List<EmojiItem>
+    suspend fun loadCurrentEmoji(): List<String> {
+        val defaultCollection: List<EmojiItem> = localDataBaseRepository.loadLatestCollection() as List<EmojiItem>
         val stringList = mutableListOf<String>()
         defaultCollection.forEach {
             stringList.add(it.emojiCode)

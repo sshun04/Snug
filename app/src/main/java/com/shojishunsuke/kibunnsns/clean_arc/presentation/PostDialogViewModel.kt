@@ -21,7 +21,7 @@ class PostDialogViewModel(context: Context) : ViewModel() {
     private val _currentPosted = MutableLiveData<Post>()
 
     val currentPosted: LiveData<Post> get() = _currentPosted
-    val currentEmojiList :MutableLiveData<List<String>> = MutableLiveData()
+    val currentEmojiList: MutableLiveData<List<String>> = MutableLiveData()
 
     init {
         val analysisRepository = NaturalLanguageAnalysisRepository(context)
@@ -56,15 +56,15 @@ class PostDialogViewModel(context: Context) : ViewModel() {
         }
     }
 
-    fun requestWholeEmoji():MutableList<String> = postUseCase.loadWholeEmoji() as MutableList<String>
-   private fun requestCurrentEmojiList() {
+    fun requestWholeEmoji(): MutableList<String> = postUseCase.loadWholeEmoji() as MutableList<String>
+
+    private fun requestCurrentEmojiList() {
         GlobalScope.launch {
-           val emojiList =  postUseCase.loadCurrentEmoji()
+            val emojiList = postUseCase.loadCurrentEmoji()
             launch(Dispatchers.IO) {
                 currentEmojiList.postValue(emojiList)
             }
         }
-
 
     }
 

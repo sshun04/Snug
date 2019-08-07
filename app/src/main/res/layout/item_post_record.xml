@@ -8,7 +8,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="12dp"
         android:paddingVertical="8dp">
 
         <androidx.emoji.widget.EmojiTextView
@@ -16,6 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="🎨"
+            android:layout_marginHorizontal="16dp"
             android:textSize="36sp"
             app:layout_constraintEnd_toStartOf="@id/contentTextView"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,8 +26,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="12dp"
-            android:layout_marginHorizontal="8dp"
             android:text="contentText"
+            android:layout_marginEnd="4dp"
             android:textColor="@color/dark_87"
             app:layout_constraintEnd_toStartOf="@id/dateTextView"
             app:layout_constraintStart_toEndOf="@id/activityIcon"
