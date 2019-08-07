@@ -1786,6 +1786,7 @@ layout item_post
 layout item_post_linear
 layout item_post_record
 layout item_post_vertical
+layout item_record
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action
