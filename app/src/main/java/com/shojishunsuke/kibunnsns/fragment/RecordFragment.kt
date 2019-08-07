@@ -69,13 +69,13 @@ class RecordFragment : Fragment() {
             setUpEditNameDialog(inflater)
         }
 
-        view.chartViewBase.setOnClickListener {
-            ChartActivity.start(requireContext())
-        }
-
-        view.cardViewCalender.setOnClickListener {
-            CalendarActivity.start(requireContext())
-        }
+//        view.chartViewBase.setOnClickListener {
+//            ChartActivity.start(requireContext())
+//        }
+//
+//        view.cardViewCalender.setOnClickListener {
+//            CalendarActivity.start(requireContext())
+//        }
         return view
     }
 

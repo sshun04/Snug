@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@id/collapsed"
+        app:constraintSetStart="@id/expanded">
+        <OnSwipe
+            app:dragDirection="dragUp"
+            app:touchAnchorId="@id/tabContainer"
+            app:touchAnchorSide="top" />
+
+    </Transition>
+
+
+    <ConstraintSet android:id="@+id/expanded">
+
+        <Constraint
+            android:id="@+id/headerBackGround"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/acIcon"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35" />
+
+        <Constraint
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/acIcon" />
+
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/collapsed">
+
+        <Constraint
+            android:id="@+id/headerBackGround"
+            android:layout_height="56dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/acIcon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/headerBackGround" />
+
+        <Constraint
+            android:id="@+id/editImageButton"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/acIcon"
+            app:layout_constraintEnd_toEndOf="@id/acIcon"
+            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintStart_toStartOf="@id/acIcon"
+            app:layout_constraintTop_toTopOf="@id/acIcon"
+            app:layout_constraintVertical_bias="0.98" />
+
+        <Constraint
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
+            app:layout_constraintStart_toEndOf="@id/acIcon"
+            app:layout_constraintTop_toTopOf="@id/headerBackGround" />
+
+        <Constraint
+            android:id="@+id/editNameIcon"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/nameTextView"
+            app:layout_constraintStart_toEndOf="@id/nameTextView"
+            app:layout_constraintTop_toTopOf="@id/nameTextView"  />
+
+    </ConstraintSet>
+
+</MotionScene>
