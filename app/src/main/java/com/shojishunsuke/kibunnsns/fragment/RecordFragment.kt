@@ -34,10 +34,13 @@ import kotlinx.android.synthetic.main.fragment_record.view.*
 
 class RecordFragment : Fragment() {
 
-    private val REQUEST_CODE_VIEW = 1
-    private val RESULT_OK = -1
-    lateinit var viewModel: RecordFragmentViewModel
-    lateinit var iconView: CircleImageView
+    companion object {
+        private const val REQUEST_CODE_VIEW = 1
+        private const val RESULT_OK = -1
+    }
+
+    private lateinit var viewModel: RecordFragmentViewModel
+    private lateinit var iconView: CircleImageView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_record, container, false)
@@ -47,12 +50,12 @@ class RecordFragment : Fragment() {
         }
 
         iconView = view.findViewById<CircleImageView>(R.id.acIcon)
-        val nameTextView = view.findViewById<TextView>(R.id.nameTextView)
-        val editNameIcon = view.findViewById<ImageView>(R.id.editNameIcon)
-        val editImageIcon = view.findViewById<CircleButton>(R.id.editImageButton)
-        val settingIcon = view.findViewById<ImageView>(R.id.settingIcon)
-        val viewPager = view.findViewById<ViewPager>(R.id.viewPager)
-        val tabLayout = view.findViewById<TabLayout>(R.id.tabLayout)
+        val nameTextView = view.nameTextView
+        val editNameIcon = view.editNameIcon
+        val editImageIcon = view.editImageButton
+        val settingIcon = view.settingIcon
+        val viewPager = view.viewPager
+        val tabLayout = view.tabLayout
 
         settingIcon.setOnClickListener {
             val intent = Intent(requireContext(), SettingActivity::class.java)
@@ -63,7 +66,6 @@ class RecordFragment : Fragment() {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             intent.setDataAndType(Uri.parse(Environment.getExternalStorageDirectory().path), "image/*")
             startActivityForResult(intent, REQUEST_CODE_VIEW)
-
         }
 
         viewModel.userName.observe(this, Observer { userName ->
@@ -83,7 +85,6 @@ class RecordFragment : Fragment() {
         }
 
         tabLayout.setupWithViewPager(view.viewPager)
-
 
         return view
     }
@@ -106,13 +107,16 @@ class RecordFragment : Fragment() {
         if (viewModel.currentBitmap != null) {
             Glide.with(requireContext())
                 .load(viewModel.currentBitmap)
+                .placeholder(R.drawable.icon_annonymous)
+                .error(R.drawable.icon_annonymous)
                 .into(iconView)
         } else {
             GlideApp.with(requireContext())
                 .load(viewModel.getIconRef())
+                .placeholder(R.drawable.icon_annonymous)
+                .error(R.drawable.icon_annonymous)
                 .into(iconView)
         }
-
     }
 
     private fun setUpEditNameDialog(inflater: LayoutInflater) {

@@ -14,11 +14,6 @@ class HomeFragmentViewModel : ViewModel() {
     private var previousPost: Post? = null
     private var hideNegative = true
 
-
-    init {
-        requestNextPosts()
-    }
-
     fun onScrollBottom() {
         requestNextPosts()
     }
