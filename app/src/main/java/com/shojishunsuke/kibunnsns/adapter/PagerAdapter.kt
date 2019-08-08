@@ -9,9 +9,17 @@ import com.shojishunsuke.kibunnsns.fragment.ChartFragment
 class PagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
 
     override fun getItem(position: Int): Fragment {
-        return when(position){
+        return when (position) {
             0 -> CalendarFargment()
-            1->ChartFragment()
+            1 -> ChartFragment()
+            else -> throw IllegalArgumentException()
+        }
+    }
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        return when (position) {
+            0 -> "カレンダー"
+            1 -> "気分"
             else -> throw IllegalArgumentException()
         }
     }

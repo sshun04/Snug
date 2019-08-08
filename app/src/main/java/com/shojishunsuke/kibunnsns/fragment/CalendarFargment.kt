@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_calendar.view.*
 class CalendarFargment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_calendar, container, false)
-        val viewModel = this.run { ViewModelProviders.of(this).get(CalendarActivityViewModel::class.java) }
+        val viewModel = requireActivity().run { ViewModelProviders.of(this).get(CalendarActivityViewModel::class.java) }
 
         view.calendarView.apply {
             setOnDateChangeListener { _, year, month, date ->

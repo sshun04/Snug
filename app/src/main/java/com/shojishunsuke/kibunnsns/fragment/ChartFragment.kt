@@ -26,7 +26,7 @@ class ChartFragment : Fragment(), View.OnClickListener {
         val lineChart = parentView.lineChart
         val pieChart = parentView.pieChart
 
-        viewModel = this.run {
+        viewModel = requireActivity().run {
             ViewModelProviders.of(this).get(ChartActivityViewModel::class.java)
         }
         lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM

@@ -13,7 +13,7 @@
     <View
         android:id="@+id/headerBackGround"
         android:layout_width="0dp"
-        android:layout_height="280dp"
+        android:layout_height="220dp"
         android:background="@color/colorPrimary" />
 
 

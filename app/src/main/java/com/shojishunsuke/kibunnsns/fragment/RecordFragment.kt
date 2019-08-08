@@ -18,8 +18,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.viewpager.widget.ViewPager
 import at.markushi.ui.CircleButton
 import com.bumptech.glide.Glide
+import com.google.android.material.tabs.TabLayout
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
 //import com.shojishunsuke.kibunnsns.activity.CalendarActivity
@@ -40,15 +42,17 @@ class RecordFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_record, container, false)
 
-        viewModel = activity?.run {
+        viewModel = requireActivity().run {
             ViewModelProviders.of(this).get(RecordFragmentViewModel::class.java)
-        } ?: throw Exception("Invalid Activity")
+        }
 
         iconView = view.findViewById<CircleImageView>(R.id.acIcon)
         val nameTextView = view.findViewById<TextView>(R.id.nameTextView)
         val editNameIcon = view.findViewById<ImageView>(R.id.editNameIcon)
         val editImageIcon = view.findViewById<CircleButton>(R.id.editImageButton)
         val settingIcon = view.findViewById<ImageView>(R.id.settingIcon)
+        val viewPager = view.findViewById<ViewPager>(R.id.viewPager)
+        val tabLayout = view.findViewById<TabLayout>(R.id.tabLayout)
 
         settingIcon.setOnClickListener {
             val intent = Intent(requireContext(), SettingActivity::class.java)
@@ -70,15 +74,15 @@ class RecordFragment : Fragment() {
             setUpEditNameDialog(inflater)
         }
 
-        view.tabLayout.apply {
+        tabLayout.apply {
             addTab(newTab().setText("投稿"))
             addTab(newTab().setText("気分"))
         }
-        view.viewPager.apply {
-            adapter = PagerAdapter(requireFragmentManager())
+        viewPager.apply {
+            adapter = PagerAdapter(childFragmentManager)
         }
 
-        view.tabLayout.setupWithViewPager(view.viewPager)
+        tabLayout.setupWithViewPager(view.viewPager)
 
 
         return view
