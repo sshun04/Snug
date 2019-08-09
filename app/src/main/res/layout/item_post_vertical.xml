@@ -12,7 +12,7 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        android:paddingHorizontal="12dp"
+        android:paddingHorizontal="16dp"
         android:paddingTop="12dp"
         android:paddingBottom="4dp">
 
@@ -34,7 +34,7 @@
             android:layout_marginTop="4dp"
             android:text="あと1日やすみあるのに今から憂鬱になってる"
             android:textColor="@color/dark_87"
-            android:textSize="12sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/activityIcon"
             app:layout_constraintTop_toTopOf="parent" />

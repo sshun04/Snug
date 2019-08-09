@@ -2,34 +2,33 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:elevation="8dp"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:elevation="8dp">
 
     <FrameLayout
         android:id="@+id/detailFragmentContainer"
-        android:elevation="5dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
+        android:layout_height="match_parent"
+        android:elevation="5dp"></FrameLayout>
 
 
     <com.google.android.material.appbar.AppBarLayout
-        android:background="@color/light_100"
-        app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/toolBarParent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:elevation="4dp"
         android:layout_width="0dp"
-        android:layout_height="56dp">
+        android:layout_height="56dp"
+        android:background="@color/light_100"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
-            style="@style/ThemeOverlay.AppCompat.ActionBar"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             android:id="@+id/homeToolBar"
+            style="@style/ThemeOverlay.AppCompat.ActionBar"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:background="@color/light_100"/>
+            android:background="@color/light_100"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -46,12 +45,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
     <LinearLayout
-        android:layout_marginVertical="4dp"
         android:id="@+id/headerGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:gravity="end"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/postsRecyclerView"
@@ -67,28 +66,28 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:textSize="12sp"
-            android:text="ネガティブな投稿を隠す" />
+            android:layout_weight="1"
+            android:text="ネガティブな投稿を隠す"
+            android:textSize="12sp" />
 
         <ImageView
             android:id="@+id/linear"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginEnd="12dp"
             android:layout_gravity="center"
+            android:layout_marginEnd="12dp"
             android:padding="1dp"
             android:src="@drawable/ic_format_list_bulleted_black_24dp" />
 
         <ImageView
             android:id="@+id/grid"
-            android:padding="2dp"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginEnd="12dp"
             android:layout_gravity="center"
+            android:layout_marginEnd="12dp"
+            android:padding="2dp"
             android:src="@drawable/ic_dashboard_black_24dp" />
 
     </LinearLayout>

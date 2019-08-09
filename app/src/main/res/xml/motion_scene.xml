@@ -18,15 +18,15 @@
         <Constraint
             android:id="@+id/headerBackGround"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="200dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
             android:id="@+id/acIcon"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
+            android:layout_width="112dp"
+            android:layout_height="112dp"
             app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -38,6 +38,7 @@
             android:id="@+id/nameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,9 +58,9 @@
 
         <Constraint
             android:id="@+id/acIcon"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="12dp"
             app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/headerBackGround" />
@@ -78,17 +79,18 @@
             android:id="@+id/nameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
+            android:layout_marginStart="8dp"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/acIcon"
             app:layout_constraintStart_toEndOf="@id/acIcon"
-            app:layout_constraintTop_toTopOf="@id/headerBackGround" />
+            app:layout_constraintTop_toTopOf="@id/acIcon" />
 
         <Constraint
             android:id="@+id/editNameIcon"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/nameTextView"
             app:layout_constraintStart_toEndOf="@id/nameTextView"
-            app:layout_constraintTop_toTopOf="@id/nameTextView"  />
+            app:layout_constraintTop_toTopOf="@id/nameTextView" />
 
     </ConstraintSet>
 

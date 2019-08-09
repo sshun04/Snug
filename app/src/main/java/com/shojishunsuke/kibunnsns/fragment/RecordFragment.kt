@@ -49,7 +49,7 @@ class RecordFragment : Fragment() {
             ViewModelProviders.of(this).get(RecordFragmentViewModel::class.java)
         }
 
-        iconView = view.findViewById<CircleImageView>(R.id.acIcon)
+        iconView = view.acIcon
         val nameTextView = view.nameTextView
         val editNameIcon = view.editNameIcon
         val editImageIcon = view.editImageButton

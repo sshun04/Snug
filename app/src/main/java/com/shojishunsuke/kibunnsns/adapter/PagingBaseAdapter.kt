@@ -33,7 +33,7 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder>() :
 
     override fun getItemCount(): Int = posts.size
 
-   protected fun formatDate(postedDate: Date): String {
+    protected fun formatDate(postedDate: Date): String {
         val currentDate = Date()
         val timeDiffInSec = (currentDate.time - postedDate.time) / 1000
 
@@ -41,7 +41,7 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder>() :
         val minuteDiff = (timeDiffInSec % 3600) / 60
         val secDiff = timeDiffInSec % 60
 
-        val outPutText = when {
+        return when {
             timeDiffInSec in 3600 * 24 until 3600 * 48 -> {
                 "昨日"
             }
@@ -58,9 +58,7 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder>() :
                 val formatter = SimpleDateFormat("MM月dd日", Locale.JAPAN)
                 formatter.format(postedDate)
             }
-
         }
-        return outPutText
 
     }
 
@@ -69,7 +67,7 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder>() :
         return formatter.format(date)
     }
 
-   protected fun getAppropriateIconFromSentiScore(sentiScore: Float): String {
+    protected fun getAppropriateIconFromSentiScore(sentiScore: Float): String {
         return when {
             sentiScore > 0.4f -> "\uD83D\uDE01"
             sentiScore <= 0.4f && sentiScore >= -0.4f -> "\uD83D\uDE10"

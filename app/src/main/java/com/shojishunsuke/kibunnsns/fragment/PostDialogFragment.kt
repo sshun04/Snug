@@ -2,8 +2,8 @@ package com.shojishunsuke.kibunnsns.fragment
 
 import android.app.Dialog
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -60,10 +60,13 @@ class PostDialogFragment : DialogFragment() {
         })
 
         parentView.postButton.setOnClickListener {
-            postViewModel.requestPost(parentView.contentEditText.text.toString(),selectedEmojiCode)
+            val contentText = parentView.contentEditText.text.toString()
+            if (contentText.isNotBlank()) {
+                postViewModel.requestPost(contentText, selectedEmojiCode)
+            } else {
+                Toast.makeText(requireContext(),"メッセージを入力してください",Toast.LENGTH_SHORT).show()
+            }
         }
-
-
 
         postViewModel.currentEmojiList.observe(this, Observer {
             currentEmojiListAdapter.setValue(it)

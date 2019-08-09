@@ -77,18 +77,6 @@ class PagingRecyclerViewAdapter(
                     listener(post)
                 }
             }
-
-            3 -> {
-                holder as RecordRecyclerViewHolder
-                holder.contentTextView.text = post.contentText
-                holder.timeTextView.text = takeTimeFromDate(post.date)
-                if (post.actID.isNotBlank()) {
-                    holder.activityIcon.text = post.actID
-                } else {
-                    holder.activityIcon.text = getAppropriateIconFromSentiScore(post.sentiScore)
-                }
-
-            }
         }
     }
 
@@ -104,21 +92,11 @@ class PagingRecyclerViewAdapter(
                 val mView = inflater.inflate(R.layout.item_post_vertical, parent, false)
                 return VerticalRecyclerViewHolder(mView)
             }
-            3 -> {
-                val mView = inflater.inflate(R.layout.item_post_record, parent, false)
-                return RecordRecyclerViewHolder(mView)
-            }
             else -> {
                 throw IllegalArgumentException()
             }
         }
 
-    }
-
-    inner class RecordRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val activityIcon: EmojiTextView = view.findViewById(R.id.activityIcon)
-        val contentTextView: TextView = view.findViewById(R.id.contentTextView)
-        val timeTextView: TextView = view.findViewById(R.id.dateTextView)
     }
 
     inner class VerticalRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {

@@ -31,8 +31,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/acIcon"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="112dp"
+        android:layout_height="112dp"
         android:backgroundTint="@android:color/white"
         android:src="@drawable/icon_annonymous"
         app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:text="匿名"
         android:textColor="@color/light_100"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
         app:layout_constraintEnd_toEndOf="parent"
