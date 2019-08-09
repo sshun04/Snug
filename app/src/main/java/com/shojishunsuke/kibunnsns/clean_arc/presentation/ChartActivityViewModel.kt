@@ -1,6 +1,7 @@
 package com.shojishunsuke.kibunnsns.clean_arc.presentation
 
 import android.graphics.Color
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.github.mikephil.charting.data.*
@@ -28,7 +29,7 @@ class ChartActivityViewModel : ViewModel() {
         "Negative" to Color.rgb(170, 240, 255)
     )
     val weekOfDays = listOf("日", "月", "火", "水", "木", "金", "土")
-    val hours : MutableList<String> = mutableListOf()
+    val hours: MutableList<String> = mutableListOf()
 
     val modes = listOf(
         "☹️",
@@ -38,19 +39,27 @@ class ChartActivityViewModel : ViewModel() {
         "\uD83D\uDE00"
     )
 
-    val lineEntries = MutableLiveData<List<Entry>>()
-    val pieEntries = MutableLiveData<List<PieEntry>>()
-    val liveDate = MutableLiveData<String>()
-    val axisValue = MutableLiveData<List<String>>()
+    private val _lineEntries = MutableLiveData<List<Entry>>()
+    val lineEntries: LiveData<List<Entry>> get() = _lineEntries
+
+    private val _pieEntries = MutableLiveData<List<PieEntry>>()
+    val pieEntries: LiveData<List<PieEntry>> get() = _pieEntries
+
+    private val _liveDate = MutableLiveData<String>()
+    val liveDate: LiveData<String> get() = _liveDate
+
+    private val _axisValue = MutableLiveData<List<String>>()
+    val axisValue: LiveData<List<String>> get() = _axisValue
+
 
     private val usecase = ChartActivityUsecase()
 
     init {
-        for ( i in 0..24){
+        for (i in 0..24) {
             hours.add("$i:00")
         }
         requestData()
-        liveDate.postValue("${date.year()}/${date.month()}/${date.dayOfMonth()}")
+        _liveDate.postValue("${date.year()}/${date.month()}/${date.dayOfMonth()}")
     }
 
     fun onRangeSelected(field: Int) {
@@ -68,14 +77,14 @@ class ChartActivityViewModel : ViewModel() {
         upDateAxisValue()
         when (rangeField) {
             Calendar.DATE -> {
-                liveDate.postValue("${date.year()}/${date.month()}/${date.dayOfMonth()}")
+                _liveDate.postValue("${date.year()}/${date.month()}/${date.dayOfMonth()}")
                 requestDataOfDate()
             }
             Calendar.WEEK_OF_YEAR -> {
-                liveDate.postValue("${date.firstDayOfWeek}-${date.firstDayOfWeek + 6}")
+                _liveDate.postValue("${date.firstDayOfWeek}-${date.firstDayOfWeek + 6}")
             }
             Calendar.MONTH -> {
-                liveDate.postValue("${date.year()}/${date.month()}")
+                _liveDate.postValue("${date.year()}/${date.month()}")
                 requestDataOfMonth()
             }
         }
@@ -88,8 +97,8 @@ class ChartActivityViewModel : ViewModel() {
             val lineData = datas.first
             val pieData = datas.second
             launch(Dispatchers.IO) {
-                lineEntries.postValue(lineData)
-                pieEntries.postValue(pieData)
+                _lineEntries.postValue(lineData)
+                _pieEntries.postValue(pieData)
             }
         }
     }
@@ -101,8 +110,8 @@ class ChartActivityViewModel : ViewModel() {
             val lineData = datas.first
             val pieData = datas.second
             launch(Dispatchers.IO) {
-                lineEntries.postValue(lineData)
-                pieEntries.postValue(pieData)
+                _lineEntries.postValue(lineData)
+                _pieEntries.postValue(pieData)
             }
         }
     }
@@ -113,14 +122,14 @@ class ChartActivityViewModel : ViewModel() {
             val lineData = datas.first
             val pieData = datas.second
             launch(Dispatchers.IO) {
-                lineEntries.postValue(lineData)
-                pieEntries.postValue(pieData)
+                _lineEntries.postValue(lineData)
+                _pieEntries.postValue(pieData)
             }
         }
     }
 
     fun getPieChartData(): PieData {
-        val pieDataSet = PieDataSet(pieEntries.value, "").apply {
+        val pieDataSet = PieDataSet(_pieEntries.value, "").apply {
             setDrawValues(true)
             colors = getPieChartColorList()
         }
@@ -132,8 +141,8 @@ class ChartActivityViewModel : ViewModel() {
     }
 
     fun getLineChartData(): LineData {
-        Collections.sort(lineEntries.value, EntryXComparator())
-        val lineDataSet = LineDataSet(lineEntries.value, "投稿")
+        Collections.sort(_lineEntries.value, EntryXComparator())
+        val lineDataSet = LineDataSet(_lineEntries.value, "投稿")
             .apply {
                 lineWidth = 2.5f
                 circleRadius = 5f
@@ -144,31 +153,30 @@ class ChartActivityViewModel : ViewModel() {
 
     private fun getPieChartColorList(): List<Int> {
         val colorList = mutableListOf<Int>()
-        pieEntries.value?.forEach {
+        _pieEntries.value?.forEach {
             val color = pieColorsMap[it.label] ?: Color.rgb(169, 255, 242)
             colorList.add(color)
         }
         return colorList
     }
 
-    private fun upDateAxisValue(){
-        when(rangeField){
-            Calendar.DATE ->{
-                axisValue.postValue(hours)
+    private fun upDateAxisValue() {
+        when (rangeField) {
+            Calendar.DATE -> {
+                _axisValue.postValue(hours)
             }
-            Calendar.WEEK_OF_YEAR ->{
+            Calendar.WEEK_OF_YEAR -> {
 
             }
-            Calendar.MONTH ->{
+            Calendar.MONTH -> {
                 val list = mutableListOf<String>()
-                for (i in 1..date.monthDays()){
+                for (i in 1..date.monthDays()) {
                     list.add("${date.month()}/$i")
                 }
-                axisValue.postValue(list)
+                _axisValue.postValue(list)
             }
         }
     }
-
 
 
 }

@@ -1,6 +1,7 @@
 package com.shojishunsuke.kibunnsns.clean_arc.presentation
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.domain.DetailPostsFragmentUsecase
@@ -12,13 +13,14 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
-    private val useCase: DetailPostsFragmentUsecase
-    val nextPosts = MutableLiveData<List<Post>>()
+    private val useCase: DetailPostsFragmentUsecase = DetailPostsFragmentUsecase(post)
+
+   private val _nextPosts = MutableLiveData<List<Post>>()
+    val nextPosts : LiveData<List<Post>> get() = _nextPosts
 
     private var isLoading = true
 
     init {
-        useCase = DetailPostsFragmentUsecase(post)
         loadNextPosts()
     }
 
@@ -33,7 +35,7 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
         GlobalScope.launch {
             val posts = useCase.loadPosts()
             launch(Dispatchers.Main) {
-                nextPosts.postValue(posts)
+                _nextPosts.postValue(posts)
                 isLoading = false
                 Log.d("Load", "Finish")
             }

@@ -1,5 +1,6 @@
 package com.shojishunsuke.kibunnsns.clean_arc.presentation
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.domain.HomePostsFragmentUseCase
@@ -10,7 +11,8 @@ import kotlinx.coroutines.launch
 
 class HomeFragmentViewModel : ViewModel() {
     private val useCase = HomePostsFragmentUseCase()
-    val nextPosts = MutableLiveData<MutableList<Post>>()
+    private val _nextPosts = MutableLiveData<MutableList<Post>>()
+    val nextPosts: LiveData<MutableList<Post>> get() = _nextPosts
     private var previousPost: Post? = null
     private var hideNegative = true
 
@@ -25,7 +27,7 @@ class HomeFragmentViewModel : ViewModel() {
 
             posts as MutableList<Post>
             launch(Dispatchers.IO) {
-                nextPosts.postValue(posts)
+                _nextPosts.postValue(posts)
             }
         }
     }
@@ -39,7 +41,7 @@ class HomeFragmentViewModel : ViewModel() {
 
     fun refresh() {
         previousPost = null
-        nextPosts.value?.clear()
+        _nextPosts.value?.clear()
         requestNextPosts()
     }
 }
