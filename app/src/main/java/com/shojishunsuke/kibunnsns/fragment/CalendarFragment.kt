@@ -34,10 +34,10 @@ class CalendarFragment : Fragment() {
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         }
 
-        viewModel.dateText.observe(this, Observer {
+        viewModel.dateText.observe(viewLifecycleOwner, Observer {
             view.simpleDateTextView.text = it
         })
-        viewModel.postsOfDate.observe(this, Observer {
+        viewModel.postsOfDate.observe(viewLifecycleOwner, Observer {
             view.datePostsRecyclerView.adapter =
                 PostRecordRecyclerViewAdapter(requireContext()).apply {
                     addNextCollection(it)

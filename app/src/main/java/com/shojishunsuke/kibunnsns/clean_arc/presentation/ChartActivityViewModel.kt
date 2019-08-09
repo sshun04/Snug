@@ -19,7 +19,7 @@ import java.util.*
 
 class ChartActivityViewModel : ViewModel() {
 
-    private var rangeField = Calendar.DATE
+    var rangeField = Calendar.DATE
     private val date: Calendar = Calendar.getInstance()
 
     private val pieColorsMap = mapOf(
@@ -168,6 +168,7 @@ class ChartActivityViewModel : ViewModel() {
             }
         }
     }
+
 
 
 }

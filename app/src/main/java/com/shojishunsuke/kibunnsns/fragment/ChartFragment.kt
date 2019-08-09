@@ -12,7 +12,6 @@ import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.ChartActivityViewModel
-import kotlinx.android.synthetic.main.fragment_chart.*
 import kotlinx.android.synthetic.main.fragment_chart.view.*
 import java.util.*
 
@@ -45,14 +44,14 @@ class ChartFragment : Fragment(), View.OnClickListener {
 
         lineChart.axisRight.isEnabled = false
 
-        viewModel.lineEntries.observe(this, Observer {
+        viewModel.lineEntries.observe(viewLifecycleOwner, Observer {
             lineChart.data = viewModel.getLineChartData()
             lineChart.data.notifyDataChanged()
             lineChart.notifyDataSetChanged()
             lineChart.invalidate()
         })
 
-        viewModel.axisValue.observe(this, Observer {
+        viewModel.axisValue.observe(viewLifecycleOwner, Observer {
             lineChart.xAxis.apply {
                 valueFormatter = IndexAxisValueFormatter(it)
                 granularity = 1f
@@ -64,13 +63,13 @@ class ChartFragment : Fragment(), View.OnClickListener {
         })
 
 
-        viewModel.pieEntries.observe(this, Observer {
+        viewModel.pieEntries.observe(viewLifecycleOwner, Observer {
             pieChart.data = viewModel.getPieChartData()
             pieChart.setEntryLabelColor(R.color.dark_87)
             pieChart.invalidate()
         })
 
-        viewModel.liveDate.observe(this, Observer {
+        viewModel.liveDate.observe(viewLifecycleOwner, Observer {
             parentView.focusedDateTextView.text = it
         })
 
@@ -92,29 +91,46 @@ class ChartFragment : Fragment(), View.OnClickListener {
         return parentView
     }
 
+    override fun onResume() {
+        super.onResume()
+        switchSelectedBackGround(viewModel.rangeField)
+
+    }
 
     override fun onClick(view: View?) {
-        when (view?.id) {
-            R.id.selectDate -> {
-                viewModel.onRangeSelected(Calendar.DATE)
+        val range = when (view?.id) {
+            R.id.selectDate -> Calendar.DATE
+            R.id.selectWeek -> Calendar.WEEK_OF_YEAR
+            R.id.selectMonth -> Calendar.MONTH
+            else -> throw IndexOutOfBoundsException()
+        }
+
+        viewModel.onRangeSelected(range)
+        switchSelectedBackGround(range)
+    }
+
+    private fun switchSelectedBackGround(selectedRange: Int) {
+        when (selectedRange) {
+            Calendar.DATE -> {
                 parentView.selectDate.isSelected = true
                 parentView.selectWeek.isSelected = false
                 parentView.selectMonth.isSelected = false
             }
-            R.id.selectWeek -> {
-                viewModel.onRangeSelected(Calendar.WEEK_OF_YEAR)
+            Calendar.WEEK_OF_YEAR -> {
                 parentView.selectDate.isSelected = false
                 parentView.selectWeek.isSelected = true
                 parentView.selectMonth.isSelected = false
             }
-            R.id.selectMonth -> {
-                viewModel.onRangeSelected(Calendar.MONTH)
+            Calendar.MONTH -> {
                 parentView.selectDate.isSelected = false
                 parentView.selectWeek.isSelected = false
                 parentView.selectMonth.isSelected = true
             }
         }
     }
+
+
+
 
 
 }
