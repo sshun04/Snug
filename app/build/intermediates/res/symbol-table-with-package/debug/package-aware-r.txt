@@ -1543,7 +1543,8 @@ id custom
 id customPanel
 id dark
 id datePostsRecyclerView
-id dateTextView
+id day
+id dayOfMonth
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
@@ -1555,6 +1556,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id detailDateTextView
 id detailFragment
 id detailFragmentContainer
 id detailFragmentToolbar
@@ -1820,6 +1822,8 @@ id textinput_error
 id textinput_helper_text
 id ticker
 id time
+id timeTextView1
+id timeTextView2
 id title
 id titleDividerNoCustom
 id title_template
@@ -1963,8 +1967,8 @@ layout item_emoji
 layout item_post
 layout item_post_linear
 layout item_post_record
+layout item_post_record_detail
 layout item_post_vertical
-layout item_record
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action

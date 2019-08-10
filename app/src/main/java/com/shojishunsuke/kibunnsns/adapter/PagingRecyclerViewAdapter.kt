@@ -104,7 +104,7 @@ class PagingRecyclerViewAdapter(
         val userNameTextView: TextView = view.findViewById(R.id.userName)
         val userIcon: CircleImageView = view.findViewById(R.id.userIcon)
         val contentTextView: TextView = view.findViewById(R.id.contentTextView)
-        val dateTextView: TextView = view.findViewById(R.id.dateTextView)
+        val dateTextView: TextView = view.findViewById(R.id.timeTextView2)
         val activityIcon: EmojiTextView = view.findViewById(R.id.activityIcon)
     }
 
@@ -113,7 +113,7 @@ class PagingRecyclerViewAdapter(
         val userNameTextView: TextView = view.findViewById(R.id.userName)
         val userIcon: CircleImageView = view.findViewById(R.id.userIcon)
         val contentTextView: TextView = view.findViewById(R.id.contentTextView)
-        val dateTextView: TextView = view.findViewById(R.id.dateTextView)
+        val dateTextView: TextView = view.findViewById(R.id.timeTextView2)
         val activityIcon: EmojiTextView = view.findViewById(R.id.activityIcon)
     }
 

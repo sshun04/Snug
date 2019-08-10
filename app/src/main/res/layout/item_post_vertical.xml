@@ -51,7 +51,7 @@
             app:layout_constraintTop_toBottomOf="@id/contentTextView">
 
             <TextView
-                android:id="@+id/dateTextView"
+                android:id="@+id/timeTextView2"
                 android:layout_width="wrap_content"
                 android:layout_height="16dp"
                 android:layout_marginStart="4dp"

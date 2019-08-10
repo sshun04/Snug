@@ -85,7 +85,7 @@
             android:background="@color/light_12" />
 
         <TextView
-            android:id="@+id/dateTextView"
+            android:id="@+id/timeTextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"

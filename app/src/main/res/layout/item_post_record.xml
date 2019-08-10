@@ -2,52 +2,128 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="100dp"
     android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="12dp">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-        <androidx.emoji.widget.EmojiTextView
-            android:id="@+id/activityIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🎨"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/contentTextView"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            android:textSize="12dp"
-            android:text="contentText"
-            android:textColor="@color/dark_87"
-            app:layout_constraintStart_toStartOf="@id/activityIcon"
-            app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintTop_toBottomOf="@id/dateTextView" />
+            android:layout_gravity="center"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="4dp">
+
+            <TextView
+                android:id="@+id/dayOfMonth"
+                android:textColor="@color/dark_54"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="3"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:gravity="center"
+                android:text="土"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/timeTextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="23:30"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="11"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/detailDateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2019年7月29日(金)"
+                android:textSize="14sp"
+                android:textColor="@color/dark_87"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.emoji.widget.EmojiTextView
+                android:id="@+id/activityIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="🎨"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/detailDateTextView"
+                app:layout_constraintStart_toEndOf="@id/detailDateTextView"
+                app:layout_constraintTop_toTopOf="@id/detailDateTextView" />
 
 
-        <TextView
-            android:id="@+id/dateTextView"
-            android:paddingVertical="4dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableTint="@color/dark_54"
-            android:text="23:30"
-            android:textSize="12sp"
-            android:textColor="@color/dark_54"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/activityIcon"
-            app:layout_constraintTop_toTopOf="@id/activityIcon"/>
+            <TextView
+                android:id="@+id/contentTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="contentText"
+                android:maxLines="1"
+                android:textColor="@color/dark_87"
+                android:ellipsize="end"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailDateTextView" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:src="@drawable/ic_access_time_black_12dp" />
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/timeTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="23:30"
+                    android:textColor="@color/dark_54"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"

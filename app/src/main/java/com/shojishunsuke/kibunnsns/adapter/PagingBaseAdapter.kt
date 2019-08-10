@@ -5,7 +5,7 @@ import com.shojishunsuke.kibunnsns.model.Post
 import java.text.SimpleDateFormat
 import java.util.*
 
-abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder>() :
+abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val posts = mutableListOf<Post>()

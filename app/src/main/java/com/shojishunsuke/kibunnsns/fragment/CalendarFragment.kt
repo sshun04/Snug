@@ -41,6 +41,7 @@ class CalendarFragment : Fragment() {
             view.datePostsRecyclerView.adapter =
                 PostRecordRecyclerViewAdapter(requireContext()).apply {
                     addNextCollection(it)
+                    viewType = 1
                 }
         })
         return view
