@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -15,35 +16,49 @@ import com.shojishunsuke.kibunnsns.clean_arc.presentation.CalendarActivityViewMo
 import kotlinx.android.synthetic.main.fragment_calendar.view.*
 
 class CalendarFragment : Fragment() {
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_calendar, container, false)
         val viewModel = requireActivity().run { ViewModelProviders.of(this).get(CalendarActivityViewModel::class.java) }
 
-        view.calendarView.apply {
-            setOnDateChangeListener { _, year, month, date ->
-                viewModel.setDate(year, month, date)
-            }
-        }
 
+        val recyclerViewAdapter = PostRecordRecyclerViewAdapter(requireContext()).apply {
+            viewType = 1
+        }
+        val recyclerView = view.datePostsRecyclerView.apply {
+            adapter = recyclerViewAdapter
+            layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+            layoutAnimation = AnimationUtils.loadLayoutAnimation(this.context, R.anim.animation_recyclerview)
+
+        }
         view.focusTodayButton.setOnClickListener {
+            recyclerViewAdapter.clear()
             viewModel.onFocusToday()
             view.calendarView.date = viewModel.getDateInLong()
         }
 
-        view.datePostsRecyclerView.apply {
-            layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+        view.calendarView.apply {
+            setOnDateChangeListener { _, year, month, date ->
+                recyclerViewAdapter.clear()
+                viewModel.setDate(year, month, date)
+            }
         }
 
         viewModel.dateText.observe(viewLifecycleOwner, Observer {
             view.simpleDateTextView.text = it
         })
+
         viewModel.postsOfDate.observe(viewLifecycleOwner, Observer {
-            view.datePostsRecyclerView.adapter =
-                PostRecordRecyclerViewAdapter(requireContext()).apply {
-                    addNextCollection(it)
-                    viewType = 1
-                }
+            recyclerViewAdapter.addNextCollection(it)
+            recyclerView.adapter?.notifyDataSetChanged()
         })
+
+        view.detailSwitch.setOnCheckedChangeListener { _, isDetail ->
+            recyclerViewAdapter.viewType = if (isDetail) 2 else 1
+            recyclerView.adapter?.notifyDataSetChanged()
+            recyclerView.scheduleLayoutAnimation()
+        }
         return view
     }
 }

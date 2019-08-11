@@ -87,7 +87,6 @@ class PagingRecyclerViewAdapter(
                 val mView = inflater.inflate(R.layout.item_post, parent, false)
                 return GridRecyclerViewHolder(mView)
             }
-
             2 -> {
                 val mView = inflater.inflate(R.layout.item_post_vertical, parent, false)
                 return VerticalRecyclerViewHolder(mView)
@@ -95,8 +94,9 @@ class PagingRecyclerViewAdapter(
             else -> {
                 throw IllegalArgumentException()
             }
-        }
 
+
+        }
     }
 
     inner class VerticalRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {

@@ -1561,11 +1561,13 @@ id detailFragment
 id detailFragmentContainer
 id detailFragmentToolbar
 id detailPostsRecyclerView
+id detailSwitch
 id dialogToolbar
 id dialog_button
 id dimensions
 id direct
 id disableHome
+id divider
 id dragDown
 id dragLeft
 id dragRight
@@ -1586,6 +1588,7 @@ id email_footer_tos_and_pp_text
 id email_layout
 id email_top_layout
 id email_tos_and_pp_text
+id emojiIconTextView
 id emojiRecyclerView
 id emojiTextView
 id end
@@ -1621,6 +1624,7 @@ id groups
 id header
 id headerBackGround
 id headerGroup
+id headerTextView
 id header_text
 id heading
 id home
@@ -1639,6 +1643,7 @@ id inputExtractAccessories
 id inputExtractAction
 id invisible
 id invisible_frame
+id isDetailSwitch
 id italic
 id item_touch_helper_previous_elevation
 id jumpToEnd
@@ -1716,6 +1721,7 @@ id progress_horizontal
 id radio
 id rangeGroup
 id ratio
+id recentPostsRecyclerView
 id recordContainer
 id rectangles
 id recycler_view
@@ -1822,6 +1828,7 @@ id textinput_error
 id textinput_helper_text
 id ticker
 id time
+id timeTextView
 id timeTextView1
 id timeTextView2
 id title
@@ -1938,6 +1945,7 @@ layout fragment_detail
 layout fragment_dialog_edit_name
 layout fragment_dialog_post
 layout fragment_home_posts
+layout fragment_posts_record
 layout fragment_record
 layout fui_activity_invisible
 layout fui_activity_register_email

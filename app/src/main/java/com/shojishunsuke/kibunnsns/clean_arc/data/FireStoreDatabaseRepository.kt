@@ -102,7 +102,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         return results
     }
 
-    suspend fun loadOwnCollectioonOfWeek(userId: String, firstDayOfWeek: String): List<Post> {
+    suspend fun loadOwnCollectionOfWeek(userId: String, firstDayOfWeek: String): List<Post> {
 
         val weekStart = "$firstDayOfWeek 00:00:00"
         val weekEnd = "${firstDayOfWeek + 6} 23:59:59"
@@ -127,13 +127,13 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
         return results
     }
-    suspend fun loadDateRangedCollection(userId: String,startDate:Date,endDate: Date):List<Post>{
+    suspend fun loadDateRangedCollection(userId: String, oldDate:Date, currentDate: Date):List<Post>{
 
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .whereEqualTo("userId", userId)
             .orderBy("date", Query.Direction.DESCENDING)
-            .startAt(endDate)
-            .endAt(startDate)
+            .startAt(currentDate)
+            .endAt(oldDate)
             .get()
             .await()
 

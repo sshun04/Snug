@@ -77,7 +77,8 @@ class RecordFragment : Fragment() {
         }
 
         tabLayout.apply {
-            addTab(newTab().setText("投稿"))
+            addTab(newTab().setText("最近"))
+            addTab(newTab().setText("カレンダー"))
             addTab(newTab().setText("気分"))
         }
         viewPager.apply {

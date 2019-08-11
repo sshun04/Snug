@@ -1,0 +1,28 @@
+package com.shojishunsuke.kibunnsns.clean_arc.domain
+
+import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.FirebaseUserRepository
+import com.shojishunsuke.kibunnsns.model.Post
+import java.util.*
+
+class PostsRecordFragmentUsecase {
+
+    private val userRepository = FirebaseUserRepository()
+    private val userId = userRepository.getUserId()
+    private val fireStoreRepository = FireStoreDatabaseRepository()
+    private val baseCalendar = Calendar.getInstance()
+
+    suspend fun loadPosts(): List<Post> {
+        val currentDate = baseCalendar.time
+        val oldDate = getRangeEndDate()
+        val posts = fireStoreRepository.loadDateRangedCollection(userId,oldDate,currentDate)
+        return posts
+    }
+
+    private fun getRangeEndDate():Date{
+        val calendar = Calendar.getInstance().apply {
+            add(Calendar.MONTH,-3)
+        }
+        return calendar.time
+    }
+}

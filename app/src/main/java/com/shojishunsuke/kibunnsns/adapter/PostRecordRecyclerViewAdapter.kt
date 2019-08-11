@@ -21,25 +21,29 @@ class PostRecordRecyclerViewAdapter(context: Context) : PagingBaseAdapter<Recycl
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val post = posts[position]
+        val detailDateString =
+            "${calendar.year()}年${calendar.month()}月${calendar.dayOfMonth()}日(${calendar.dayOfWeek()})"
+        val time = takeTimeFromDate(calendar.time)
+        val activityIcon =
+            if (post.actID.isNotBlank()) post.actID else getAppropriateIconFromSentiScore(post.sentiScore)
+
         calendar.time = post.date
         if (viewType == 1) {
             holder as ViewHolder
             holder.dayOfWeekTextView.text = calendar.dayOfWeek()
             holder.dayOfMonthTextView.text = calendar.dayOfMonth().toString()
-            val time = takeTimeFromDate(calendar.time)
             holder.timeTextView1.text = time
             holder.timeTextView2.text = time
             holder.contentTextView.text = post.contentText
-            holder.detailDateTextView.text =
-                "${calendar.year()}年${calendar.month()}月${calendar.dayOfMonth()}日(${calendar.dayOfWeek()})"
+            holder.detailDateTextView.text = detailDateString
             holder.timeTextView2.text = takeTimeFromDate(post.date)
-            if (post.actID.isNotBlank()) {
-                holder.activityIcon.text = post.actID
-            } else {
-                holder.activityIcon.text = getAppropriateIconFromSentiScore(post.sentiScore)
-            }
+            holder.activityIcon.text = activityIcon
         } else {
             holder as DetailViewHolder
+            holder.detailDateTextView.text = detailDateString
+            holder.timeTextView.text = time
+            holder.contentTextView.text = post.contentText
+            holder.activityICon.text = activityIcon
 
 
         }
@@ -57,16 +61,20 @@ class PostRecordRecyclerViewAdapter(context: Context) : PagingBaseAdapter<Recycl
     }
 
     private class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val detailDateTextView = view.findViewById<TextView>(R.id.detailDateTextView)
-        val dayOfWeekTextView = view.findViewById<TextView>(R.id.day)
-        val dayOfMonthTextView = view.findViewById<TextView>(R.id.dayOfMonth)
-        val timeTextView1 = view.findViewById<TextView>(R.id.timeTextView1)
+        val detailDateTextView : TextView = view.findViewById(R.id.detailDateTextView)
+        val dayOfWeekTextView  : TextView = view.findViewById(R.id.day)
+        val dayOfMonthTextView:TextView = view.findViewById(R.id.dayOfMonth)
+        val timeTextView1:TextView = view.findViewById(R.id.timeTextView1)
         val activityIcon: EmojiTextView = view.findViewById(R.id.activityIcon)
         val contentTextView: TextView = view.findViewById(R.id.contentTextView)
         val timeTextView2: TextView = view.findViewById(R.id.timeTextView2)
     }
 
     private class DetailViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val detailDateTextView :TextView = view.findViewById(R.id.detailDateTextView)
+        val contentTextView:TextView = view.findViewById(R.id.contentTextView)
+        val activityICon :TextView= view.findViewById(R.id.emojiIconTextView)
+        val timeTextView :TextView = view.findViewById(R.id.timeTextView)
 
     }
 }

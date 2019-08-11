@@ -44,7 +44,7 @@ class ChartActivityUsecase {
     }
 
     suspend fun getDataOfWeek(firstDayOfWeek: String): Pair<List<Entry>, List<PieEntry>> = runBlocking {
-        val posts = fireStoreRepository.loadOwnCollectioonOfWeek(userId, firstDayOfWeek)
+        val posts = fireStoreRepository.loadOwnCollectionOfWeek(userId, firstDayOfWeek)
         val sentiScoreMap = getAverageScoreMap(posts)
 
         val lineEntryList = mutableListOf<Entry>()

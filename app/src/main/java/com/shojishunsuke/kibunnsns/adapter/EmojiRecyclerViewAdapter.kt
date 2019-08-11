@@ -33,7 +33,7 @@ class EmojiRecyclerViewAdapter(
     override fun getItemCount(): Int = unicodeList.count()
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val emojiTextView = view.findViewById<EmojiTextView>(R.id.emojiTextView)
+        val emojiTextView:EmojiTextView = view.findViewById(R.id.emojiTextView)
     }
 
     fun setValue(list: List<String>){
