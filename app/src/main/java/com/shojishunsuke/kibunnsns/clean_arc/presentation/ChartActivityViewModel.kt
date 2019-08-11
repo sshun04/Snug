@@ -9,10 +9,7 @@ import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.EntryXComparator
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.domain.ChartActivityUsecase
-import com.shojishunsuke.kibunnsns.utils.dayOfMonth
-import com.shojishunsuke.kibunnsns.utils.month
-import com.shojishunsuke.kibunnsns.utils.monthDays
-import com.shojishunsuke.kibunnsns.utils.year
+import com.shojishunsuke.kibunnsns.utils.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -28,8 +25,8 @@ class ChartActivityViewModel : ViewModel() {
         "Neutral" to Color.rgb(169, 255, 242),
         "Negative" to Color.rgb(170, 240, 255)
     )
-    val weekOfDays = listOf("日", "月", "火", "水", "木", "金", "土")
-    val hours: MutableList<String> = mutableListOf()
+    private val daysOfWeek = listOf("月", "火", "水", "木", "金", "土", "日")
+    private val hours: MutableList<String> = mutableListOf()
 
     val modes = listOf(
         "☹️",
@@ -68,8 +65,13 @@ class ChartActivityViewModel : ViewModel() {
     }
 
     fun waverRange(viewId: Int) {
-        val value = if (viewId == R.id.next) 1 else -1
-        date.add(rangeField, value)
+        if (rangeField == Calendar.WEEK_OF_YEAR) {
+            val value = if (viewId == R.id.next) 6 else -6
+            date.add(Calendar.DAY_OF_MONTH, value)
+        } else {
+            val value = if (viewId == R.id.next) 1 else -1
+            date.add(rangeField, value)
+        }
         requestData()
     }
 
@@ -81,7 +83,13 @@ class ChartActivityViewModel : ViewModel() {
                 requestDataOfDate()
             }
             Calendar.WEEK_OF_YEAR -> {
-                _liveDate.postValue("${date.firstDayOfWeek}-${date.firstDayOfWeek + 6}")
+                date.add(Calendar.DAY_OF_MONTH, date.diffToMonday())
+                val lastDayOfWeek = date.clone() as Calendar
+                lastDayOfWeek.apply {
+                    add(Calendar.DAY_OF_MONTH, 6)
+                }
+                _liveDate.postValue("${date.month()}/${date.dayOfMonth()} - ${lastDayOfWeek.month()}/${lastDayOfWeek.dayOfMonth()}")
+                requestDataOfWeek(date, lastDayOfWeek)
             }
             Calendar.MONTH -> {
                 _liveDate.postValue("${date.year()}/${date.month()}")
@@ -93,9 +101,9 @@ class ChartActivityViewModel : ViewModel() {
     private fun requestDataOfDate() {
 
         GlobalScope.launch {
-            val datas = usecase.getDataOfDate(date)
-            val lineData = datas.first
-            val pieData = datas.second
+            val chartDataPair = usecase.getDataOfDate(date)
+            val lineData = chartDataPair.first
+            val pieData = chartDataPair.second
             launch(Dispatchers.IO) {
                 _lineEntries.postValue(lineData)
                 _pieEntries.postValue(pieData)
@@ -103,12 +111,11 @@ class ChartActivityViewModel : ViewModel() {
         }
     }
 
-    private fun requestDataOfWeek() {
+    private fun requestDataOfWeek(firstDayOfWeek: Calendar, lastDayOfWeek: Calendar) {
         GlobalScope.launch {
-            val firstDayOfWeek = date.firstDayOfWeek
-            val datas = usecase.getDataOfWeek(firstDayOfWeek.toString())
-            val lineData = datas.first
-            val pieData = datas.second
+            val chartDataPair = usecase.getDataOfWeek(firstDayOfWeek, lastDayOfWeek)
+            val lineData = chartDataPair.first
+            val pieData = chartDataPair.second
             launch(Dispatchers.IO) {
                 _lineEntries.postValue(lineData)
                 _pieEntries.postValue(pieData)
@@ -118,9 +125,9 @@ class ChartActivityViewModel : ViewModel() {
 
     private fun requestDataOfMonth() {
         GlobalScope.launch {
-            val datas = usecase.getDataOfMonth(date)
-            val lineData = datas.first
-            val pieData = datas.second
+            val chartDataPair = usecase.getDataOfMonth(date)
+            val lineData = chartDataPair.first
+            val pieData = chartDataPair.second
             launch(Dispatchers.IO) {
                 _lineEntries.postValue(lineData)
                 _pieEntries.postValue(pieData)
@@ -166,7 +173,7 @@ class ChartActivityViewModel : ViewModel() {
                 _axisValue.postValue(hours)
             }
             Calendar.WEEK_OF_YEAR -> {
-
+                _axisValue.postValue(daysOfWeek)
             }
             Calendar.MONTH -> {
                 val list = mutableListOf<String>()

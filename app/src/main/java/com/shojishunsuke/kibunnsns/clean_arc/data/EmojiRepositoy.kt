@@ -1,10 +1,11 @@
 package com.shojishunsuke.kibunnsns.clean_arc.data
 
-import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataConfigRepository
 
-
-class EmojiRepositoy  {
+class EmojiRepositoy {
     val uniCodeList = listOf(
+//        生活
+
+
 //        スポーツ
         "\u26BD",
         "\u26be",
@@ -12,10 +13,7 @@ class EmojiRepositoy  {
         "\uD83C\uDFD0",
         "\uD83C\uDFC8",
         "\uD83C\uDFC9",
-        "\uD83C\uDFBE",
-        "\uD83C\uDFD3",
         "\uD83C\uDFF8",
-        "\uD83E\uDD4D",
 //        音楽
         "\uD83C\uDFB5",
         "\uD83C\uDFA4",
@@ -31,14 +29,20 @@ class EmojiRepositoy  {
         "\uD83C\uDF74",
         "\uD83D\uDC87\uD83C\uDFFB",
 
+//        トラベル
+        "\uD83C\uDF74",
 
-//        場所
+        "\uD83D\uDCD6",
 
 //        芸術
         "\uD83C\uDFA8",
+        "\uD83D\uDC8C",
+
+//        アワード
+        "\uD83C\uDF74",
+        "\uD83C\uDFC6"
 //        "\",
 //        "\",
-        "\uD83D\uDC8C"
     )
     val currentUniCodeList = listOf(
         "\uD83C\uDFC0",
@@ -68,7 +72,7 @@ class EmojiRepositoy  {
         return uniCodeList
     }
 
-    fun loadCurrentEmoji():List<String>{
+    fun loadCurrentEmoji(): List<String> {
         return currentUniCodeList
     }
 }

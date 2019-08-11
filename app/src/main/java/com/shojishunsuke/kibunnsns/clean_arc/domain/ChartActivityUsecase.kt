@@ -6,6 +6,7 @@ import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.FirebaseUserRepository
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.runBlocking
+import java.time.DayOfWeek
 import java.util.*
 
 class ChartActivityUsecase {
@@ -43,17 +44,18 @@ class ChartActivityUsecase {
         Pair(lineEntryList, pieEntryList)
     }
 
-    suspend fun getDataOfWeek(firstDayOfWeek: String): Pair<List<Entry>, List<PieEntry>> = runBlocking {
-        val posts = fireStoreRepository.loadOwnCollectionOfWeek(userId, firstDayOfWeek)
-        val sentiScoreMap = getAverageScoreMap(posts)
+    suspend fun getDataOfWeek(firstDayOfWeek: Calendar,lastDayOfWeek: Calendar): Pair<List<Entry>, List<PieEntry>> = runBlocking {
+        val posts = fireStoreRepository.loadDateRangedCollection(userId,firstDayOfWeek.time,lastDayOfWeek.time)
+        val sentiScoreList = getAverageScoreMap(posts).toList()
 
         val lineEntryList = mutableListOf<Entry>()
-        sentiScoreMap.keys.forEach { day ->
-            val floatDay = day.toFloat()
-            val sentiScore = sentiScoreMap[day] ?: 0f
-            val entry = Entry(floatDay, formatSentiScore(sentiScore))
+
+        for ( i in sentiScoreList.indices){
+            val sentiScore = sentiScoreList[i].second
+            val entry = Entry(i.toFloat(),formatSentiScore(sentiScore))
             lineEntryList.add(entry)
         }
+
         val pieEntryList = getPieEntryListBasedOnScore(posts)
 
         Pair(lineEntryList, pieEntryList)
@@ -132,6 +134,7 @@ class ChartActivityUsecase {
 
     private fun getAverageScoreMap(posts: List<Post>): Map<Int, Float> {
 
+//     日付 : その日のスコアのリスト を 日付 : その日の平均スコア に変換
         val defMap = mutableMapOf<Int, MutableList<Float>>()
         posts.forEach {
             val calendar = Calendar.getInstance()

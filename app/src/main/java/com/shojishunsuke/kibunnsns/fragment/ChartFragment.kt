@@ -104,7 +104,6 @@ class ChartFragment : Fragment(), View.OnClickListener {
             R.id.selectMonth -> Calendar.MONTH
             else -> throw IndexOutOfBoundsException()
         }
-
         viewModel.onRangeSelected(range)
         switchSelectedBackGround(range)
     }

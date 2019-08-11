@@ -30,3 +30,8 @@ fun Calendar.dayOfWeek(): String {
         else -> throw IllegalArgumentException()
     }
 }
+
+fun Calendar.diffToMonday():Int{
+    val dayOfWeek = get(Calendar.DAY_OF_WEEK)
+    return 2 - dayOfWeek
+}

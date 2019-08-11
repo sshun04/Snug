@@ -58,7 +58,6 @@
                     android:text="週ごと"
                     android:textColor="@color/dark_87"
                     android:textSize="12sp"
-                    android:visibility="gone"
                     app:cornerRadius="4dp" />
 
                 <Button
