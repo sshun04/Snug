@@ -11,13 +11,13 @@ import androidx.lifecycle.ViewModelProviders
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.ChartActivityViewModel
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.ChartFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_chart.view.*
 import java.util.*
 
 class ChartFragment : Fragment(), View.OnClickListener {
 
-    private lateinit var viewModel: ChartActivityViewModel
+    private lateinit var viewModel: ChartFragmentViewModel
     private lateinit var parentView: View
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -26,7 +26,7 @@ class ChartFragment : Fragment(), View.OnClickListener {
         val pieChart = parentView.pieChart
 
         viewModel = requireActivity().run {
-            ViewModelProviders.of(this).get(ChartActivityViewModel::class.java)
+            ViewModelProviders.of(this).get(ChartFragmentViewModel::class.java)
         }
         lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
 

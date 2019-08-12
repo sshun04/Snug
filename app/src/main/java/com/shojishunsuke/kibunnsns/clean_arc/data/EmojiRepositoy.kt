@@ -11,12 +11,11 @@ class EmojiRepositoy {
         "\u26be",
         "\uD83C\uDFC0",
         "\uD83C\uDFD0",
-        "\uD83C\uDFC8",
-        "\uD83C\uDFC9",
         "\uD83C\uDFF8",
 //        音楽
         "\uD83C\uDFB5",
         "\uD83C\uDFA4",
+        "\uD83C\uDFB9",
 //        アウトドア
         "\uD83C\uDFD5️",
         "\uD83C\uDFD6️",
@@ -26,12 +25,11 @@ class EmojiRepositoy {
 //        イベント
         "\uD83C\uDF82",
         "\uD83C\uDF81",
-        "\uD83C\uDF74",
         "\uD83D\uDC87\uD83C\uDFFB",
 
 //        トラベル
         "\uD83C\uDF74",
-
+        "✈️",
         "\uD83D\uDCD6",
 
 //        芸術
@@ -39,7 +37,7 @@ class EmojiRepositoy {
         "\uD83D\uDC8C",
 
 //        アワード
-        "\uD83C\uDF74",
+        "\uD83D\uDCB0",
         "\uD83C\uDFC6"
 //        "\",
 //        "\",

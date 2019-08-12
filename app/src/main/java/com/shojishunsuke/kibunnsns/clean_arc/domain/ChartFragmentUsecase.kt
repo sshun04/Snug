@@ -9,7 +9,7 @@ import kotlinx.coroutines.runBlocking
 import java.time.DayOfWeek
 import java.util.*
 
-class ChartActivityUsecase {
+class ChartFragmentUsecase {
     private val fireStoreRepository = FireStoreDatabaseRepository()
     private val useRepository = FirebaseUserRepository()
     private val userId = useRepository.getUserId()

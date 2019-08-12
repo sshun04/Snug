@@ -1718,6 +1718,7 @@ id previous
 id progressBar
 id progress_circular
 id progress_horizontal
+id pullToRefreshLayout
 id radio
 id rangeGroup
 id ratio

@@ -8,14 +8,14 @@ import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.EntryXComparator
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.clean_arc.domain.ChartActivityUsecase
+import com.shojishunsuke.kibunnsns.clean_arc.domain.ChartFragmentUsecase
 import com.shojishunsuke.kibunnsns.utils.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
 
-class ChartActivityViewModel : ViewModel() {
+class ChartFragmentViewModel : ViewModel() {
 
     var rangeField = Calendar.DATE
     private val date: Calendar = Calendar.getInstance()
@@ -49,7 +49,7 @@ class ChartActivityViewModel : ViewModel() {
     val axisValue: LiveData<List<String>> get() = _axisValue
 
 
-    private val usecase = ChartActivityUsecase()
+    private val usecase = ChartFragmentUsecase()
 
     init {
         for (i in 0..24) {

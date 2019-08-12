@@ -10,7 +10,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
 
-class CalendarActivityViewModel : ViewModel() {
+class CalendarFragmentViewModel : ViewModel() {
 
     private val _postsOfDate = MutableLiveData<List<Post>>()
     val postsOfDate: LiveData<List<Post>> get() = _postsOfDate

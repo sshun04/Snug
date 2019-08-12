@@ -12,7 +12,8 @@ class FirebaseUserRepository : AuthRepository {
     private val TAG = "FirebaseUser"
 
     override fun getUserName(): String {
-        return user?.displayName ?: "匿名"
+        val savedName =  user?.displayName ?:""
+        return if (savedName.isNotBlank()) savedName else "匿名"
     }
 
     override fun updateUserName(userName: String) {

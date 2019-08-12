@@ -30,7 +30,6 @@ class RecordFragmentViewModel : ViewModel(), CloudStorageRepository.ImageUploadL
     }
 
     fun saveUserName(name: String) {
-
         useCase.saveUserName(name)
         userName.postValue(name)
     }

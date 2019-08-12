@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.adapter.PostRecordRecyclerViewAdapter
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.CalendarActivityViewModel
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.CalendarFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_calendar.view.*
 
 class CalendarFragment : Fragment() {
@@ -20,7 +20,7 @@ class CalendarFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_calendar, container, false)
-        val viewModel = requireActivity().run { ViewModelProviders.of(this).get(CalendarActivityViewModel::class.java) }
+        val viewModel = requireActivity().run { ViewModelProviders.of(this).get(CalendarFragmentViewModel::class.java) }
 
 
         val recyclerViewAdapter = PostRecordRecyclerViewAdapter(requireContext()).apply {
