@@ -1,5 +1,6 @@
 package com.shojishunsuke.kibunnsns.fragment
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,7 +29,7 @@ class HomePostsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home_posts, container, false)
 
         viewModel =
-            this.run { ViewModelProviders.of(this).get(HomeFragmentViewModel::class.java) }
+            ViewModelProviders.of(this).get(HomeFragmentViewModel::class.java)
 
 
         val progressBar = view.progressBar.apply {
@@ -76,20 +77,27 @@ class HomePostsFragment : Fragment() {
             }
         }
 
-        viewModel.nextPosts.observe(this, Observer {
+        view.pullToRefreshLayout.setOnRefreshListener {
+            pagingAdapter.clear()
+            viewModel.refresh()
+        }
+
+        viewModel.nextPosts.observe(viewLifecycleOwner, Observer {
             progressBar.visibility = View.GONE
             pagingAdapter.addNextCollection(it)
             isLoading = false
+            view.pullToRefreshLayout.isRefreshing = false
         })
 
         return view
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
         pagingAdapter.clear()
         viewModel.refresh()
     }
+
 
     private fun setUpDetailFragment(post: Post) {
         DetailPostsFragment.setupFragment(post, requireFragmentManager())

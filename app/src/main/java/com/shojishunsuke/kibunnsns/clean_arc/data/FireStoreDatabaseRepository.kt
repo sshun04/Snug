@@ -102,38 +102,14 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         return results
     }
 
-    suspend fun loadOwnCollectioonOfWeek(userId: String, firstDayOfWeek: String): List<Post> {
-
-        val weekStart = "$firstDayOfWeek 00:00:00"
-        val weekEnd = "${firstDayOfWeek + 6} 23:59:59"
-
-        val sdf = SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.JAPAN)
-
-
-        val querySnapshot = dataBase.collection(COLLECTION_PATH)
-            .whereEqualTo("userId", userId)
-            .orderBy("date", Query.Direction.ASCENDING)
-            .startAt(sdf.parse(weekStart))
-            .endAt(sdf.parse(weekEnd))
-            .get()
-            .await()
-
-        val results = ArrayList<Post>()
-
-        querySnapshot.forEach {
-            val post = it.toObject(Post::class.java)
-            results.add(post)
-        }
-
-        return results
-    }
-    suspend fun loadDateRangedCollection(userId: String,startDate:Date,endDate: Date):List<Post>{
+    suspend fun loadDateRangedCollection(userId: String, oldDate:Date, currentDate: Date,limit:Long = 100):List<Post>{
 
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .whereEqualTo("userId", userId)
             .orderBy("date", Query.Direction.DESCENDING)
-            .startAt(endDate)
-            .endAt(startDate)
+            .startAt(currentDate)
+            .endAt(oldDate)
+            .limit(limit)
             .get()
             .await()
 

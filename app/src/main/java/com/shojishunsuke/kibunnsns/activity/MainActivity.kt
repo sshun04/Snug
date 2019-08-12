@@ -16,20 +16,19 @@ import com.shojishunsuke.kibunnsns.clean_arc.presentation.MainActivityViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.MainActivityViewModelFactory
 import com.shojishunsuke.kibunnsns.navigation.CustomNavigator
 
-class MainActivity : AppCompatActivity() {
+class
+MainActivity : AppCompatActivity() {
 
-    lateinit var bottomNavigation: BottomNavigationView
-    lateinit var mainViewModel: MainActivityViewModel
+    private lateinit var bottomNavigation: BottomNavigationView
+    private lateinit var mainViewModel: MainActivityViewModel
     private var isInitialized = false
     private lateinit var auth: FirebaseAuth
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         auth = FirebaseAuth.getInstance()
-
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
 
@@ -59,13 +58,13 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            Log.d("Auth is Anonymous","${currentUser.isAnonymous}")
+            Log.d("Auth is Anonymous", "${currentUser.isAnonymous}")
         } else {
             auth.signInAnonymously()
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Log.d("TAG", "signInAnonymously:success")
-
+                        updateUi()
                     } else {
                         Log.w("TAG", "signInAnonymously:failure", task.exception)
                         Toast.makeText(
@@ -76,6 +75,10 @@ class MainActivity : AppCompatActivity() {
                 }
 
         }
+    }
+
+   private fun updateUi(){
+       Log.d("TAG", "update")
     }
 
 

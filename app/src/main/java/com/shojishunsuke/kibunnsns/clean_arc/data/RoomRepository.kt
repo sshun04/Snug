@@ -11,13 +11,24 @@ class RoomRepository : LocalDataBaseRepository {
     private val dao = MainApplication.database.emojiDao()
 
     override suspend fun loadLatestCollection(): List<Item> {
-        return dao.findAll()
+        val savedList = dao.findAll()
+        return if (savedList.isNotEmpty()) {
+            savedList
+        } else {
+            val date = Calendar.getInstance().time.time
+            val emojis = listOf("\uD83C\uDFB5", "\uD83C\uDFC0", "\uD83C\uDFD6️", "\uD83C\uDF82")
+            val itmeList = mutableListOf<EmojiItem>()
+            for (emoji in emojis) {
+                itmeList.add(EmojiItem(emoji, date))
+            }
+            itmeList
+        }
     }
 
     override suspend fun registerItem(value: String) {
-        val emojiItem = EmojiItem(value,Date().time)
+        val emojiItem = EmojiItem(value, Date().time)
         val currentList = dao.findAll()
-        if (currentList.size > 8){
+        if (currentList.size > 8) {
             deleteItem(currentList.first())
         }
 

@@ -20,6 +20,4 @@
         app:summary="Googleアカウントにログインすることで機種変更の際にデータが引き継がれます"
         />
 
-
-
 </PreferenceScreen>

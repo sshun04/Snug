@@ -108,7 +108,7 @@ class DetailPostsFragment : Fragment() {
             }
         view.nestedScrollView.setOnScrollChangeListener(endlessScrollListener)
 
-        viewModel.nextPosts.observe(this, Observer {
+        viewModel.nextPosts.observe(viewLifecycleOwner, Observer {
             pagingAdapter.addNextCollection(it)
         })
 

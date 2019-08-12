@@ -18,36 +18,44 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.viewpager.widget.ViewPager
 import at.markushi.ui.CircleButton
 import com.bumptech.glide.Glide
+import com.google.android.material.tabs.TabLayout
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.activity.CalendarActivity
-import com.shojishunsuke.kibunnsns.activity.ChartActivity
+//import com.shojishunsuke.kibunnsns.activity.CalendarActivity
+//import com.shojishunsuke.kibunnsns.activity.ChartActivity
 import com.shojishunsuke.kibunnsns.activity.SettingActivity
+import com.shojishunsuke.kibunnsns.adapter.PagerAdapter
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.RecordFragmentViewModel
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.fragment_record.view.*
 
 class RecordFragment : Fragment() {
 
-    private val REQUEST_CODE_VIEW = 1
-    private val RESULT_OK = -1
-    lateinit var viewModel: RecordFragmentViewModel
-    lateinit var iconView: CircleImageView
+    companion object {
+        private const val REQUEST_CODE_VIEW = 1
+        private const val RESULT_OK = -1
+    }
+
+    private lateinit var viewModel: RecordFragmentViewModel
+    private lateinit var iconView: CircleImageView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_record, container, false)
 
-        viewModel = activity?.run {
+        viewModel = requireActivity().run {
             ViewModelProviders.of(this).get(RecordFragmentViewModel::class.java)
-        } ?: throw Exception("Invalid Activity")
+        }
 
-        iconView = view.findViewById<CircleImageView>(R.id.acIcon)
-        val nameTextView = view.findViewById<TextView>(R.id.nameTextView)
-        val editNameIcon = view.findViewById<ImageView>(R.id.editNameIcon)
-        val editImageIcon = view.findViewById<CircleButton>(R.id.editImageButton)
-        val settingIcon = view.findViewById<ImageView>(R.id.settingIcon)
+        iconView = view.acIcon
+        val nameTextView = view.nameTextView
+        val editNameIcon = view.editNameIcon
+        val editImageIcon = view.editImageButton
+        val settingIcon = view.settingIcon
+        val viewPager = view.viewPager
+        val tabLayout = view.tabLayout
 
         settingIcon.setOnClickListener {
             val intent = Intent(requireContext(), SettingActivity::class.java)
@@ -58,7 +66,6 @@ class RecordFragment : Fragment() {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             intent.setDataAndType(Uri.parse(Environment.getExternalStorageDirectory().path), "image/*")
             startActivityForResult(intent, REQUEST_CODE_VIEW)
-
         }
 
         viewModel.userName.observe(this, Observer { userName ->
@@ -69,13 +76,17 @@ class RecordFragment : Fragment() {
             setUpEditNameDialog(inflater)
         }
 
-        view.chartViewBase.setOnClickListener {
-            ChartActivity.start(requireContext())
+        tabLayout.apply {
+            addTab(newTab().setText("最近"))
+            addTab(newTab().setText("カレンダー"))
+            addTab(newTab().setText("気分"))
+        }
+        viewPager.apply {
+            adapter = PagerAdapter(childFragmentManager)
         }
 
-        view.cardViewCalender.setOnClickListener {
-            CalendarActivity.start(requireContext())
-        }
+        tabLayout.setupWithViewPager(view.viewPager)
+
         return view
     }
 
@@ -97,13 +108,16 @@ class RecordFragment : Fragment() {
         if (viewModel.currentBitmap != null) {
             Glide.with(requireContext())
                 .load(viewModel.currentBitmap)
+                .placeholder(R.drawable.icon_annonymous)
+                .error(R.drawable.icon_annonymous)
                 .into(iconView)
         } else {
             GlideApp.with(requireContext())
                 .load(viewModel.getIconRef())
+                .placeholder(R.drawable.icon_annonymous)
+                .error(R.drawable.icon_annonymous)
                 .into(iconView)
         }
-
     }
 
     private fun setUpEditNameDialog(inflater: LayoutInflater) {
