@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_gravity="bottom"
-            android:elevation="8dp"
+            android:elevation="4dp"
             app:backgroundTint="@color/light_70"
             app:fabAlignmentMode="center"
             app:fabCradleMargin="4dp"
@@ -48,6 +48,8 @@
             app:fabSize="normal"
             app:layout_anchor="@id/bottom_app_bar"
             app:layout_anchorGravity="bottom|center" />
+
+
 
         <fragment
             android:id="@+id/nav_host_fragment"

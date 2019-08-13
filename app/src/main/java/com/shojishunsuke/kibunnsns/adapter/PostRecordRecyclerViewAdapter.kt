@@ -9,10 +9,7 @@ import android.widget.TextView
 import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.utils.dayOfMonth
-import com.shojishunsuke.kibunnsns.utils.dayOfWeek
-import com.shojishunsuke.kibunnsns.utils.month
-import com.shojishunsuke.kibunnsns.utils.year
+import com.shojishunsuke.kibunnsns.utils.*
 import java.util.*
 
 class PostRecordRecyclerViewAdapter(context: Context) : PagingBaseAdapter<RecyclerView.ViewHolder>() {
@@ -22,13 +19,12 @@ class PostRecordRecyclerViewAdapter(context: Context) : PagingBaseAdapter<Recycl
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val post = posts[position]
-        val detailDateString =
-            "${calendar.year()}年${calendar.month()}月${calendar.dayOfMonth()}日(${calendar.dayOfWeek()})"
+        calendar.time = post.date
+        val detailDateString = calendar.detailDateString()
         val time = takeTimeFromDate(calendar.time)
         val activityIcon =
             if (post.actID.isNotBlank()) post.actID else getAppropriateIconFromSentiScore(post.sentiScore)
 
-        calendar.time = post.date
         if (viewType == 1) {
             holder as ViewHolder
             val day = calendar.dayOfWeek()

@@ -5,9 +5,10 @@ import com.github.mikephil.charting.data.PieEntry
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.FirebaseUserRepository
 import com.shojishunsuke.kibunnsns.model.Post
+import com.shojishunsuke.kibunnsns.utils.diffToMonday
 import kotlinx.coroutines.runBlocking
-import java.time.DayOfWeek
 import java.util.*
+import kotlin.math.absoluteValue
 
 class ChartFragmentUsecase {
     private val fireStoreRepository = FireStoreDatabaseRepository()
@@ -45,14 +46,27 @@ class ChartFragmentUsecase {
     }
 
     suspend fun getDataOfWeek(firstDayOfWeek: Calendar,lastDayOfWeek: Calendar): Pair<List<Entry>, List<PieEntry>> = runBlocking {
+        firstDayOfWeek.apply {
+            set(Calendar.HOUR_OF_DAY,0)
+            set(Calendar.MINUTE,0)
+            set(Calendar.SECOND,0)
+        }
+
+        lastDayOfWeek.apply {
+            set(Calendar.HOUR_OF_DAY,23)
+            set(Calendar.MINUTE, 59)
+            set(Calendar.SECOND,59)
+        }
+
         val posts = fireStoreRepository.loadDateRangedCollection(userId,firstDayOfWeek.time,lastDayOfWeek.time)
-        val sentiScoreList = getAverageScoreMap(posts).toList()
+        val sentiScoreMap= getWeekAverageScoreMap(posts)
 
         val lineEntryList = mutableListOf<Entry>()
 
-        for ( i in sentiScoreList.indices){
-            val sentiScore = sentiScoreList[i].second
-            val entry = Entry(i.toFloat(),formatSentiScore(sentiScore))
+        sentiScoreMap.keys.forEach {dayOfWeek ->
+            val dayFloat= dayOfWeek.toFloat()
+            val sentiScore= sentiScoreMap[dayOfWeek] ?:2f
+            val entry = Entry(dayFloat,formatSentiScore(sentiScore))
             lineEntryList.add(entry)
         }
 
@@ -80,11 +94,12 @@ class ChartFragmentUsecase {
         }
 
         val posts = fireStoreRepository.loadDateRangedCollection(userId,firstDayOfMonth.time,lastDayOfMonth.time)
-        val sentiScoreMap = getAverageScoreMap(posts)
+        val sentiScoreMap = getMonthAverageScoreMap(posts)
 
         val lineEntryList = mutableListOf<Entry>()
         sentiScoreMap.keys.forEach { day ->
-            val floatDay = day.toFloat()
+//           axisValueが０から始まるので日付を−1.0fする
+            val floatDay = day.toFloat() - 1.0f
             val sentiScore = sentiScoreMap[day] ?: 2f
             val entry = Entry(floatDay, formatSentiScore(sentiScore))
             lineEntryList.add(entry)
@@ -132,9 +147,33 @@ class ChartFragmentUsecase {
         return ((score * 10) + 10) / 5
     }
 
-    private fun getAverageScoreMap(posts: List<Post>): Map<Int, Float> {
+    private fun getWeekAverageScoreMap(posts: List<Post>):Map<Int,Float>{
+//        週の何日目 : その日の平均スコア のマップを作成
+        val defMap = mutableMapOf<Int,MutableList<Float>>()
+        val calendar = Calendar.getInstance()
+        posts.forEach {
+            calendar.time = it.date
+            val dayOfWeek = calendar.diffToMonday().absoluteValue
+            if (defMap.containsKey(dayOfWeek)){
+                defMap[dayOfWeek]?.add(it.sentiScore)
+            }else{
+                defMap.set(dayOfWeek, mutableListOf(it.sentiScore))
+            }
+        }
 
-//     日付 : その日のスコアのリスト を 日付 : その日の平均スコア に変換
+        val resultMap = mutableMapOf<Int, Float>()
+        defMap.keys.forEach { day ->
+            val scoreList = defMap[day]
+            val average = scoreList?.average()?.toFloat() ?: 0f
+            resultMap.set(day, average)
+        }
+
+        return resultMap
+    }
+
+    private fun getMonthAverageScoreMap(posts: List<Post>): Map<Int, Float> {
+
+//     日付 : その日のスコアのリスト を 月の何日 : その日の平均スコア に変換
         val defMap = mutableMapOf<Int, MutableList<Float>>()
         posts.forEach {
             val calendar = Calendar.getInstance()

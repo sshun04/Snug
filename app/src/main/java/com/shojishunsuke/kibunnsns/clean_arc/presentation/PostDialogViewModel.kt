@@ -11,22 +11,31 @@ import com.shojishunsuke.kibunnsns.clean_arc.data.NaturalLanguageAnalysisReposit
 import com.shojishunsuke.kibunnsns.clean_arc.data.RoomRepository
 import com.shojishunsuke.kibunnsns.clean_arc.domain.PostDialogUseCase
 import com.shojishunsuke.kibunnsns.model.Post
+import com.shojishunsuke.kibunnsns.utils.detailDateString
+import com.shojishunsuke.kibunnsns.utils.timeOfDayString
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.*
 
 class PostDialogViewModel(context: Context) : ViewModel() {
 
     private val postUseCase: PostDialogUseCase
     private val _currentPosted = MutableLiveData<Post>()
+    private val date = Calendar.getInstance()
 
+
+    val timeString = date.timeOfDayString()
+    val detailDate = date.detailDateString()
     val currentPosted: LiveData<Post> get() = _currentPosted
     val currentEmojiList: MutableLiveData<List<String>> = MutableLiveData()
+
 
     init {
         val analysisRepository = NaturalLanguageAnalysisRepository(context)
         val roomRepository = RoomRepository()
         postUseCase = PostDialogUseCase(roomRepository, analysisRepository)
+
         requestCurrentEmojiList()
     }
 
@@ -48,13 +57,16 @@ class PostDialogViewModel(context: Context) : ViewModel() {
 
     fun requestPost(content: String, emojiCode: String) {
         GlobalScope.launch {
-            val post = postUseCase.generatePost(content, emojiCode)
+            val post = postUseCase.generatePost(content, emojiCode,date.time)
             launch(Dispatchers.IO) {
                 _currentPosted.postValue(post)
+
             }
 
         }
     }
+
+
 
     fun requestWholeEmoji(): MutableList<String> = postUseCase.loadWholeEmoji() as MutableList<String>
 

@@ -1377,6 +1377,7 @@ drawable ic_keyboard_arrow_down_black_32dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mode_edit_white_24dp
+drawable ic_more_vert_black_24dp
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
@@ -1463,6 +1464,7 @@ id action_bar_title
 id action_container
 id action_context_bar
 id action_detailFragment_to_navigation_home
+id action_dialog_to_home
 id action_divider
 id action_image
 id action_menu_divider
@@ -1497,7 +1499,6 @@ id baseline
 id beginning
 id blocking
 id bottom
-id bottomLimit
 id bottom_app_bar
 id bottom_navigation
 id bounce
@@ -1683,6 +1684,7 @@ id navigation
 id navigation_header_container
 id navigation_home
 id navigation_second
+id navigation_to_home
 id negativeSwitch
 id nestedScrollView
 id never
@@ -1711,10 +1713,12 @@ id phone_number
 id pieChart
 id pieChartParent
 id pin
+id popMenuButton
 id position
 id postBaseView
 id postButton
 id postLayout
+id post_dialog
 id postsRecyclerView
 id pref_container
 id previous
@@ -2026,6 +2030,7 @@ menu btn_bar_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation navigation
+navigation navigation_to_home
 plurals fui_error_weak_password
 string abc_action_bar_home_description
 string abc_action_bar_up_description

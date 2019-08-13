@@ -8,6 +8,7 @@ import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LocalDataBaseReposi
 import com.shojishunsuke.kibunnsns.model.EmojiItem
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.runBlocking
+import java.util.*
 
 class PostDialogUseCase(
     private val localDataBaseRepository: LocalDataBaseRepository,
@@ -18,7 +19,7 @@ class PostDialogUseCase(
     private val userInfoRepository = FirebaseUserRepository()
 
 
-    suspend fun generatePost(content: String, emojiCode: String): Post = runBlocking {
+    suspend fun generatePost(content: String, emojiCode: String,date: Date): Post = runBlocking {
 
         if (emojiCode.isNotBlank()) {
             localDataBaseRepository.registerItem(emojiCode)
@@ -40,7 +41,8 @@ class PostDialogUseCase(
             sentiScore = sentiScore,
             magnitude = magnitude,
             actID = emojiCode,
-            keyWord = category
+            keyWord = category,
+            date = date
         )
 
         runBlocking {

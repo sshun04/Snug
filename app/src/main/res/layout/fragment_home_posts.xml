@@ -9,7 +9,7 @@
         android:id="@+id/detailFragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:elevation="5dp"></FrameLayout>
+        android:elevation="5dp"/>
 
 
     <com.google.android.material.appbar.AppBarLayout

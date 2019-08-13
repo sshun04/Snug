@@ -36,9 +36,6 @@
             android:layout_height="wrap_content" />
 
 
-
-
-
         <TextView
             android:id="@+id/contentTextView"
             android:layout_marginTop="8dp"
@@ -87,9 +84,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-
-
         </LinearLayout>
+
+
+        <ImageButton
+            android:id="@+id/popMenuButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_more_vert_black_24dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintTop_toTopOf="@id/emojiIconTextView"
+            android:layout_width="16dp"
+            android:padding="4dp"
+            app:layout_constraintBottom_toBottomOf="@id/emojiIconTextView"
+            android:layout_height="24dp" />
+
 
 
 

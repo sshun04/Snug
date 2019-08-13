@@ -18,6 +18,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import at.markushi.ui.CircleButton
 import com.bumptech.glide.Glide
@@ -56,6 +58,8 @@ class RecordFragment : Fragment() {
         val settingIcon = view.settingIcon
         val viewPager = view.viewPager
         val tabLayout = view.tabLayout
+
+
 
         settingIcon.setOnClickListener {
             val intent = Intent(requireContext(), SettingActivity::class.java)
