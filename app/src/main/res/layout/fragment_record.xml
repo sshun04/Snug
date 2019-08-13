@@ -9,6 +9,12 @@
     app:layoutDescription="@xml/motion_scene"
     tools:showPaths="true">
 
+    <FrameLayout
+        android:id="@+id/detailFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="5dp"/>
+
 
     <View
         android:id="@+id/headerBackGround"
