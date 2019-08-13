@@ -2,6 +2,7 @@ package com.shojishunsuke.kibunnsns.fragment
 
 import android.app.Dialog
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
@@ -14,7 +15,9 @@ import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.adapter.EmojiRecyclerViewAdapter
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostDialogViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.PostDialogViewModelFactory
+import kotlinx.android.synthetic.main.dialog_pop.view.*
 import kotlinx.android.synthetic.main.fragment_dialog_post.view.*
+import kotlinx.android.synthetic.main.fragment_dialog_post.view.emojiRecyclerView
 
 class PostDialogFragment : DialogFragment() {
 
@@ -59,6 +62,44 @@ class PostDialogFragment : DialogFragment() {
             dismiss()
         })
 
+
+        parentView.setActivityButton.setOnClickListener {
+            val emojiDialog = AlertDialog.Builder(requireContext())
+                .create()
+            val emojiParentView = emojiDialog.layoutInflater.inflate(R.layout.dialog_pop,null)
+            emojiParentView.emojiRecyclerView.apply {
+                adapter = EmojiRecyclerViewAdapter(requireContext(), postViewModel.requestWholeEmoji()) { emojiCode ->
+                    selectedEmojiCode = emojiCode
+                    parentView.selectedEmojiTextView.text = selectedEmojiCode
+                    parentView.selectEmojiBox.visibility = View.VISIBLE
+                    parentView.setActivityButton.visibility = View.GONE
+                    emojiDialog.dismiss()
+                }
+                layoutManager = GridLayoutManager(requireContext(),7)
+            }
+
+            emojiDialog.setView(emojiParentView)
+            emojiDialog.show()
+        }
+
+
+        parentView.selectEmojiBox.setOnClickListener {
+            val emojiDialog = AlertDialog.Builder(requireContext())
+                .create()
+            val emojiParentView = emojiDialog.layoutInflater.inflate(R.layout.dialog_pop,null)
+            emojiParentView.emojiRecyclerView.apply {
+                adapter = EmojiRecyclerViewAdapter(requireContext(), postViewModel.requestWholeEmoji()) { emojiCode ->
+                    selectedEmojiCode = emojiCode
+                    parentView.selectedEmojiTextView.text = selectedEmojiCode
+                    emojiDialog.dismiss()
+                }
+                layoutManager = GridLayoutManager(requireContext(),7)
+            }
+
+            emojiDialog.setView(emojiParentView)
+            emojiDialog.show()
+        }
+
         parentView.postButton.setOnClickListener {
             val contentText = parentView.contentEditText.text.toString()
             if (contentText.isNotBlank()) {
@@ -68,10 +109,18 @@ class PostDialogFragment : DialogFragment() {
             }
         }
 
+        parentView.cancelButton.setOnClickListener {
+            dismiss()
+        }
+
+
+
         postViewModel.currentEmojiList.observe(this, Observer {
             currentEmojiListAdapter.setValue(it)
             posted = true
         })
         return dialog
     }
+
+
 }

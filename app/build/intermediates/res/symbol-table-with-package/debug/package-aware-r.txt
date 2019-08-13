@@ -1315,6 +1315,7 @@ drawable abc_vector_test
 drawable anonymous_person
 drawable avd_hide_password
 drawable avd_show_password
+drawable baseline_event_black_18dp
 drawable bottom_navigation_colors
 drawable chart_button_state
 drawable common_full_open_on_phone
@@ -1514,6 +1515,7 @@ id button_next
 id button_resend_email
 id button_sign_in
 id calendarView
+id cancelButton
 id cancel_action
 id center
 id center_horizontal
@@ -1562,7 +1564,6 @@ id detailFragmentContainer
 id detailFragmentToolbar
 id detailPostsRecyclerView
 id detailSwitch
-id dialogToolbar
 id dialog_button
 id dimensions
 id direct
@@ -1624,6 +1625,7 @@ id groups
 id header
 id headerBackGround
 id headerGroup
+id headerGuideline
 id headerTextView
 id header_text
 id heading
@@ -1658,6 +1660,7 @@ id line3
 id lineChart
 id lineChartParent
 id linear
+id linearLayout
 id listBorder
 id listMode
 id list_item
@@ -1756,6 +1759,7 @@ id search_voice_btn
 id seekbar
 id seekbar_value
 id selectDate
+id selectEmojiBox
 id selectMonth
 id selectWeek
 id select_dialog_listview
@@ -1763,11 +1767,13 @@ id selected
 id selectedActIcon
 id selectedContentText
 id selectedDate
+id selectedEmojiTextView
 id selectedUserIcon
 id selectedUserName
 id send_code
 id send_sms_tos
 id sentiScoreTextView
+id setActivityButton
 id settingIcon
 id settingToolbar
 id shortcut
@@ -1939,6 +1945,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout dialog_pop
 layout expand_button
 layout fragment_calendar
 layout fragment_chart
