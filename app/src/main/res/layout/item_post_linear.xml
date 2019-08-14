@@ -20,6 +20,12 @@
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:src="@color/color_positive"
+                android:layout_gravity="center"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/userIcon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"

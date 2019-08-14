@@ -1,21 +1,31 @@
 package com.shojishunsuke.kibunnsns.adapter
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.graphics.Color
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.utils.*
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostRecordItemViewModel
+import com.shojishunsuke.kibunnsns.utils.dayOfMonth
+import com.shojishunsuke.kibunnsns.utils.dayOfWeek
+import com.shojishunsuke.kibunnsns.utils.detailDateString
 import java.util.*
 
-class PostRecordRecyclerViewAdapter(context: Context) : PagingBaseAdapter<RecyclerView.ViewHolder>() {
+class PostRecordRecyclerViewAdapter(private val context: Context) : PagingBaseAdapter<RecyclerView.ViewHolder>() {
 
     private val inflater = LayoutInflater.from(context)
     private val calendar = Calendar.getInstance()
+
+    private val viewModel = PostRecordItemViewModel()
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val post = posts[position]
@@ -25,13 +35,14 @@ class PostRecordRecyclerViewAdapter(context: Context) : PagingBaseAdapter<Recycl
         val activityIcon =
             if (post.actID.isNotBlank()) post.actID else getAppropriateIconFromSentiScore(post.sentiScore)
 
+        calendar.time = post.date
         if (viewType == 1) {
             holder as ViewHolder
             val day = calendar.dayOfWeek()
-           val dayTextColor : Int =  when (day) {
-                "土" -> Color.rgb(79,195 ,247 )
-                "日" -> Color.argb(255,229, 115, 115)
-                else -> Color.argb(138,0,0,0)
+            val dayTextColor: Int = when (day) {
+                "土" -> Color.rgb(79, 195, 247)
+                "日" -> Color.argb(255, 229, 115, 115)
+                else -> Color.argb(138, 0, 0, 0)
             }
 
             holder.dayOfWeekTextView.apply {
@@ -51,6 +62,29 @@ class PostRecordRecyclerViewAdapter(context: Context) : PagingBaseAdapter<Recycl
             holder.activityIcon.text = activityIcon
         } else {
             holder as DetailViewHolder
+            holder.popMenuButton.setOnClickListener {
+                val popupMenu = PopupMenu(context, it, Gravity.END)
+                popupMenu.setOnMenuItemClickListener { menu ->
+                    when (menu.itemId) {
+                        R.id.deletePost -> {
+                            val deleteDialog = AlertDialog.Builder(context)
+                                .setPositiveButton("削除", DialogInterface.OnClickListener { _, _ ->
+
+                                    viewModel.deletePost(post)
+                                    removeItem(position)
+                                })
+                                .setNegativeButton("キャンセル",null)
+                                .show()
+
+                        }
+                    }
+                    return@setOnMenuItemClickListener true
+                }
+                popupMenu.inflate(R.menu.record_popup_menu)
+                popupMenu.show()
+            }
+
+
             holder.detailDateTextView.text = detailDateString
             holder.timeTextView.text = time
             holder.contentTextView.text = post.contentText
@@ -86,6 +120,7 @@ class PostRecordRecyclerViewAdapter(context: Context) : PagingBaseAdapter<Recycl
         val contentTextView: TextView = view.findViewById(R.id.contentTextView)
         val activityICon: TextView = view.findViewById(R.id.emojiIconTextView)
         val timeTextView: TextView = view.findViewById(R.id.timeTextView)
+        val popMenuButton: ImageButton = view.findViewById(R.id.popMenuButton)
 
     }
 }

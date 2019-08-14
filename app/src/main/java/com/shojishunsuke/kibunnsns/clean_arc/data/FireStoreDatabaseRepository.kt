@@ -1,5 +1,6 @@
 package com.shojishunsuke.kibunnsns.clean_arc.data
 
+import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataBaseRepository
@@ -20,7 +21,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
     override suspend fun savePost(post: Post) {
 
         dataBase.collection(COLLECTION_PATH)
-            .document()
+            .document(post.postId)
             .set(post).await()
 
     }
@@ -100,6 +101,14 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         }
 
         return results
+    }
+
+    suspend fun deleteItemFromDatabase(post: Post){
+        dataBase.collection(COLLECTION_PATH)
+            .document(post.postId)
+            .delete()
+            .addOnSuccessListener { Log.d("FireStore", "DocumentSnapshot successfully deleted!") }
+            .addOnFailureListener { e -> Log.w("FireStore", "Error deleting document", e) }
     }
 
     suspend fun loadDateRangedCollection(userId: String, oldDate:Date, currentDate: Date,limit:Long = 100):List<Post>{

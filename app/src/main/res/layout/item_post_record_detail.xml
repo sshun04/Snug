@@ -12,16 +12,26 @@
         android:paddingHorizontal="8dp"
         android:layout_height="wrap_content">
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/sentiIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@color/color_positive"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="12dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
         <TextView
             android:id="@+id/detailDateTextView"
-            android:layout_marginTop="12dp"
+            android:layout_marginStart="4dp"
             android:textSize="14sp"
             android:textColor="@color/dark_87"
             android:textStyle="bold"
             android:text="2019年8月3日(土)"
             android:layout_width="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/sentiIcon"
+            app:layout_constraintTop_toTopOf="@id/sentiIcon"
+            app:layout_constraintBottom_toBottomOf="@id/sentiIcon"
             android:layout_height="wrap_content" />
 
         <androidx.emoji.widget.EmojiTextView
@@ -91,9 +101,11 @@
             android:id="@+id/popMenuButton"
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@drawable/ic_more_vert_black_24dp"
-            android:background="@android:color/transparent"
+            android:background="@null"
             app:layout_constraintTop_toTopOf="@id/emojiIconTextView"
-            android:layout_width="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_width="24dp"
             android:padding="4dp"
             app:layout_constraintBottom_toBottomOf="@id/emojiIconTextView"
             android:layout_height="24dp" />

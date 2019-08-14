@@ -1,6 +1,7 @@
 package com.shojishunsuke.kibunnsns.adapter
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -57,6 +58,8 @@ class PagingRecyclerViewAdapter(
                 holder.contentTextView.text = post.contentText
                 holder.dateTextView.text = formatDate(post.date)
 
+                val sentiColor = getSentiColorId(post.sentiScore)
+                holder.sentiColorIcon.setImageResource(sentiColor)
 
                 holder.activityIcon.text =
                     if (post.actID.isNotBlank()) post.actID else getAppropriateIconFromSentiScore(post.sentiScore)
@@ -100,6 +103,7 @@ class PagingRecyclerViewAdapter(
     }
 
     inner class VerticalRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val sentiColorIcon :CircleImageView = view.findViewById(R.id.sentiIcon)
         val itemParent: ConstraintLayout = view.findViewById(R.id.postBaseView)
         val userNameTextView: TextView = view.findViewById(R.id.userName)
         val userIcon: CircleImageView = view.findViewById(R.id.userIcon)

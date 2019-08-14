@@ -1,6 +1,8 @@
 package com.shojishunsuke.kibunnsns.adapter
 
+import android.graphics.Color
 import androidx.recyclerview.widget.RecyclerView
+import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.model.Post
 import java.text.SimpleDateFormat
 import java.util.*
@@ -25,6 +27,11 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> :
     fun clear() {
         posts.clear()
         notifyDataSetChanged()
+    }
+
+    fun removeItem(position: Int){
+        posts.removeAt(position)
+        notifyItemRemoved(position)
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -73,6 +80,15 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> :
             sentiScore <= 0.4f && sentiScore >= -0.4f -> "\uD83D\uDE10"
             sentiScore < -0.4f -> "☹️"
             else -> "\uD83D\uDE10"
+        }
+    }
+
+    protected fun getSentiColorId(sentiScore: Float):Int{
+        return when {
+            sentiScore > 0.4f -> R.color.color_positive
+            sentiScore <= 0.4f && sentiScore >= -0.4f -> R.color.color_neutral
+            sentiScore < -0.4f -> R.color.color_negative
+            else -> R.color.color_neutral
         }
     }
 

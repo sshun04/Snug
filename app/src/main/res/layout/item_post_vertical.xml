@@ -13,57 +13,34 @@
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
         android:paddingHorizontal="16dp"
-        android:paddingTop="12dp"
+        android:paddingVertical="12dp"
         android:paddingBottom="4dp">
 
-        <androidx.emoji.widget.EmojiTextView
-            android:id="@+id/activityIcon"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:text="\uD83C\uDFA4"
-            android:textSize="28sp"
-            app:layout_constraintEnd_toStartOf="@+id/contentTextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/contentTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="4dp"
-            android:text="あと1日やすみあるのに今から憂鬱になってる"
-            android:textColor="@color/dark_87"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/activityIcon"
-            app:layout_constraintTop_toTopOf="parent" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/sentiIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
 
 
         <LinearLayout
+            android:id="@+id/nameField"
             android:layout_width="0dp"
             android:layout_height="20dp"
-            android:layout_marginTop="16dp"
             android:gravity="center"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/contentTextView">
+            app:layout_constraintStart_toStartOf="@id/contentTextView"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/timeTextView2"
-                android:layout_width="wrap_content"
-                android:layout_height="16dp"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/userIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:singleLine="true"
-                android:text="7月5日"
-                android:textColor="@color/dark_26"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/activityIcon" />
-
+                android:src="@drawable/usericon_default" />
             <TextView
                 android:id="@+id/userName"
                 android:layout_width="wrap_content"
@@ -74,15 +51,51 @@
                 android:text="匿名"
                 android:textSize="14sp" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/userIcon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="4dp"
-                android:src="@drawable/usericon_default" />
-
 
         </LinearLayout>
+
+        <androidx.emoji.widget.EmojiTextView
+            android:id="@+id/activityIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:text="\uD83C\uDFA4"
+            android:layout_marginStart="8dp"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="@id/nameField"
+            app:layout_constraintBottom_toBottomOf="@id/nameField"
+            app:layout_constraintStart_toEndOf="@id/nameField"
+            />
+
+        <TextView
+            android:id="@+id/contentTextView"
+            android:layout_marginVertical="12dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            app:layout_constraintBottom_toTopOf="@id/timeTextView2"
+            android:layout_marginTop="4dp"
+            android:text="あと1日やすみあるのに今から憂鬱になってる"
+            android:textColor="@color/dark_87"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/sentiIcon"
+            app:layout_constraintTop_toBottomOf="@id/nameField" />
+
+        <TextView
+            android:id="@+id/timeTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginEnd="4dp"
+            android:singleLine="true"
+            android:text="7月5日"
+            android:textColor="@color/dark_26"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/contentTextView"
+            app:layout_constraintStart_toStartOf="@id/contentTextView" />
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View

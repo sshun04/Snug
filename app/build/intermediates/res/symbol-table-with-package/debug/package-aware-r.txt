@@ -1553,6 +1553,7 @@ id decelerateAndComplete
 id decor_content_parent
 id defaultStrategy
 id default_activity_button
+id deletePost
 id deltaRelative
 id design_bottom_sheet
 id design_menu_item_action_area
@@ -1676,6 +1677,7 @@ id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
 id name
+id nameField
 id nameTextView
 id name_layout
 id nav_controller_view_tag
@@ -1776,6 +1778,7 @@ id selectedUserIcon
 id selectedUserName
 id send_code
 id send_sms_tos
+id sentiIcon
 id sentiScoreTextView
 id setActivityButton
 id settingIcon
@@ -2027,6 +2030,7 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 menu btn_bar_menu
+menu record_popup_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation navigation
