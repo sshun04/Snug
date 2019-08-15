@@ -20,7 +20,7 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center"
-        android:text="OK"
+        android:text="投稿"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout" />

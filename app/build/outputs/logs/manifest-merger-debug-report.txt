@@ -10,6 +10,7 @@ MERGED from [androidx.preference:preference:1.0.0] /Users/shojishunsuke/.gradle/
 MERGED from [androidx.navigation:navigation-ui-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/61f94a718cc38fd8c87dd4181c388108/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-ui:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/04d371cb0b43ff7a61b9d34112f926be/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.sundeepk:compact-calendar-view:3.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/9702b965e90839d0bd0b2cdb7692e2a9/AndroidManifest.xml:2:1-11:12
 MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e5005dda05615cb8197aa1aca3fa457e/AndroidManifest.xml:6:1-16:12
 MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4122b770116f2a994ed750b248532298/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core-ktx:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/207897e3344b6bf624a98dd402d2efdd/AndroidManifest.xml:2:1-7:12
@@ -254,6 +255,8 @@ MERGED from [androidx.navigation:navigation-ui:2.1.0-alpha05] /Users/shojishunsu
 MERGED from [androidx.navigation:navigation-ui:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/04d371cb0b43ff7a61b9d34112f926be/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.material:material:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/AndroidManifest.xml:20:5-44
+MERGED from [com.github.sundeepk:compact-calendar-view:3.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/9702b965e90839d0bd0b2cdb7692e2a9/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.sundeepk:compact-calendar-view:3.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/9702b965e90839d0bd0b2cdb7692e2a9/AndroidManifest.xml:7:5-9:41
 MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e5005dda05615cb8197aa1aca3fa457e/AndroidManifest.xml:12:5-14:41
 MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e5005dda05615cb8197aa1aca3fa457e/AndroidManifest.xml:12:5-14:41
 MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4122b770116f2a994ed750b248532298/AndroidManifest.xml:20:5-44

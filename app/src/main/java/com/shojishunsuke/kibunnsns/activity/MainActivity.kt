@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.MainActivityViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.MainActivityViewModelFactory
@@ -64,7 +65,8 @@ MainActivity : AppCompatActivity() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Log.d("TAG", "signInAnonymously:success")
-                        updateUi()
+                        val user = auth.currentUser
+                        updateUi(user)
                     } else {
                         Log.w("TAG", "signInAnonymously:failure", task.exception)
                         Toast.makeText(
@@ -77,7 +79,7 @@ MainActivity : AppCompatActivity() {
         }
     }
 
-   private fun updateUi(){
+   private fun updateUi(user:FirebaseUser?){
        Log.d("TAG", "update")
     }
 

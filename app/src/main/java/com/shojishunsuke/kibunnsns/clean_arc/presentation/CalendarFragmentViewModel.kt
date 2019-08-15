@@ -25,12 +25,12 @@ class CalendarFragmentViewModel : ViewModel() {
         onFocusToday()
     }
 
-    fun setDate(year: Int, month: Int, date: Int) {
-        this.date.set(year, month, date)
+    fun setDate(date: Date) {
+        this.date.time = date
         requestPostsByDate()
     }
 
-    fun getDateInLong(): Long = date.time.time
+    fun getDate(): Date = date.time
 
     fun onFocusToday() {
         date.time = Date()
