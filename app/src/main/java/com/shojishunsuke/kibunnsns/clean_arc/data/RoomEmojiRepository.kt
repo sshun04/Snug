@@ -6,9 +6,9 @@ import com.shojishunsuke.kibunnsns.model.EmojiItem
 import com.shojishunsuke.kibunnsns.model.Item
 import java.util.*
 
-class RoomRepository : LocalDataBaseRepository {
+class RoomEmojiRepository : LocalDataBaseRepository {
 
-    private val dao = MainApplication.database.emojiDao()
+    private val dao = MainApplication.emojiDatabase.emojiDao()
 
     override suspend fun loadLatestCollection(): List<Item> {
         val savedList = dao.findAll()

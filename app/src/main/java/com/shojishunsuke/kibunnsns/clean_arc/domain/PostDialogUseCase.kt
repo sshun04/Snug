@@ -3,6 +3,7 @@ package com.shojishunsuke.kibunnsns.clean_arc.domain
 import com.shojishunsuke.kibunnsns.clean_arc.data.EmojiRepositoy
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.FirebaseUserRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.RoomPostDateRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LanguageAnalysisRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LocalDataBaseRepository
 import com.shojishunsuke.kibunnsns.model.EmojiItem
@@ -17,6 +18,7 @@ class PostDialogUseCase(
     private val emojiRepository = EmojiRepositoy()
     private val fireStoreRepository = FireStoreDatabaseRepository()
     private val userInfoRepository = FirebaseUserRepository()
+    private val postDateRepository = RoomPostDateRepository()
 
 
     suspend fun generatePost(content: String, emojiCode: String,date: Date): Post = runBlocking {
@@ -24,6 +26,7 @@ class PostDialogUseCase(
         if (emojiCode.isNotBlank()) {
             localDataBaseRepository.registerItem(emojiCode)
         }
+        postDateRepository.registerDate(date)
 
         val userName = userInfoRepository.getUserName()
         val userId = userInfoRepository.getUserId()

@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.data.NaturalLanguageAnalysisRepository
-import com.shojishunsuke.kibunnsns.clean_arc.data.RoomRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.RoomEmojiRepository
 import com.shojishunsuke.kibunnsns.clean_arc.domain.PostDialogUseCase
 import com.shojishunsuke.kibunnsns.model.Post
 import com.shojishunsuke.kibunnsns.utils.detailDateString
@@ -33,7 +33,7 @@ class PostDialogViewModel(context: Context) : ViewModel() {
 
     init {
         val analysisRepository = NaturalLanguageAnalysisRepository(context)
-        val roomRepository = RoomRepository()
+        val roomRepository = RoomEmojiRepository()
         postUseCase = PostDialogUseCase(roomRepository, analysisRepository)
 
         requestCurrentEmojiList()
