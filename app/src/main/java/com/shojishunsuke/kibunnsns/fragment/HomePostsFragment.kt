@@ -37,7 +37,7 @@ class HomePostsFragment : Fragment() {
             setProgress(84, true)
         }
 
-        view.homeToolBar.title = "KibunnSNS"
+        view.homeToolBar.title = "Snug"
 
         val stagLayoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         val scrollListener = EndlessScrollListener(stagLayoutManager) {

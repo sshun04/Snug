@@ -74,6 +74,7 @@ class PostRecordRecyclerViewAdapter(private val context: Context) : PagingBaseAd
                                     removeItem(position)
                                 })
                                 .setNegativeButton("キャンセル",null)
+                                .setMessage("本当に削除しますか？")
                                 .show()
 
                         }
@@ -84,13 +85,11 @@ class PostRecordRecyclerViewAdapter(private val context: Context) : PagingBaseAd
                 popupMenu.show()
             }
 
-
+            holder.numberOfViews.text = post.views.toString()
             holder.detailDateTextView.text = detailDateString
             holder.timeTextView.text = time
             holder.contentTextView.text = post.contentText
             holder.activityICon.text = activityIcon
-
-
         }
     }
 
@@ -121,6 +120,7 @@ class PostRecordRecyclerViewAdapter(private val context: Context) : PagingBaseAd
         val activityICon: TextView = view.findViewById(R.id.emojiIconTextView)
         val timeTextView: TextView = view.findViewById(R.id.timeTextView)
         val popMenuButton: ImageButton = view.findViewById(R.id.popMenuButton)
+        val numberOfViews :TextView = view.findViewById(R.id.numberOfViews)
 
     }
 }

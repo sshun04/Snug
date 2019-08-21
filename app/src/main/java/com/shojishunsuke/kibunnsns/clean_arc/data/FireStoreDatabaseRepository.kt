@@ -1,6 +1,7 @@
 package com.shojishunsuke.kibunnsns.clean_arc.data
 
 import android.util.Log
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataBaseRepository
@@ -109,6 +110,12 @@ class FireStoreDatabaseRepository : DataBaseRepository {
             .delete()
             .addOnSuccessListener { Log.d("FireStore", "DocumentSnapshot successfully deleted!") }
             .addOnFailureListener { e -> Log.w("FireStore", "Error deleting document", e) }
+    }
+
+    suspend fun icreaseViews(postId:String){
+        val post = dataBase.collection(COLLECTION_PATH).document(postId)
+        post.update("views",FieldValue.increment(1))
+
     }
 
     suspend fun loadDateRangedCollection(userId: String, oldDate:Date, currentDate: Date,limit:Long = 100):List<Post>{

@@ -12,6 +12,7 @@ import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostItemViewModel
 import com.shojishunsuke.kibunnsns.model.Post
 import de.hdodenhof.circleimageview.CircleImageView
 
@@ -20,6 +21,8 @@ class PagingRecyclerViewAdapter(
     private val listener: (Post) -> Unit
 ) :
     PagingBaseAdapter<RecyclerView.ViewHolder>() {
+
+    private val viewModel = PostItemViewModel()
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val post = posts[position]
@@ -49,6 +52,7 @@ class PagingRecyclerViewAdapter(
 
                 holder.itemParent.setOnClickListener {
                     listener(post)
+                    viewModel.onItemClicked(post)
                 }
             }
 
@@ -78,6 +82,7 @@ class PagingRecyclerViewAdapter(
 
                 holder.itemParent.setOnClickListener {
                     listener(post)
+                    viewModel.onItemClicked(post)
                 }
             }
         }

@@ -15,8 +15,8 @@ import java.util.*
 class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
     private val useCase: DetailPostsFragmentUsecase = DetailPostsFragmentUsecase(post)
 
-   private val _nextPosts = MutableLiveData<List<Post>>()
-    val nextPosts : LiveData<List<Post>> get() = _nextPosts
+    private val _nextPosts = MutableLiveData<List<Post>>()
+    val nextPosts: LiveData<List<Post>> get() = _nextPosts
 
     private var isLoading = true
 
@@ -24,7 +24,7 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
         loadNextPosts()
     }
 
-    fun onScrollBottom(){
+    fun onScrollBottom() {
         if (!isLoading) {
             isLoading = true
             loadNextPosts()
@@ -47,9 +47,18 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
         return formatter.format(post.date)
     }
 
+    private fun getAppropriateIconFromSentiScore(sentiScore: Float): String {
+        return when {
+            sentiScore > 0.4f -> "\uD83D\uDE01"
+            sentiScore <= 0.4f && sentiScore >= -0.4f -> "\uD83D\uDE10"
+            sentiScore < -0.4f -> "☹️"
+            else -> "\uD83D\uDE10"
+        }
+    }
+
     fun getUserName(): String = if (post.userName.isNotBlank()) post.userName else "匿名"
 
-    fun getEmojiCode(): String = if (post.actID.isNotBlank()) post.actID else "\uD83D\uDE42"
+    fun getEmojiCode(): String = if (post.actID.isNotBlank()) post.actID else getAppropriateIconFromSentiScore(post.sentiScore)
 
     fun getContentText(): String = post.contentText
 

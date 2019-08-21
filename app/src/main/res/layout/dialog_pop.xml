@@ -5,8 +5,9 @@
     android:layout_width="wrap_content" android:layout_height="wrap_content">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:padding="8dp"
         android:id="@+id/emojiRecyclerView"
-        android:layout_width="240dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
     </androidx.recyclerview.widget.RecyclerView>

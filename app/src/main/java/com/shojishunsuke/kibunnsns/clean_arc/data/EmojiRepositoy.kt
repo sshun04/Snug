@@ -3,45 +3,36 @@ package com.shojishunsuke.kibunnsns.clean_arc.data
 
 class EmojiRepositoy {
     val uniCodeList = listOf(
-//        生活
 
-
-//        スポーツ
-        "\u26BD",
-        "\u26be",
-        "\uD83C\uDFC0",
-        "\uD83C\uDFD0",
-        "\uD83C\uDFF8",
+        "\uD83C\uDF74",
+        "\uD83D\uDED2",
+        "✍️",
+        "☕",
+        "\uD83D\uDCFA",
+        "\uD83D\uDCD6",
+        "\uD83C\uDFAE",
+        "\uD83C\uDF82",
+        "\uD83D\uDC8C",
+        "\uD83C\uDF81",
+        "\uD83C\uDFA8",
+        "\uD83D\uDE97",
+        "✈️",
 //        音楽
-        "\uD83C\uDFB5",
+        "\uD83C\uDFBC",
         "\uD83C\uDFA4",
         "\uD83C\uDFB9",
-//        アウトドア
+//        アウトドア、スポーツ
         "\uD83C\uDFD5️",
         "\uD83C\uDFD6️",
         "\uD83D\uDEB4",
-        "\uD83D\uDE97",
-
-//        イベント
-        "\uD83C\uDF82",
-        "\uD83C\uDF81",
-        "\uD83D\uDC87\uD83C\uDFFB",
-
-//        トラベル
-        "\uD83C\uDF74",
-        "✈️",
-        "\uD83D\uDCD6",
-
-//        芸術
-        "\uD83C\uDFA8",
-        "\uD83D\uDC8C",
-
+        "\u26BD",
+        "\u26be",
+        "\uD83C\uDFC0",
 //        アワード
         "\uD83D\uDCB0",
-        "\uD83C\uDFC6"
-//        "\",
-//        "\",
-    )
+        "\uD83C\uDFC6" ,
+        "\uD83D\uDC87\uD83C\uDFFB"
+        )
     val currentUniCodeList = listOf(
         "\uD83C\uDFC0",
         "\uD83C\uDFD0",

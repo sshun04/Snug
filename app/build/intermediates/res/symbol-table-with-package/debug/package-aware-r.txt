@@ -1376,7 +1376,6 @@ drawable fui_idp_button_background_phone
 drawable fui_idp_button_background_twitter
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
-drawable hasikan
 drawable home_button_state
 drawable ic_access_time_black_12dp
 drawable ic_arrow_down_24dp
@@ -1717,6 +1716,7 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id numberOfViews
 id outline
 id packed
 id parallax
