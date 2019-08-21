@@ -1,10 +1,7 @@
 package com.shojishunsuke.kibunnsns.clean_arc.presentation
 
 import android.graphics.Color
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.github.sundeepk.compactcalendarview.domain.Event
 import com.shojishunsuke.kibunnsns.clean_arc.domain.CalendarFragmentUsecase
 import com.shojishunsuke.kibunnsns.model.Post
@@ -14,10 +11,10 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
 
-class CalendarFragmentViewModel(private val viewLifecycleOwner: LifecycleOwner) : ViewModel() {
+class CalendarFragmentViewModel : ViewModel() {
 
-    private val _postsOfDate = MutableLiveData<List<Post>>()
-    val postsOfDate: LiveData<List<Post>> get() = _postsOfDate
+    private val _postsOfDate = MutableLiveData<MutableList<Post>>()
+    val postsOfDate: LiveData<MutableList<Post>> get() = _postsOfDate
 
     private val _dateText = MutableLiveData<String>()
     val dateText: LiveData<String> get() = _dateText
@@ -25,23 +22,16 @@ class CalendarFragmentViewModel(private val viewLifecycleOwner: LifecycleOwner) 
     private val date = Calendar.getInstance()
     private val useCase = CalendarFragmentUsecase()
 
-
-    private val _postedDate = useCase.postedDate.apply {
-        observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-            val eventList = mutableListOf<Event>()
-            it.forEach {
-                val event = Event(Color.rgb(149, 235, 222), it.dateInLong)
-                eventList.add(event)
-            }
-
-            eventDateList.postValue(eventList)
-        })
+    val eventDateList:LiveData<MutableList<Event>> = useCase.postedDate.map {
+        it.map {
+           Event(Color.rgb(149, 235, 222), it.dateInLong)
+        }.toMutableList()
     }
-    val eventDateList = MutableLiveData<List<Event>>()
 
-    init {
-        onFocusToday()
+    fun onPostRemoved(post: Post){
+        eventDateList.value?.removeIf { it.timeInMillis == post.date.time }
     }
+
 
     fun setDate(date: Date) {
         this.date.time = date
@@ -65,4 +55,10 @@ class CalendarFragmentViewModel(private val viewLifecycleOwner: LifecycleOwner) 
             }
         }
     }
+
+    fun refresh(){
+        _postsOfDate.value?.clear()
+        onFocusToday()
+    }
+
 }

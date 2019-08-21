@@ -108,8 +108,9 @@ class PostDialogFragment : DialogFragment() {
 
         parentView.postButton.setOnClickListener {
             val contentText = parentView.contentEditText.text.toString()
-            if (contentText.isNotBlank()) {
+            if (contentText.isNotBlank()&& !posted) {
                 viewModel.requestPost(contentText, selectedEmojiCode)
+                posted = true
             } else {
                 Toast.makeText(requireContext(), "メッセージを入力してください", Toast.LENGTH_SHORT).show()
             }
@@ -122,9 +123,7 @@ class PostDialogFragment : DialogFragment() {
 
         viewModel.currentEmojiList.observe(this, Observer {
             currentEmojiListAdapter.setValue(it)
-            posted = true
         })
-
 
         return dialog
     }

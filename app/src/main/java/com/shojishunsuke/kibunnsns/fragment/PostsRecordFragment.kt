@@ -17,17 +17,18 @@ import kotlinx.android.synthetic.main.fragment_posts_record.view.*
 
 class PostsRecordFragment : Fragment() {
 
+    lateinit var recyclerViewAdapter: PostRecordRecyclerViewAdapter
+    lateinit var viewModel: PostsRecordFragmentViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_posts_record, container, false)
-        val viewModel = ViewModelProviders.of(this).get(PostsRecordFragmentViewModel::class.java)
-        view.recordContainer.apply {
-        }
+     viewModel = ViewModelProviders.of(this).get(PostsRecordFragmentViewModel::class.java)
 
-        val recyclerViewAdapter = PostRecordRecyclerViewAdapter(requireContext())
-            .apply {
-                viewType = 1
-            }
+        recyclerViewAdapter = PostRecordRecyclerViewAdapter(requireContext()) {
+            viewModel.onPostRemoved(it)
+        }.apply {
+            viewType = 1
+        }
 
         val recyclerView = view.recentPostsRecyclerView.apply {
             adapter = recyclerViewAdapter
@@ -46,5 +47,13 @@ class PostsRecordFragment : Fragment() {
         }
 
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        recyclerViewAdapter.clear()
+        viewModel.refresh()
+
+
     }
 }

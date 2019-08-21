@@ -15,12 +15,13 @@ import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostRecordItemViewModel
+import com.shojishunsuke.kibunnsns.model.Post
 import com.shojishunsuke.kibunnsns.utils.dayOfMonth
 import com.shojishunsuke.kibunnsns.utils.dayOfWeek
 import com.shojishunsuke.kibunnsns.utils.detailDateString
 import java.util.*
 
-class PostRecordRecyclerViewAdapter(private val context: Context) : PagingBaseAdapter<RecyclerView.ViewHolder>() {
+class PostRecordRecyclerViewAdapter(private val context: Context,private val removedListener:(Post)->Unit) : PagingBaseAdapter<RecyclerView.ViewHolder>() {
 
     private val inflater = LayoutInflater.from(context)
     private val calendar = Calendar.getInstance()
@@ -71,6 +72,7 @@ class PostRecordRecyclerViewAdapter(private val context: Context) : PagingBaseAd
                                 .setPositiveButton("削除", DialogInterface.OnClickListener { _, _ ->
 
                                     viewModel.deletePost(post)
+                                    removedListener(post)
                                     removeItem(position)
                                 })
                                 .setNegativeButton("キャンセル",null)
@@ -123,4 +125,5 @@ class PostRecordRecyclerViewAdapter(private val context: Context) : PagingBaseAd
         val numberOfViews :TextView = view.findViewById(R.id.numberOfViews)
 
     }
+
 }

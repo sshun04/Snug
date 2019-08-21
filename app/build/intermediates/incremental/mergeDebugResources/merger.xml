@@ -4503,7 +4503,7 @@
     </style><style name="AppTheme.DialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowMinWidthMajor">0%</item>
         <item name="android:windowMinWidthMinor">0%</item>
-    </style></file><file path="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/res/values/strings.xml" qualifiers=""><string name="app_name">KibunnSns</string></file><file path="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/res/values/attrs.xml" qualifiers=""><declare-styleable name="ExpandableLayout">
+    </style></file><file path="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/res/values/strings.xml" qualifiers=""><string name="app_name">Snug</string></file><file path="/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/res/values/attrs.xml" qualifiers=""><declare-styleable name="ExpandableLayout">
         <attr format="integer" name="el_duration"/>
         <attr format="boolean" name="el_expanded"/>
         <attr format="float" name="el_parallax"/>

@@ -14,11 +14,6 @@ class PostsRecordFragmentViewModel : ViewModel() {
     private val _postsList = MutableLiveData<List<Post>>()
     val postsList: LiveData<List<Post>> get() = _postsList
 
-
-    init {
-        requirePosts()
-    }
-
    private fun requirePosts() {
         GlobalScope.launch {
             val posts = usecase.loadPosts()
@@ -26,6 +21,14 @@ class PostsRecordFragmentViewModel : ViewModel() {
                 _postsList.postValue(posts)
             }
         }
+    }
+
+    fun onPostRemoved(post: Post){
+
+    }
+
+    fun refresh(){
+        requirePosts()
     }
 
 }

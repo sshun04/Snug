@@ -14,7 +14,7 @@ class CalendarFragmentUsecase {
     private val userId = userRepository.getUserId()
     private val postDateRepository = RoomPostDateRepository()
 
-    suspend fun loadPostsByDate(date:Calendar): List<Post> {
+    suspend fun loadPostsByDate(date:Calendar): MutableList<Post> {
 
         val dateStart = date.clone() as Calendar
         dateStart.apply {

@@ -14,6 +14,7 @@
         android:layout_height="wrap_content">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:visibility="gone"
             android:id="@+id/sentiIcon"
             app:layout_constraintStart_toStartOf="parent"
             android:src="@color/color_positive"
@@ -24,7 +25,6 @@
 
         <TextView
             android:id="@+id/detailDateTextView"
-            android:layout_marginStart="4dp"
             android:textSize="14sp"
             android:textColor="@color/dark_87"
             android:textStyle="bold"
@@ -79,16 +79,17 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:padding="2dp"
                 android:src="@drawable/ic_access_time_black_12dp"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <TextView
+                android:layout_gravity="start|center"
                 android:id="@+id/timeTextView"
                 android:textColor="@color/dark_26"
                 android:textSize="12sp"
-                android:layout_marginStart="4dp"
                 android:text="20:00"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />

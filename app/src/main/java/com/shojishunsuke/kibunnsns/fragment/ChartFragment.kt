@@ -86,8 +86,6 @@ class ChartFragment : Fragment(), View.OnClickListener {
         parentView.previous.setOnClickListener {
             viewModel.waverRange(it.id)
         }
-
-
         return parentView
     }
 

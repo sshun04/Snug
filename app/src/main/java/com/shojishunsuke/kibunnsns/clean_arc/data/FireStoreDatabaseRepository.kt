@@ -118,7 +118,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
     }
 
-    suspend fun loadDateRangedCollection(userId: String, oldDate:Date, currentDate: Date,limit:Long = 100):List<Post>{
+    suspend fun loadDateRangedCollection(userId: String, oldDate:Date, currentDate: Date,limit:Long = 100):MutableList<Post>{
 
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .whereEqualTo("userId", userId)
@@ -129,7 +129,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
             .get()
             .await()
 
-        val results = ArrayList<Post>()
+        val results = mutableListOf<Post>()
 
         querySnapshot.forEach {
             val post = it.toObject(Post::class.java)
