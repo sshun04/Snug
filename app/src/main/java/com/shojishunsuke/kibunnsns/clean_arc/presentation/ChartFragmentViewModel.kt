@@ -26,7 +26,7 @@ class ChartFragmentViewModel : ViewModel() {
         "Negative" to Color.rgb(170, 240, 255)
     )
     private val daysOfWeek = listOf("月", "火", "水", "木", "金", "土", "日")
-    private val hours: MutableList<String> = mutableListOf()
+    private val hours: List<String> = (0..24).map { "$it:00" }
 
     val modes = listOf(
         "☹️",
@@ -51,13 +51,6 @@ class ChartFragmentViewModel : ViewModel() {
 
     private val usecase = ChartFragmentUsecase()
 
-    init {
-        for (i in 0..24) {
-            hours.add("$i:00")
-        }
-        requestData()
-        _liveDate.postValue("${date.year()}/${date.month()}/${date.dayOfMonth()}")
-    }
 
     fun onRangeSelected(field: Int) {
         this.rangeField = field
@@ -72,6 +65,10 @@ class ChartFragmentViewModel : ViewModel() {
             val value = if (viewId == R.id.next) 1 else -1
             date.add(rangeField, value)
         }
+        requestData()
+    }
+
+    fun refresh(){
         requestData()
     }
 
@@ -176,14 +173,10 @@ class ChartFragmentViewModel : ViewModel() {
                 _axisValue.postValue(daysOfWeek)
             }
             Calendar.MONTH -> {
-                val list = mutableListOf<String>()
-                for (i in 1..date.monthDays()) {
-                    list.add("${date.month()}/$i")
-                }
+                val list = (1..date.monthDays()).map { "${date.month()}/$it" }
                 _axisValue.postValue(list)
             }
         }
     }
-
 
 }

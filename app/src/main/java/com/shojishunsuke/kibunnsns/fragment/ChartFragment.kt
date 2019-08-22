@@ -92,7 +92,7 @@ class ChartFragment : Fragment(), View.OnClickListener {
     override fun onResume() {
         super.onResume()
         switchSelectedBackGround(viewModel.rangeField)
-
+        viewModel.refresh()
     }
 
     override fun onClick(view: View?) {

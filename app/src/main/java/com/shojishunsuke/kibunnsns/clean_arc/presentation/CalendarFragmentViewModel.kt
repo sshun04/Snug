@@ -29,7 +29,7 @@ class CalendarFragmentViewModel : ViewModel() {
     }
 
     fun onPostRemoved(post: Post){
-        eventDateList.value?.removeIf { it.timeInMillis == post.date.time }
+
     }
 
 

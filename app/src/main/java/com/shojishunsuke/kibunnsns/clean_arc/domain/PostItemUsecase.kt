@@ -7,6 +7,6 @@ import kotlinx.coroutines.launch
 class PostItemUsecase {
     private val fireStoreRepository = FireStoreDatabaseRepository()
     fun increaseView(postId:String){
-        GlobalScope.launch { fireStoreRepository.icreaseViews(postId) }
+        GlobalScope.launch { fireStoreRepository.increaseViews(postId) }
     }
 }

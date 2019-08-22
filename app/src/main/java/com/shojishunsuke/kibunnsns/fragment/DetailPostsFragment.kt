@@ -84,7 +84,8 @@ class DetailPostsFragment : Fragment() {
 
         Glide.with(requireContext())
             .load(post.iconPhotoLink)
-            .error(R.drawable.defaultback)
+            .error(R.drawable.icon_annonymous)
+            .placeholder(R.drawable.icon_annonymous)
             .into(view.selectedUserIcon)
 
         view.selectedActIcon.text = viewModel.getEmojiCode()

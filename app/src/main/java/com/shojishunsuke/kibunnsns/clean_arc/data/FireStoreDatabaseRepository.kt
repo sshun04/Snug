@@ -112,7 +112,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
             .addOnFailureListener { e -> Log.w("FireStore", "Error deleting document", e) }
     }
 
-    suspend fun icreaseViews(postId:String){
+    suspend fun increaseViews(postId:String){
         val post = dataBase.collection(COLLECTION_PATH).document(postId)
         post.update("views",FieldValue.increment(1))
 

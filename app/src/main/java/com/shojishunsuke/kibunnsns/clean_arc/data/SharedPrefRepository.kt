@@ -8,7 +8,6 @@ class SharedPrefRepository(context: Context) : DataConfigRepository {
 
     private val sharedPreferences: SharedPreferences
 
-    private val key_collection = "KEY_COLLECTION"
     private val key_init = "KEY_INITIALIZATION"
 
     init {
