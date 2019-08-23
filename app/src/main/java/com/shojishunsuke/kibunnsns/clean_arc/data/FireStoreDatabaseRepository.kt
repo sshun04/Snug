@@ -16,7 +16,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
     private val dataBase = FirebaseFirestore.getInstance()
 
     companion object {
-        private const val COLLECTION_PATH = "testPosts"
+        private const val COLLECTION_PATH = "betaTest"
     }
 
     override suspend fun savePost(post: Post) {

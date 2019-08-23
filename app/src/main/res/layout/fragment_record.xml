@@ -18,6 +18,13 @@
             android:layout_height="match_parent"
             android:elevation="5dp" />
 
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:layout_width="wrap_content"
+        app:layoutDescription="@xml/motion_scene"
+        android:layout_height="wrap_content">
+
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
         <View
             android:id="@+id/headerBackGround"
@@ -32,7 +39,6 @@
             android:layout_height="24dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:elevation="4dp"
             android:background="@android:color/transparent"
             android:src="@drawable/icon_setting_24"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +49,7 @@
             android:layout_width="112dp"
             android:layout_height="112dp"
             android:backgroundTint="@android:color/white"
-            android:src="@drawable/icon_annonymous"
+            android:src="@drawable/iconmonstr_user_20_96"
             app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
@@ -70,7 +76,7 @@
             android:layout_height="wrap_content"
             android:text="匿名"
             android:textColor="@color/light_100"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
             app:layout_constraintEnd_toEndOf="parent"
@@ -101,13 +107,15 @@
             <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:elevation="4dp"
                 android:backgroundTint="@color/light_100">
 
                 <com.google.android.material.tabs.TabLayout
+                    android:backgroundTint="@android:color/transparent"
                     android:id="@+id/tabLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:elevation="4dp" />
+                    />
 
             </com.google.android.material.appbar.AppBarLayout>
 

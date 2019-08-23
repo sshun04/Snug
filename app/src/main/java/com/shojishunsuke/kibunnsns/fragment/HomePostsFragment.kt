@@ -1,6 +1,5 @@
 package com.shojishunsuke.kibunnsns.fragment
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -40,7 +39,7 @@ class HomePostsFragment : Fragment() {
         view.homeToolBar.title = "Snug"
 
         val stagLayoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
-        val scrollListener = EndlessScrollListener(stagLayoutManager) {
+        val scrollListener = EndlessScrollListener() {
             if (!isLoading) {
                 isLoading = true
                 viewModel.onScrollBottom()
@@ -72,14 +71,13 @@ class HomePostsFragment : Fragment() {
         }
 
         view.negativeSwitch.setOnCheckedChangeListener { _, boolean ->
-            viewModel.onSortChanged(boolean) {
-                pagingAdapter.clear()
-            }
+            pagingAdapter.clear()
+            viewModel.onSortChanged(boolean)
         }
 
         view.pullToRefreshLayout.setOnRefreshListener {
             pagingAdapter.clear()
-            viewModel.pullToRefresh()
+            viewModel.onPullToRefresh()
         }
 
         viewModel.nextPosts.observe(viewLifecycleOwner, Observer {

@@ -32,6 +32,7 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> :
     fun removeItem(position: Int){
         posts.removeAt(position)
         notifyItemRemoved(position)
+        notifyItemRangeChanged(position,itemCount)
     }
 
     override fun getItemViewType(position: Int): Int {

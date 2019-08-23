@@ -1401,6 +1401,7 @@ drawable ic_search_black_24dp
 drawable ic_today_black_24dp
 drawable icon_annonymous
 drawable icon_setting_24
+drawable iconmonstr_user_20_96
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon

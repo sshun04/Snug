@@ -93,7 +93,7 @@
             android:layout_marginVertical="4dp"
             android:layout_marginStart="4dp"
             android:drawableLeft="@drawable/ic_access_time_black_12dp"
-            android:drawablePadding="4dp"
+            android:drawablePadding="2dp"
             android:drawableTint="@color/dark_54"
             android:gravity="center"
             android:text="昨日"
