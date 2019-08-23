@@ -1,5 +1,6 @@
 package com.shojishunsuke.kibunnsns.fragment.listener
 
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 
@@ -19,6 +20,7 @@ class EndlessScrollListener(
         if (lastVisibleItemCount == totalItemCount) {
             recyclerView.post {
                 onLoadMoreListener()
+              Log.d("EndlessScrollListener","scrolled")
             }
         }
     }

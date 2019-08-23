@@ -79,7 +79,7 @@ class HomePostsFragment : Fragment() {
 
         view.pullToRefreshLayout.setOnRefreshListener {
             pagingAdapter.clear()
-            viewModel.refresh()
+            viewModel.pullToRefresh()
         }
 
         viewModel.nextPosts.observe(viewLifecycleOwner, Observer {
@@ -100,7 +100,7 @@ class HomePostsFragment : Fragment() {
 
 
     private fun setUpDetailFragment(post: Post) {
-        DetailPostsFragment.setupFragment(post, requireFragmentManager())
+        DetailPostsFragment.setupFragment(post, childFragmentManager)
     }
 
 }

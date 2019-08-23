@@ -24,7 +24,6 @@ class HomeFragmentViewModel : ViewModel() {
         GlobalScope.launch {
             val posts = useCase.requestPosts(hideNegative, previousPost)
             if (posts.isNotEmpty()) previousPost = posts.last()
-
             posts as MutableList<Post>
             launch(Dispatchers.IO) {
                 _nextPosts.postValue(posts)
@@ -44,4 +43,10 @@ class HomeFragmentViewModel : ViewModel() {
         _nextPosts.value?.clear()
         requestNextPosts()
     }
+
+    fun pullToRefresh(){
+        previousPost = null
+        _nextPosts.value?.clear()
+    }
+
 }

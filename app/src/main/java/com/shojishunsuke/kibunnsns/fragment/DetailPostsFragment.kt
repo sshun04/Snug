@@ -78,6 +78,7 @@ class DetailPostsFragment : Fragment() {
             for (i in 0 until requireFragmentManager().backStackEntryCount) {
                 requireFragmentManager().popBackStack()
             }
+            parentFragment?.onResume()
         }
 
         view.selectedUserName.text = viewModel.getUserName()

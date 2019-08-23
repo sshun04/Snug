@@ -66,7 +66,7 @@ class PagingRecyclerViewAdapter(
                 holder.sentiColorIcon.setImageResource(sentiColor)
 
                 holder.activityIcon.text =
-                    if (post.actID.isNotBlank()) post.actID else getAppropriateIconFromSentiScore(post.sentiScore)
+                    if (post.actID.isNotBlank()) post.actID else ""
 
 
 
