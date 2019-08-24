@@ -1799,6 +1799,7 @@ id selectedUserIcon
 id selectedUserName
 id send_code
 id send_sms_tos
+id sentiDescription
 id sentiIcon
 id sentiScoreTextView
 id setActivityButton
@@ -1894,6 +1895,7 @@ id up
 id useLogo
 id userIcon
 id userName
+id viewNumberField
 id viewPager
 id view_offset_helper
 id visible

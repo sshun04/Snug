@@ -33,7 +33,7 @@ class HomeFragmentViewModel : ViewModel() {
 
     fun onSortChanged(hideNegative: Boolean) {
         this.hideNegative = hideNegative
-        clearLiveDataValues()
+        refresh()
     }
 
 
@@ -43,13 +43,7 @@ class HomeFragmentViewModel : ViewModel() {
         requestNextPosts()
     }
 
-    fun onPullToRefresh(){
-        clearLiveDataValues()
-    }
 
-    private fun clearLiveDataValues(){
-        previousPost = null
-        _nextPosts.value?.clear()
-    }
+
 
 }

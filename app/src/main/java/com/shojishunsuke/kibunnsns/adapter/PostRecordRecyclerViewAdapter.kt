@@ -87,6 +87,13 @@ class PostRecordRecyclerViewAdapter(private val context: Context,private val rem
                 popupMenu.show()
             }
 
+
+            holder.sentiScoreDescription.apply {
+               val description = getSentiDescription(post.sentiScore)
+                text = description.first
+                setBackgroundColor(description.second)
+            }
+
             holder.numberOfViews.text = post.views.toString()
             holder.detailDateTextView.text = detailDateString
             holder.timeTextView.text = time
@@ -117,6 +124,7 @@ class PostRecordRecyclerViewAdapter(private val context: Context,private val rem
     }
 
     private class DetailViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val sentiScoreDescription : TextView = view.findViewById(R.id.sentiDescription)
         val detailDateTextView: TextView = view.findViewById(R.id.detailDateTextView)
         val contentTextView: TextView = view.findViewById(R.id.contentTextView)
         val activityICon: TextView = view.findViewById(R.id.emojiIconTextView)

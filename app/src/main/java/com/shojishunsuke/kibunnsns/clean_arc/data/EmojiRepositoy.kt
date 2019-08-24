@@ -8,6 +8,7 @@ class EmojiRepositoy {
         "\uD83D\uDED2",
         "✍️",
         "☕",
+        "\uD83D\uDCBB",
         "\uD83D\uDCFA",
         "\uD83D\uDCD6",
         "\uD83C\uDFAE",

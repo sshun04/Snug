@@ -1,6 +1,7 @@
 package com.shojishunsuke.kibunnsns.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +36,7 @@ class HomePostsFragment : Fragment() {
             max = 100
             setProgress(84, true)
         }
+        Log.d("HomeFragment","${this.tag}")
 
         view.homeToolBar.title = "Snug"
 
@@ -77,7 +79,7 @@ class HomePostsFragment : Fragment() {
 
         view.pullToRefreshLayout.setOnRefreshListener {
             pagingAdapter.clear()
-            viewModel.onPullToRefresh()
+            viewModel.refresh()
         }
 
         viewModel.nextPosts.observe(viewLifecycleOwner, Observer {
@@ -94,6 +96,7 @@ class HomePostsFragment : Fragment() {
         super.onResume()
         pagingAdapter.clear()
         viewModel.refresh()
+        Log.d("HomeFragment","onResume")
     }
 
 
