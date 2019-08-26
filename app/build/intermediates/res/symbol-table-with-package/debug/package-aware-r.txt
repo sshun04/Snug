@@ -1399,9 +1399,11 @@ drawable ic_person_black_24dp
 drawable ic_photo_camera_black_24dp
 drawable ic_search_black_24dp
 drawable ic_today_black_24dp
+drawable icon1xxxhdpi
 drawable icon_annonymous
 drawable icon_setting_24
 drawable iconmonstr_user_20_96
+drawable iconsmallxxxhdpi
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1419,6 +1421,15 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable preference_list_divider_material
 drawable shape
+drawable snug_foreground
+drawable snugicon6hdpi
+drawable snugiconbeta2hdpi
+drawable snugiconbeta3hdpi
+drawable snugiconbeta4hdpi
+drawable snugiconbeta4xhdpi
+drawable snugiconhdpi
+drawable snugiconportrait_mdpi
+drawable snugiconportraithdpi
 drawable state_pressed_ripple
 drawable tooltip_frame_dark
 drawable tooltip_frame_light

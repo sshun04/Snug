@@ -66,7 +66,7 @@ MainActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         Log.d("TAG", "signInAnonymously:success")
                         val user = auth.currentUser
-                        updateUi(user)
+                        mainViewModel.onAuthSuccess()
                     } else {
                         Log.w("TAG", "signInAnonymously:failure", task.exception)
                         Toast.makeText(

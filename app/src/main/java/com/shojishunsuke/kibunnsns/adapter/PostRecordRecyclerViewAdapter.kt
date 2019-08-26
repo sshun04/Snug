@@ -34,7 +34,7 @@ class PostRecordRecyclerViewAdapter(private val context: Context,private val rem
         val detailDateString = calendar.detailDateString()
         val time = takeTimeFromDate(calendar.time)
         val activityIcon =
-            if (post.actID.isNotBlank()) post.actID else getAppropriateIconFromSentiScore(post.sentiScore)
+            if (post.actID.isNotBlank()) post.actID else ""
 
         calendar.time = post.date
         if (viewType == 1) {

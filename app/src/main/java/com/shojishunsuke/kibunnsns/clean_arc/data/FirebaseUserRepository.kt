@@ -8,13 +8,20 @@ import com.shojishunsuke.kibunnsns.clean_arc.data.repository.AuthRepository
 import kotlinx.coroutines.runBlocking
 
 class FirebaseUserRepository : AuthRepository {
-    private val user = FirebaseAuth.getInstance().currentUser
+    private var user = FirebaseAuth.getInstance().currentUser
     private val TAG = "FirebaseUser"
+
+
+    override fun updateUser() {
+        this.user = FirebaseAuth.getInstance().currentUser
+    }
 
     override fun getUserName(): String {
         val savedName =  user?.displayName ?:""
         return if (savedName.isNotBlank()) savedName else "匿名"
     }
+
+
 
     override fun updateUserName(userName: String) {
         val profileUpdate = UserProfileChangeRequest.Builder()

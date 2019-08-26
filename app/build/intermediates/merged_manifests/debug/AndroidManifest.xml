@@ -224,10 +224,6 @@
             android:authorities="com.shojishunsuke.kibunnsns.lifecycle-process"
             android:exported="false"
             android:multiprocess="true" />
-        <provider
-            android:name="com.android.tools.ir.server.InstantRunContentProvider"
-            android:authorities="com.shojishunsuke.kibunnsns.com.android.tools.ir.server.InstantRunContentProvider"
-            android:multiprocess="true" />
     </application>
 
 </manifest>

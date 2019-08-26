@@ -4,6 +4,23 @@
             "outputFile": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-uz/values-uz.xml",
             "map": [
                 {
+                    "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/544d7dac1bbbcb74a513eff8a4c2884d/res/values-uz/values-uz.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,156",
+                        "endColumns": "100,121",
+                        "endOffsets": "151,273"
+                    },
+                    "to": {
+                        "startLines": "48,49",
+                        "startColumns": "4,4",
+                        "startOffsets": "5628,5729",
+                        "endColumns": "100,121",
+                        "endOffsets": "5724,5846"
+                    }
+                },
+                {
                     "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/49d90330101795e74c1029fabf4ae19e/res/values-uz/values-uz.xml",
                     "from": {
                         "startLines": "2",
@@ -38,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5e8c6cc355d19313cd2e25f6cb47690b/res/values-uz/values.xml",
+                    "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/988e1998df13e8ea2e01693e3e891509/res/values-uz/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -86,23 +103,6 @@
                         "startOffsets": "5535,6036,6205,6292",
                         "endColumns": "92,168,86,78",
                         "endOffsets": "5623,6200,6287,6366"
-                    }
-                },
-                {
-                    "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/04d371cb0b43ff7a61b9d34112f926be/res/values-uz/values-uz.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,156",
-                        "endColumns": "100,121",
-                        "endOffsets": "151,273"
-                    },
-                    "to": {
-                        "startLines": "48,49",
-                        "startColumns": "4,4",
-                        "startOffsets": "5628,5729",
-                        "endColumns": "100,121",
-                        "endOffsets": "5724,5846"
                     }
                 }
             ]
