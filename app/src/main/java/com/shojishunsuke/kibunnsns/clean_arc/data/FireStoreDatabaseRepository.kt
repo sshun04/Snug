@@ -4,10 +4,10 @@ import android.util.Log
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QuerySnapshot
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.tasks.await
-import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -39,14 +39,8 @@ class FireStoreDatabaseRepository : DataBaseRepository {
             .get()
             .await()
 
-        val results = ArrayList<Post>()
 
-        querySnapshot.forEach {
-            val post = it.toObject(Post::class.java)
-            results.add(post)
-        }
-
-        return results
+        return querySnapshot.toPostsMutableList()
     }
 
     suspend fun loadWideRangeNextCollection(post: Post): List<Post> {
@@ -59,52 +53,34 @@ class FireStoreDatabaseRepository : DataBaseRepository {
             .get()
             .await()
 
-        val results = ArrayList<Post>()
-
-        querySnapshot.forEach {
-            val result = it.toObject(Post::class.java)
-            results.add(result)
-        }
-
-        return results
+        return querySnapshot.toPostsMutableList()
     }
 
-    suspend fun loadPositiveCollection(previousPost: Post): List<Post> {
+    suspend fun loadPositiveCollection(date: Date): List<Post> {
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .orderBy("date", Query.Direction.DESCENDING)
-            .startAfter(previousPost.date)
+            .startAfter(date)
             .limit(20)
             .get()
             .await()
 
-        val results = ArrayList<Post>()
 
-        querySnapshot.forEach {
-            val post = it.toObject(Post::class.java)
-            if (post.sentiScore >= -0.35f) results.add(post)
-        }
 
-        return results
+        return querySnapshot.toPostsMutableList()
     }
 
-    override suspend fun loadFollowingCollection(previousPost: Post): List<Post> {
+    override suspend fun loadFollowingCollection(date: Date): List<Post> {
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .orderBy("date", Query.Direction.DESCENDING)
-            .startAfter(previousPost.date)
+            .startAfter(date)
             .limit(12)
             .get()
             .await()
-        val results = ArrayList<Post>()
 
-        querySnapshot.forEach {
-            val post = it.toObject(Post::class.java)
-            results.add(post)
-        }
-
-        return results
+        return querySnapshot.toPostsMutableList()
     }
 
-    suspend fun deleteItemFromDatabase(post: Post){
+    fun deleteItemFromDatabase(post: Post) {
         dataBase.collection(COLLECTION_PATH)
             .document(post.postId)
             .delete()
@@ -112,13 +88,18 @@ class FireStoreDatabaseRepository : DataBaseRepository {
             .addOnFailureListener { e -> Log.w("FireStore", "Error deleting document", e) }
     }
 
-    suspend fun increaseViews(postId:String){
+    fun increaseViews(postId: String) {
         val post = dataBase.collection(COLLECTION_PATH).document(postId)
-        post.update("views",FieldValue.increment(1))
+        post.update("views", FieldValue.increment(1))
 
     }
 
-    suspend fun loadDateRangedCollection(userId: String, oldDate:Date, currentDate: Date,limit:Long = 100):MutableList<Post>{
+    suspend fun loadDateRangedCollection(
+        userId: String,
+        oldDate: Date,
+        currentDate: Date,
+        limit: Long = 100
+    ): MutableList<Post> {
 
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .whereEqualTo("userId", userId)
@@ -129,14 +110,30 @@ class FireStoreDatabaseRepository : DataBaseRepository {
             .get()
             .await()
 
-        val results = mutableListOf<Post>()
 
-        querySnapshot.forEach {
-            val post = it.toObject(Post::class.java)
-            results.add(post)
-        }
-
-        return results
+        return querySnapshot.toPostsMutableList()
 
     }
+
+    suspend fun loadScoreRangedCollection(
+        min: Float,
+        max: Float,
+        limit: Long = 20,
+        date: Date
+    ): MutableList<Post> {
+
+        val querySnapshot = dataBase.collection(COLLECTION_PATH)
+            .orderBy("date",Query.Direction.DESCENDING)
+            .orderBy("sentiScore", Query.Direction.ASCENDING)
+            .startAfter(date,min)
+            .limit(limit)
+            .get()
+            .await()
+
+        return querySnapshot.toPostsMutableList()
+
+    }
+
+   private fun QuerySnapshot.toPostsMutableList(): MutableList<Post> =
+        this.map { it.toObject(Post::class.java) }.toMutableList()
 }

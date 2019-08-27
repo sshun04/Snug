@@ -58,19 +58,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolBarParent">
 
-        <Switch
-            android:id="@+id/negativeSwitch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true" />
 
-        <TextView
+
+        <androidx.emoji.widget.EmojiTextView
+            android:layout_gravity="center"
+            android:gravity="center|end"
+            android:text="☹️"
+            android:textSize="28sp"
+            android:paddingBottom="2dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_weight="1"
-            android:text="ネガティブな投稿を隠す"
-            android:textSize="12sp" />
+            android:layout_height="wrap_content"/>
+
+       <SeekBar
+           android:min="-10"
+           android:max="10"
+           android:id="@+id/sentiSeekBar"
+           android:layout_gravity="center"
+           android:layout_weight="1"
+           android:paddingStart="8dp"
+           android:paddingEnd="8dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           />
+
+        <androidx.emoji.widget.EmojiTextView
+            android:layout_gravity="center"
+            android:gravity="center|end"
+            android:text="😀"
+            android:textSize="28sp"
+            android:layout_marginEnd="32dp"
+            android:paddingBottom="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
 
         <ImageView
             android:id="@+id/linear"
