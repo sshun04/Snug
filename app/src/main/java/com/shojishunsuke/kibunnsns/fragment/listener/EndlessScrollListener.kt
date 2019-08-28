@@ -27,7 +27,7 @@ class EndlessScrollListener(
                 }
             } else if(layoutManager is LinearLayoutManager){
                 val totalItemCount = layoutManager.itemCount
-                val lastVisibleItemCount = layoutManager.findLastVisibleItemPosition()
+                val lastVisibleItemCount = layoutManager.findLastVisibleItemPosition().plus(1)
 
                 if (lastVisibleItemCount == totalItemCount) {
 

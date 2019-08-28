@@ -26,9 +26,28 @@
             android:id="@+id/homeToolBar"
             style="@style/ThemeOverlay.AppCompat.ActionBar"
             android:layout_width="match_parent"
+            android:padding="0dp"
             android:layout_height="56dp"
-            android:background="@color/light_100"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar" >
+
+            <ImageView
+                android:id="@+id/linear"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end|center"
+                android:layout_marginEnd="12dp"
+                android:padding="1dp"
+                android:src="@drawable/ic_format_list_bulleted_black_24dp" />
+
+            <ImageView
+                android:id="@+id/grid"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end|center"
+                android:layout_marginEnd="12dp"
+                android:padding="2dp"
+                android:src="@drawable/ic_dashboard_black_24dp" />
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -46,6 +65,7 @@
 
 
     <LinearLayout
+        android:layout_marginHorizontal="24dp"
         android:id="@+id/headerGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -76,6 +96,7 @@
            android:layout_gravity="center"
            android:layout_weight="1"
            android:paddingStart="8dp"
+           android:scrollbarSize="8dp"
            android:paddingEnd="8dp"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
@@ -86,29 +107,11 @@
             android:gravity="center|end"
             android:text="😀"
             android:textSize="20sp"
-            android:layout_marginEnd="32dp"
             android:paddingBottom="2dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
 
-        <ImageView
-            android:id="@+id/linear"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
-            android:padding="1dp"
-            android:src="@drawable/ic_format_list_bulleted_black_24dp" />
-
-        <ImageView
-            android:id="@+id/grid"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
-            android:padding="2dp"
-            android:src="@drawable/ic_dashboard_black_24dp" />
 
     </LinearLayout>
 

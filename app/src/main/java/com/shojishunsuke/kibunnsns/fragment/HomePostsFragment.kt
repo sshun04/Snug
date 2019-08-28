@@ -1,5 +1,6 @@
 package com.shojishunsuke.kibunnsns.fragment
 
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -20,13 +21,17 @@ import com.shojishunsuke.kibunnsns.fragment.listener.EndlessScrollListener
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.android.synthetic.main.fragment_home_posts.view.*
 
-class HomePostsFragment : Fragment(),SeekBar.OnSeekBarChangeListener{
+class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
 
     lateinit var viewModel: HomeFragmentViewModel
     lateinit var pagingAdapter: PagingRecyclerViewAdapter
     private var isLoading = false
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_home_posts, container, false)
 
         viewModel =
@@ -37,9 +42,13 @@ class HomePostsFragment : Fragment(),SeekBar.OnSeekBarChangeListener{
             max = 100
             setProgress(84, true)
         }
-        Log.d("HomeFragment","${this.tag}")
+        Log.d("HomeFragment", "${this.tag}")
 
-        view.homeToolBar.title = "Snug"
+        view.homeToolBar.apply {
+            title = "Snug"
+            setTitleTextColor(resources.getColor(R.color.dark_54))
+        }
+
 
         val stagLayoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         val scrollListener = EndlessScrollListener() {
@@ -56,11 +65,13 @@ class HomePostsFragment : Fragment(),SeekBar.OnSeekBarChangeListener{
             addOnScrollListener(scrollListener)
             adapter = pagingAdapter
             layoutManager = stagLayoutManager
-            layoutAnimation = AnimationUtils.loadLayoutAnimation(this.context, R.anim.animation_recyclerview)
+            layoutAnimation =
+                AnimationUtils.loadLayoutAnimation(this.context, R.anim.animation_recyclerview)
         }
 
         view.linear.setOnClickListener {
-            recyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+            recyclerView.layoutManager =
+                LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             pagingAdapter.viewType = 2
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.scheduleLayoutAnimation()
@@ -73,7 +84,16 @@ class HomePostsFragment : Fragment(),SeekBar.OnSeekBarChangeListener{
             recyclerView.scheduleLayoutAnimation()
         }
 
-        view.sentiSeekBar.setOnSeekBarChangeListener(this)
+        view.sentiSeekBar.apply {
+            setOnSeekBarChangeListener(this@HomePostsFragment)
+            progressDrawable?.setColorFilter(
+                viewModel.getProgressSeekBarColor(),
+                PorterDuff.Mode.SRC_ATOP
+            )
+            thumb?.setColorFilter(viewModel.getProgressSeekBarColor(), PorterDuff.Mode.SRC_IN)
+            scrollBarSize = 8
+
+        }
 
         view.pullToRefreshLayout.setOnRefreshListener {
             pagingAdapter.clear()
@@ -91,26 +111,31 @@ class HomePostsFragment : Fragment(),SeekBar.OnSeekBarChangeListener{
     }
 
     override fun onProgressChanged(seekbar: SeekBar?, progress: Int, p2: Boolean) {
-        viewModel.progressMood =  progress
+        viewModel.progressMood = progress
     }
+
     override fun onStartTrackingTouch(p0: SeekBar?) {
 
     }
+
     override fun onStopTrackingTouch(seekbar: SeekBar?) {
         pagingAdapter.clear()
         viewModel.onStopTracking()
+        val color = viewModel.getProgressSeekBarColor()
+        seekbar?.progressDrawable?.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+        seekbar?.thumb?.setColorFilter(color, PorterDuff.Mode.SRC_IN)
     }
 
     override fun onResume() {
         super.onResume()
         pagingAdapter.clear()
         viewModel.refresh()
-        Log.d("HomeFragment","onResume")
+        Log.d("HomeFragment", "onResume")
     }
 
 
     private fun setUpDetailFragment(post: Post) {
-        DetailPostsFragment.setupFragment(post,requireFragmentManager())
+        DetailPostsFragment.setupFragment(post, requireFragmentManager())
     }
 
 }

@@ -1332,6 +1332,7 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable baseline_event_black_18dp
 drawable bottom_navigation_colors
+drawable bottom_navigation_text_colors
 drawable chart_button_state
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark

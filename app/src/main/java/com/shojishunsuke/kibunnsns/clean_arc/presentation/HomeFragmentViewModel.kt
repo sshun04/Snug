@@ -1,5 +1,6 @@
 package com.shojishunsuke.kibunnsns.clean_arc.presentation
 
+import android.graphics.Color
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,17 +21,16 @@ class HomeFragmentViewModel : ViewModel() {
         requestPosts()
     }
 
-//    private fun requestNextPosts() {
-//        GlobalScope.launch {
-//
-//            val posts = useCase.requestPosts(hideNegative, previousPost?.date ?: Date())
-//            if (posts.isNotEmpty()) previousPost = posts.last()
-//            posts as MutableList<Post>
-//            launch(Dispatchers.IO) {
-//                _nextPosts.postValue(posts)
-//            }
-//        }
-//    }
+    fun getProgressSeekBarColor():Int{
+        return when{
+            progressMood >= 8 ->  Color.rgb(250, 180, 185)
+            progressMood in 3 until 8 ->Color.rgb(250, 210, 218)
+            progressMood in -2 .. 2 -> Color.rgb(149, 255, 225)
+            progressMood in - 7 ..-3  -> Color.rgb(150, 220, 255)
+            progressMood <= -8  ->   Color.rgb(130, 200, 255)
+            else ->    Color.rgb(169, 255, 225)
+        }
+    }
 
     fun onStopTracking(){
         refresh()

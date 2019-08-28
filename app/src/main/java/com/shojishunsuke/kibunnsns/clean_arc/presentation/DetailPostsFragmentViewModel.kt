@@ -59,7 +59,6 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
     fun getUserName(): String = if (post.userName.isNotBlank()) post.userName else "匿名"
 
     fun getEmojiCode(): String = if (post.actID.isNotBlank()) post.actID else ""
-//        getAppropriateIconFromSentiScore(post.sentiScore)
 
     fun getContentText(): String = post.contentText
 
