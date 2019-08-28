@@ -28,7 +28,7 @@ class DetailPostsFragmentUsecase(basePost: Post) {
     }
 
     private suspend fun loadWideRangeCollection(): List<Post> {
-        val posts = fireStoreRepository.loadScoreRangedCollectionPositive(post = wideRangePrevPost)
+        val posts = fireStoreRepository.loadScoreRangedCollectionAscend(post = wideRangePrevPost)
         if (posts.isNotEmpty()) wideRangePrevPost = posts.last()
         return posts
     }

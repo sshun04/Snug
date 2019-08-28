@@ -5,7 +5,6 @@ import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.AuthRepository
-import kotlinx.coroutines.runBlocking
 
 class FirebaseUserRepository : AuthRepository {
     private var user = FirebaseAuth.getInstance().currentUser

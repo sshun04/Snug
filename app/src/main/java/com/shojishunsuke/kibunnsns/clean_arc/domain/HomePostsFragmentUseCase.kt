@@ -24,7 +24,7 @@ class HomePostsFragmentUseCase {
                 if (progressRange != previousRange){
                     previousPost = Post(sentiScore = min)
                 }
-                fireStoreRepository.loadScoreRangedCollectionPositive(post = previousPost)
+                fireStoreRepository.loadScoreRangedCollectionAscend(post = previousPost)
             }
 
             targetScore in 4 until 8 -> {
@@ -33,7 +33,7 @@ class HomePostsFragmentUseCase {
                 if (progressRange != previousRange){
                     previousPost = Post(sentiScore = min)
                 }
-                fireStoreRepository.loadScoreRangedCollectionPositive(post = previousPost)
+                fireStoreRepository.loadScoreRangedCollectionAscend(post = previousPost)
             }
 
             targetScore in -3..3 -> {
@@ -50,7 +50,7 @@ class HomePostsFragmentUseCase {
                 if (progressRange != previousRange){
                     previousPost = Post(sentiScore = max)
                 }
-                fireStoreRepository.loadScoreRangedCollectionNegative(post = previousPost)
+                fireStoreRepository.loadScoreRangedCollectionDescend(post = previousPost)
 
             }
 
@@ -60,7 +60,7 @@ class HomePostsFragmentUseCase {
                 if (progressRange != previousRange){
                     previousPost = Post(sentiScore = max)
                 }
-                fireStoreRepository.loadScoreRangedCollectionNegative(post = previousPost)
+                fireStoreRepository.loadScoreRangedCollectionDescend(post = previousPost)
 
 
             }

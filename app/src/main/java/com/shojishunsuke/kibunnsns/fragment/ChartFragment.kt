@@ -43,6 +43,7 @@ class ChartFragment : Fragment(), View.OnClickListener {
         }
 
         lineChart.axisRight.isEnabled = false
+        lineChart.isScaleYEnabled = false
 
         viewModel.lineEntries.observe(viewLifecycleOwner, Observer {
             lineChart.data = viewModel.getLineChartData()
