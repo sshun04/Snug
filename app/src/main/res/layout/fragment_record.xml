@@ -10,8 +10,6 @@
     android:layout_marginBottom="56dp"
     tools:showPaths="true">
 
-
-
         <FrameLayout
             android:id="@+id/detailFragmentContainer"
             android:layout_width="match_parent"

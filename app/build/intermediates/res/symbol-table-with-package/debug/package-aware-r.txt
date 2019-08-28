@@ -1559,7 +1559,6 @@ id coordinator
 id cos
 id country_list
 id cross_device_linking_body
-id currentEmojiList
 id custom
 id customPanel
 id dark
@@ -1618,11 +1617,9 @@ id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
-id expandableBox
 id expanded
 id expanded_menu
 id fab
-id favoriteEmojiField
 id fill
 id fill_horizontal
 id fill_large_indicator
@@ -1681,8 +1678,6 @@ id line3
 id lineChart
 id lineChartParent
 id linear
-id linearLayout
-id listBorder
 id listMode
 id list_item
 id logo
@@ -1874,7 +1869,6 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
-id toggleButton
 id toolBarParent
 id top
 id topPanel

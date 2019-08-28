@@ -39,21 +39,7 @@ class PostDialogViewModel(context: Context) : ViewModel() {
         requestCurrentEmojiList()
     }
 
-    fun toggleArrow(view: View, isExpanded: Boolean = false) {
-        if (isExpanded) {
-            startRotate(view, -180f, 0f)
-        } else {
-            startRotate(view, 0f, -180f)
-        }
-    }
 
-    private fun startRotate(view: View, startRotate: Float, endRotate: Float) {
-        val rotateAnimation =
-            RotateAnimation(startRotate, endRotate, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
-        rotateAnimation.duration = 300
-        rotateAnimation.fillAfter = true
-        view.startAnimation(rotateAnimation)
-    }
 
     fun requestPost(content: String, emojiCode: String) {
         GlobalScope.launch {

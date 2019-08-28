@@ -6,10 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-
-
-
-
     <TextView
         android:id="@+id/headerTextView"
         android:layout_marginStart="8dp"
@@ -23,7 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
 
     <Switch
         android:id="@+id/isDetailSwitch"

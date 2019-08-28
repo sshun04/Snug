@@ -87,7 +87,6 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> :
     protected fun getSentiColorId(sentiScore: Float):Int{
         return when {
             sentiScore > 0.4f -> R.color.color_positive
-            sentiScore <= 0.4f && sentiScore >= -0.4f -> R.color.color_neutral
             sentiScore < -0.4f -> R.color.color_negative
             else -> R.color.color_neutral
         }
@@ -98,7 +97,6 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> :
     protected fun getSentiDescription(sentiScore: Float):Pair<String,Int>{
         return when {
             sentiScore > 0.4f -> Pair("Positive",Color.rgb(250, 210, 218))
-            sentiScore <= 0.4f && sentiScore >= -0.4f -> Pair("Neutral",Color.rgb(169, 255, 242))
             sentiScore < -0.4f -> Pair("Negative", Color.rgb(170, 240, 255))
             else -> Pair("Neutral",Color.rgb(169, 255, 242))
         }

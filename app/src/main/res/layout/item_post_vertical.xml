@@ -17,7 +17,6 @@
         android:paddingEnd="12dp"
         android:paddingBottom="12dp">
 
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/sentiIcon"
             android:layout_width="32dp"
