@@ -1,5 +1,6 @@
 package com.shojishunsuke.kibunnsns.utils
 
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -34,4 +35,13 @@ fun Calendar.dayOfWeek(): String {
 fun Calendar.diffToMonday():Int{
     val dayOfWeek = get(Calendar.DAY_OF_WEEK)
     return 2 - dayOfWeek
+}
+
+fun Calendar.detailDateString():String{
+    return "${year()}年${month()}月${dayOfMonth()}日(${dayOfWeek()})"
+}
+
+fun Calendar.timeOfDayString():String{
+    val formatter = SimpleDateFormat("HH:mm", Locale.JAPAN)
+    return formatter.format(this.time)
 }

@@ -55,8 +55,8 @@ class ChartFragment : Fragment(), View.OnClickListener {
             lineChart.xAxis.apply {
                 valueFormatter = IndexAxisValueFormatter(it)
                 granularity = 1f
-                mAxisRange = it.size.toFloat()
-                axisMaximum = it.size.toFloat()
+                mAxisRange = (it.size - 1.0).toFloat()
+                axisMaximum = (it.size - 1.0).toFloat()
                 axisMinimum = 1f
                 axisMinimum = 0f
             }
@@ -86,15 +86,13 @@ class ChartFragment : Fragment(), View.OnClickListener {
         parentView.previous.setOnClickListener {
             viewModel.waverRange(it.id)
         }
-
-
         return parentView
     }
 
     override fun onResume() {
         super.onResume()
         switchSelectedBackGround(viewModel.rangeField)
-
+        viewModel.refresh()
     }
 
     override fun onClick(view: View?) {

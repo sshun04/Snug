@@ -1,10 +1,11 @@
 package com.shojishunsuke.kibunnsns.clean_arc.presentation
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.graphics.Color
+import androidx.lifecycle.*
+import com.github.sundeepk.compactcalendarview.domain.Event
 import com.shojishunsuke.kibunnsns.clean_arc.domain.CalendarFragmentUsecase
 import com.shojishunsuke.kibunnsns.model.Post
+import com.shojishunsuke.kibunnsns.model.PostedDate
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -12,8 +13,8 @@ import java.util.*
 
 class CalendarFragmentViewModel : ViewModel() {
 
-    private val _postsOfDate = MutableLiveData<List<Post>>()
-    val postsOfDate: LiveData<List<Post>> get() = _postsOfDate
+    private val _postsOfDate = MutableLiveData<MutableList<Post>>()
+    val postsOfDate: LiveData<MutableList<Post>> get() = _postsOfDate
 
     private val _dateText = MutableLiveData<String>()
     val dateText: LiveData<String> get() = _dateText
@@ -21,16 +22,23 @@ class CalendarFragmentViewModel : ViewModel() {
     private val date = Calendar.getInstance()
     private val useCase = CalendarFragmentUsecase()
 
-    init {
-        onFocusToday()
+    val eventDateList:LiveData<MutableList<Event>> = useCase.postedDate.map {
+        it.map {
+           Event(Color.rgb(149, 235, 222), it.dateInLong)
+        }.toMutableList()
     }
 
-    fun setDate(year: Int, month: Int, date: Int) {
-        this.date.set(year, month, date)
+    fun onPostRemoved(post: Post){
+
+    }
+
+
+    fun setDate(date: Date) {
+        this.date.time = date
         requestPostsByDate()
     }
 
-    fun getDateInLong(): Long = date.time.time
+    fun getDate(): Date = date.time
 
     fun onFocusToday() {
         date.time = Date()
@@ -47,4 +55,10 @@ class CalendarFragmentViewModel : ViewModel() {
             }
         }
     }
+
+    fun refresh(){
+        _postsOfDate.value?.clear()
+        onFocusToday()
+    }
+
 }

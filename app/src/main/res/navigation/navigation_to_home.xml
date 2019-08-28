@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/post_dialog"
+    android:id="@+id/navigation_to_home">
+
+    <dialog
+        android:id="@+id/post_dialog"
+        android:label="PostDialogFragment"
+        android:name="com.shojishunsuke.kibunnsns.fragment.PostDialogFragment"
+        tools:layout="@layout/fragment_dialog_post"
+        >
+        <action
+            android:id="@+id/action_dialog_to_home"
+            app:destination="@id/navigation_home"/>
+
+    </dialog>
+
+
+    <custom_fragment
+        android:id="@+id/navigation_home"
+        android:name="com.shojishunsuke.kibunnsns.fragment.HomePostsFragment"
+        android:label="HomePostsFragment"
+        tools:layout="@layout/fragment_home_posts"/>
+
+
+
+
+</navigation>

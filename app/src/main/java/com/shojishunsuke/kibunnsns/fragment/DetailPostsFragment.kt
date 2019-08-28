@@ -78,13 +78,15 @@ class DetailPostsFragment : Fragment() {
             for (i in 0 until requireFragmentManager().backStackEntryCount) {
                 requireFragmentManager().popBackStack()
             }
+
         }
 
         view.selectedUserName.text = viewModel.getUserName()
 
         Glide.with(requireContext())
             .load(post.iconPhotoLink)
-            .error(R.drawable.defaultback)
+            .error(R.drawable.icon_annonymous)
+            .placeholder(R.drawable.icon_annonymous)
             .into(view.selectedUserIcon)
 
         view.selectedActIcon.text = viewModel.getEmojiCode()
@@ -113,6 +115,10 @@ class DetailPostsFragment : Fragment() {
         })
 
         return view
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
 }

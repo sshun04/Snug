@@ -14,18 +14,17 @@ class PostsRecordFragmentViewModel : ViewModel() {
     private val _postsList = MutableLiveData<List<Post>>()
     val postsList: LiveData<List<Post>> get() = _postsList
 
-
-    init {
-        requirePosts()
-    }
-
-   private fun requirePosts() {
+   private fun requestPosts() {
         GlobalScope.launch {
             val posts = usecase.loadPosts()
             launch(Dispatchers.IO) {
                 _postsList.postValue(posts)
             }
         }
+    }
+
+    fun refresh(){
+        requestPosts()
     }
 
 }

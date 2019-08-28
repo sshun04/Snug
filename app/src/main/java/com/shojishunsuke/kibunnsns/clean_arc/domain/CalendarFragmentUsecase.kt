@@ -1,16 +1,20 @@
 package com.shojishunsuke.kibunnsns.clean_arc.domain
 
+import androidx.lifecycle.MutableLiveData
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.FirebaseUserRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.RoomPostDateRepository
 import com.shojishunsuke.kibunnsns.model.Post
+import com.shojishunsuke.kibunnsns.model.PostedDate
 import java.util.*
 
 class CalendarFragmentUsecase {
     private val fireStoreRepository = FireStoreDatabaseRepository()
     private val userRepository = FirebaseUserRepository()
     private val userId = userRepository.getUserId()
+    private val postDateRepository = RoomPostDateRepository()
 
-    suspend fun loadPostsByDate(date:Calendar): List<Post> {
+    suspend fun loadPostsByDate(date:Calendar): MutableList<Post> {
 
         val dateStart = date.clone() as Calendar
         dateStart.apply {
@@ -27,4 +31,6 @@ class CalendarFragmentUsecase {
 
         return fireStoreRepository.loadDateRangedCollection(userId,dateStart.time,dateEnd.time)
     }
+
+    val postedDate = postDateRepository.loadDateList()
 }

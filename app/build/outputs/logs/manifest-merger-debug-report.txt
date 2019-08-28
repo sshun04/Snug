@@ -1,16 +1,17 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-27:12
-MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:2:1-109:12
+ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
+MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:2:1-109:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-beta2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e901323b05e81d57053e71a0194c80c3/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.preference:preference:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f5be4757d8dbe033b3d860dcc62bdbf2/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-ui-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/61f94a718cc38fd8c87dd4181c388108/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-ui:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/04d371cb0b43ff7a61b9d34112f926be/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/544d7dac1bbbcb74a513eff8a4c2884d/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/AndroidManifest.xml:17:1-24:12
-MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e5005dda05615cb8197aa1aca3fa457e/AndroidManifest.xml:6:1-16:12
+MERGED from [com.github.sundeepk:compact-calendar-view:3.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a3206bcdcc17bfc994cfbf5093c59e5f/AndroidManifest.xml:2:1-11:12
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/de68af738dc3508c76b1f197374c6f0d/AndroidManifest.xml:6:1-16:12
 MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4122b770116f2a994ed750b248532298/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core-ktx:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/207897e3344b6bf624a98dd402d2efdd/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-core:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/724b1f8cf2ebfaa495231960320768e5/AndroidManifest.xml:2:1-9:12
@@ -21,16 +22,16 @@ MERGED from [androidx.navigation:navigation-fragment-ktx:2.1.0-alpha05] /Users/s
 MERGED from [androidx.fragment:fragment-ktx:1.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/30049f53b47923b8e34c1b1b129851ff/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity-ktx:1.0.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fc7d69f5805f0120a987d81dac8063da/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/c176f43c0c6917167e9c3211b6ddc0f5/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/80abad4b1d141704eb76e87c709c3046/AndroidManifest.xml:2:1-26:12
+MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8781b7b47cb55d1aea2e40d3079b4816/AndroidManifest.xml:2:1-26:12
 MERGED from [com.google.firebase:firebase-auth:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8651cdc12a90163f22691b19b12b2b0f/AndroidManifest.xml:17:1-42:12
-MERGED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7f227365ee9a54331d7e7659c430c3ff/AndroidManifest.xml:17:1-39:12
+MERGED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/af4f63ad31d345e89014cbd0face2856/AndroidManifest.xml:17:1-39:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/c49dd8723c14c1197ce6d30ca97cd8cf/AndroidManifest.xml:2:1-7:12
-MERGED from [com.firebaseui:firebase-ui-storage:4.3.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/022304abba0a9b03a9e1fc011ffcfc78/AndroidManifest.xml:2:1-11:12
+MERGED from [com.firebaseui:firebase-ui-storage:4.3.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/2e46174d90787baac7a7fe4c536f9d2b/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-storage:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/edaff48eb5dd6baf5d571acb9f3d08cc/AndroidManifest.xml:15:1-37:12
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a7461431f5d58dde192310532a626675/AndroidManifest.xml:17:1-25:12
-MERGED from [com.firebaseui:firebase-ui-database:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/68ec8d4b0e9a0044c6e47c5a4bbbed17/AndroidManifest.xml:2:1-13:12
-MERGED from [com.firebaseui:firebase-ui-common:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e486c0f2b0e793e0c6c7d02ef3677b91/AndroidManifest.xml:2:1-11:12
-MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/683483fa9d0b6b5ec97d7392164c6049/AndroidManifest.xml:2:1-12:12
+MERGED from [com.firebaseui:firebase-ui-database:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/857f90d957552622ce9825557458fd41/AndroidManifest.xml:2:1-13:12
+MERGED from [com.firebaseui:firebase-ui-common:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4d234b51fa9c2de2c2975b5cad8bb326/AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/859b8a95a818e35ba579fda758bcbad8/AndroidManifest.xml:2:1-12:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/12edfa79dbba57b41cba234dd1a4d9d9/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.paging:paging-runtime:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/bce0dc216e67b3eefe7a32e26370c2f3/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b4fe0851818cfadc3086f8c416ec36a5/AndroidManifest.xml:17:1-22:12
@@ -45,10 +46,10 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:17.0.0] /User
 MERGED from [com.google.firebase:firebase-iid:19.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/aec73c1a6c8f9f6e7938f2600725fe1d/AndroidManifest.xml:17:1-47:12
 MERGED from [com.google.android.gms:play-services-stats:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6a4e2f122080735575bdf017d5264a2d/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a9b33dd151bfe98b3dad531ba2869b3c/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dca3bafcf5978a0f294a7494e46b3e64/AndroidManifest.xml:15:1-36:12
+MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/84ebfb6833112d6e22788f0b290f02a6/AndroidManifest.xml:15:1-36:12
 MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/37dfad5a36a06de640153d00432d9ef5/AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.android.gms:play-services-flags:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/2b173b6b187a22047d6e24ecbfea9ccf/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dd75d1a30db19d63d95a10307c0aca44/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b3923b94e310ca017d305619b9eb37d5/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-iid-interop:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6e32073fcdb8cde95a9f04d3c164508a/AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/2bac2d081979811523383f990e13bbd9/AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.firebase:firebase-common:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/07f626db2576c3323f01c1b212fc7f4e/AndroidManifest.xml:2:1-19:12
@@ -57,7 +58,7 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.0.0] /U
 MERGED from [com.google.android.gms:play-services-measurement-base:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/131ec9a5d335f6c9c8455fb8edd4b8fe/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e5bd8e53a7794bcbfc7e313c28c0c399/AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b2d216a9a72d4d9e694b752c80360413/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5e8c6cc355d19313cd2e25f6cb47690b/AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/988e1998df13e8ea2e01693e3e891509/AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.navigation:navigation-fragment:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e7e31d1d5bb8b577888453264e9e8748/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment:1.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5bf693c4b57ed1883850eafd9f50d975/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.loader:loader:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/646c1643008158a9937fbed0ae35646a/AndroidManifest.xml:17:1-22:12
@@ -94,7 +95,7 @@ MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/shojishunsuke/.g
 MERGED from [androidx.lifecycle:lifecycle-service:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6debd0d67d8472cc078488de87aa7791/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/89f163a5afccab3032302445e1038722/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b9977bbf13f34d88370150855352d103/AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/44993323ea39dd4a09cf1f61f92d32df/AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fa2796d62e022e8178e1b263608e5e05/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.sqlite:sqlite-framework:2.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/896588b0883d67e303aaa2c2680810ec/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite:2.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5b0d17bdae0637aa85c98ecf4aae8f16/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6d0c151382abf53e05bd519c26855ab1/AndroidManifest.xml:17:1-22:12
@@ -105,45 +106,45 @@ MERGED from [androidx.arch.core:core-runtime:2.1.0-beta01] /Users/shojishunsuke/
 MERGED from [com.google.firebase:firebase-database-collection:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d6012102025af0e6756b64256c216a3b/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:protolite-well-known-types:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e609159e5786ce95a29fa746f2632903/AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.21.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/28f214cef35c1293bebad261ed4f9a8b/AndroidManifest.xml:2:1-13:12
-INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
 	package
 		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:3:5-42
 		INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-27:12
+		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
 		INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-27:12
+		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
 		INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:5:5-25:19
-MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:15:5-107:19
-MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:15:5-107:19
+ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:5:5-23:19
+MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:15:5-107:19
+MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:15:5-107:19
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-beta2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e901323b05e81d57053e71a0194c80c3/AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-beta2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e901323b05e81d57053e71a0194c80c3/AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.material:material:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/AndroidManifest.xml:22:5-20
 MERGED from [com.google.firebase:firebase-core:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/724b1f8cf2ebfaa495231960320768e5/AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-core:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/724b1f8cf2ebfaa495231960320768e5/AndroidManifest.xml:7:5-20
-MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/80abad4b1d141704eb76e87c709c3046/AndroidManifest.xml:16:5-24:19
-MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/80abad4b1d141704eb76e87c709c3046/AndroidManifest.xml:16:5-24:19
+MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8781b7b47cb55d1aea2e40d3079b4816/AndroidManifest.xml:16:5-24:19
+MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8781b7b47cb55d1aea2e40d3079b4816/AndroidManifest.xml:16:5-24:19
 MERGED from [com.google.firebase:firebase-auth:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8651cdc12a90163f22691b19b12b2b0f/AndroidManifest.xml:23:5-40:19
 MERGED from [com.google.firebase:firebase-auth:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8651cdc12a90163f22691b19b12b2b0f/AndroidManifest.xml:23:5-40:19
-MERGED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7f227365ee9a54331d7e7659c430c3ff/AndroidManifest.xml:22:5-37:19
-MERGED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7f227365ee9a54331d7e7659c430c3ff/AndroidManifest.xml:22:5-37:19
+MERGED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/af4f63ad31d345e89014cbd0face2856/AndroidManifest.xml:22:5-37:19
+MERGED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/af4f63ad31d345e89014cbd0face2856/AndroidManifest.xml:22:5-37:19
 MERGED from [com.google.firebase:firebase-storage:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/edaff48eb5dd6baf5d571acb9f3d08cc/AndroidManifest.xml:29:5-35:19
 MERGED from [com.google.firebase:firebase-storage:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/edaff48eb5dd6baf5d571acb9f3d08cc/AndroidManifest.xml:29:5-35:19
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a7461431f5d58dde192310532a626675/AndroidManifest.xml:22:5-23:19
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a7461431f5d58dde192310532a626675/AndroidManifest.xml:22:5-23:19
-MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/683483fa9d0b6b5ec97d7392164c6049/AndroidManifest.xml:10:5-20
-MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/683483fa9d0b6b5ec97d7392164c6049/AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/859b8a95a818e35ba579fda758bcbad8/AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/859b8a95a818e35ba579fda758bcbad8/AndroidManifest.xml:10:5-20
 MERGED from [com.google.firebase:firebase-analytics:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a1c5a6fa6e7d67fecfc9c01ed0c4412/AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-analytics:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a1c5a6fa6e7d67fecfc9c01ed0c4412/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-measurement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a92808d37a888d484d3fecd6b30608e4/AndroidManifest.xml:28:5-53:19
@@ -158,8 +159,8 @@ MERGED from [com.google.firebase:firebase-iid:19.0.0] /Users/shojishunsuke/.grad
 MERGED from [com.google.firebase:firebase-iid:19.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/aec73c1a6c8f9f6e7938f2600725fe1d/AndroidManifest.xml:28:5-45:19
 MERGED from [com.google.android.gms:play-services-stats:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6a4e2f122080735575bdf017d5264a2d/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-stats:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6a4e2f122080735575bdf017d5264a2d/AndroidManifest.xml:7:5-20
-MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dca3bafcf5978a0f294a7494e46b3e64/AndroidManifest.xml:28:5-34:19
-MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dca3bafcf5978a0f294a7494e46b3e64/AndroidManifest.xml:28:5-34:19
+MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/84ebfb6833112d6e22788f0b290f02a6/AndroidManifest.xml:28:5-34:19
+MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/84ebfb6833112d6e22788f0b290f02a6/AndroidManifest.xml:28:5-34:19
 MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/37dfad5a36a06de640153d00432d9ef5/AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/37dfad5a36a06de640153d00432d9ef5/AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-iid-interop:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6e32073fcdb8cde95a9f04d3c164508a/AndroidManifest.xml:7:5-8:19
@@ -178,8 +179,8 @@ MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /Users/s
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e5bd8e53a7794bcbfc7e313c28c0c399/AndroidManifest.xml:22:5-23:19
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b2d216a9a72d4d9e694b752c80360413/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b2d216a9a72d4d9e694b752c80360413/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5e8c6cc355d19313cd2e25f6cb47690b/AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5e8c6cc355d19313cd2e25f6cb47690b/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/988e1998df13e8ea2e01693e3e891509/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/988e1998df13e8ea2e01693e3e891509/AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.room:room-runtime:2.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d08fe0547a279a59d79db42cf11c0daa/AndroidManifest.xml:24:5-28:19
 MERGED from [androidx.room:room-runtime:2.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d08fe0547a279a59d79db42cf11c0daa/AndroidManifest.xml:24:5-28:19
 MERGED from [de.hdodenhof:circleimageview:3.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/03d795ef4353388cb7539f7af99d3712/AndroidManifest.xml:9:5-20
@@ -190,8 +191,8 @@ MERGED from [androidx.core:core:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/
 MERGED from [androidx.core:core:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/49d90330101795e74c1029fabf4ae19e/AndroidManifest.xml:24:5-89
 MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/32d6f782eb93a611006be059af399d38/AndroidManifest.xml:22:5-28:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/32d6f782eb93a611006be059af399d38/AndroidManifest.xml:22:5-28:19
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/44993323ea39dd4a09cf1f61f92d32df/AndroidManifest.xml:9:5-20
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/44993323ea39dd4a09cf1f61f92d32df/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fa2796d62e022e8178e1b263608e5e05/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fa2796d62e022e8178e1b263608e5e05/AndroidManifest.xml:9:5-20
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/497ed7c036a6b706e8778491915619dd/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/497ed7c036a6b706e8778491915619dd/AndroidManifest.xml:24:5-25:19
 	android:appComponentFactory
@@ -210,52 +211,46 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users
 		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:12:9-40
 	android:name
 		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:6:9-40
-activity#com.shojishunsuke.kibunnsns.activity.ChartActivity
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:13:9-69
-	android:name
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:13:19-57
-activity#com.shojishunsuke.kibunnsns.activity.CalendarActivity
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:14:9-63
-	android:name
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:14:19-60
 activity#com.shojishunsuke.kibunnsns.activity.SettingActivity
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:15:9-62
+ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:13:9-62
 	android:name
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:15:19-59
+		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:13:19-59
 activity#com.shojishunsuke.kibunnsns.activity.MainActivity
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:16:9-24:20
+ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:14:9-22:20
 	android:screenOrientation
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:18:13-49
+		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:16:13-49
 	android:name
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:17:13-50
+		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:15:13-50
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:19:13-23:29
+ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:17:13-21:29
 action#android.intent.action.MAIN
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:20:17-69
+ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:18:17-69
 	android:name
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:20:25-66
+		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:18:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:22:17-77
+ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:20:17-77
 	android:name
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:22:27-74
+		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:20:27-74
 uses-sdk
 INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
 INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
-MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:8:5-10:41
-MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:8:5-10:41
+MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:8:5-10:41
+MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:8:5-10:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-beta2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e901323b05e81d57053e71a0194c80c3/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-beta2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e901323b05e81d57053e71a0194c80c3/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.preference:preference:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f5be4757d8dbe033b3d860dcc62bdbf2/AndroidManifest.xml:20:5-44
 MERGED from [androidx.preference:preference:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f5be4757d8dbe033b3d860dcc62bdbf2/AndroidManifest.xml:20:5-44
 MERGED from [androidx.navigation:navigation-ui-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/61f94a718cc38fd8c87dd4181c388108/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-ui-ktx:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/61f94a718cc38fd8c87dd4181c388108/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/04d371cb0b43ff7a61b9d34112f926be/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/04d371cb0b43ff7a61b9d34112f926be/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/544d7dac1bbbcb74a513eff8a4c2884d/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/544d7dac1bbbcb74a513eff8a4c2884d/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.material:material:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/AndroidManifest.xml:20:5-44
-MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e5005dda05615cb8197aa1aca3fa457e/AndroidManifest.xml:12:5-14:41
-MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e5005dda05615cb8197aa1aca3fa457e/AndroidManifest.xml:12:5-14:41
+MERGED from [com.github.sundeepk:compact-calendar-view:3.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a3206bcdcc17bfc994cfbf5093c59e5f/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.sundeepk:compact-calendar-view:3.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a3206bcdcc17bfc994cfbf5093c59e5f/AndroidManifest.xml:7:5-9:41
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/de68af738dc3508c76b1f197374c6f0d/AndroidManifest.xml:12:5-14:41
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/de68af738dc3508c76b1f197374c6f0d/AndroidManifest.xml:12:5-14:41
 MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4122b770116f2a994ed750b248532298/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4122b770116f2a994ed750b248532298/AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core-ktx:1.0.2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/207897e3344b6bf624a98dd402d2efdd/AndroidManifest.xml:5:5-44
@@ -276,26 +271,26 @@ MERGED from [androidx.activity:activity-ktx:1.0.0-beta01] /Users/shojishunsuke/.
 MERGED from [androidx.activity:activity-ktx:1.0.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fc7d69f5805f0120a987d81dac8063da/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/c176f43c0c6917167e9c3211b6ddc0f5/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/c176f43c0c6917167e9c3211b6ddc0f5/AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/80abad4b1d141704eb76e87c709c3046/AndroidManifest.xml:7:5-9:41
-MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/80abad4b1d141704eb76e87c709c3046/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8781b7b47cb55d1aea2e40d3079b4816/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8781b7b47cb55d1aea2e40d3079b4816/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-auth:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8651cdc12a90163f22691b19b12b2b0f/AndroidManifest.xml:21:5-44
 MERGED from [com.google.firebase:firebase-auth:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8651cdc12a90163f22691b19b12b2b0f/AndroidManifest.xml:21:5-44
-MERGED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7f227365ee9a54331d7e7659c430c3ff/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7f227365ee9a54331d7e7659c430c3ff/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/af4f63ad31d345e89014cbd0face2856/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/af4f63ad31d345e89014cbd0face2856/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/c49dd8723c14c1197ce6d30ca97cd8cf/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/c49dd8723c14c1197ce6d30ca97cd8cf/AndroidManifest.xml:5:5-44
-MERGED from [com.firebaseui:firebase-ui-storage:4.3.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/022304abba0a9b03a9e1fc011ffcfc78/AndroidManifest.xml:7:5-9:41
-MERGED from [com.firebaseui:firebase-ui-storage:4.3.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/022304abba0a9b03a9e1fc011ffcfc78/AndroidManifest.xml:7:5-9:41
+MERGED from [com.firebaseui:firebase-ui-storage:4.3.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/2e46174d90787baac7a7fe4c536f9d2b/AndroidManifest.xml:7:5-9:41
+MERGED from [com.firebaseui:firebase-ui-storage:4.3.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/2e46174d90787baac7a7fe4c536f9d2b/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-storage:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/edaff48eb5dd6baf5d571acb9f3d08cc/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-storage:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/edaff48eb5dd6baf5d571acb9f3d08cc/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a7461431f5d58dde192310532a626675/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a7461431f5d58dde192310532a626675/AndroidManifest.xml:20:5-44
-MERGED from [com.firebaseui:firebase-ui-database:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/68ec8d4b0e9a0044c6e47c5a4bbbed17/AndroidManifest.xml:7:5-9:41
-MERGED from [com.firebaseui:firebase-ui-database:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/68ec8d4b0e9a0044c6e47c5a4bbbed17/AndroidManifest.xml:7:5-9:41
-MERGED from [com.firebaseui:firebase-ui-common:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e486c0f2b0e793e0c6c7d02ef3677b91/AndroidManifest.xml:7:5-9:41
-MERGED from [com.firebaseui:firebase-ui-common:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e486c0f2b0e793e0c6c7d02ef3677b91/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/683483fa9d0b6b5ec97d7392164c6049/AndroidManifest.xml:6:5-8:41
-MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/683483fa9d0b6b5ec97d7392164c6049/AndroidManifest.xml:6:5-8:41
+MERGED from [com.firebaseui:firebase-ui-database:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/857f90d957552622ce9825557458fd41/AndroidManifest.xml:7:5-9:41
+MERGED from [com.firebaseui:firebase-ui-database:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/857f90d957552622ce9825557458fd41/AndroidManifest.xml:7:5-9:41
+MERGED from [com.firebaseui:firebase-ui-common:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4d234b51fa9c2de2c2975b5cad8bb326/AndroidManifest.xml:7:5-9:41
+MERGED from [com.firebaseui:firebase-ui-common:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/4d234b51fa9c2de2c2975b5cad8bb326/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/859b8a95a818e35ba579fda758bcbad8/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/859b8a95a818e35ba579fda758bcbad8/AndroidManifest.xml:6:5-8:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/12edfa79dbba57b41cba234dd1a4d9d9/AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/12edfa79dbba57b41cba234dd1a4d9d9/AndroidManifest.xml:20:5-44
 MERGED from [androidx.paging:paging-runtime:2.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/bce0dc216e67b3eefe7a32e26370c2f3/AndroidManifest.xml:20:5-44
@@ -324,14 +319,14 @@ MERGED from [com.google.android.gms:play-services-stats:17.0.0] /Users/shojishun
 MERGED from [com.google.android.gms:play-services-stats:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6a4e2f122080735575bdf017d5264a2d/AndroidManifest.xml:5:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a9b33dd151bfe98b3dad531ba2869b3c/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a9b33dd151bfe98b3dad531ba2869b3c/AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dca3bafcf5978a0f294a7494e46b3e64/AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dca3bafcf5978a0f294a7494e46b3e64/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/84ebfb6833112d6e22788f0b290f02a6/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/84ebfb6833112d6e22788f0b290f02a6/AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/37dfad5a36a06de640153d00432d9ef5/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/37dfad5a36a06de640153d00432d9ef5/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-flags:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/2b173b6b187a22047d6e24ecbfea9ccf/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-flags:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/2b173b6b187a22047d6e24ecbfea9ccf/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dd75d1a30db19d63d95a10307c0aca44/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dd75d1a30db19d63d95a10307c0aca44/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b3923b94e310ca017d305619b9eb37d5/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b3923b94e310ca017d305619b9eb37d5/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-iid-interop:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6e32073fcdb8cde95a9f04d3c164508a/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-iid-interop:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/6e32073fcdb8cde95a9f04d3c164508a/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/2bac2d081979811523383f990e13bbd9/AndroidManifest.xml:20:5-44
@@ -348,8 +343,8 @@ MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /Users/s
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e5bd8e53a7794bcbfc7e313c28c0c399/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b2d216a9a72d4d9e694b752c80360413/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b2d216a9a72d4d9e694b752c80360413/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5e8c6cc355d19313cd2e25f6cb47690b/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5e8c6cc355d19313cd2e25f6cb47690b/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/988e1998df13e8ea2e01693e3e891509/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/988e1998df13e8ea2e01693e3e891509/AndroidManifest.xml:20:5-44
 MERGED from [androidx.navigation:navigation-fragment:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e7e31d1d5bb8b577888453264e9e8748/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-fragment:2.1.0-alpha05] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e7e31d1d5bb8b577888453264e9e8748/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5bf693c4b57ed1883850eafd9f50d975/AndroidManifest.xml:20:5-22:41
@@ -422,8 +417,8 @@ MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-beta01] /Users/shojishun
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/89f163a5afccab3032302445e1038722/AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate:1.0.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b9977bbf13f34d88370150855352d103/AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate:1.0.0-beta01] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/b9977bbf13f34d88370150855352d103/AndroidManifest.xml:20:5-44
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/44993323ea39dd4a09cf1f61f92d32df/AndroidManifest.xml:5:5-7:41
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/44993323ea39dd4a09cf1f61f92d32df/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fa2796d62e022e8178e1b263608e5e05/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/fa2796d62e022e8178e1b263608e5e05/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.sqlite:sqlite-framework:2.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/896588b0883d67e303aaa2c2680810ec/AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite-framework:2.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/896588b0883d67e303aaa2c2680810ec/AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite:2.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5b0d17bdae0637aa85c98ecf4aae8f16/AndroidManifest.xml:20:5-44
@@ -455,9 +450,9 @@ INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/
 		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:12:5-79
-MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/80abad4b1d141704eb76e87c709c3046/AndroidManifest.xml:13:5-79
-MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/80abad4b1d141704eb76e87c709c3046/AndroidManifest.xml:13:5-79
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:12:5-79
+MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8781b7b47cb55d1aea2e40d3079b4816/AndroidManifest.xml:13:5-79
+MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8781b7b47cb55d1aea2e40d3079b4816/AndroidManifest.xml:13:5-79
 MERGED from [com.google.firebase:firebase-storage:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/edaff48eb5dd6baf5d571acb9f3d08cc/AndroidManifest.xml:26:5-79
 MERGED from [com.google.firebase:firebase-storage:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/edaff48eb5dd6baf5d571acb9f3d08cc/AndroidManifest.xml:26:5-79
 MERGED from [com.google.android.gms:play-services-measurement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a92808d37a888d484d3fecd6b30608e4/AndroidManifest.xml:24:5-79
@@ -468,22 +463,22 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:17.0.0] /User
 MERGED from [com.google.android.gms:play-services-measurement-impl:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/74744cd44afce8cb78358820829bec9d/AndroidManifest.xml:24:5-79
 MERGED from [com.google.firebase:firebase-iid:19.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/aec73c1a6c8f9f6e7938f2600725fe1d/AndroidManifest.xml:22:5-79
 MERGED from [com.google.firebase:firebase-iid:19.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/aec73c1a6c8f9f6e7938f2600725fe1d/AndroidManifest.xml:22:5-79
-MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dca3bafcf5978a0f294a7494e46b3e64/AndroidManifest.xml:25:5-79
-MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dca3bafcf5978a0f294a7494e46b3e64/AndroidManifest.xml:25:5-79
+MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/84ebfb6833112d6e22788f0b290f02a6/AndroidManifest.xml:25:5-79
+MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/84ebfb6833112d6e22788f0b290f02a6/AndroidManifest.xml:25:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d46afecf2b5b50028b5a499ef4c74feb/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d46afecf2b5b50028b5a499ef4c74feb/AndroidManifest.xml:24:5-79
 MERGED from [io.grpc:grpc-android:1.21.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/28f214cef35c1293bebad261ed4f9a8b/AndroidManifest.xml:11:5-79
 MERGED from [io.grpc:grpc-android:1.21.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/28f214cef35c1293bebad261ed4f9a8b/AndroidManifest.xml:11:5-79
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:12:22-76
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:12:22-76
 uses-permission#android.permission.INTERNET
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:13:5-67
-MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/80abad4b1d141704eb76e87c709c3046/AndroidManifest.xml:14:5-67
-MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/80abad4b1d141704eb76e87c709c3046/AndroidManifest.xml:14:5-67
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:13:5-67
+MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8781b7b47cb55d1aea2e40d3079b4816/AndroidManifest.xml:14:5-67
+MERGED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8781b7b47cb55d1aea2e40d3079b4816/AndroidManifest.xml:14:5-67
 MERGED from [com.google.firebase:firebase-storage:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/edaff48eb5dd6baf5d571acb9f3d08cc/AndroidManifest.xml:27:5-67
 MERGED from [com.google.firebase:firebase-storage:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/edaff48eb5dd6baf5d571acb9f3d08cc/AndroidManifest.xml:27:5-67
-MERGED from [com.firebaseui:firebase-ui-database:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/68ec8d4b0e9a0044c6e47c5a4bbbed17/AndroidManifest.xml:11:5-67
-MERGED from [com.firebaseui:firebase-ui-database:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/68ec8d4b0e9a0044c6e47c5a4bbbed17/AndroidManifest.xml:11:5-67
+MERGED from [com.firebaseui:firebase-ui-database:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/857f90d957552622ce9825557458fd41/AndroidManifest.xml:11:5-67
+MERGED from [com.firebaseui:firebase-ui-database:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/857f90d957552622ce9825557458fd41/AndroidManifest.xml:11:5-67
 MERGED from [com.google.android.gms:play-services-measurement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a92808d37a888d484d3fecd6b30608e4/AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/a92808d37a888d484d3fecd6b30608e4/AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/1e1e162ec02ae40fc4c78c2aead06148/AndroidManifest.xml:22:5-67
@@ -492,194 +487,194 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:17.0.0] /User
 MERGED from [com.google.android.gms:play-services-measurement-impl:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/74744cd44afce8cb78358820829bec9d/AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-iid:19.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/aec73c1a6c8f9f6e7938f2600725fe1d/AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-iid:19.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/aec73c1a6c8f9f6e7938f2600725fe1d/AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dca3bafcf5978a0f294a7494e46b3e64/AndroidManifest.xml:26:5-67
-MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dca3bafcf5978a0f294a7494e46b3e64/AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/84ebfb6833112d6e22788f0b290f02a6/AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/84ebfb6833112d6e22788f0b290f02a6/AndroidManifest.xml:26:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d46afecf2b5b50028b5a499ef4c74feb/AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d46afecf2b5b50028b5a499ef4c74feb/AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:13:22-64
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:13:22-64
 meta-data#com.google.android.gms.version
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:16:9-18:69
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5e8c6cc355d19313cd2e25f6cb47690b/AndroidManifest.xml:23:9-25:69
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5e8c6cc355d19313cd2e25f6cb47690b/AndroidManifest.xml:23:9-25:69
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:16:9-18:69
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/988e1998df13e8ea2e01693e3e891509/AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/988e1998df13e8ea2e01693e3e891509/AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:18:13-66
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:18:13-66
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:17:13-58
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:17:13-58
 meta-data#com.facebook.sdk.ApplicationId
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:19:9-21:63
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:19:9-21:63
 	android:value
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:21:13-60
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:21:13-60
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:20:13-58
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:20:13-58
 activity#com.firebase.ui.auth.KickoffActivity
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:23:9-27:61
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:23:9-27:61
 	android:label
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:26:13-29
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:26:13-29
 	android:exported
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:25:13-37
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:25:13-37
 	android:theme
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:27:13-58
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:27:13-58
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:24:13-64
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:24:13-64
 activity#com.firebase.ui.auth.ui.idp.SingleSignInActivity
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:28:9-32:61
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:28:9-32:61
 	android:label
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:31:13-29
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:31:13-29
 	android:exported
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:30:13-37
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:30:13-37
 	android:theme
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:32:13-58
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:32:13-58
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:29:13-76
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:29:13-76
 activity#com.firebase.ui.auth.ui.credentials.CredentialSaveActivity
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:33:9-37:61
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:33:9-37:61
 	android:label
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:36:13-29
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:36:13-29
 	android:exported
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:35:13-37
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:35:13-37
 	android:theme
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:37:13-58
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:37:13-58
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:34:13-86
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:34:13-86
 activity#com.firebase.ui.auth.ui.email.RecoverPasswordActivity
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:38:9-42:58
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:38:9-42:58
 	android:label
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:41:13-72
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:41:13-72
 	android:windowSoftInputMode
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:42:13-55
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:42:13-55
 	android:exported
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:40:13-37
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:40:13-37
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:39:13-81
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:39:13-81
 activity#com.firebase.ui.auth.ui.email.EmailActivity
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:43:9-47:58
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:43:9-47:58
 	android:label
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:46:13-56
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:46:13-56
 	android:windowSoftInputMode
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:47:13-55
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:47:13-55
 	android:exported
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:45:13-37
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:45:13-37
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:44:13-71
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:44:13-71
 activity#com.firebase.ui.auth.ui.phone.PhoneActivity
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:48:9-52:77
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:48:9-52:77
 	android:label
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:51:13-66
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:51:13-66
 	android:windowSoftInputMode
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:52:13-74
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:52:13-74
 	android:exported
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:50:13-37
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:50:13-37
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:49:13-71
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:49:13-71
 activity#com.firebase.ui.auth.ui.idp.WelcomeBackIdpPrompt
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:53:9-57:58
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:53:9-57:58
 	android:label
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:56:13-70
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:56:13-70
 	android:windowSoftInputMode
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:57:13-55
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:57:13-55
 	android:exported
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:55:13-37
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:55:13-37
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:54:13-76
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:54:13-76
 activity#com.firebase.ui.auth.ui.email.WelcomeBackPasswordPrompt
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:58:9-62:58
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:58:9-62:58
 	android:label
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:61:13-75
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:61:13-75
 	android:windowSoftInputMode
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:62:13-55
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:62:13-55
 	android:exported
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:60:13-37
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:60:13-37
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:59:13-83
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:59:13-83
 activity#com.firebase.ui.auth.ui.email.WelcomeBackEmailLinkPrompt
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:63:9-67:58
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:63:9-67:58
 	android:label
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:66:13-75
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:66:13-75
 	android:windowSoftInputMode
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:67:13-55
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:67:13-55
 	android:exported
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:65:13-37
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:65:13-37
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:64:13-84
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:64:13-84
 activity#com.firebase.ui.auth.ui.email.EmailLinkCatcherActivity
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:68:9-73:58
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:68:9-73:58
 	android:label
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:71:13-29
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:71:13-29
 	android:windowSoftInputMode
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:73:13-55
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:73:13-55
 	android:exported
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:70:13-37
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:70:13-37
 	android:theme
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:72:13-58
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:72:13-58
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:69:13-82
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:69:13-82
 activity#com.firebase.ui.auth.ui.email.EmailLinkErrorRecoveryActivity
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:74:9-78:58
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:74:9-78:58
 	android:label
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:77:13-56
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:77:13-56
 	android:windowSoftInputMode
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:78:13-55
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:78:13-55
 	android:exported
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:76:13-37
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:76:13-37
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:75:13-88
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:75:13-88
 activity#com.firebase.ui.auth.ui.idp.AuthMethodPickerActivity
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:79:9-82:65
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:79:9-82:65
 	android:label
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:82:13-62
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:82:13-62
 	android:exported
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:81:13-37
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:81:13-37
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:80:13-80
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:80:13-80
 activity#com.facebook.FacebookActivity
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:83:9-87:48
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:83:9-87:48
 	android:label
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:86:13-45
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:86:13-45
 	tools:ignore
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:87:13-45
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:87:13-45
 	android:configChanges
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:85:13-96
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:85:13-96
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:84:13-57
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:84:13-57
 activity#com.facebook.CustomTabActivity
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:88:9-100:20
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:88:9-100:20
 	android:exported
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:90:13-36
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:90:13-36
 	tools:ignore
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:91:13-45
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:91:13-45
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:89:13-58
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:89:13-58
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:@string/facebook_login_protocol_scheme
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:92:13-99:29
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:92:13-99:29
 action#android.intent.action.VIEW
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:93:17-69
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:93:17-69
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:93:25-66
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:93:25-66
 category#android.intent.category.DEFAULT
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:95:17-76
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:95:17-76
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:95:27-73
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:95:27-73
 category#android.intent.category.BROWSABLE
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:96:17-78
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:96:17-78
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:96:27-75
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:96:27-75
 data
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:98:17-81
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:98:17-81
 	android:scheme
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:98:23-78
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:98:23-78
 provider#com.firebase.ui.auth.data.client.AuthUiInitProvider
-ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:102:9-106:38
+ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:102:9-106:38
 	android:authorities
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:104:13-70
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:104:13-70
 	android:exported
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:105:13-37
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:105:13-37
 	android:initOrder
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:106:13-35
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:106:13-35
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7a3bf8675449a3eca3fe2e6c82c7d6ce/AndroidManifest.xml:103:13-79
+		ADDED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:103:13-79
 service#com.google.firebase.components.ComponentDiscoveryService
-ADDED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/80abad4b1d141704eb76e87c709c3046/AndroidManifest.xml:17:9-23:19
+ADDED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8781b7b47cb55d1aea2e40d3079b4816/AndroidManifest.xml:17:9-23:19
 MERGED from [com.google.firebase:firebase-auth:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8651cdc12a90163f22691b19b12b2b0f/AndroidManifest.xml:33:9-39:19
 MERGED from [com.google.firebase:firebase-auth:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8651cdc12a90163f22691b19b12b2b0f/AndroidManifest.xml:33:9-39:19
 MERGED from [com.google.firebase:firebase-storage:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/edaff48eb5dd6baf5d571acb9f3d08cc/AndroidManifest.xml:30:9-34:19
@@ -688,18 +683,18 @@ MERGED from [com.google.android.gms:play-services-measurement-api:17.0.0] /Users
 MERGED from [com.google.android.gms:play-services-measurement-api:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/1e1e162ec02ae40fc4c78c2aead06148/AndroidManifest.xml:27:9-33:19
 MERGED from [com.google.firebase:firebase-iid:19.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/aec73c1a6c8f9f6e7938f2600725fe1d/AndroidManifest.xml:29:9-35:19
 MERGED from [com.google.firebase:firebase-iid:19.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/aec73c1a6c8f9f6e7938f2600725fe1d/AndroidManifest.xml:29:9-35:19
-MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dca3bafcf5978a0f294a7494e46b3e64/AndroidManifest.xml:29:9-33:19
-MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dca3bafcf5978a0f294a7494e46b3e64/AndroidManifest.xml:29:9-33:19
+MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/84ebfb6833112d6e22788f0b290f02a6/AndroidManifest.xml:29:9-33:19
+MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/84ebfb6833112d6e22788f0b290f02a6/AndroidManifest.xml:29:9-33:19
 	android:exported
-		ADDED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/80abad4b1d141704eb76e87c709c3046/AndroidManifest.xml:19:13-37
+		ADDED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8781b7b47cb55d1aea2e40d3079b4816/AndroidManifest.xml:19:13-37
 	android:name
-		ADDED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/80abad4b1d141704eb76e87c709c3046/AndroidManifest.xml:18:13-84
+		ADDED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8781b7b47cb55d1aea2e40d3079b4816/AndroidManifest.xml:18:13-84
 meta-data#com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar
-ADDED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/80abad4b1d141704eb76e87c709c3046/AndroidManifest.xml:20:13-22:85
+ADDED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8781b7b47cb55d1aea2e40d3079b4816/AndroidManifest.xml:20:13-22:85
 	android:value
-		ADDED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/80abad4b1d141704eb76e87c709c3046/AndroidManifest.xml:22:17-82
+		ADDED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8781b7b47cb55d1aea2e40d3079b4816/AndroidManifest.xml:22:17-82
 	android:name
-		ADDED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/80abad4b1d141704eb76e87c709c3046/AndroidManifest.xml:21:17-111
+		ADDED from [com.google.firebase:firebase-firestore:20.1.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8781b7b47cb55d1aea2e40d3079b4816/AndroidManifest.xml:21:17-111
 activity#com.google.firebase.auth.internal.FederatedSignInActivity
 ADDED from [com.google.firebase:firebase-auth:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8651cdc12a90163f22691b19b12b2b0f/AndroidManifest.xml:24:9-31:50
 	android:excludeFromRecents
@@ -723,23 +718,23 @@ ADDED from [com.google.firebase:firebase-auth:18.0.0] /Users/shojishunsuke/.grad
 	android:name
 		ADDED from [com.google.firebase:firebase-auth:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/8651cdc12a90163f22691b19b12b2b0f/AndroidManifest.xml:37:17-109
 activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
-ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7f227365ee9a54331d7e7659c430c3ff/AndroidManifest.xml:23:9-27:75
+ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/af4f63ad31d345e89014cbd0face2856/AndroidManifest.xml:23:9-27:75
 	android:excludeFromRecents
-		ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7f227365ee9a54331d7e7659c430c3ff/AndroidManifest.xml:25:13-46
+		ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/af4f63ad31d345e89014cbd0face2856/AndroidManifest.xml:25:13-46
 	android:exported
-		ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7f227365ee9a54331d7e7659c430c3ff/AndroidManifest.xml:26:13-37
+		ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/af4f63ad31d345e89014cbd0face2856/AndroidManifest.xml:26:13-37
 	android:theme
-		ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7f227365ee9a54331d7e7659c430c3ff/AndroidManifest.xml:27:13-72
+		ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/af4f63ad31d345e89014cbd0face2856/AndroidManifest.xml:27:13-72
 	android:name
-		ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7f227365ee9a54331d7e7659c430c3ff/AndroidManifest.xml:24:13-93
+		ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/af4f63ad31d345e89014cbd0face2856/AndroidManifest.xml:24:13-93
 service#com.google.android.gms.auth.api.signin.RevocationBoundService
-ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7f227365ee9a54331d7e7659c430c3ff/AndroidManifest.xml:33:9-36:110
+ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/af4f63ad31d345e89014cbd0face2856/AndroidManifest.xml:33:9-36:110
 	android:exported
-		ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7f227365ee9a54331d7e7659c430c3ff/AndroidManifest.xml:35:13-36
+		ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/af4f63ad31d345e89014cbd0face2856/AndroidManifest.xml:35:13-36
 	android:permission
-		ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7f227365ee9a54331d7e7659c430c3ff/AndroidManifest.xml:36:13-107
+		ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/af4f63ad31d345e89014cbd0face2856/AndroidManifest.xml:36:13-107
 	android:name
-		ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/7f227365ee9a54331d7e7659c430c3ff/AndroidManifest.xml:34:13-89
+		ADDED from [com.google.android.gms:play-services-auth:16.0.1] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/af4f63ad31d345e89014cbd0face2856/AndroidManifest.xml:34:13-89
 meta-data#com.google.firebase.components:com.google.firebase.storage.StorageRegistrar
 ADDED from [com.google.firebase:firebase-storage:18.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/edaff48eb5dd6baf5d571acb9f3d08cc/AndroidManifest.xml:31:13-33:85
 	android:value
@@ -843,11 +838,11 @@ ADDED from [com.google.firebase:firebase-iid:19.0.0] /Users/shojishunsuke/.gradl
 	android:name
 		ADDED from [com.google.firebase:firebase-iid:19.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/aec73c1a6c8f9f6e7938f2600725fe1d/AndroidManifest.xml:42:25-78
 meta-data#com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar
-ADDED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dca3bafcf5978a0f294a7494e46b3e64/AndroidManifest.xml:30:13-32:85
+ADDED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/84ebfb6833112d6e22788f0b290f02a6/AndroidManifest.xml:30:13-32:85
 	android:value
-		ADDED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dca3bafcf5978a0f294a7494e46b3e64/AndroidManifest.xml:32:17-82
+		ADDED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/84ebfb6833112d6e22788f0b290f02a6/AndroidManifest.xml:32:17-82
 	android:name
-		ADDED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/dca3bafcf5978a0f294a7494e46b3e64/AndroidManifest.xml:31:17-109
+		ADDED from [com.google.firebase:firebase-database:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/84ebfb6833112d6e22788f0b290f02a6/AndroidManifest.xml:31:17-109
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/2bac2d081979811523383f990e13bbd9/AndroidManifest.xml:23:9-26:75
 	android:exported

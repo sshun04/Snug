@@ -1,6 +1,7 @@
 package com.shojishunsuke.kibunnsns.adapter
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostItemViewModel
 import com.shojishunsuke.kibunnsns.model.Post
 import de.hdodenhof.circleimageview.CircleImageView
 
@@ -19,6 +21,8 @@ class PagingRecyclerViewAdapter(
     private val listener: (Post) -> Unit
 ) :
     PagingBaseAdapter<RecyclerView.ViewHolder>() {
+
+    private val viewModel = PostItemViewModel()
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val post = posts[position]
@@ -48,6 +52,7 @@ class PagingRecyclerViewAdapter(
 
                 holder.itemParent.setOnClickListener {
                     listener(post)
+                    viewModel.onItemClicked(post)
                 }
             }
 
@@ -57,9 +62,11 @@ class PagingRecyclerViewAdapter(
                 holder.contentTextView.text = post.contentText
                 holder.dateTextView.text = formatDate(post.date)
 
+                val sentiColor = getSentiColorId(post.sentiScore)
+                holder.sentiColorIcon.setImageResource(sentiColor)
 
                 holder.activityIcon.text =
-                    if (post.actID.isNotBlank()) post.actID else getAppropriateIconFromSentiScore(post.sentiScore)
+                    if (post.actID.isNotBlank()) post.actID else ""
 
 
 
@@ -75,6 +82,7 @@ class PagingRecyclerViewAdapter(
 
                 holder.itemParent.setOnClickListener {
                     listener(post)
+                    viewModel.onItemClicked(post)
                 }
             }
         }
@@ -100,6 +108,7 @@ class PagingRecyclerViewAdapter(
     }
 
     inner class VerticalRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val sentiColorIcon :CircleImageView = view.findViewById(R.id.sentiIcon)
         val itemParent: ConstraintLayout = view.findViewById(R.id.postBaseView)
         val userNameTextView: TextView = view.findViewById(R.id.userName)
         val userIcon: CircleImageView = view.findViewById(R.id.userIcon)

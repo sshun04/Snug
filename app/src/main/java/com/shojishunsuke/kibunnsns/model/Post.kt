@@ -20,5 +20,6 @@ data class Post(
     val magnitude:Float = 0.0f,
     val date : Date = Date(),
     val actID  : String = "",
-    val keyWord : String = ""
+    val keyWord : String = "",
+    val views : Int = 0
 ):Item,Serializable{}

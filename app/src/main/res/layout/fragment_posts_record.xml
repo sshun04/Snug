@@ -6,6 +6,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
+
+
+
+
     <TextView
         android:id="@+id/headerTextView"
         android:layout_marginStart="8dp"
@@ -25,22 +29,21 @@
         android:id="@+id/isDetailSwitch"
         app:layout_constraintTop_toTopOf="@id/headerTextView"
         app:layout_constraintBottom_toBottomOf="@id/headerTextView"
-        android:text="さらに表示"
+        android:text="詳細表示"
         android:textColor="@color/dark_54"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-
-
     <androidx.recyclerview.widget.RecyclerView
         app:layout_constraintTop_toBottomOf="@id/isDetailSwitch"
         android:id="@+id/recentPostsRecyclerView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="0dp"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 

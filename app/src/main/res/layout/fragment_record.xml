@@ -7,107 +7,125 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layoutDescription="@xml/motion_scene"
+    android:layout_marginBottom="56dp"
     tools:showPaths="true">
 
 
-    <View
-        android:id="@+id/headerBackGround"
-        android:layout_width="0dp"
-        android:layout_height="220dp"
-        android:background="@color/colorPrimary" />
 
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/settingIcon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:elevation="4dp"
-        android:src="@drawable/icon_setting_24"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/acIcon"
-        android:layout_width="112dp"
-        android:layout_height="112dp"
-        android:backgroundTint="@android:color/white"
-        android:src="@drawable/icon_annonymous"
-        app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.394" />
-
-    <at.markushi.ui.CircleButton
-        android:id="@+id/editImageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_photo_camera_black_24dp"
-        app:layout_constraintBottom_toBottomOf="@id/acIcon"
-        app:layout_constraintEnd_toEndOf="@id/acIcon"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="@id/acIcon"
-        app:layout_constraintTop_toTopOf="@id/acIcon"
-        app:layout_constraintVertical_bias="0.98" />
-
-
-    <TextView
-        android:id="@+id/nameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="匿名"
-        android:textColor="@color/light_100"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/acIcon" />
-
-    <ImageView
-        android:id="@+id/editNameIcon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="12dp"
-        android:padding="2dp"
-        android:src="@drawable/ic_mode_edit_white_24dp"
-        app:layout_constraintBottom_toBottomOf="@id/nameTextView"
-        app:layout_constraintStart_toEndOf="@id/nameTextView"
-        app:layout_constraintTop_toTopOf="@id/nameTextView" />
-
-    <LinearLayout
-        android:id="@+id/tabContainer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/headerBackGround">
-
-        <com.google.android.material.appbar.AppBarLayout
+        <FrameLayout
+            android:id="@+id/detailFragmentContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/light_100">
+            android:layout_height="match_parent"
+            android:elevation="5dp" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout"
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:layout_width="wrap_content"
+        app:layoutDescription="@xml/motion_scene"
+        android:layout_height="wrap_content">
+
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+        <View
+            android:id="@+id/headerBackGround"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:background="@color/colorPrimary" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/settingIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_setting_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/acIcon"
+            android:layout_width="112dp"
+            android:layout_height="112dp"
+            android:backgroundTint="@android:color/white"
+            android:src="@drawable/iconmonstr_user_20_96"
+            app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.394" />
+
+        <at.markushi.ui.CircleButton
+            android:id="@+id/editImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_photo_camera_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@id/acIcon"
+            app:layout_constraintEnd_toEndOf="@id/acIcon"
+            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintStart_toStartOf="@id/acIcon"
+            app:layout_constraintTop_toTopOf="@id/acIcon"
+            app:layout_constraintVertical_bias="0.98" />
+
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="匿名"
+            android:textColor="@color/light_100"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/headerBackGround"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/acIcon" />
+
+        <ImageView
+            android:id="@+id/editNameIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="12dp"
+            android:padding="2dp"
+            android:src="@drawable/ic_mode_edit_white_24dp"
+            app:layout_constraintBottom_toBottomOf="@id/nameTextView"
+            app:layout_constraintStart_toEndOf="@id/nameTextView"
+            app:layout_constraintTop_toTopOf="@id/nameTextView" />
+
+        <LinearLayout
+            android:id="@+id/tabContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerBackGround">
+
+            <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="4dp" />
+                android:elevation="4dp"
+                android:backgroundTint="@color/light_100">
 
-        </com.google.android.material.appbar.AppBarLayout>
+                <com.google.android.material.tabs.TabLayout
+                    android:backgroundTint="@android:color/transparent"
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </com.google.android.material.appbar.AppBarLayout>
 
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-    </LinearLayout>
+
+        </LinearLayout>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

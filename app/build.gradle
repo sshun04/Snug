@@ -37,7 +37,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation "org.atilika.kuromoji:kuromoji:0.7.7"
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.google.firebase:firebase-core:17.0.0'
 
@@ -79,6 +78,7 @@ dependencies {
     implementation 'android.arch.paging:runtime:1.0.1'
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.github.sundeepk:compact-calendar-view:3.0.0'
 
 }
 

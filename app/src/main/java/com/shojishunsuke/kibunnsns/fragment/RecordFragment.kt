@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import at.markushi.ui.CircleButton
 import com.bumptech.glide.Glide
@@ -57,6 +60,8 @@ class RecordFragment : Fragment() {
         val viewPager = view.viewPager
         val tabLayout = view.tabLayout
 
+
+
         settingIcon.setOnClickListener {
             val intent = Intent(requireContext(), SettingActivity::class.java)
             startActivity(intent)
@@ -75,6 +80,9 @@ class RecordFragment : Fragment() {
         editNameIcon.setOnClickListener {
             setUpEditNameDialog(inflater)
         }
+
+        Log.d("Fragment","${this.tag}")
+
 
         tabLayout.apply {
             addTab(newTab().setText("最近"))

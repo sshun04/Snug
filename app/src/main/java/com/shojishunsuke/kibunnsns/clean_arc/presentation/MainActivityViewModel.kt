@@ -30,4 +30,8 @@ class MainActivityViewModel(context: Context) : ViewModel() {
         postDialog.show(fragmentManager.beginTransaction(),"a")
     }
 
+    fun onAuthSuccess(){
+        useCase.updateUser()
+    }
+
 }

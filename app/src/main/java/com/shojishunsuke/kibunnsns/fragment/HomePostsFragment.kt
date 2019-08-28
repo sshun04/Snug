@@ -1,11 +1,12 @@
 package com.shojishunsuke.kibunnsns.fragment
 
-import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -19,7 +20,7 @@ import com.shojishunsuke.kibunnsns.fragment.listener.EndlessScrollListener
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.android.synthetic.main.fragment_home_posts.view.*
 
-class HomePostsFragment : Fragment() {
+class HomePostsFragment : Fragment(),SeekBar.OnSeekBarChangeListener{
 
     lateinit var viewModel: HomeFragmentViewModel
     lateinit var pagingAdapter: PagingRecyclerViewAdapter
@@ -36,11 +37,12 @@ class HomePostsFragment : Fragment() {
             max = 100
             setProgress(84, true)
         }
+        Log.d("HomeFragment","${this.tag}")
 
-        view.homeToolBar.title = "KibunnSNS"
+        view.homeToolBar.title = "Snug"
 
         val stagLayoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
-        val scrollListener = EndlessScrollListener(stagLayoutManager) {
+        val scrollListener = EndlessScrollListener() {
             if (!isLoading) {
                 isLoading = true
                 viewModel.onScrollBottom()
@@ -71,11 +73,7 @@ class HomePostsFragment : Fragment() {
             recyclerView.scheduleLayoutAnimation()
         }
 
-        view.negativeSwitch.setOnCheckedChangeListener { _, boolean ->
-            viewModel.onSortChanged(boolean) {
-                pagingAdapter.clear()
-            }
-        }
+        view.sentiSeekBar.setOnSeekBarChangeListener(this)
 
         view.pullToRefreshLayout.setOnRefreshListener {
             pagingAdapter.clear()
@@ -92,15 +90,27 @@ class HomePostsFragment : Fragment() {
         return view
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onProgressChanged(seekbar: SeekBar?, progress: Int, p2: Boolean) {
+        viewModel.progressMood =  progress
+    }
+    override fun onStartTrackingTouch(p0: SeekBar?) {
+
+    }
+    override fun onStopTrackingTouch(seekbar: SeekBar?) {
+        pagingAdapter.clear()
+        viewModel.onStopTracking()
+    }
+
+    override fun onResume() {
+        super.onResume()
         pagingAdapter.clear()
         viewModel.refresh()
+        Log.d("HomeFragment","onResume")
     }
 
 
     private fun setUpDetailFragment(post: Post) {
-        DetailPostsFragment.setupFragment(post, requireFragmentManager())
+        DetailPostsFragment.setupFragment(post,requireFragmentManager())
     }
 
 }
