@@ -28,13 +28,13 @@ class DetailPostsFragmentUsecase(basePost: Post) {
     }
 
     private suspend fun loadWideRangeCollection(): List<Post> {
-        val posts = fireStoreRepository.loadWideRangeNextCollection(wideRangePrevPost)
+        val posts = fireStoreRepository.loadScoreRangedCollectionPositive(post = wideRangePrevPost)
         if (posts.isNotEmpty()) wideRangePrevPost = posts.last()
         return posts
     }
 
     private suspend fun loadSameActCollection(): List<Post> {
-        val posts = fireStoreRepository.loadSortedNextCollection(sameActPrevPost)
+        val posts = fireStoreRepository.loadSpecificSortedNextCollection(sameActPrevPost)
         if (posts.isNotEmpty()) sameActPrevPost = posts.last()
         if (posts.size < 12) hasMoreSameActPost = false
 

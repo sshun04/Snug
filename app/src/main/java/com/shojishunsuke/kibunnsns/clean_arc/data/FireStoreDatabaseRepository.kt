@@ -33,7 +33,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
     }
 
 
-    override suspend fun loadSortedNextCollection(basePost: Post): List<Post> = runBlocking {
+    override suspend fun loadSpecificSortedNextCollection(basePost: Post): List<Post> = runBlocking {
 
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .whereEqualTo("actID", basePost.actID)
@@ -48,20 +48,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         return@runBlocking querySnapshot.toPostsMutableList()
     }
 
-    suspend fun loadWideRangeNextCollection(post: Post): List<Post> = runBlocking {
-
-        val querySnapshot = dataBase.collection(COLLECTION_PATH)
-            .orderBy("sentiScore", Query.Direction.ASCENDING)
-            .orderBy("date", Query.Direction.DESCENDING)
-            .startAfter(post.sentiScore, post.date)
-            .limit(12)
-            .get()
-            .await()
-
-        return@runBlocking querySnapshot.toPostsMutableList()
-    }
-
-    suspend fun loadPositiveTimeLineCollection(date: Date): MutableList<Post> {
+  override  suspend fun loadPositiveTimeLineCollection(date: Date): MutableList<Post> {
         val querySnapshot = dataBase.collection(COLLECTION_PATH)
             .orderBy("date", Query.Direction.DESCENDING)
             .startAfter(date)
@@ -143,7 +130,6 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
 
         return@runBlocking querySnapshot.toPostsMutableList()
-
     }
 
     suspend fun loadScoreRangedCollectionNegative(
