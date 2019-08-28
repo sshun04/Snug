@@ -2,6 +2,7 @@ package com.shojishunsuke.kibunnsns.clean_arc.domain
 
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.model.Post
+import java.lang.Exception
 
 
 class HomePostsFragmentUseCase {
@@ -63,9 +64,7 @@ class HomePostsFragmentUseCase {
 
 
             }
-          else -> {
-              mutableListOf<Post>()
-          }
+          else -> throw Exception("SeekBar progress is out of range")
         }
 
         previousRange = progressRange

@@ -62,7 +62,6 @@ class PostDialogViewModel(context: Context) : ViewModel() {
                 _currentPosted.postValue(post)
 
             }
-
         }
     }
 
