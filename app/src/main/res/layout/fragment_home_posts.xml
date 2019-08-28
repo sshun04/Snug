@@ -64,7 +64,7 @@
             android:layout_gravity="center"
             android:gravity="center|end"
             android:text="☹️"
-            android:textSize="28sp"
+            android:textSize="20sp"
             android:paddingBottom="2dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -85,7 +85,7 @@
             android:layout_gravity="center"
             android:gravity="center|end"
             android:text="😀"
-            android:textSize="28sp"
+            android:textSize="20sp"
             android:layout_marginEnd="32dp"
             android:paddingBottom="2dp"
             android:layout_width="wrap_content"

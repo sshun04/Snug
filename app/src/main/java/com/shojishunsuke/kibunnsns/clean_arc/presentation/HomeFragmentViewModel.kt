@@ -14,9 +14,7 @@ class HomeFragmentViewModel : ViewModel() {
     private val useCase = HomePostsFragmentUseCase()
     private val _nextPosts = MutableLiveData<MutableList<Post>>()
     val nextPosts: LiveData<MutableList<Post>> get() = _nextPosts
-    private var previousPost: Post? = null
-    private var hideNegative = true
-    var progressMood:Int = 0
+      var progressMood:Int = 0
 
     fun onScrollBottom() {
         requestPosts()
@@ -40,8 +38,7 @@ class HomeFragmentViewModel : ViewModel() {
 
     private fun requestPosts(){
         GlobalScope.launch {
-            val posts = useCase.requestPostsByScore(progressMood,previousPost)
-            if (posts.isNotEmpty()) previousPost = posts.last()
+            val posts = useCase.requestPostsByScore(progressMood)
             posts as MutableList<Post>
             launch(Dispatchers.IO) {
                 _nextPosts.postValue(posts)
@@ -53,8 +50,8 @@ class HomeFragmentViewModel : ViewModel() {
 
 
     fun refresh() {
-        previousPost = null
         _nextPosts.value?.clear()
+        useCase.resetValues()
         requestPosts()
     }
 

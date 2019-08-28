@@ -2,53 +2,87 @@ package com.shojishunsuke.kibunnsns.clean_arc.domain
 
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.model.Post
-import java.util.*
 
 
 class HomePostsFragmentUseCase {
     private val fireStoreRepository = FireStoreDatabaseRepository()
+    private var previousPost = Post(sentiScore = -0.4f)
+    private var previousRange = 3
 
-    suspend fun requestPostsByScore(targetScore: Int, previousPost: Post?): List<Post> {
+
+    suspend fun requestPostsByScore(targetScore: Int): List<Post> {
         var max = 0F
         var min = 0F
-        val date = previousPost?.date ?: Date()
+        var progressRange = 3
 
-        when {
-            targetScore >= 9 -> {
+
+      val result =  when {
+            targetScore >= 8 -> {
                 min = 0.7f
-                max = 1.0f
+                progressRange = 5
+                if (progressRange != previousRange){
+                    previousPost = Post(sentiScore = min)
+                }
+                fireStoreRepository.loadScoreRangedCollectionPositive(post = previousPost)
             }
 
-            targetScore in 4 until 9 -> {
+            targetScore in 4 until 8 -> {
                 min = 0.4f
-                max = 1.0f
+                progressRange = 4
+                if (progressRange != previousRange){
+                    previousPost = Post(sentiScore = min)
+                }
+                fireStoreRepository.loadScoreRangedCollectionPositive(post = previousPost)
             }
 
             targetScore in -3..3 -> {
-               min = -0.4f
-                max = 1f
+                min = -0.4f
+                progressRange = 3
+                if (progressRange != previousRange) {
+                    previousPost = Post(sentiScore = min)
+                }
+                fireStoreRepository.loadPositiveTimeLineCollection(previousPost.date)
+            }
+            targetScore in -7 .. -4 -> {
+                max = -0.2f
+                progressRange = 2
+                if (progressRange != previousRange){
+                    previousPost = Post(sentiScore = max)
+                }
+                fireStoreRepository.loadScoreRangedCollectionNegative(post = previousPost)
+
             }
 
-            targetScore in -4 until -9 -> {
-                min = -1.0f
-                max = 0.3f
-
-            }
-
-            targetScore <= -9 -> {
-                min = -1.0f
+            targetScore <= -8 -> {
                 max = -0.5f
+                progressRange = 1
+                if (progressRange != previousRange){
+                    previousPost = Post(sentiScore = max)
+                }
+                fireStoreRepository.loadScoreRangedCollectionNegative(post = previousPost)
+
 
             }
-            else -> {
-
-            }
+          else -> {
+              mutableListOf<Post>()
+          }
         }
-        val result = fireStoreRepository.loadScoreRangedCollection(min = min,max = max,limit = 30, date = date)
+
+        previousRange = progressRange
+
+        if (result.isNotEmpty())previousPost = result.last()
 
         return result
 
     }
+
+   fun resetValues(){
+        previousPost = Post(sentiScore = -0.4f)
+        previousRange = 3
+
+    }
+
+
 
 
 }

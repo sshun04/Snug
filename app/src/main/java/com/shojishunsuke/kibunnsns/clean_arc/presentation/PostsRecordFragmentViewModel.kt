@@ -23,10 +23,6 @@ class PostsRecordFragmentViewModel : ViewModel() {
         }
     }
 
-    fun onPostRemoved(post: Post){
-
-    }
-
     fun refresh(){
         requestPosts()
     }

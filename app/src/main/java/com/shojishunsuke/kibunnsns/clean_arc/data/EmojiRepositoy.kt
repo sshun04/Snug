@@ -61,8 +61,4 @@ class EmojiRepositoy {
     fun loadWholeEmoji(): List<String> {
         return uniCodeList
     }
-
-    fun loadCurrentEmoji(): List<String> {
-        return currentUniCodeList
-    }
 }

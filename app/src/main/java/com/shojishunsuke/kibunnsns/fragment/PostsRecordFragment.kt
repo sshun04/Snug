@@ -25,7 +25,7 @@ class PostsRecordFragment : Fragment() {
      viewModel = ViewModelProviders.of(this).get(PostsRecordFragmentViewModel::class.java)
 
         recyclerViewAdapter = PostRecordRecyclerViewAdapter(requireContext()) {
-            viewModel.onPostRemoved(it)
+
         }.apply {
             viewType = 1
         }
