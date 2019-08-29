@@ -1392,6 +1392,7 @@ drawable ic_keyboard_arrow_down_black_32dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mode_edit_white_24dp
+drawable ic_more_vert_black_20dp
 drawable ic_more_vert_black_24dp
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
@@ -1422,6 +1423,9 @@ drawable preference_list_divider_material
 drawable shape
 drawable snugicon6hdpi
 drawable state_pressed_ripple
+drawable textview_back_negative
+drawable textview_back_neutral
+drawable textview_back_positive
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable usericon_default
@@ -1562,9 +1566,8 @@ id cross_device_linking_body
 id custom
 id customPanel
 id dark
+id dateField
 id datePostsRecyclerView
-id day
-id dayOfMonth
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
@@ -1587,7 +1590,6 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
-id divider
 id dragDown
 id dragLeft
 id dragRight
@@ -1863,7 +1865,6 @@ id textinput_helper_text
 id ticker
 id time
 id timeTextView
-id timeTextView1
 id timeTextView2
 id title
 id titleDividerNoCustom

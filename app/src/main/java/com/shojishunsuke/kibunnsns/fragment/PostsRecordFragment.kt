@@ -27,7 +27,7 @@ class PostsRecordFragment : Fragment() {
         recyclerViewAdapter = PostRecordRecyclerViewAdapter(requireContext()) {
 
         }.apply {
-            viewType = 1
+            viewType = 2
         }
 
         val recyclerView = view.recentPostsRecyclerView.apply {
@@ -40,11 +40,7 @@ class PostsRecordFragment : Fragment() {
             recyclerViewAdapter.addNextCollection(it)
         })
 
-        view.isDetailSwitch.setOnCheckedChangeListener { _, isDetail ->
-            recyclerViewAdapter.viewType = if (isDetail) 2 else 1
-            recyclerView.adapter?.notifyDataSetChanged()
-            recyclerView.scheduleLayoutAnimation()
-        }
+
 
         return view
     }

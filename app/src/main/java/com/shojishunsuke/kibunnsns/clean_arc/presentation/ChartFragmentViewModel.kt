@@ -1,5 +1,6 @@
 package com.shojishunsuke.kibunnsns.clean_arc.presentation
 
+import android.content.Context
 import android.graphics.Color
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -15,15 +16,15 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
 
-class ChartFragmentViewModel : ViewModel() {
+class ChartFragmentViewModel(context:Context) : ViewModel() {
 
     var rangeField = Calendar.DATE
     private val date: Calendar = Calendar.getInstance()
 
     private val pieColorsMap = mapOf(
-        "Positive" to Color.rgb(250, 210, 218),
-        "Neutral" to Color.rgb(169, 255, 242),
-        "Negative" to Color.rgb(170, 240, 255)
+        "Positive" to context.resources.getColor(R.color.color_positive),
+        "Neutral" to context.resources.getColor(R.color.color_neutral),
+        "Negative" to context.resources.getColor(R.color.color_negative)
     )
     private val daysOfWeek = listOf("月", "火", "水", "木", "金", "土", "日")
     private val hours: List<String> = (0..24).map { "$it:00" }

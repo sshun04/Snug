@@ -39,23 +39,6 @@ class PostRecordRecyclerViewAdapter(private val context: Context,private val rem
         calendar.time = post.date
         if (viewType == 1) {
             holder as ViewHolder
-            val day = calendar.dayOfWeek()
-            val dayTextColor: Int = when (day) {
-                "土" -> Color.rgb(79, 195, 247)
-                "日" -> Color.argb(255, 229, 115, 115)
-                else -> Color.argb(138, 0, 0, 0)
-            }
-
-            holder.dayOfWeekTextView.apply {
-                text = day
-                setTextColor(dayTextColor)
-
-            }
-            holder.dayOfMonthTextView.apply {
-                text = calendar.dayOfMonth().toString()
-                setTextColor(dayTextColor)
-            }
-            holder.timeTextView1.text = time
             holder.timeTextView2.text = time
             holder.contentTextView.text = post.contentText
             holder.detailDateTextView.text = detailDateString
@@ -91,7 +74,7 @@ class PostRecordRecyclerViewAdapter(private val context: Context,private val rem
             holder.sentiScoreDescription.apply {
                val description = getSentiDescription(post.sentiScore)
                 text = description.first
-                setBackgroundColor(description.second)
+               setBackgroundResource(description.second)
             }
 
             holder.numberOfViews.text = post.views.toString()
@@ -115,9 +98,6 @@ class PostRecordRecyclerViewAdapter(private val context: Context,private val rem
 
     private class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val detailDateTextView: TextView = view.findViewById(R.id.detailDateTextView)
-        val dayOfWeekTextView: TextView = view.findViewById(R.id.day)
-        val dayOfMonthTextView: TextView = view.findViewById(R.id.dayOfMonth)
-        val timeTextView1: TextView = view.findViewById(R.id.timeTextView1)
         val activityIcon: EmojiTextView = view.findViewById(R.id.activityIcon)
         val contentTextView: TextView = view.findViewById(R.id.contentTextView)
         val timeTextView2: TextView = view.findViewById(R.id.timeTextView2)

@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <LinearLayout
@@ -10,94 +10,36 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <LinearLayout
-            android:visibility="gone"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="12dp"
-            android:layout_weight="1.5"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingHorizontal="4dp">
-
-            <TextView
-                android:id="@+id/dayOfMonth"
-                android:textColor="@color/dark_54"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="3"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:gravity="center"
-                android:text="土"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/timeTextView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="23:30"
-                android:textSize="12sp" />
-        </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="11"
-            android:padding="12dp">
 
-            <TextView
-                android:id="@+id/detailDateTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2019年7月29日(金)"
-                android:textSize="14sp"
-                android:textColor="@color/dark_87"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.emoji.widget.EmojiTextView
-                android:id="@+id/activityIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:text="🎨"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/detailDateTextView"
-                app:layout_constraintStart_toEndOf="@id/detailDateTextView"
-                app:layout_constraintTop_toTopOf="@id/detailDateTextView" />
+            android:padding="16dp">
 
 
             <TextView
                 android:id="@+id/contentTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="contentText"
                 android:maxLines="1"
                 android:textColor="@color/dark_87"
                 android:ellipsize="end"
+                app:layout_constraintBottom_toTopOf="@id/dateField"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/detailDateTextView" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
 
             <LinearLayout
+                android:id="@+id/dateField"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/contentTextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
@@ -106,7 +48,19 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:paddingVertical="2dp"
                     android:src="@drawable/ic_access_time_black_12dp" />
+
+                <TextView
+                    android:id="@+id/detailDateTextView"
+                    android:layout_marginStart="4dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2019年7月29日(金)"
+                    android:textSize="10sp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_54" />
 
                 <TextView
                     android:layout_gravity="center"
@@ -114,10 +68,20 @@
                     android:id="@+id/timeTextView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
                     android:text="23:30"
                     android:textColor="@color/dark_54"
                     android:textSize="10sp" />
+
+
+                <androidx.emoji.widget.EmojiTextView
+                    android:id="@+id/activityIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="🎨"
+                    android:textSize="16sp"
+
+                    />
             </LinearLayout>
 
 
@@ -127,7 +91,8 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0.75dp"
+        android:layout_marginStart="16dp"
         android:layout_gravity="bottom"
         android:background="@color/dark_12" />
 </androidx.cardview.widget.CardView>

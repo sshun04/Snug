@@ -75,6 +75,8 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
             pagingAdapter.viewType = 2
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.scheduleLayoutAnimation()
+            it.visibility = View.GONE
+            view.grid.visibility  = View.VISIBLE
         }
 
         view.grid.setOnClickListener {
@@ -82,6 +84,8 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
             pagingAdapter.viewType = 1
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.scheduleLayoutAnimation()
+            it.visibility = View.GONE
+            view.linear.visibility = View.VISIBLE
         }
 
         view.sentiSeekBar.apply {
