@@ -135,12 +135,14 @@ class ChartFragmentViewModel(context:Context) : ViewModel() {
 
     fun getPieChartData(): PieData {
         val pieDataSet = PieDataSet(_pieEntries.value, "").apply {
-            setDrawValues(true)
+            sliceSpace = 2f
+            setDrawValues(false)
             colors = getPieChartColorList()
         }
         val pieData = PieData(pieDataSet).apply {
             setValueFormatter(PercentFormatter())
             setValueTextColor(Color.BLACK)
+            setDrawValues(false)
         }
         return pieData
     }
