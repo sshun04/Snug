@@ -1,6 +1,7 @@
 package com.shojishunsuke.kibunnsns.fragment
 
 import android.graphics.PorterDuff
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -40,7 +41,11 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
 
         val progressBar = view.progressBar.apply {
             max = 100
-            setProgress(84, true)
+            if(Build.VERSION.SDK_INT >= 24){
+                setProgress(84, true)
+            }else {
+            }
+
         }
         Log.d("HomeFragment", "${this.tag}")
 
