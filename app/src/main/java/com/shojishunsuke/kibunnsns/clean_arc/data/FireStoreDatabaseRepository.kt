@@ -19,10 +19,11 @@ class FireStoreDatabaseRepository : DataBaseRepository {
             .build()
     }
 
-
     companion object {
         private const val COLLECTION_PATH = "betaTest"
     }
+    private val collectionSnapShot = dataBase.collection(COLLECTION_PATH)
+
 
     override suspend fun savePost(post: Post) {
 
@@ -49,8 +50,8 @@ class FireStoreDatabaseRepository : DataBaseRepository {
             return@runBlocking querySnapshot.toPostsMutableList()
         }
 
-    override suspend fun loadPositiveTimeLineCollection(date: Date): MutableList<Post> {
-        val querySnapshot = dataBase.collection(COLLECTION_PATH)
+    override suspend fun loadPositiveTimeLineCollection(date: Date): MutableList<Post> = runBlocking {
+        val querySnapshot = collectionSnapShot
             .orderBy("date", Query.Direction.DESCENDING)
             .startAfter(date)
             .limit(30)
@@ -64,11 +65,11 @@ class FireStoreDatabaseRepository : DataBaseRepository {
             val post = it.toObject(Post::class.java)
             if (post.sentiScore >= -0.35f) results.add(post)
         }
-        return results
+        return@runBlocking results
     }
 
     override suspend fun loadFollowingCollection(date: Date): List<Post> = runBlocking {
-        val querySnapshot = dataBase.collection(COLLECTION_PATH)
+        val querySnapshot =collectionSnapShot
             .orderBy("date", Query.Direction.DESCENDING)
             .startAfter(date)
             .limit(12)
@@ -81,7 +82,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
     }
 
     fun deleteItemFromDatabase(post: Post) {
-        dataBase.collection(COLLECTION_PATH)
+        collectionSnapShot
             .document(post.postId)
             .delete()
             .addOnSuccessListener { Log.d("FireStore", "DocumentSnapshot successfully deleted!") }
@@ -89,7 +90,8 @@ class FireStoreDatabaseRepository : DataBaseRepository {
     }
 
     fun increaseViews(postId: String) {
-        val post = dataBase.collection(COLLECTION_PATH).document(postId)
+        val post = collectionSnapShot
+            .document(postId)
         post.update("views", FieldValue.increment(1))
 
     }
@@ -101,7 +103,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         limit: Long
     ): MutableList<Post> = runBlocking {
 
-        val querySnapshot = dataBase.collection(COLLECTION_PATH)
+        val querySnapshot =collectionSnapShot
             .whereEqualTo("userId", userId)
             .orderBy("date", Query.Direction.DESCENDING)
             .startAt(currentDate)
@@ -120,8 +122,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         post: Post
     ): MutableList<Post> = runBlocking {
 
-        val querySnapshot =
-            dataBase.collection(COLLECTION_PATH)
+        val querySnapshot = collectionSnapShot
                 .orderBy("sentiScore", Query.Direction.ASCENDING)
                 .orderBy("date", Query.Direction.DESCENDING)
                 .startAfter(post.sentiScore, post.date)
@@ -137,8 +138,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         limit: Long,
         post: Post
     ): MutableList<Post> = runBlocking {
-        val querySnapshot =
-            dataBase.collection(COLLECTION_PATH)
+        val querySnapshot = collectionSnapShot
                 .orderBy("sentiScore", Query.Direction.DESCENDING)
                 .orderBy("date", Query.Direction.DESCENDING)
                 .startAfter(post.sentiScore, post.date)

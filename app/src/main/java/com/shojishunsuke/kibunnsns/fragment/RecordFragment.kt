@@ -113,19 +113,19 @@ class RecordFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-//        if (viewModel.currentBitmap != null) {
-//            Glide.with(requireContext())
-//                .load(viewModel.currentBitmap)
-//                .placeholder(R.drawable.icon_annonymous)
-//                .error(R.drawable.icon_annonymous)
-//                .into(iconView)
-//        } else {
-//            GlideApp.with(requireContext())
-//                .load(viewModel.getIconRef())
-//                .placeholder(R.drawable.icon_annonymous)
-//                .error(R.drawable.icon_annonymous)
-//                .into(iconView)
-//        }
+        if (viewModel.currentBitmap != null) {
+            Glide.with(requireContext())
+                .load(viewModel.currentBitmap)
+                .placeholder(R.drawable.iconmonstr_user_20_96)
+                .error(R.drawable.iconmonstr_user_20_96)
+                .into(iconView)
+        } else {
+            GlideApp.with(requireContext())
+                .load(viewModel.getIconRef())
+                .placeholder(R.drawable.iconmonstr_user_20_96)
+                .error(R.drawable.iconmonstr_user_20_96)
+                .into(iconView)
+        }
     }
 
     private fun setUpEditNameDialog(inflater: LayoutInflater) {
