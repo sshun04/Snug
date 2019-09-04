@@ -17,12 +17,10 @@ import com.bumptech.glide.Glide
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.adapter.PagingRecyclerViewAdapter
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.DetailPostsFragmentViewModel
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.DetailPostsFragmentViewModelFactory
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.viewmodel_factory.DetailPostsFragmentViewModelFactory
 import com.shojishunsuke.kibunnsns.fragment.listener.NestedEndlessScrollListener
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.android.synthetic.main.fragment_detail.view.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 class DetailPostsFragment : Fragment() {
 

@@ -8,11 +8,11 @@ class DetailPostsFragmentUsecase(basePost: Post) {
     private var hasMoreSameActPost = true
     private var sameActPrevPost: Post
     private var wideRangePrevPost: Post
+
     init {
         sameActPrevPost = basePost
         wideRangePrevPost = Post(sentiScore = basePost.sentiScore)
     }
-
 
     suspend fun loadPosts(): List<Post> {
         val wideRangeCollection = loadWideRangeCollection()

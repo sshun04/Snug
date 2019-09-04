@@ -28,14 +28,13 @@ class PostDialogViewModel(context: Context) : ViewModel() {
     val timeString = date.timeOfDayString()
     val detailDate = date.detailDateString()
     val currentPosted: LiveData<Post> get() = _currentPosted
-    val currentEmojiList: MutableLiveData<List<String>> = MutableLiveData()
+    private val currentEmojiList: MutableLiveData<List<String>> = MutableLiveData()
 
 
     init {
         val analysisRepository = NaturalLanguageAnalysisRepository(context)
         val roomRepository = RoomEmojiRepository()
         postUseCase = PostDialogUseCase(roomRepository, analysisRepository)
-
         requestCurrentEmojiList()
     }
 

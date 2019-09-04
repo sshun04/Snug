@@ -31,9 +31,8 @@ class CalendarFragment : Fragment() {
 
        recyclerViewAdapter = PostRecordRecyclerViewAdapter(requireContext()){
            viewModel.onPostRemoved(it)
-       }.apply {
-            viewType = 2
-        }
+       }
+
         val recyclerView = view.datePostsRecyclerView.apply {
             adapter = recyclerViewAdapter
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)

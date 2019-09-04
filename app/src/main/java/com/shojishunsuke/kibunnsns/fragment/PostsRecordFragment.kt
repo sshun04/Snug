@@ -24,11 +24,7 @@ class PostsRecordFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_posts_record, container, false)
      viewModel = ViewModelProviders.of(this).get(PostsRecordFragmentViewModel::class.java)
 
-        recyclerViewAdapter = PostRecordRecyclerViewAdapter(requireContext()) {
-
-        }.apply {
-            viewType = 2
-        }
+        recyclerViewAdapter = PostRecordRecyclerViewAdapter(requireContext()) {}
 
         val recyclerView = view.recentPostsRecyclerView.apply {
             adapter = recyclerViewAdapter

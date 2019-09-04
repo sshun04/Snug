@@ -12,7 +12,7 @@ import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.ChartFragmentViewModel
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.ChartFragmentViewModelFactory
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.viewmodel_factory.ChartFragmentViewModelFactory
 import kotlinx.android.synthetic.main.fragment_chart.view.*
 import java.util.*
 

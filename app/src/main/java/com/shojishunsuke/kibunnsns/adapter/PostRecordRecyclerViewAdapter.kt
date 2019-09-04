@@ -21,7 +21,10 @@ import com.shojishunsuke.kibunnsns.utils.dayOfWeek
 import com.shojishunsuke.kibunnsns.utils.detailDateString
 import java.util.*
 
-class PostRecordRecyclerViewAdapter(private val context: Context,private val removedListener:(Post)->Unit) : PagingBaseAdapter<RecyclerView.ViewHolder>() {
+class PostRecordRecyclerViewAdapter(
+    private val context: Context,
+    private val removedListener: (Post) -> Unit
+) : PagingBaseAdapter<RecyclerView.ViewHolder>() {
 
     private val inflater = LayoutInflater.from(context)
     private val calendar = Calendar.getInstance()
@@ -37,80 +40,62 @@ class PostRecordRecyclerViewAdapter(private val context: Context,private val rem
             if (post.actID.isNotBlank()) post.actID else ""
 
         calendar.time = post.date
-        if (viewType == 1) {
-            holder as ViewHolder
-            holder.timeTextView2.text = time
-            holder.contentTextView.text = post.contentText
-            holder.detailDateTextView.text = detailDateString
-            holder.timeTextView2.text = takeTimeFromDate(post.date)
-            holder.activityIcon.text = activityIcon
-        } else {
-            holder as DetailViewHolder
-            holder.popMenuButton.setOnClickListener {
-                val popupMenu = PopupMenu(context, it, Gravity.END)
-                popupMenu.setOnMenuItemClickListener { menu ->
-                    when (menu.itemId) {
-                        R.id.deletePost -> {
-                            val deleteDialog = AlertDialog.Builder(context)
-                                .setPositiveButton("削除", DialogInterface.OnClickListener { _, _ ->
 
-                                    viewModel.deletePost(post)
-                                    removedListener(post)
-                                    removeItem(position)
-                                })
-                                .setNegativeButton("キャンセル",null)
-                                .setMessage("本当に削除しますか？")
-                                .show()
+        holder as DetailViewHolder
+        holder.popMenuButton.setOnClickListener {
+            val popupMenu = PopupMenu(context, it, Gravity.END)
+            popupMenu.setOnMenuItemClickListener { menu ->
+                when (menu.itemId) {
+                    R.id.deletePost -> {
+                        val deleteDialog = AlertDialog.Builder(context)
+                            .setPositiveButton("削除", DialogInterface.OnClickListener { _, _ ->
 
-                        }
+                                viewModel.deletePost(post)
+                                removedListener(post)
+                                removeItem(position)
+                            })
+                            .setNegativeButton("キャンセル", null)
+                            .setMessage("本当に削除しますか？")
+                            .show()
+
                     }
-                    return@setOnMenuItemClickListener true
                 }
-                popupMenu.inflate(R.menu.record_popup_menu)
-                popupMenu.show()
+                return@setOnMenuItemClickListener true
             }
-
-
-            holder.sentiScoreDescription.apply {
-               val description = getSentiDescription(post.sentiScore)
-                text = description.first
-               setBackgroundResource(description.second)
-            }
-
-            holder.numberOfViews.text = post.views.toString()
-            holder.detailDateTextView.text = detailDateString
-            holder.timeTextView.text = time
-            holder.contentTextView.text = post.contentText
-            holder.activityICon.text = activityIcon
+            popupMenu.inflate(R.menu.record_popup_menu)
+            popupMenu.show()
         }
+
+
+        holder.sentiScoreDescription.apply {
+            val description = getSentiDescription(post.sentiScore)
+            text = description.first
+            setBackgroundResource(description.second)
+        }
+
+        holder.numberOfViews.text = post.views.toString()
+        holder.detailDateTextView.text = detailDateString
+        holder.timeTextView.text = time
+        holder.contentTextView.text = post.contentText
+        holder.activityICon.text = activityIcon
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if (viewType == 1) {
-            val view = inflater.inflate(R.layout.item_post_record, parent, false)
-            return ViewHolder(view)
-        } else {
             val view = inflater.inflate(R.layout.item_post_record_detail, parent, false)
             return DetailViewHolder(view)
-        }
 
     }
 
-    private class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val detailDateTextView: TextView = view.findViewById(R.id.detailDateTextView)
-        val activityIcon: EmojiTextView = view.findViewById(R.id.activityIcon)
-        val contentTextView: TextView = view.findViewById(R.id.contentTextView)
-        val timeTextView2: TextView = view.findViewById(R.id.timeTextView2)
-    }
 
     private class DetailViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val sentiScoreDescription : TextView = view.findViewById(R.id.sentiDescription)
+        val sentiScoreDescription: TextView = view.findViewById(R.id.sentiDescription)
         val detailDateTextView: TextView = view.findViewById(R.id.detailDateTextView)
         val contentTextView: TextView = view.findViewById(R.id.contentTextView)
         val activityICon: TextView = view.findViewById(R.id.emojiIconTextView)
         val timeTextView: TextView = view.findViewById(R.id.timeTextView)
         val popMenuButton: ImageButton = view.findViewById(R.id.popMenuButton)
-        val numberOfViews :TextView = view.findViewById(R.id.numberOfViews)
+        val numberOfViews: TextView = view.findViewById(R.id.numberOfViews)
 
     }
 

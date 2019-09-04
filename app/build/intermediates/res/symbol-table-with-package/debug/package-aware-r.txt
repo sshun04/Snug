@@ -1683,6 +1683,7 @@ id linear
 id listMode
 id list_item
 id logo
+id mainActivityProgressbar
 id main_tos_and_pp
 id masked
 id media_actions

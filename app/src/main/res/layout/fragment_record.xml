@@ -32,6 +32,7 @@
 
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:visibility="gone"
             android:id="@+id/settingIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -56,17 +57,18 @@
             app:layout_constraintVertical_bias="0.394" />
 
         <at.markushi.ui.CircleButton
-            android:visibility="gone"
             android:id="@+id/editImageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="36dp"
+            app:cb_color="@color/color_neutral"
+            android:layout_height="36dp"
             android:src="@drawable/ic_photo_camera_black_24dp"
+            app:barrierMargin="4dp"
             app:layout_constraintBottom_toBottomOf="@id/acIcon"
             app:layout_constraintEnd_toEndOf="@id/acIcon"
             app:layout_constraintHorizontal_bias="0.95"
             app:layout_constraintStart_toStartOf="@id/acIcon"
             app:layout_constraintTop_toTopOf="@id/acIcon"
-            app:layout_constraintVertical_bias="0.98" />
+            app:layout_constraintVertical_bias="1.1" />
 
 
         <TextView
