@@ -2,16 +2,12 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    app:cardCornerRadius="4dp"
-    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="0dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:paddingHorizontal="8dp"
-        android:paddingBottom="4dp"
-        android:paddingTop="4dp"
+        android:padding="16dp"
         android:layout_height="wrap_content">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -24,26 +20,15 @@
             android:layout_width="20dp"
             android:layout_height="20dp" />
 
-        <TextView
-            android:id="@+id/detailDateTextView"
-            android:textSize="14sp"
-            android:textColor="@color/dark_87"
-            android:textStyle="bold"
-            android:text="2019年8月3日(土)"
-            android:layout_width="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/sentiIcon"
-            app:layout_constraintTop_toTopOf="@id/sentiIcon"
-            app:layout_constraintBottom_toBottomOf="@id/sentiIcon"
-            android:layout_height="wrap_content" />
+
 
         <androidx.emoji.widget.EmojiTextView
             android:id="@+id/emojiIconTextView"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:text="\uD83C\uDFA4"
-            app:layout_constraintTop_toTopOf="@id/detailDateTextView"
-            app:layout_constraintBottom_toBottomOf="@id/detailDateTextView"
+            app:layout_constraintBottom_toBottomOf="@id/sentiDescription"
             android:layout_marginStart="8dp"
-            app:layout_constraintStart_toEndOf="@id/detailDateTextView"
+            app:layout_constraintStart_toEndOf="@id/sentiDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -52,7 +37,7 @@
             android:id="@+id/contentTextView"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detailDateTextView"
+            app:layout_constraintTop_toBottomOf="@id/sentiDescription"
             android:text="content"
             android:textSize="14sp"
             android:textColor="@color/dark_87"
@@ -60,68 +45,74 @@
             android:layout_height="wrap_content" />
 
 
-        <View
-            android:id="@+id/divider"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/contentTextView"
-            android:layout_marginTop="12dp"
-            android:background="@color/dark_12"
-            android:layout_width="0dp"
-            android:layout_height="1dp"/>
-
 
         <LinearLayout
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintTop_toBottomOf="@id/contentTextView"
             app:layout_constraintBottom_toBottomOf="parent"
             android:orientation="horizontal"
+            android:gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:padding="2dp"
+                android:paddingVertical="2dp"
+                android:layout_marginEnd="2dp"
                 android:src="@drawable/ic_access_time_black_12dp"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:layout_gravity="start|center"
-                android:id="@+id/timeTextView"
-                android:textColor="@color/dark_26"
+                android:id="@+id/detailDateTextView"
                 android:textSize="12sp"
-                android:text="20:00"
+                android:textColor="@color/dark_54"
+                android:text="2019年8月3日(土)"
                 android:layout_width="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/sentiIcon"
+                app:layout_constraintTop_toTopOf="@id/sentiIcon"
+                app:layout_constraintBottom_toBottomOf="@id/sentiIcon"
                 android:layout_height="wrap_content" />
 
+
+            <TextView
+                android:id="@+id/timeTextView"
+                android:textColor="@color/dark_54"
+                android:textSize="12sp"
+                android:text="20:00"
+                android:layout_marginStart="2dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
         </LinearLayout>
 
 
         <ImageButton
             android:id="@+id/popMenuButton"
             app:layout_constraintEnd_toEndOf="parent"
-            android:src="@drawable/ic_more_vert_black_24dp"
+            android:src="@drawable/ic_more_vert_black_20dp"
             android:background="@null"
             app:layout_constraintTop_toTopOf="@id/emojiIconTextView"
             android:clickable="true"
             android:focusable="true"
             android:layout_width="24dp"
-            android:padding="4dp"
+            android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="@id/emojiIconTextView"
             android:layout_height="24dp" />
+
 
         <TextView
             android:id="@+id/sentiDescription"
             android:text="positive"
-            android:layout_marginEnd="12dp"
-            android:textColor="@color/dark_87"
-            android:paddingHorizontal="4dp"
-            android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="@id/viewNumberField"
-            app:layout_constraintEnd_toStartOf="@id/viewNumberField"
-            app:layout_constraintTop_toTopOf="@id/viewNumberField"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/light_100"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"
+            android:textSize="10sp"
+            android:background="@drawable/textview_back_neutral"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -132,8 +123,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="4dp"
-            app:layout_constraintTop_toBottomOf="@id/divider"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/contentTextView"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
@@ -153,9 +144,12 @@
 
         </LinearLayout>
 
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:background="@color/dark_12"
+        android:layout_marginStart="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="0.75dp"
+        android:layout_gravity="bottom"/>
 </androidx.cardview.widget.CardView>

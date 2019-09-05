@@ -106,6 +106,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:visibility="gone"
                     android:id="@+id/detailSwitch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

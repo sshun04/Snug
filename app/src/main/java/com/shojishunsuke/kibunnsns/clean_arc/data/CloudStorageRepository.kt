@@ -6,6 +6,7 @@ import android.util.Log
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
 import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.StorageRepository
 import kotlinx.coroutines.GlobalScope
@@ -43,7 +44,7 @@ class CloudStorageRepository(private val uploadListener: ImageUploadListener) : 
         }
     }
 
-    fun getStorageRefByUri(uriString: String) = storage.getReferenceFromUrl(uriString)
+    override fun getStorageRefByUri(uriString: String):StorageReference = storage.getReferenceFromUrl(uriString)
 
     interface ImageUploadListener {
         suspend fun onUploadTaskComplete(result: Uri)

@@ -5,4 +5,5 @@ import com.shojishunsuke.kibunnsns.model.Item
 interface LocalDataBaseRepository {
     suspend fun loadLatestCollection(): List<Item>
     suspend fun registerItem(value: String)
+    fun deleteItem(item: Item)
 }

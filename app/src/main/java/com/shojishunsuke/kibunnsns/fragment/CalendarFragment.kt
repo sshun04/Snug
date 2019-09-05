@@ -31,9 +31,8 @@ class CalendarFragment : Fragment() {
 
        recyclerViewAdapter = PostRecordRecyclerViewAdapter(requireContext()){
            viewModel.onPostRemoved(it)
-       }.apply {
-            viewType = 1
-        }
+       }
+
         val recyclerView = view.datePostsRecyclerView.apply {
             adapter = recyclerViewAdapter
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
@@ -87,11 +86,6 @@ class CalendarFragment : Fragment() {
             recyclerView.adapter?.notifyDataSetChanged()
         })
 
-        view.detailSwitch.setOnCheckedChangeListener { _, isDetail ->
-            recyclerViewAdapter.viewType = if (isDetail) 2 else 1
-            recyclerView.adapter?.notifyDataSetChanged()
-            recyclerView.scheduleLayoutAnimation()
-        }
         return view
     }
 

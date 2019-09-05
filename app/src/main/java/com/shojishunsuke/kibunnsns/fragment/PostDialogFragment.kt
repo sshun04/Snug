@@ -1,25 +1,19 @@
 package com.shojishunsuke.kibunnsns.fragment
 
 import android.app.Dialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
-import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.adapter.EmojiRecyclerViewAdapter
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostDialogViewModel
-import com.shojishunsuke.kibunnsns.clean_arc.presentation.factory.PostDialogViewModelFactory
+import com.shojishunsuke.kibunnsns.clean_arc.presentation.viewmodel_factory.PostDialogViewModelFactory
+import kotlinx.android.synthetic.main.dialog_pop.view.*
 import kotlinx.android.synthetic.main.fragment_dialog_post.view.*
 
 class PostDialogFragment : DialogFragment() {
@@ -33,27 +27,6 @@ class PostDialogFragment : DialogFragment() {
         val viewModel = this.run {
             ViewModelProviders.of(this, PostDialogViewModelFactory(requireContext()))
                 .get(PostDialogViewModel::class.java)
-        }
-
-        val currentEmojiListAdapter = EmojiRecyclerViewAdapter(requireContext()) { emojiCode ->
-            selectedEmojiCode = emojiCode
-        }
-        parentView.currentEmojiList.apply {
-            adapter = currentEmojiListAdapter
-
-            this.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
-        }
-
-        parentView.emojiRecyclerView.apply {
-            adapter = EmojiRecyclerViewAdapter(requireContext(), viewModel.requestWholeEmoji()) { emojiCode ->
-                selectedEmojiCode = emojiCode
-            }
-            layoutManager = GridLayoutManager(requireContext(), 7)
-        }
-        parentView.toggleButton.setOnClickListener {
-            val isExpanded = parentView.expandableBox.isViewExpanded
-            viewModel.toggleArrow(it, isExpanded)
-            parentView.expandableBox.toggle()
         }
 
         val dialog = AlertDialog.Builder(requireContext())
@@ -118,12 +91,6 @@ class PostDialogFragment : DialogFragment() {
         parentView.cancelButton.setOnClickListener {
            dismiss()
         }
-
-
-
-        viewModel.currentEmojiList.observe(this, Observer {
-            currentEmojiListAdapter.setValue(it)
-        })
 
         return dialog
     }

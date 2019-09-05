@@ -153,11 +153,6 @@ class ExpandableLayout @JvmOverloads constructor(
     }
 
     override fun onConfigurationChanged(newConfig: Configuration?) {
-
-//TODO アニメーションの最中に画面回転したらアニメーションキャンセルできるようにする
-//        このままだと lateinit property animator has not been initialized
-
-//        animator.cancel()
         super.onConfigurationChanged(newConfig)
     }
 

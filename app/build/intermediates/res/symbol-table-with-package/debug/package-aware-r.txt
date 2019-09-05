@@ -1332,6 +1332,7 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable baseline_event_black_18dp
 drawable bottom_navigation_colors
+drawable bottom_navigation_text_colors
 drawable chart_button_state
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
@@ -1391,6 +1392,7 @@ drawable ic_keyboard_arrow_down_black_32dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mode_edit_white_24dp
+drawable ic_more_vert_black_20dp
 drawable ic_more_vert_black_24dp
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
@@ -1421,6 +1423,9 @@ drawable preference_list_divider_material
 drawable shape
 drawable snugicon6hdpi
 drawable state_pressed_ripple
+drawable textview_back_negative
+drawable textview_back_neutral
+drawable textview_back_positive
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable usericon_default
@@ -1558,13 +1563,11 @@ id coordinator
 id cos
 id country_list
 id cross_device_linking_body
-id currentEmojiList
 id custom
 id customPanel
 id dark
+id dateField
 id datePostsRecyclerView
-id day
-id dayOfMonth
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
@@ -1587,7 +1590,6 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
-id divider
 id dragDown
 id dragLeft
 id dragRight
@@ -1617,11 +1619,9 @@ id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
-id expandableBox
 id expanded
 id expanded_menu
 id fab
-id favoriteEmojiField
 id fill
 id fill_horizontal
 id fill_large_indicator
@@ -1680,11 +1680,10 @@ id line3
 id lineChart
 id lineChartParent
 id linear
-id linearLayout
-id listBorder
 id listMode
 id list_item
 id logo
+id mainActivityProgressbar
 id main_tos_and_pp
 id masked
 id media_actions
@@ -1867,13 +1866,11 @@ id textinput_helper_text
 id ticker
 id time
 id timeTextView
-id timeTextView1
 id timeTextView2
 id title
 id titleDividerNoCustom
 id title_template
 id toggle
-id toggleButton
 id toolBarParent
 id top
 id topPanel

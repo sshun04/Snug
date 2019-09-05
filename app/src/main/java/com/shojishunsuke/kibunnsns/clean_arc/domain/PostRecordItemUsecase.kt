@@ -8,7 +8,7 @@ class PostRecordItemUsecase {
    private val fireStoreRepository = FireStoreDatabaseRepository()
     private val roomRepository = RoomPostDateRepository()
 
-    suspend fun deletePostFromDatabase(post:Post){
+    fun deletePostFromDatabase(post:Post){
         fireStoreRepository.deleteItemFromDatabase(post)
         roomRepository.deleteDate(post.date)
     }

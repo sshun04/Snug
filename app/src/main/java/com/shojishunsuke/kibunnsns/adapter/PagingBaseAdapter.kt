@@ -77,18 +77,17 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> :
 
     protected fun getAppropriateIconFromSentiScore(sentiScore: Float): String {
         return when {
-            sentiScore > 0.4f -> "\uD83D\uDE01"
-            sentiScore <= 0.4f && sentiScore >= -0.4f -> "\uD83D\uDE10"
-            sentiScore < -0.4f -> "☹️"
+            sentiScore > 0.3f -> "\uD83D\uDE01"
+            sentiScore <= 0.3f && sentiScore >= -0.3f -> "\uD83D\uDE10"
+            sentiScore < -0.3f -> "☹️"
             else -> "\uD83D\uDE10"
         }
     }
 
     protected fun getSentiColorId(sentiScore: Float):Int{
         return when {
-            sentiScore > 0.4f -> R.color.color_positive
-            sentiScore <= 0.4f && sentiScore >= -0.4f -> R.color.color_neutral
-            sentiScore < -0.4f -> R.color.color_negative
+            sentiScore > 0.3f -> R.color.color_positive
+            sentiScore < -0.3f -> R.color.color_negative
             else -> R.color.color_neutral
         }
     }
@@ -97,10 +96,9 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> :
 
     protected fun getSentiDescription(sentiScore: Float):Pair<String,Int>{
         return when {
-            sentiScore > 0.4f -> Pair("Positive",Color.rgb(250, 210, 218))
-            sentiScore <= 0.4f && sentiScore >= -0.4f -> Pair("Neutral",Color.rgb(169, 255, 242))
-            sentiScore < -0.4f -> Pair("Negative", Color.rgb(170, 240, 255))
-            else -> Pair("Neutral",Color.rgb(169, 255, 242))
+            sentiScore > 0.3f -> Pair("Positive",R.drawable.textview_back_positive)
+            sentiScore < -0.3f -> Pair("Negative", R.drawable.textview_back_negative)
+            else -> Pair("Neutral",R.drawable.textview_back_neutral)
         }
     }
 

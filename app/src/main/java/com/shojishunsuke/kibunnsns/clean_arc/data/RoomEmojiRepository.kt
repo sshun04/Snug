@@ -35,7 +35,7 @@ class RoomEmojiRepository : LocalDataBaseRepository {
         dao.registerEmoji(emojiItem)
     }
 
-    private fun deleteItem(item: Item) {
+   override fun deleteItem(item: Item) {
         dao.delete(item as EmojiItem)
     }
 }

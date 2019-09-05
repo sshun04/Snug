@@ -18,25 +18,25 @@ class HomePostsFragmentUseCase {
 
 
       val result =  when {
-            targetScore >= 8 -> {
+            targetScore >= 18 -> {
                 min = 0.7f
                 progressRange = 5
                 if (progressRange != previousRange){
                     previousPost = Post(sentiScore = min)
                 }
-                fireStoreRepository.loadScoreRangedCollectionPositive(post = previousPost)
+                fireStoreRepository.loadScoreRangedCollectionAscend(post = previousPost)
             }
 
-            targetScore in 4 until 8 -> {
+            targetScore in 13 until 18 -> {
                 min = 0.4f
                 progressRange = 4
                 if (progressRange != previousRange){
                     previousPost = Post(sentiScore = min)
                 }
-                fireStoreRepository.loadScoreRangedCollectionPositive(post = previousPost)
+                fireStoreRepository.loadScoreRangedCollectionAscend(post = previousPost)
             }
 
-            targetScore in -3..3 -> {
+            targetScore in 8..12 -> {
                 min = -0.4f
                 progressRange = 3
                 if (progressRange != previousRange) {
@@ -44,23 +44,23 @@ class HomePostsFragmentUseCase {
                 }
                 fireStoreRepository.loadPositiveTimeLineCollection(previousPost.date)
             }
-            targetScore in -7 .. -4 -> {
+            targetScore in 3 .. 7 -> {
                 max = -0.2f
                 progressRange = 2
                 if (progressRange != previousRange){
                     previousPost = Post(sentiScore = max)
                 }
-                fireStoreRepository.loadScoreRangedCollectionNegative(post = previousPost)
+                fireStoreRepository.loadScoreRangedCollectionDescend(post = previousPost)
 
             }
 
-            targetScore <= -8 -> {
+            targetScore <= 2 -> {
                 max = -0.5f
                 progressRange = 1
                 if (progressRange != previousRange){
                     previousPost = Post(sentiScore = max)
                 }
-                fireStoreRepository.loadScoreRangedCollectionNegative(post = previousPost)
+                fireStoreRepository.loadScoreRangedCollectionDescend(post = previousPost)
 
 
             }

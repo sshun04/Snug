@@ -1,4 +1,4 @@
-package com.shojishunsuke.kibunnsns.clean_arc.presentation.factory
+package com.shojishunsuke.kibunnsns.clean_arc.presentation.viewmodel_factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

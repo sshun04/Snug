@@ -10,19 +10,19 @@ class PostsRecordFragmentUsecase {
     private val userRepository = FirebaseUserRepository()
     private val userId = userRepository.getUserId()
     private val fireStoreRepository = FireStoreDatabaseRepository()
-    lateinit var listLastPost :Post
+    private lateinit var listLastPost: Post
 
     suspend fun loadPosts(): List<Post> {
         val currentDate = Calendar.getInstance().time
         val oldDate = getRangeEndDate()
-        val posts = fireStoreRepository.loadDateRangedCollection(userId,oldDate,currentDate,30)
+        val posts = fireStoreRepository.loadDateRangedCollection(userId, oldDate, currentDate, 30)
         if (posts.isNotEmpty()) listLastPost = posts.last()
         return posts
     }
 
-    private fun getRangeEndDate():Date{
+    private fun getRangeEndDate(): Date {
         val calendar = Calendar.getInstance().apply {
-            add(Calendar.MONTH,-3)
+            add(Calendar.MONTH, -3)
         }
         return calendar.time
     }
