@@ -63,7 +63,7 @@ MainActivity : AppCompatActivity() {
                         mainViewModel.onAuthSuccess()
                         updateUi(user)
                     } else {
-                        Log.w("TAG", "signInAnonymously:failure", task.exception)
+                        Log.d("TAG", "signInAnonymously:failure")
                         Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT)
                             .show()
                     }
