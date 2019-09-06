@@ -7,7 +7,7 @@ import com.shojishunsuke.kibunnsns.clean_arc.data.RoomPostDateRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LanguageAnalysisRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LocalDataBaseRepository
 import com.shojishunsuke.kibunnsns.model.EmojiItem
-import com.shojishunsuke.kibunnsns.model.Post
+import com.shojishunsuke.kibunnsns.model.CloudPost
 import kotlinx.coroutines.runBlocking
 import java.util.*
 
@@ -21,7 +21,7 @@ class PostDialogUseCase(
     private val postDateRepository = RoomPostDateRepository()
 
 
-    suspend fun generatePost(content: String, emojiCode: String,date: Date): Post = runBlocking {
+    suspend fun generatePost(content: String, emojiCode: String,date: Date): CloudPost = runBlocking {
 
         if (emojiCode.isNotBlank()) {
             localDataBaseRepository.registerItem(emojiCode)
@@ -36,7 +36,7 @@ class PostDialogUseCase(
         val magnitude: Float = analysisResult.second
         val category: String = analysisResult.third
 
-        val post = Post(
+        val post = CloudPost(
             userName = userName,
             userId = userId,
             iconPhotoLink = "$iconUri",

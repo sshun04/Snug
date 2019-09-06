@@ -1,27 +1,26 @@
 package com.shojishunsuke.kibunnsns.adapter
 
-import android.graphics.Color
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.model.Post
+import com.shojishunsuke.kibunnsns.model.CloudPost
 import java.text.SimpleDateFormat
 import java.util.*
 
 abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    val posts = mutableListOf<Post>()
+    val posts = mutableListOf<CloudPost>()
 
     var viewType = 1
-    private fun add(post: Post) {
+    private fun add(cloudPost: CloudPost) {
         val position = posts.size
-        posts.add(position, post)
+        posts.add(position, cloudPost)
         notifyItemInserted(position)
     }
 
 
-    fun addNextCollection(nextPosts: List<Post>) {
-        nextPosts.forEach { add(it) }
+    fun addNextCollection(nextCloudPosts: List<CloudPost>) {
+        nextCloudPosts.forEach { add(it) }
     }
 
     fun clear() {

@@ -1,7 +1,6 @@
 package com.shojishunsuke.kibunnsns.adapter
 
 import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,12 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostItemViewModel
-import com.shojishunsuke.kibunnsns.model.Post
+import com.shojishunsuke.kibunnsns.model.CloudPost
 import de.hdodenhof.circleimageview.CircleImageView
 
 class PagingRecyclerViewAdapter(
     private val context: Context,
-    private val listener: (Post) -> Unit
+    private val listener: (CloudPost) -> Unit
 ) :
     PagingBaseAdapter<RecyclerView.ViewHolder>() {
 

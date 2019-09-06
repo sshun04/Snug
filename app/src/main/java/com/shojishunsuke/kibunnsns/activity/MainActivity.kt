@@ -72,10 +72,6 @@ MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
     private fun updateUi(user: FirebaseUser?) {
         Log.d("MainActivity", "updateUI")
         this.mainActivityProgressbar.visibility = View.GONE

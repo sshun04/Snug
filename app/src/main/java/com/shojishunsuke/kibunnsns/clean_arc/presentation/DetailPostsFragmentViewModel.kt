@@ -5,18 +5,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.domain.DetailPostsFragmentUsecase
-import com.shojishunsuke.kibunnsns.model.Post
+import com.shojishunsuke.kibunnsns.model.CloudPost
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
-    private val useCase: DetailPostsFragmentUsecase = DetailPostsFragmentUsecase(post)
+class DetailPostsFragmentViewModel(private val cloudPost: CloudPost) : ViewModel() {
+    private val useCase: DetailPostsFragmentUsecase = DetailPostsFragmentUsecase(cloudPost)
 
-    private val _nextPosts = MutableLiveData<List<Post>>()
-    val nextPosts: LiveData<List<Post>> get() = _nextPosts
+    private val _nextPosts = MutableLiveData<List<CloudPost>>()
+    val nextPosts: LiveData<List<CloudPost>> get() = _nextPosts
 
     private var isLoading = true
 
@@ -44,7 +44,7 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
 
     fun getFormattedDate(): String {
         val formatter = SimpleDateFormat("YYYY年MM月dd日HH時mm分", Locale.JAPAN)
-        return formatter.format(post.date)
+        return formatter.format(cloudPost.date)
     }
 
     private fun getAppropriateIconFromSentiScore(sentiScore: Float): String {
@@ -56,10 +56,10 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
         }
     }
 
-    fun getUserName(): String = if (post.userName.isNotBlank()) post.userName else "匿名"
+    fun getUserName(): String = if (cloudPost.userName.isNotBlank()) cloudPost.userName else "匿名"
 
-    fun getEmojiCode(): String = if (post.actID.isNotBlank()) post.actID else ""
+    fun getEmojiCode(): String = if (cloudPost.actID.isNotBlank()) cloudPost.actID else ""
 
-    fun getContentText(): String = post.contentText
+    fun getContentText(): String = cloudPost.contentText
 
 }

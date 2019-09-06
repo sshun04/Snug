@@ -3,7 +3,6 @@ package com.shojishunsuke.kibunnsns.adapter
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
-import android.graphics.Color
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -11,19 +10,16 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.PopupMenu
 import android.widget.TextView
-import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostRecordItemViewModel
-import com.shojishunsuke.kibunnsns.model.Post
-import com.shojishunsuke.kibunnsns.utils.dayOfMonth
-import com.shojishunsuke.kibunnsns.utils.dayOfWeek
+import com.shojishunsuke.kibunnsns.model.CloudPost
 import com.shojishunsuke.kibunnsns.utils.detailDateString
 import java.util.*
 
 class PostRecordRecyclerViewAdapter(
     private val context: Context,
-    private val removedListener: (Post) -> Unit
+    private val removedListener: (CloudPost) -> Unit
 ) : PagingBaseAdapter<RecyclerView.ViewHolder>() {
 
     private val inflater = LayoutInflater.from(context)

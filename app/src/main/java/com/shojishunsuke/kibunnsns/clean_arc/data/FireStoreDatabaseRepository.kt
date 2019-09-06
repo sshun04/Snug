@@ -3,6 +3,7 @@ package com.shojishunsuke.kibunnsns.clean_arc.data
 import android.util.Log
 import com.google.firebase.firestore.*
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataBaseRepository
+import com.shojishunsuke.kibunnsns.model.CloudPost
 import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.tasks.await
@@ -26,7 +27,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
     private val collectionSnapShot = dataBase.collection(COLLECTION_PATH)
 
 
-    override suspend fun savePost(post: Post) {
+    override suspend fun savePost(post:Post) {
 
         dataBase.collection(COLLECTION_PATH)
             .document(post.postId)
@@ -65,7 +66,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
             val results = ArrayList<Post>()
 
             querySnapshot.forEach {
-                val post = it.toObject(Post::class.java)
+                val post = it.toObject(CloudPost::class.java)
                 if (post.sentiScore >= -0.35f) results.add(post)
             }
             return@runBlocking results
@@ -84,9 +85,9 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         return@runBlocking querySnapshot.toPostsMutableList()
     }
 
-    fun deleteItemFromDatabase(post: Post) {
+    fun deleteItemFromDatabase(cloudPost: CloudPost) {
         collectionSnapShot
-            .document(post.postId)
+            .document(cloudPost.postId)
             .delete()
             .addOnSuccessListener { Log.d("FireStore", "DocumentSnapshot successfully deleted!") }
             .addOnFailureListener { e -> Log.w("FireStore", "Error deleting document", e) }
@@ -156,6 +157,6 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
     private fun QuerySnapshot.toPostsMutableList(): MutableList<Post> {
         Log.d("IsFromCache", this.metadata.isFromCache.toString())
-        return this.map { it.toObject(Post::class.java) }.toMutableList()
+        return this.map { it.toObject(CloudPost::class.java) }.toMutableList()
     }
 }

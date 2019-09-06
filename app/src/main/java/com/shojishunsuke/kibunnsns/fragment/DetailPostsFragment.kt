@@ -19,7 +19,7 @@ import com.shojishunsuke.kibunnsns.adapter.PagingRecyclerViewAdapter
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.DetailPostsFragmentViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.viewmodel_factory.DetailPostsFragmentViewModelFactory
 import com.shojishunsuke.kibunnsns.fragment.listener.NestedEndlessScrollListener
-import com.shojishunsuke.kibunnsns.model.Post
+import com.shojishunsuke.kibunnsns.model.CloudPost
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 
 class DetailPostsFragment : Fragment() {
@@ -42,18 +42,18 @@ class DetailPostsFragment : Fragment() {
             addTransition(slideAnim)
         }
 
-        fun setupFragment(post: Post, fragmentManager: FragmentManager) {
+        fun setupFragment(cloudPost: CloudPost, fragmentManager: FragmentManager) {
             fragmentManager.beginTransaction().also {
-                it.add(R.id.detailFragmentContainer, getInstance(post))
+                it.add(R.id.detailFragmentContainer, getInstance(cloudPost))
                     .setCustomAnimations(R.anim.slide_from_right, R.anim.slide_to_left)
                     .addToBackStack("detail")
                     .commit()
             }
         }
 
-        private fun getInstance(post: Post): DetailPostsFragment {
+        private fun getInstance(cloudPost: CloudPost): DetailPostsFragment {
             val bundle = Bundle().apply {
-                putSerializable(EXTRA_POST, post)
+                putSerializable(EXTRA_POST, cloudPost)
             }
             return DetailPostsFragment().apply {
                 arguments = bundle
@@ -65,7 +65,7 @@ class DetailPostsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_detail, container, false)
-        val post = arguments?.getSerializable(EXTRA_POST) as Post
+        val post = arguments?.getSerializable(EXTRA_POST) as CloudPost
 
         val viewModel = this.run {
             ViewModelProviders.of(this, DetailPostsFragmentViewModelFactory(post))

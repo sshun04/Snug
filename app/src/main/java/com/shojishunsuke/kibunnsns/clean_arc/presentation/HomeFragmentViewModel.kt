@@ -5,16 +5,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.domain.HomePostsFragmentUseCase
-import com.shojishunsuke.kibunnsns.model.Post
+import com.shojishunsuke.kibunnsns.model.CloudPost
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.util.*
 
 class HomeFragmentViewModel() : ViewModel() {
     private val useCase = HomePostsFragmentUseCase()
-    private val _nextPosts = MutableLiveData<MutableList<Post>>()
-    val nextPosts: LiveData<MutableList<Post>> get() = _nextPosts
+    private val _nextPosts = MutableLiveData<MutableList<CloudPost>>()
+    val nextPosts: LiveData<MutableList<CloudPost>> get() = _nextPosts
       var progressMood:Int = 10
 
     fun onScrollBottom() {
@@ -39,7 +38,7 @@ class HomeFragmentViewModel() : ViewModel() {
     private fun requestPosts(){
         GlobalScope.launch {
             val posts = useCase.requestPostsByScore(progressMood)
-            posts as MutableList<Post>
+            posts as MutableList<CloudPost>
             launch(Dispatchers.IO) {
                 _nextPosts.postValue(posts)
             }

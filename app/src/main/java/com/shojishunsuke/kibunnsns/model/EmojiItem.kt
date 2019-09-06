@@ -9,6 +9,6 @@ import java.io.Serializable
 data class EmojiItem(
     @PrimaryKey val emojiCode: String,
    @ColumnInfo val date: Long
-) : Item {
+) {
 
 }

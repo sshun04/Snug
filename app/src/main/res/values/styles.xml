@@ -3,24 +3,24 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <post name="colorPrimary">@color/colorPrimary</post>
+        <post name="colorPrimaryDark">@color/colorPrimaryDark</post>
+        <post name="colorAccent">@color/colorAccent</post>
     </style>
 
 
     <style name="darkAccent" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorAccent">@color/dark_54</item>
+        <post name="colorAccent">@color/dark_54</post>
     </style>
 
     <style name="PostAlertDialog" parent="Theme.AppCompat.Dialog">
-        <item name="android:windowMinWidthMajor">@dimen/dialog_min_width_major</item>
-        <item name="android:windowMinWidthMinor">@dimen/dialog_min_width_minor</item>
+        <post name="android:windowMinWidthMajor">@dimen/dialog_min_width_major</post>
+        <post name="android:windowMinWidthMinor">@dimen/dialog_min_width_minor</post>
     </style>
 
     <style name="AppTheme.DialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:windowMinWidthMajor">0%</item>
-        <item name="android:windowMinWidthMinor">0%</item>
+        <post name="android:windowMinWidthMajor">0%</post>
+        <post name="android:windowMinWidthMinor">0%</post>
     </style>
 
 </resources>

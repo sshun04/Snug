@@ -1,17 +1,17 @@
 package com.shojishunsuke.kibunnsns.clean_arc.domain
 
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
-import com.shojishunsuke.kibunnsns.model.Post
+import com.shojishunsuke.kibunnsns.model.CloudPost
 import java.lang.Exception
 
 
 class HomePostsFragmentUseCase {
     private val fireStoreRepository = FireStoreDatabaseRepository()
-    private var previousPost = Post(sentiScore = -0.4f)
+    private var previousPost = CloudPost(sentiScore = -0.4f)
     private var previousRange = 3
 
 
-    suspend fun requestPostsByScore(targetScore: Int): List<Post> {
+    suspend fun requestPostsByScore(targetScore: Int): List<CloudPost> {
         var max = 0F
         var min = 0F
         var progressRange = 3
@@ -22,7 +22,7 @@ class HomePostsFragmentUseCase {
                 min = 0.7f
                 progressRange = 5
                 if (progressRange != previousRange){
-                    previousPost = Post(sentiScore = min)
+                    previousPost = CloudPost(sentiScore = min)
                 }
                 fireStoreRepository.loadScoreRangedCollectionAscend(post = previousPost)
             }
@@ -31,7 +31,7 @@ class HomePostsFragmentUseCase {
                 min = 0.4f
                 progressRange = 4
                 if (progressRange != previousRange){
-                    previousPost = Post(sentiScore = min)
+                    previousPost = CloudPost(sentiScore = min)
                 }
                 fireStoreRepository.loadScoreRangedCollectionAscend(post = previousPost)
             }
@@ -40,7 +40,7 @@ class HomePostsFragmentUseCase {
                 min = -0.4f
                 progressRange = 3
                 if (progressRange != previousRange) {
-                    previousPost = Post(sentiScore = min)
+                    previousPost = CloudPost(sentiScore = min)
                 }
                 fireStoreRepository.loadPositiveTimeLineCollection(previousPost.date)
             }
@@ -48,7 +48,7 @@ class HomePostsFragmentUseCase {
                 max = -0.2f
                 progressRange = 2
                 if (progressRange != previousRange){
-                    previousPost = Post(sentiScore = max)
+                    previousPost = CloudPost(sentiScore = max)
                 }
                 fireStoreRepository.loadScoreRangedCollectionDescend(post = previousPost)
 
@@ -58,7 +58,7 @@ class HomePostsFragmentUseCase {
                 max = -0.5f
                 progressRange = 1
                 if (progressRange != previousRange){
-                    previousPost = Post(sentiScore = max)
+                    previousPost = CloudPost(sentiScore = max)
                 }
                 fireStoreRepository.loadScoreRangedCollectionDescend(post = previousPost)
 
@@ -69,14 +69,14 @@ class HomePostsFragmentUseCase {
 
         previousRange = progressRange
 
-        if (result.isNotEmpty())previousPost = result.last()
+        if (result.isNotEmpty())previousPost = result.last() as CloudPost
 
-        return result
+        return result  as List<CloudPost>
 
     }
 
    fun resetValues(){
-        previousPost = Post(sentiScore = -0.4f)
+        previousPost = CloudPost(sentiScore = -0.4f)
         previousRange = 3
 
     }

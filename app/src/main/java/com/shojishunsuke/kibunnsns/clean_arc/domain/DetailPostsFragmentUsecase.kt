@@ -1,22 +1,22 @@
 package com.shojishunsuke.kibunnsns.clean_arc.domain
 
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
-import com.shojishunsuke.kibunnsns.model.Post
+import com.shojishunsuke.kibunnsns.model.CloudPost
 
-class DetailPostsFragmentUsecase(basePost: Post) {
+class DetailPostsFragmentUsecase(baseCloudPost: CloudPost) {
     private val fireStoreRepository = FireStoreDatabaseRepository()
     private var hasMoreSameActPost = true
-    private var sameActPrevPost: Post
-    private var wideRangePrevPost: Post
+    private var sameActPrevCloudPost: CloudPost
+    private var wideRangePrevCloudPost: CloudPost
 
     init {
-        sameActPrevPost = basePost
-        wideRangePrevPost = Post(sentiScore = basePost.sentiScore)
+        sameActPrevCloudPost = baseCloudPost
+        wideRangePrevCloudPost = CloudPost(sentiScore = baseCloudPost.sentiScore)
     }
 
-    suspend fun loadPosts(): List<Post> {
+    suspend fun loadPosts(): List<CloudPost> {
         val wideRangeCollection = loadWideRangeCollection()
-        val result = mutableListOf<Post>().apply {
+        val result = mutableListOf<CloudPost>().apply {
             addAll(wideRangeCollection)
         }
         if (hasMoreSameActPost) {
@@ -27,17 +27,17 @@ class DetailPostsFragmentUsecase(basePost: Post) {
         return result.shuffled()
     }
 
-    private suspend fun loadWideRangeCollection(): List<Post> {
-        val posts = fireStoreRepository.loadScoreRangedCollectionAscend(post = wideRangePrevPost)
-        if (posts.isNotEmpty()) wideRangePrevPost = posts.last()
-        return posts
+    private suspend fun loadWideRangeCollection(): List<CloudPost> {
+        val posts = fireStoreRepository.loadScoreRangedCollectionAscend(post = wideRangePrevCloudPost)
+        if (posts.isNotEmpty()) wideRangePrevCloudPost = posts.last() as CloudPost
+        return posts as List<CloudPost>
     }
 
-    private suspend fun loadSameActCollection(): List<Post> {
-        val posts = fireStoreRepository.loadSpecificSortedNextCollection(sameActPrevPost)
-        if (posts.isNotEmpty()) sameActPrevPost = posts.last()
+    private suspend fun loadSameActCollection(): List<CloudPost> {
+        val posts = fireStoreRepository.loadSpecificSortedNextCollection(sameActPrevCloudPost)
+        if (posts.isNotEmpty()) sameActPrevCloudPost = posts.last() as CloudPost
         if (posts.size < 12) hasMoreSameActPost = false
 
-        return posts
+        return posts as List<CloudPost>
     }
 }

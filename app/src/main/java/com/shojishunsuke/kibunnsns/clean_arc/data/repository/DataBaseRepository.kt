@@ -1,6 +1,7 @@
 package com.shojishunsuke.kibunnsns.clean_arc.data.repository
 
 import com.shojishunsuke.kibunnsns.model.Post
+import com.shojishunsuke.kibunnsns.model.CloudPost
 import java.util.*
 
 interface DataBaseRepository {

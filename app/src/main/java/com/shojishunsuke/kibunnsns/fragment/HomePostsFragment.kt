@@ -19,7 +19,7 @@ import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.adapter.PagingRecyclerViewAdapter
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.HomeFragmentViewModel
 import com.shojishunsuke.kibunnsns.fragment.listener.EndlessScrollListener
-import com.shojishunsuke.kibunnsns.model.Post
+import com.shojishunsuke.kibunnsns.model.CloudPost
 import kotlinx.android.synthetic.main.fragment_home_posts.view.*
 
 class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
@@ -143,8 +143,8 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
     }
 
 
-    private fun setUpDetailFragment(post: Post) {
-        DetailPostsFragment.setupFragment(post, requireFragmentManager())
+    private fun setUpDetailFragment(cloudPost: CloudPost) {
+        DetailPostsFragment.setupFragment(cloudPost, requireFragmentManager())
     }
 
 }

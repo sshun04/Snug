@@ -3,14 +3,14 @@ package com.shojishunsuke.kibunnsns.clean_arc.data
 import com.shojishunsuke.kibunnsns.MainApplication
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LocalDataBaseRepository
 import com.shojishunsuke.kibunnsns.model.EmojiItem
-import com.shojishunsuke.kibunnsns.model.Item
+import com.shojishunsuke.kibunnsns.model.Post
 import java.util.*
 
 class RoomEmojiRepository : LocalDataBaseRepository {
 
     private val dao = MainApplication.emojiDatabase.emojiDao()
 
-    override suspend fun loadLatestCollection(): List<Item> {
+    override suspend fun loadLatestCollection(): List<EmojiItem> {
         val savedList = dao.findAll()
         return if (savedList.isNotEmpty()) {
             savedList
@@ -35,7 +35,7 @@ class RoomEmojiRepository : LocalDataBaseRepository {
         dao.registerEmoji(emojiItem)
     }
 
-   override fun deleteItem(item: Item) {
-        dao.delete(item as EmojiItem)
+   override fun deleteItem(emojiItem: EmojiItem) {
+        dao.delete(emojiItem)
     }
 }

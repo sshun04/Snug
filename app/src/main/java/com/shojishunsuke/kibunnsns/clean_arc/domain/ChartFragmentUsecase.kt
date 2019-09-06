@@ -4,6 +4,7 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.PieEntry
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.FirebaseUserRepository
+import com.shojishunsuke.kibunnsns.model.CloudPost
 import com.shojishunsuke.kibunnsns.model.Post
 import com.shojishunsuke.kibunnsns.utils.diffToMonday
 import kotlinx.coroutines.runBlocking
@@ -112,11 +113,11 @@ class ChartFragmentUsecase {
     }
 
 
-    private fun getPieEntryListBasedOnScore(posts: List<Post>): List<PieEntry> = runBlocking {
+    private fun getPieEntryListBasedOnScore(cloudPosts: List<Post>): List<PieEntry> = runBlocking {
         var positiveCount = 0f
         var neutralCount = 0f
         var negativeCount = 0f
-        posts.forEach {
+        cloudPosts.forEach {
             when {
                 it.sentiScore > 0.4f -> positiveCount++
                 it.sentiScore <= 0.4f && it.sentiScore >= -0.4f -> neutralCount++
@@ -147,11 +148,11 @@ class ChartFragmentUsecase {
         return ((score * 10) + 10) / 5
     }
 
-    private fun getWeekAverageScoreMap(posts: List<Post>):Map<Int,Float>{
+    private fun getWeekAverageScoreMap(cloudPosts: List<Post>):Map<Int,Float>{
 //        週の何日目 : その日の平均スコア のマップを作成
         val defMap = mutableMapOf<Int,MutableList<Float>>()
         val calendar = Calendar.getInstance()
-        posts.forEach {
+        cloudPosts.forEach {
             calendar.time = it.date
             val dayOfWeek = calendar.diffToMonday().absoluteValue
             if (defMap.containsKey(dayOfWeek)){
@@ -171,11 +172,11 @@ class ChartFragmentUsecase {
         return resultMap
     }
 
-    private fun getMonthAverageScoreMap(posts: List<Post>): Map<Int, Float> {
+    private fun getMonthAverageScoreMap(cloudPosts: List<Post>): Map<Int, Float> {
 
 //     日付 : その日のスコアのリスト を 月の何日 : その日の平均スコア に変換
         val defMap = mutableMapOf<Int, MutableList<Float>>()
-        posts.forEach {
+        cloudPosts.forEach {
             val calendar = Calendar.getInstance()
             calendar.time = it.date
             val date = calendar.get(Calendar.DAY_OF_MONTH)
