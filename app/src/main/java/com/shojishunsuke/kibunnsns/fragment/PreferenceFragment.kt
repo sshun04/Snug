@@ -7,18 +7,19 @@ import androidx.preference.PreferenceFragmentCompat
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.shojishunsuke.kibunnsns.R
 
 class PreferenceFragment : PreferenceFragmentCompat() {
 
     companion object {
-        private const val RC_SIGN_IN = 123
-        private const val RESULT_OK = -1
-        private const val TAG = "GoogleAuth"
+        private const val RC_SIGN_IN: Int = 123
+        private const val RESULT_OK: Int = -1
+        private const val TAG: String = "GoogleAuth"
     }
 
-    private val user = FirebaseAuth.getInstance().currentUser
+    private val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.preference, rootKey)

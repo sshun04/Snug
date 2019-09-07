@@ -7,15 +7,13 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    val posts = mutableListOf<Post>()
+    val posts: MutableList<Post> = mutableListOf()
 
-    var viewType = 1
+    var viewType: Int = 1
 
-    private fun add(post: Post) {
-        val position = posts.size
-        posts.add(position, post)
-        notifyItemInserted(position)
-    }
+    override fun getItemViewType(position: Int): Int = viewType
+
+    override fun getItemCount(): Int = posts.size
 
     fun addNextCollection(nextPosts: List<Post>) {
         nextPosts.forEach { add(it) }
@@ -31,12 +29,6 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> : RecyclerView.Ad
         notifyItemRemoved(position)
         notifyItemRangeChanged(position, itemCount)
     }
-
-    override fun getItemViewType(position: Int): Int {
-        return this.viewType
-    }
-
-    override fun getItemCount(): Int = posts.size
 
     protected fun formatDate(postedDate: Date): String {
         val currentDate = Date()
@@ -94,5 +86,11 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> : RecyclerView.Ad
             sentiScore < -0.3f -> Pair("Negative", R.drawable.textview_back_negative)
             else -> Pair("Neutral", R.drawable.textview_back_neutral)
         }
+    }
+
+    private fun add(post: Post) {
+        val position = posts.size
+        posts.add(position, post)
+        notifyItemInserted(position)
     }
 }

@@ -5,7 +5,7 @@ import com.shojishunsuke.kibunnsns.clean_arc.data.FirebaseUserRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataConfigRepository
 
 class MainActivityUsecase(private val dataConfigRepository: DataConfigRepository) {
-    private val userRepository = FirebaseUserRepository()
+    private val userRepository :FirebaseUserRepository= FirebaseUserRepository()
 
     fun initialize() {
         val isInitialized = dataConfigRepository.isInitialized()

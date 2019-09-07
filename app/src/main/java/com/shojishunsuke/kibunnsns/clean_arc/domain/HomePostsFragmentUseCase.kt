@@ -1,13 +1,14 @@
 package com.shojishunsuke.kibunnsns.clean_arc.domain
 
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.model.Post
 
 
 class HomePostsFragmentUseCase {
-    private val fireStoreRepository = FireStoreDatabaseRepository()
-    private var previousPost = Post(sentiScore = -0.4f)
-    private var previousRange = 3
+    private val fireStoreRepository: DataBaseRepository = FireStoreDatabaseRepository()
+    private var previousPost: Post = Post(sentiScore = -0.4f)
+    private var previousRange: Int = 3
 
     suspend fun requestPostsByScore(targetScore: Int): List<Post> {
         var max = 0F

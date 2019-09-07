@@ -16,14 +16,15 @@ import kotlinx.coroutines.launch
 import java.util.*
 
 class PostDialogViewModel(context: Context) : ViewModel() {
-
     private val postUseCase: PostDialogUseCase
-    private val _currentPosted = MutableLiveData<Post>()
-    private val date = Calendar.getInstance()
 
+    val currentPosted: LiveData<Post> get() = _currentPosted
+    private val _currentPosted = MutableLiveData<Post>()
+
+    private val date = Calendar.getInstance()
     val timeString = date.timeOfDayString()
     val detailDate = date.detailDateString()
-    val currentPosted: LiveData<Post> get() = _currentPosted
+
     private val currentEmojiList: MutableLiveData<List<String>> = MutableLiveData()
 
     init {
@@ -52,9 +53,5 @@ class PostDialogViewModel(context: Context) : ViewModel() {
                 currentEmojiList.postValue(emojiList)
             }
         }
-    }
-
-    override fun onCleared() {
-
     }
 }

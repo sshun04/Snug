@@ -13,7 +13,7 @@ class EmojiRecyclerViewAdapter(
         private val unicodeList: MutableList<String> = mutableListOf(),
         private val emojiListener: (String) -> Unit
 ) : RecyclerView.Adapter<EmojiRecyclerViewAdapter.ViewHolder>() {
-    private val inflater = LayoutInflater.from(context)
+    private val inflater: LayoutInflater = LayoutInflater.from(context)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val unicode = unicodeList[position]
@@ -30,12 +30,12 @@ class EmojiRecyclerViewAdapter(
 
     override fun getItemCount(): Int = unicodeList.count()
 
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val emojiTextView: EmojiTextView = view.findViewById(R.id.emojiTextView)
-    }
-
     fun setValue(list: List<String>) {
         unicodeList.addAll(list)
         notifyDataSetChanged()
+    }
+
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val emojiTextView: EmojiTextView = view.findViewById(R.id.emojiTextView)
     }
 }

@@ -3,14 +3,15 @@ package com.shojishunsuke.kibunnsns.clean_arc.domain
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.FirebaseUserRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.RoomPostDateRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.model.Post
 import java.util.*
 
 class CalendarFragmentUsecase {
-    private val fireStoreRepository = FireStoreDatabaseRepository()
-    private val userRepository = FirebaseUserRepository()
-    private val userId = userRepository.getUserId()
-    private val postDateRepository = RoomPostDateRepository()
+    private val fireStoreRepository: DataBaseRepository = FireStoreDatabaseRepository()
+    private val userRepository: FirebaseUserRepository = FirebaseUserRepository()
+    private val userId: String = userRepository.getUserId()
+    private val postDateRepository: RoomPostDateRepository = RoomPostDateRepository()
 
     suspend fun loadPostsByDate(date: Calendar): MutableList<Post> {
 

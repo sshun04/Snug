@@ -11,8 +11,13 @@ import kotlinx.coroutines.launch
 
 class PostsRecordFragmentViewModel : ViewModel() {
     private val usecase = PostsRecordFragmentUsecase()
-    private val _postsList = MutableLiveData<List<Post>>()
+
     val postsList: LiveData<List<Post>> get() = _postsList
+    private val _postsList = MutableLiveData<List<Post>>()
+
+    fun refresh() {
+        requestPosts()
+    }
 
     private fun requestPosts() {
         GlobalScope.launch {
@@ -21,9 +26,5 @@ class PostsRecordFragmentViewModel : ViewModel() {
                 _postsList.postValue(posts)
             }
         }
-    }
-
-    fun refresh() {
-        requestPosts()
     }
 }

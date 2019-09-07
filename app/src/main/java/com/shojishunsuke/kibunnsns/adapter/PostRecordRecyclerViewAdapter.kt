@@ -2,7 +2,6 @@ package com.shojishunsuke.kibunnsns.adapter
 
 import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -21,9 +20,9 @@ class PostRecordRecyclerViewAdapter(
         private val context: Context,
         private val removedListener: (Post) -> Unit
 ) : PagingBaseAdapter<RecyclerView.ViewHolder>() {
-    private val inflater = LayoutInflater.from(context)
-    private val calendar = Calendar.getInstance()
-    private val viewModel = PostRecordItemViewModel()
+    private val inflater: LayoutInflater = LayoutInflater.from(context)
+    private val calendar: Calendar = Calendar.getInstance()
+    private val viewModel: PostRecordItemViewModel = PostRecordItemViewModel()
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val post = posts[position]

@@ -15,7 +15,7 @@ import java.io.ByteArrayOutputStream
 import java.util.*
 
 class CloudStorageRepository(private val uploadListener: ImageUploadListener) : StorageRepository {
-    private val storage = FirebaseStorage.getInstance()
+    private val storage: FirebaseStorage = FirebaseStorage.getInstance()
 
     override suspend fun uploadImage(bitmap: Bitmap) {
 

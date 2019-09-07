@@ -9,9 +9,8 @@ import com.shojishunsuke.kibunnsns.clean_arc.domain.MainActivityUsecase
 import com.shojishunsuke.kibunnsns.fragment.PostDialogFragment
 
 class MainActivityViewModel(context: Context) : ViewModel() {
-
-    private val useCase: MainActivityUsecase
     var isNavigationInitialized: Boolean = false
+    private val useCase: MainActivityUsecase
 
     init {
         val dataConfigRepository = SharedPrefRepository(context)
@@ -28,5 +27,4 @@ class MainActivityViewModel(context: Context) : ViewModel() {
     fun onAuthSuccess() {
         useCase.updateUser()
     }
-
 }

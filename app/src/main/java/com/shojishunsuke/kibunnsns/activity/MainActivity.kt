@@ -18,11 +18,11 @@ import com.shojishunsuke.kibunnsns.clean_arc.presentation.viewmodel_factory.Main
 import com.shojishunsuke.kibunnsns.navigation.CustomNavigator
 import kotlinx.android.synthetic.main.activity_main.*
 
-class
-MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
+    private var isInitialized: Boolean = false
+
     private lateinit var bottomNavigation: BottomNavigationView
     private lateinit var mainViewModel: MainActivityViewModel
-    private var isInitialized = false
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,6 +66,8 @@ MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onNavigateUp(): Boolean = findNavController(R.id.nav_host_fragment).navigateUp()
+
     private fun updateUi() {
         Log.d("MainActivity", "updateUI")
         this.mainActivityProgressbar.visibility = View.GONE
@@ -81,6 +83,5 @@ MainActivity : AppCompatActivity() {
         mainViewModel.isNavigationInitialized = true
     }
 
-    override fun onNavigateUp(): Boolean = findNavController(R.id.nav_host_fragment).navigateUp()
 }
 

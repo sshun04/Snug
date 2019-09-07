@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.fragment_detail.view.*
 class DetailPostsFragment : Fragment() {
 
     companion object {
-        private const val EXTRA_POST = "post"
+        private const val EXTRA_POST: String = "post"
 
         private val enterTransitionSet = TransitionSet().apply {
             val slideAnim = Slide().apply {
@@ -34,6 +34,7 @@ class DetailPostsFragment : Fragment() {
             }
             addTransition(slideAnim)
         }
+
         private val exitTransitionSet = TransitionSet().apply {
             val slideAnim = Slide().apply {
                 slideEdge = Gravity.RIGHT

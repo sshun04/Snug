@@ -1,11 +1,12 @@
 package com.shojishunsuke.kibunnsns.clean_arc.domain
 
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.model.Post
 
 class DetailPostsFragmentUsecase(basePost: Post) {
-    private val fireStoreRepository = FireStoreDatabaseRepository()
-    private var hasMoreSameActPost = true
+    private val fireStoreRepository: DataBaseRepository = FireStoreDatabaseRepository()
+    private var hasMoreSameActPost: Boolean = true
     private var sameActPrevPost: Post
     private var wideRangePrevPost: Post
 

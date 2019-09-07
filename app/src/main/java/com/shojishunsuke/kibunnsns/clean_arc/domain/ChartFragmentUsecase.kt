@@ -4,6 +4,7 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.PieEntry
 import com.shojishunsuke.kibunnsns.clean_arc.data.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.FirebaseUserRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.model.Post
 import com.shojishunsuke.kibunnsns.utils.diffToMonday
 import kotlinx.coroutines.runBlocking
@@ -11,9 +12,9 @@ import java.util.*
 import kotlin.math.absoluteValue
 
 class ChartFragmentUsecase {
-    private val fireStoreRepository = FireStoreDatabaseRepository()
-    private val useRepository = FirebaseUserRepository()
-    private val userId = useRepository.getUserId()
+    private val fireStoreRepository: DataBaseRepository = FireStoreDatabaseRepository()
+    private val useRepository: FirebaseUserRepository = FirebaseUserRepository()
+    private val userId: String = useRepository.getUserId()
 
     suspend fun getDataOfDate(date: Calendar): Pair<List<Entry>, List<PieEntry>> = runBlocking {
         val dateStart = date.clone() as Calendar
@@ -115,13 +116,10 @@ class ChartFragmentUsecase {
             val entry = Entry(floatDay, formatSentiScore(sentiScore))
             lineEntryList.add(entry)
         }
-
-
         val pieEntryList = getPieEntryListBasedOnScore(posts)
 
         Pair(lineEntryList, pieEntryList)
     }
-
 
     private fun getPieEntryListBasedOnScore(posts: List<Post>): List<PieEntry> = runBlocking {
         var positiveCount = 0f

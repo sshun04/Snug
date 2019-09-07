@@ -19,7 +19,7 @@ class PagingRecyclerViewAdapter(
         private val context: Context,
         private val listener: (Post) -> Unit
 ) : PagingBaseAdapter<RecyclerView.ViewHolder>() {
-    private val viewModel = PostItemViewModel()
+    private val viewModel:PostItemViewModel = PostItemViewModel()
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val post = posts[position]

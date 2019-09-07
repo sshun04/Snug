@@ -2,12 +2,13 @@ package com.shojishunsuke.kibunnsns.clean_arc.data
 
 import com.shojishunsuke.kibunnsns.MainApplication
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.LocalDataBaseRepository
+import com.shojishunsuke.kibunnsns.clean_arc.data.room.RoomEmojiDao
 import com.shojishunsuke.kibunnsns.model.EmojiItem
 import com.shojishunsuke.kibunnsns.model.Item
 import java.util.*
 
 class RoomEmojiRepository : LocalDataBaseRepository {
-    private val dao = MainApplication.emojiDatabase.emojiDao()
+    private val dao: RoomEmojiDao = MainApplication.emojiDatabase.emojiDao()
 
     override suspend fun loadLatestCollection(): List<Item> {
         val savedList = dao.findAll()

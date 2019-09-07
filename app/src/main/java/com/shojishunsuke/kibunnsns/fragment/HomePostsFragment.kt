@@ -23,9 +23,9 @@ import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.android.synthetic.main.fragment_home_posts.view.*
 
 class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
+    private var isLoading: Boolean = false
     lateinit var viewModel: HomeFragmentViewModel
     lateinit var pagingAdapter: PagingRecyclerViewAdapter
-    private var isLoading = false
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -37,22 +37,17 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
         viewModel =
                 ViewModelProviders.of(this).get(HomeFragmentViewModel::class.java)
 
-
         val progressBar = view.progressBar.apply {
             max = 100
             if (Build.VERSION.SDK_INT >= 24) {
                 setProgress(84, true)
-            } else {
             }
-
         }
-        Log.d("HomeFragment", "${this.tag}")
 
         view.homeToolBar.apply {
             title = "Snug"
             setTitleTextColor(resources.getColor(R.color.dark_54))
         }
-
 
         val stagLayoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         val scrollListener = EndlessScrollListener() {
@@ -122,9 +117,7 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
         viewModel.progressMood = progress
     }
 
-    override fun onStartTrackingTouch(p0: SeekBar?) {
-
-    }
+    override fun onStartTrackingTouch(p0: SeekBar?) {}
 
     override fun onStopTrackingTouch(seekbar: SeekBar?) {
         pagingAdapter.clear()

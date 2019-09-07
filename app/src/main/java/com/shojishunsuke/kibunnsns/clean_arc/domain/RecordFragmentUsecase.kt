@@ -9,8 +9,8 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class RecordFragmentUsecase(uploadListener: CloudStorageRepository.ImageUploadListener) {
-    private val userInfoRepository = FirebaseUserRepository()
-    private val cloutStorageRepository = CloudStorageRepository(uploadListener)
+    private val userInfoRepository: FirebaseUserRepository = FirebaseUserRepository()
+    private val cloutStorageRepository: CloudStorageRepository = CloudStorageRepository(uploadListener)
 
     fun saveUserName(name: String) {
         userInfoRepository.updateUserName(name)

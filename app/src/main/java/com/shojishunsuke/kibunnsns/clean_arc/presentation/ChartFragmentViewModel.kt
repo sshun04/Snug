@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 import java.util.*
 
 class ChartFragmentViewModel(context: Context) : ViewModel() {
-    var rangeField = Calendar.DATE
+    var rangeField :Int= Calendar.DATE
     private val date: Calendar = Calendar.getInstance()
 
     private val pieColorsMap = mapOf(

@@ -10,7 +10,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class FireStoreDatabaseRepository : DataBaseRepository {
-    private val dataBase = FirebaseFirestore.getInstance()
+    private val dataBase: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     init {
         dataBase.firestoreSettings = FirebaseFirestoreSettings.Builder()
@@ -43,29 +43,28 @@ class FireStoreDatabaseRepository : DataBaseRepository {
                         .get()
                         .await()
 
-
                 return@runBlocking querySnapshot.toPostsMutableList()
             }
 
-    override suspend fun loadPositiveTimeLineCollection(date: Date): MutableList<Post> =
-            runBlocking {
-                val querySnapshot = collectionSnapShot
-                        .orderBy("date", Query.Direction.DESCENDING)
-                        .startAfter(date)
-                        .limit(30)
-                        .get()
-                        .await()
+    override suspend fun loadPositiveTimeLineCollection(date: Date): MutableList<Post> = runBlocking {
 
-                Log.d("IsFromCache", querySnapshot.metadata.isFromCache.toString())
+        val querySnapshot = collectionSnapShot
+                .orderBy("date", Query.Direction.DESCENDING)
+                .startAfter(date)
+                .limit(30)
+                .get()
+                .await()
 
-                val results = ArrayList<Post>()
+        Log.d("IsFromCache", querySnapshot.metadata.isFromCache.toString())
 
-                querySnapshot.forEach {
-                    val post = it.toObject(Post::class.java)
-                    if (post.sentiScore >= -0.35f) results.add(post)
-                }
-                return@runBlocking results
-            }
+        val results = ArrayList<Post>()
+
+        querySnapshot.forEach {
+            val post = it.toObject(Post::class.java)
+            if (post.sentiScore >= -0.35f) results.add(post)
+        }
+        return@runBlocking results
+    }
 
     override suspend fun loadFollowingCollection(date: Date): List<Post> = runBlocking {
         val querySnapshot = collectionSnapShot
@@ -78,21 +77,6 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
 
         return@runBlocking querySnapshot.toPostsMutableList()
-    }
-
-    fun deleteItemFromDatabase(post: Post) {
-        collectionSnapShot
-                .document(post.postId)
-                .delete()
-                .addOnSuccessListener { Log.d("FireStore", "DocumentSnapshot successfully deleted!") }
-                .addOnFailureListener { e -> Log.w("FireStore", "Error deleting document", e) }
-    }
-
-    fun increaseViews(postId: String) {
-        val post = collectionSnapShot
-                .document(postId)
-        post.update("views", FieldValue.increment(1))
-
     }
 
     override suspend fun loadDateRangedCollection(
@@ -111,9 +95,7 @@ class FireStoreDatabaseRepository : DataBaseRepository {
                 .get()
                 .await()
 
-
         return@runBlocking querySnapshot.toPostsMutableList()
-
     }
 
     override suspend fun loadScoreRangedCollectionAscend(
@@ -147,6 +129,21 @@ class FireStoreDatabaseRepository : DataBaseRepository {
                 .await()
 
         return@runBlocking querySnapshot.toPostsMutableList()
+    }
+
+    override fun deleteItemFromDatabase(post: Post) {
+        collectionSnapShot
+                .document(post.postId)
+                .delete()
+                .addOnSuccessListener { Log.d("FireStore", "DocumentSnapshot successfully deleted!") }
+                .addOnFailureListener { e -> Log.w("FireStore", "Error deleting document", e) }
+    }
+
+    fun increaseViews(postId: String) {
+        val post = collectionSnapShot
+                .document(postId)
+        post.update("views", FieldValue.increment(1))
+
     }
 
     private fun QuerySnapshot.toPostsMutableList(): MutableList<Post> {

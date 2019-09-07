@@ -72,7 +72,7 @@ class ExpandableLayout @JvmOverloads constructor(
 
     private var state: State = State.COLLAPSED
 
-    private val interpolater = FastOutSlowInInterpolator()
+    private val interpolator:FastOutSlowInInterpolator = FastOutSlowInInterpolator()
     lateinit var animator: ValueAnimator
 
 
@@ -87,7 +87,6 @@ class ExpandableLayout @JvmOverloads constructor(
         isInitialized = true
     }
 
-    private fun isExpanded(): Boolean = state == State.EXPANDING || state == State.EXPANDED
 
     override fun onSaveInstanceState(): Parcelable? {
         val superState = super.onSaveInstanceState()
@@ -173,6 +172,9 @@ class ExpandableLayout @JvmOverloads constructor(
         setExpanded(false, animate)
     }
 
+    private fun isExpanded(): Boolean = state == State.EXPANDING || state == State.EXPANDED
+
+
     private fun setExpanded(expand: Boolean, animate: Boolean = true) {
         if (expand == isExpanded()) return
 
@@ -186,7 +188,7 @@ class ExpandableLayout @JvmOverloads constructor(
 
     private fun animateSize(targetExpansion: Int) {
         animator = ValueAnimator.ofFloat(expansion, targetExpansion.toFloat())
-        animator.interpolator = interpolater
+        animator.interpolator = interpolator
         animator.duration = duration.toLong()
 
         animator.addUpdateListener { valueAnimator ->

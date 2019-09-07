@@ -14,6 +14,7 @@ class CustomNavigator(
         private val manager: FragmentManager,
         private val containerId: Int
 ) : FragmentNavigator(context, manager, containerId) {
+
     override fun navigate(
             destination: Destination,
             args: Bundle?,

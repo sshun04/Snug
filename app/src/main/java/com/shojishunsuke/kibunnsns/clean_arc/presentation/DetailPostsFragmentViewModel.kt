@@ -14,11 +14,11 @@ import java.util.*
 
 class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
     private val useCase: DetailPostsFragmentUsecase = DetailPostsFragmentUsecase(post)
-    private val _nextPosts = MutableLiveData<List<Post>>()
 
     val nextPosts: LiveData<List<Post>> get() = _nextPosts
+    private val _nextPosts = MutableLiveData<List<Post>>()
 
-    private var isLoading = true
+    private var isLoading: Boolean = true
 
     init {
         loadNextPosts()
@@ -31,6 +31,19 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
         }
     }
 
+
+    fun getFormattedDate(): String {
+        val formatter = SimpleDateFormat("YYYY年MM月dd日HH時mm分", Locale.JAPAN)
+        return formatter.format(post.date)
+    }
+
+
+    fun getUserName(): String = if (post.userName.isNotBlank()) post.userName else "匿名"
+
+    fun getEmojiCode(): String = if (post.actID.isNotBlank()) post.actID else ""
+
+    fun getContentText(): String = post.contentText
+
     private fun loadNextPosts() {
         GlobalScope.launch {
             val posts = useCase.loadPosts()
@@ -42,11 +55,6 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
         }
     }
 
-    fun getFormattedDate(): String {
-        val formatter = SimpleDateFormat("YYYY年MM月dd日HH時mm分", Locale.JAPAN)
-        return formatter.format(post.date)
-    }
-
     private fun getAppropriateIconFromSentiScore(sentiScore: Float): String {
         return when {
             sentiScore > 0.4f -> "\uD83D\uDE01"
@@ -55,10 +63,4 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
             else -> "\uD83D\uDE10"
         }
     }
-
-    fun getUserName(): String = if (post.userName.isNotBlank()) post.userName else "匿名"
-
-    fun getEmojiCode(): String = if (post.actID.isNotBlank()) post.actID else ""
-
-    fun getContentText(): String = post.contentText
 }

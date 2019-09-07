@@ -14,6 +14,7 @@ interface DataBaseRepository {
             currentDate: Date,
             limit: Long = 100
     ): MutableList<Post>
+    fun deleteItemFromDatabase(post: Post)
     suspend fun loadScoreRangedCollectionAscend(limit: Long = 20, post: Post): MutableList<Post>
     suspend fun loadScoreRangedCollectionDescend(limit: Long = 20, post: Post): MutableList<Post>
 }

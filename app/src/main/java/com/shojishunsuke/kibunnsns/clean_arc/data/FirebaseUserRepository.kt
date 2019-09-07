@@ -3,12 +3,16 @@ package com.shojishunsuke.kibunnsns.clean_arc.data
 import android.net.Uri
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.shojishunsuke.kibunnsns.clean_arc.data.repository.AuthRepository
 
 class FirebaseUserRepository : AuthRepository {
-    private var user = FirebaseAuth.getInstance().currentUser
-    private val TAG = "FirebaseUser"
+    private var user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
+
+    companion object {
+        const val TAG: String = "FirebaseUser"
+    }
 
     override fun updateUser() {
         this.user = FirebaseAuth.getInstance().currentUser

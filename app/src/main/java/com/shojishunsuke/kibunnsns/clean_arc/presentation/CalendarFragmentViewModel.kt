@@ -14,11 +14,13 @@ import kotlinx.coroutines.launch
 import java.util.*
 
 class CalendarFragmentViewModel : ViewModel() {
-    private val _postsOfDate = MutableLiveData<MutableList<Post>>()
-    val postsOfDate: LiveData<MutableList<Post>> get() = _postsOfDate
 
-    private val _dateText = MutableLiveData<String>()
+    val postsOfDate: LiveData<MutableList<Post>> get() = _postsOfDate
+    private val _postsOfDate = MutableLiveData<MutableList<Post>>()
+
+
     val dateText: LiveData<String> get() = _dateText
+    private val _dateText = MutableLiveData<String>()
 
     private val date = Calendar.getInstance()
     private val useCase = CalendarFragmentUsecase()
@@ -43,6 +45,12 @@ class CalendarFragmentViewModel : ViewModel() {
         requestPostsByDate()
     }
 
+
+    fun refresh() {
+        _postsOfDate.value?.clear()
+        onFocusToday()
+    }
+
     private fun requestPostsByDate() {
         val dateString = "${date.get(Calendar.MONTH) + 1}/${date.get(Calendar.DAY_OF_MONTH)}"
         _dateText.postValue(dateString)
@@ -52,10 +60,5 @@ class CalendarFragmentViewModel : ViewModel() {
                 _postsOfDate.postValue(posts)
             }
         }
-    }
-
-    fun refresh() {
-        _postsOfDate.value?.clear()
-        onFocusToday()
     }
 }

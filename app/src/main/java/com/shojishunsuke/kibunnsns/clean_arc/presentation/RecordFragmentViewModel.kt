@@ -2,6 +2,7 @@ package com.shojishunsuke.kibunnsns.clean_arc.presentation
 
 import android.graphics.Bitmap
 import android.net.Uri
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.storage.StorageReference
@@ -12,10 +13,10 @@ import kotlinx.coroutines.launch
 
 class RecordFragmentViewModel : ViewModel(), CloudStorageRepository.ImageUploadListener {
     private val useCase = RecordFragmentUsecase(this)
-
     var currentBitmap: Bitmap? = null
 
-    val userName = MutableLiveData<String>()
+    val userName: LiveData<String> get() = _userName
+    private val _userName: MutableLiveData<String> = MutableLiveData()
 
     init {
         getUserName()
@@ -30,11 +31,11 @@ class RecordFragmentViewModel : ViewModel(), CloudStorageRepository.ImageUploadL
 
     fun saveUserName(name: String) {
         useCase.saveUserName(name)
-        userName.postValue(name)
+        _userName.postValue(name)
     }
 
     private fun getUserName() {
-        userName.value = useCase.getUserName()
+        _userName.value = useCase.getUserName()
     }
 
     fun getIconRef(): StorageReference {

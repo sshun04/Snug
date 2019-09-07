@@ -6,6 +6,7 @@ import com.shojishunsuke.kibunnsns.clean_arc.data.repository.DataConfigRepositor
 
 class SharedPrefRepository(context: Context) : DataConfigRepository {
     private val sharedPreferences: SharedPreferences = context.getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
+
     companion object{
         const val key_init = "KEY_INITIALIZATION"
     }
