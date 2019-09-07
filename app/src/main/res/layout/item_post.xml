@@ -63,7 +63,6 @@
             android:text="🎨"
             android:textSize="80sp" />
 
-
         <TextView
             android:id="@+id/contentTextView"
             android:layout_width="match_parent"
@@ -99,4 +98,5 @@
             android:textSize="12sp" />
 
     </LinearLayout>
+
 </com.google.android.material.card.MaterialCardView>

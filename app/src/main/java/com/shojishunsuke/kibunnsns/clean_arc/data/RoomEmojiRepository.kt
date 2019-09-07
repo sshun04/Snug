@@ -7,7 +7,6 @@ import com.shojishunsuke.kibunnsns.model.Item
 import java.util.*
 
 class RoomEmojiRepository : LocalDataBaseRepository {
-
     private val dao = MainApplication.emojiDatabase.emojiDao()
 
     override suspend fun loadLatestCollection(): List<Item> {
@@ -31,11 +30,10 @@ class RoomEmojiRepository : LocalDataBaseRepository {
         if (currentList.size > 8) {
             deleteItem(currentList.first())
         }
-
         dao.registerEmoji(emojiItem)
     }
 
-   override fun deleteItem(item: Item) {
+    override fun deleteItem(item: Item) {
         dao.delete(item as EmojiItem)
     }
 }

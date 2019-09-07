@@ -1,7 +1,6 @@
 package com.shojishunsuke.kibunnsns.adapter
 
 import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,11 +16,9 @@ import com.shojishunsuke.kibunnsns.model.Post
 import de.hdodenhof.circleimageview.CircleImageView
 
 class PagingRecyclerViewAdapter(
-    private val context: Context,
-    private val listener: (Post) -> Unit
-) :
-    PagingBaseAdapter<RecyclerView.ViewHolder>() {
-
+        private val context: Context,
+        private val listener: (Post) -> Unit
+) : PagingBaseAdapter<RecyclerView.ViewHolder>() {
     private val viewModel = PostItemViewModel()
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -29,7 +26,8 @@ class PagingRecyclerViewAdapter(
         when (viewType) {
             1 -> {
                 holder as GridRecyclerViewHolder
-                holder.userNameTextView.text = if (post.userName.isNotBlank()) post.userName else "匿名"
+                holder.userNameTextView.text =
+                        if (post.userName.isNotBlank()) post.userName else "匿名"
                 holder.contentTextView.text = post.contentText
                 holder.dateTextView.text = formatDate(post.date)
 
@@ -42,10 +40,10 @@ class PagingRecyclerViewAdapter(
 
                 if (post.iconPhotoLink.isNotBlank()) {
                     GlideApp.with(context)
-                        .load(post.iconPhotoLink)
-                        .placeholder(R.drawable.usericon_default)
-                        .error(R.drawable.usericon_default)
-                        .into(holder.userIcon)
+                            .load(post.iconPhotoLink)
+                            .placeholder(R.drawable.usericon_default)
+                            .error(R.drawable.usericon_default)
+                            .into(holder.userIcon)
                 } else {
                     holder.userIcon.setImageResource(R.color.colorPrimary)
                 }
@@ -58,7 +56,8 @@ class PagingRecyclerViewAdapter(
 
             2 -> {
                 holder as VerticalRecyclerViewHolder
-                holder.userNameTextView.text = if (post.userName.isNotBlank()) post.userName else "匿名"
+                holder.userNameTextView.text =
+                        if (post.userName.isNotBlank()) post.userName else "匿名"
                 holder.contentTextView.text = post.contentText
                 holder.dateTextView.text = formatDate(post.date)
 
@@ -66,16 +65,14 @@ class PagingRecyclerViewAdapter(
                 holder.sentiColorIcon.setImageResource(sentiColor)
 
                 holder.activityIcon.text =
-                    if (post.actID.isNotBlank()) post.actID else ""
-
-
+                        if (post.actID.isNotBlank()) post.actID else ""
 
                 if (post.iconPhotoLink.isNotBlank()) {
                     GlideApp.with(context)
-                        .load(post.iconPhotoLink)
-                        .error(R.drawable.usericon_default)
-                        .placeholder(R.drawable.usericon_default)
-                        .into(holder.userIcon)
+                            .load(post.iconPhotoLink)
+                            .error(R.drawable.usericon_default)
+                            .placeholder(R.drawable.usericon_default)
+                            .into(holder.userIcon)
                 } else {
                     holder.userIcon.setImageResource(R.color.colorPrimary)
                 }
@@ -102,13 +99,11 @@ class PagingRecyclerViewAdapter(
             else -> {
                 throw IllegalArgumentException()
             }
-
-
         }
     }
 
     inner class VerticalRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val sentiColorIcon :CircleImageView = view.findViewById(R.id.sentiIcon)
+        val sentiColorIcon: CircleImageView = view.findViewById(R.id.sentiIcon)
         val itemParent: ConstraintLayout = view.findViewById(R.id.postBaseView)
         val userNameTextView: TextView = view.findViewById(R.id.userName)
         val userIcon: CircleImageView = view.findViewById(R.id.userIcon)
@@ -125,6 +120,4 @@ class PagingRecyclerViewAdapter(
         val dateTextView: TextView = view.findViewById(R.id.timeTextView2)
         val activityIcon: EmojiTextView = view.findViewById(R.id.activityIcon)
     }
-
-
 }

@@ -6,14 +6,17 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 
 class NestedEndlessScrollListener(
-    private val layoutManager: StaggeredGridLayoutManager,
-    private val recyclerView: RecyclerView,
-    private val onLoadMoreListener: () -> Unit
+        private val layoutManager: StaggeredGridLayoutManager,
+        private val recyclerView: RecyclerView,
+        private val onLoadMoreListener: () -> Unit
 ) : NestedScrollView.OnScrollChangeListener {
-
-
-    override fun onScrollChange(v: NestedScrollView?, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
-
+    override fun onScrollChange(
+            v: NestedScrollView?,
+            scrollX: Int,
+            scrollY: Int,
+            oldScrollX: Int,
+            oldScrollY: Int
+    ) {
         val totalItemCount = layoutManager.itemCount
         val visiblePosition = layoutManager.findLastCompletelyVisibleItemPositions(null)
         val lastVisibleItemCount = visiblePosition.max()?.plus(1)
@@ -28,9 +31,7 @@ class NestedEndlessScrollListener(
                 recyclerView.post {
                     onLoadMoreListener()
                 }
-
             }
         }
     }
-
 }

@@ -15,8 +15,8 @@ import com.shojishunsuke.kibunnsns.R
 
 
 class ExpandableLayout @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null
+        context: Context,
+        attrs: AttributeSet? = null
 ) : FrameLayout(context, attrs) {
 
     enum class State(val value: Int) {
@@ -26,7 +26,7 @@ class ExpandableLayout @JvmOverloads constructor(
         EXPANDED(3)
     }
 
-    val isViewExpanded :Boolean get() = isExpanded()
+    val isViewExpanded: Boolean get() = isExpanded()
 
     private var isInitialized = false
     private val KEY_SUPER_STATE = "super_state"
@@ -79,7 +79,8 @@ class ExpandableLayout @JvmOverloads constructor(
     init {
         val array = context.obtainStyledAttributes(attrs, R.styleable.ExpandableLayout)
         duration = array.getInt(R.styleable.ExpandableLayout_el_duration, DEFAULT_DURATION)
-        expansion = if (array.getBoolean(R.styleable.ExpandableLayout_el_expanded, false)) 1f else 0f
+        expansion =
+                if (array.getBoolean(R.styleable.ExpandableLayout_el_expanded, false)) 1f else 0f
         orientation = array.getInt(R.styleable.ExpandableLayout_android_orientation, VERTICAL)
         parallax = array.getFloat(R.styleable.ExpandableLayout_el_parallax, 1f)
         state = if (expansion == 0f) State.COLLAPSED else State.EXPANDED
@@ -164,7 +165,6 @@ class ExpandableLayout @JvmOverloads constructor(
         }
     }
 
-
     fun expand(animate: Boolean = true) {
         setExpanded(true, animate)
     }
@@ -185,8 +185,6 @@ class ExpandableLayout @JvmOverloads constructor(
     }
 
     private fun animateSize(targetExpansion: Int) {
-
-
         animator = ValueAnimator.ofFloat(expansion, targetExpansion.toFloat())
         animator.interpolator = interpolater
         animator.duration = duration.toLong()
@@ -197,11 +195,8 @@ class ExpandableLayout @JvmOverloads constructor(
 
         animator.addListener(ExpansionListener(targetExpansion))
 
-
         animator.start()
-
     }
-
 
     inner class ExpansionListener(private val targetExpansion: Int) : Animator.AnimatorListener {
 
@@ -216,7 +211,6 @@ class ExpandableLayout @JvmOverloads constructor(
             if (!isCanceled) {
                 state = if (targetExpansion == 0) State.COLLAPSED else State.EXPANDED
                 expansion = targetExpansion.toFloat()
-
             }
         }
 
@@ -227,9 +221,5 @@ class ExpandableLayout @JvmOverloads constructor(
         override fun onAnimationRepeat(p0: Animator?) {
 
         }
-
-
     }
-
-
 }

@@ -5,8 +5,7 @@
         android:title=""
         app:showAsAction="never"
         android:enabled="false"
-        android:checkable="false"
-        />
+        android:checkable="false" />
     <item
         android:id="@+id/navigation_home"
         android:checked="true"
@@ -17,8 +16,7 @@
         android:title=""
         app:showAsAction="never"
         android:enabled="false"
-        android:checkable="false"
-        />
+        android:checkable="false" />
 
     <item
         android:id="@+id/navigation_second"
@@ -28,6 +26,6 @@
         android:title=""
         app:showAsAction="never"
         android:enabled="false"
-        android:checkable="false"/>
+        android:checkable="false" />
 
 </menu>

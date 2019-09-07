@@ -14,8 +14,8 @@ import java.util.*
 
 class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
     private val useCase: DetailPostsFragmentUsecase = DetailPostsFragmentUsecase(post)
-
     private val _nextPosts = MutableLiveData<List<Post>>()
+
     val nextPosts: LiveData<List<Post>> get() = _nextPosts
 
     private var isLoading = true
@@ -61,5 +61,4 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
     fun getEmojiCode(): String = if (post.actID.isNotBlank()) post.actID else ""
 
     fun getContentText(): String = post.contentText
-
 }

@@ -1,24 +1,21 @@
 package com.shojishunsuke.kibunnsns.adapter
 
-import android.graphics.Color
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.model.Post
 import java.text.SimpleDateFormat
 import java.util.*
 
-abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
+abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val posts = mutableListOf<Post>()
 
     var viewType = 1
+
     private fun add(post: Post) {
         val position = posts.size
         posts.add(position, post)
         notifyItemInserted(position)
     }
-
 
     fun addNextCollection(nextPosts: List<Post>) {
         nextPosts.forEach { add(it) }
@@ -29,10 +26,10 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> :
         notifyDataSetChanged()
     }
 
-    fun removeItem(position: Int){
+    fun removeItem(position: Int) {
         posts.removeAt(position)
         notifyItemRemoved(position)
-        notifyItemRangeChanged(position,itemCount)
+        notifyItemRangeChanged(position, itemCount)
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -67,7 +64,6 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> :
                 formatter.format(postedDate)
             }
         }
-
     }
 
     protected fun takeTimeFromDate(date: Date): String {
@@ -84,7 +80,7 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> :
         }
     }
 
-    protected fun getSentiColorId(sentiScore: Float):Int{
+    protected fun getSentiColorId(sentiScore: Float): Int {
         return when {
             sentiScore > 0.3f -> R.color.color_positive
             sentiScore < -0.3f -> R.color.color_negative
@@ -92,15 +88,11 @@ abstract class PagingBaseAdapter<VH : RecyclerView.ViewHolder> :
         }
     }
 
-
-
-    protected fun getSentiDescription(sentiScore: Float):Pair<String,Int>{
+    protected fun getSentiDescription(sentiScore: Float): Pair<String, Int> {
         return when {
-            sentiScore > 0.3f -> Pair("Positive",R.drawable.textview_back_positive)
+            sentiScore > 0.3f -> Pair("Positive", R.drawable.textview_back_positive)
             sentiScore < -0.3f -> Pair("Negative", R.drawable.textview_back_negative)
-            else -> Pair("Neutral",R.drawable.textview_back_neutral)
+            else -> Pair("Neutral", R.drawable.textview_back_neutral)
         }
     }
-
-
 }

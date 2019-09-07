@@ -14,8 +14,7 @@ class MainActivityUsecase(private val dataConfigRepository: DataConfigRepository
         }
     }
 
-    fun updateUser(){
+    fun updateUser() {
         userRepository.updateUser()
     }
-
 }

@@ -16,25 +16,24 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
 
-class ChartFragmentViewModel(context:Context) : ViewModel() {
-
+class ChartFragmentViewModel(context: Context) : ViewModel() {
     var rangeField = Calendar.DATE
     private val date: Calendar = Calendar.getInstance()
 
     private val pieColorsMap = mapOf(
-        "Positive" to context.resources.getColor(R.color.color_positive),
-        "Neutral" to context.resources.getColor(R.color.color_neutral),
-        "Negative" to context.resources.getColor(R.color.color_negative)
+            "Positive" to context.resources.getColor(R.color.color_positive),
+            "Neutral" to context.resources.getColor(R.color.color_neutral),
+            "Negative" to context.resources.getColor(R.color.color_negative)
     )
     private val daysOfWeek = listOf("月", "火", "水", "木", "金", "土", "日")
     private val hours: List<String> = (0..24).map { "$it:00" }
 
     val modes = listOf(
-        "☹️",
-        "\uD83D\uDE41",
-        "\uD83D\uDE10",
-        "\uD83D\uDE42",
-        "\uD83D\uDE00"
+            "☹️",
+            "\uD83D\uDE41",
+            "\uD83D\uDE10",
+            "\uD83D\uDE42",
+            "\uD83D\uDE00"
     )
 
     private val _lineEntries = MutableLiveData<List<Entry>>()
@@ -49,9 +48,7 @@ class ChartFragmentViewModel(context:Context) : ViewModel() {
     private val _axisValue = MutableLiveData<List<String>>()
     val axisValue: LiveData<List<String>> get() = _axisValue
 
-
     private val usecase = ChartFragmentUsecase()
-
 
     fun onRangeSelected(field: Int) {
         this.rangeField = field
@@ -69,7 +66,7 @@ class ChartFragmentViewModel(context:Context) : ViewModel() {
         requestData()
     }
 
-    fun refresh(){
+    fun refresh() {
         requestData()
     }
 
@@ -97,7 +94,6 @@ class ChartFragmentViewModel(context:Context) : ViewModel() {
     }
 
     private fun requestDataOfDate() {
-
         GlobalScope.launch {
             val chartDataPair = usecase.getDataOfDate(date)
             val lineData = chartDataPair.first
@@ -150,11 +146,11 @@ class ChartFragmentViewModel(context:Context) : ViewModel() {
     fun getLineChartData(): LineData {
         Collections.sort(_lineEntries.value, EntryXComparator())
         val lineDataSet = LineDataSet(_lineEntries.value, "投稿")
-            .apply {
-                lineWidth = 2.5f
-                circleRadius = 5f
-                setDrawValues(false)
-            }
+                .apply {
+                    lineWidth = 2.5f
+                    circleRadius = 5f
+                    setDrawValues(false)
+                }
         return LineData(lineDataSet)
     }
 

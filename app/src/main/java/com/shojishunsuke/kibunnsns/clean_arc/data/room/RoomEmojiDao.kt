@@ -9,9 +9,8 @@ interface RoomEmojiDao {
     fun registerEmoji(emojiItem: EmojiItem)
 
     @Query("SELECT * FROM table_emoji")
-    fun findAll():List<EmojiItem>
+    fun findAll(): List<EmojiItem>
 
     @Delete
     fun delete(emojiItem: EmojiItem)
-
 }

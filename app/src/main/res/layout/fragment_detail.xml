@@ -9,8 +9,8 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:elevation="4dp"
-        android:layout_height="56dp">
+        android:layout_height="56dp"
+        android:elevation="4dp">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/detailFragmentToolbar"
@@ -18,17 +18,16 @@
             android:layout_height="56dp"
             android:background="@color/colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:navigationIcon="?attr/homeAsUpIndicator"
-            />
-    </com.google.android.material.appbar.AppBarLayout>
+            app:navigationIcon="?attr/homeAsUpIndicator" />
 
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
-        android:paddingBottom="8dp"
-        android:clipToPadding="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:clipToPadding="true"
+        android:paddingBottom="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -102,31 +101,27 @@
                     <TextView
                         android:id="@+id/selectedDate"
                         android:layout_width="wrap_content"
-                        android:drawablePadding="2dp"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/ic_access_time_black_12dp"
+                        android:drawablePadding="2dp"
                         android:drawableTint="@color/dark_54"
                         android:text="date"
                         android:textColor="@color/dark_54"
                         android:textSize="12sp" />
 
-
                 </LinearLayout>
-
 
             </androidx.cardview.widget.CardView>
 
-
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_marginStart="4dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="おすすめ"
                 android:textSize="12sp"
                 android:textStyle="bold" />
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/detailPostsRecyclerView"
@@ -136,10 +131,8 @@
 
             </androidx.recyclerview.widget.RecyclerView>
 
-
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-
 
 </LinearLayout>

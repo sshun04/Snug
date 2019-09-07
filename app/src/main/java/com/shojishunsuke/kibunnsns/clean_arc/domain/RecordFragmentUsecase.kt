@@ -7,7 +7,6 @@ import com.shojishunsuke.kibunnsns.clean_arc.data.CloudStorageRepository
 import com.shojishunsuke.kibunnsns.clean_arc.data.FirebaseUserRepository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 class RecordFragmentUsecase(uploadListener: CloudStorageRepository.ImageUploadListener) {
     private val userInfoRepository = FirebaseUserRepository()
@@ -23,18 +22,16 @@ class RecordFragmentUsecase(uploadListener: CloudStorageRepository.ImageUploadLi
         }
     }
 
-    suspend fun saveLocalPhotoUri(uri: Uri){
+    suspend fun saveLocalPhotoUri(uri: Uri) {
         userInfoRepository.updateUserPhoto(uri)
     }
 
     fun getIconStorageRef(): StorageReference {
         val uriString = userInfoRepository.getUserPhotoUri().toString()
-             return cloutStorageRepository.getStorageRefByUri(uriString)
+        return cloutStorageRepository.getStorageRefByUri(uriString)
     }
 
     fun getUserName(): String {
         return userInfoRepository.getUserName()
     }
-
-
 }

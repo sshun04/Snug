@@ -44,7 +44,8 @@ class CloudStorageRepository(private val uploadListener: ImageUploadListener) : 
         }
     }
 
-    override fun getStorageRefByUri(uriString: String):StorageReference = storage.getReferenceFromUrl(uriString)
+    override fun getStorageRefByUri(uriString: String): StorageReference =
+            storage.getReferenceFromUrl(uriString)
 
     interface ImageUploadListener {
         suspend fun onUploadTaskComplete(result: Uri)

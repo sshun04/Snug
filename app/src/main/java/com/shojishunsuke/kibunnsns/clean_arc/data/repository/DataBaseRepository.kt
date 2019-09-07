@@ -9,14 +9,11 @@ interface DataBaseRepository {
     suspend fun loadFollowingCollection(date: Date): List<Post>
     suspend fun loadPositiveTimeLineCollection(date: Date): List<Post>
     suspend fun loadDateRangedCollection(
-        userId: String,
-        oldDate: Date,
-        currentDate: Date,
-        limit: Long = 100
+            userId: String,
+            oldDate: Date,
+            currentDate: Date,
+            limit: Long = 100
     ): MutableList<Post>
-
     suspend fun loadScoreRangedCollectionAscend(limit: Long = 20, post: Post): MutableList<Post>
     suspend fun loadScoreRangedCollectionDescend(limit: Long = 20, post: Post): MutableList<Post>
-
-
 }

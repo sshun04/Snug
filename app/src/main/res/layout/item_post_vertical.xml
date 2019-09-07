@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="0dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    app:cardCornerRadius="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/postBaseView"
@@ -26,7 +26,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
         <LinearLayout
             android:id="@+id/nameField"
@@ -52,7 +51,6 @@
                 android:singleLine="true"
                 android:text="匿名"
                 android:textSize="14sp" />
-
 
         </LinearLayout>
 
@@ -95,7 +93,6 @@
             app:layout_constraintStart_toStartOf="@id/contentTextView"
             app:layout_constraintTop_toBottomOf="@id/contentTextView" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
@@ -104,6 +101,5 @@
         android:layout_gravity="bottom"
         android:layout_marginHorizontal="8dp"
         android:background="@color/dark_12" />
-
 
 </androidx.cardview.widget.CardView>

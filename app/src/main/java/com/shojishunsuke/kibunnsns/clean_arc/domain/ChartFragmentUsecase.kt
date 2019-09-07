@@ -15,22 +15,22 @@ class ChartFragmentUsecase {
     private val useRepository = FirebaseUserRepository()
     private val userId = useRepository.getUserId()
 
-
     suspend fun getDataOfDate(date: Calendar): Pair<List<Entry>, List<PieEntry>> = runBlocking {
         val dateStart = date.clone() as Calendar
         dateStart.apply {
-            set(Calendar.HOUR_OF_DAY,0)
-            set(Calendar.MINUTE,0)
-            set(Calendar.SECOND,0)
+            set(Calendar.HOUR_OF_DAY, 0)
+            set(Calendar.MINUTE, 0)
+            set(Calendar.SECOND, 0)
         }
         val dateEnd = date.clone() as Calendar
         dateEnd.apply {
-            set(Calendar.HOUR_OF_DAY,23)
-            set(Calendar.MINUTE,59)
-            set(Calendar.SECOND,59)
+            set(Calendar.HOUR_OF_DAY, 23)
+            set(Calendar.MINUTE, 59)
+            set(Calendar.SECOND, 59)
         }
 
-        val posts = fireStoreRepository.loadDateRangedCollection(userId,dateStart.time,dateEnd.time)
+        val posts =
+                fireStoreRepository.loadDateRangedCollection(userId, dateStart.time, dateEnd.time)
         val lineEntryList = mutableListOf<Entry>()
 
         if (posts.isNotEmpty()) {
@@ -45,28 +45,35 @@ class ChartFragmentUsecase {
         Pair(lineEntryList, pieEntryList)
     }
 
-    suspend fun getDataOfWeek(firstDayOfWeek: Calendar,lastDayOfWeek: Calendar): Pair<List<Entry>, List<PieEntry>> = runBlocking {
+    suspend fun getDataOfWeek(
+            firstDayOfWeek: Calendar,
+            lastDayOfWeek: Calendar
+    ): Pair<List<Entry>, List<PieEntry>> = runBlocking {
         firstDayOfWeek.apply {
-            set(Calendar.HOUR_OF_DAY,0)
-            set(Calendar.MINUTE,0)
-            set(Calendar.SECOND,0)
+            set(Calendar.HOUR_OF_DAY, 0)
+            set(Calendar.MINUTE, 0)
+            set(Calendar.SECOND, 0)
         }
 
         lastDayOfWeek.apply {
-            set(Calendar.HOUR_OF_DAY,23)
+            set(Calendar.HOUR_OF_DAY, 23)
             set(Calendar.MINUTE, 59)
-            set(Calendar.SECOND,59)
+            set(Calendar.SECOND, 59)
         }
 
-        val posts = fireStoreRepository.loadDateRangedCollection(userId,firstDayOfWeek.time,lastDayOfWeek.time)
-        val sentiScoreMap= getWeekAverageScoreMap(posts)
+        val posts = fireStoreRepository.loadDateRangedCollection(
+                userId,
+                firstDayOfWeek.time,
+                lastDayOfWeek.time
+        )
+        val sentiScoreMap = getWeekAverageScoreMap(posts)
 
         val lineEntryList = mutableListOf<Entry>()
 
-        sentiScoreMap.keys.forEach {dayOfWeek ->
-            val dayFloat= dayOfWeek.toFloat()
-            val sentiScore= sentiScoreMap[dayOfWeek] ?:2f
-            val entry = Entry(dayFloat,formatSentiScore(sentiScore))
+        sentiScoreMap.keys.forEach { dayOfWeek ->
+            val dayFloat = dayOfWeek.toFloat()
+            val sentiScore = sentiScoreMap[dayOfWeek] ?: 2f
+            val entry = Entry(dayFloat, formatSentiScore(sentiScore))
             lineEntryList.add(entry)
         }
 
@@ -75,30 +82,34 @@ class ChartFragmentUsecase {
         Pair(lineEntryList, pieEntryList)
     }
 
-    suspend fun getDataOfMonth(date:Calendar): Pair<List<Entry>, List<PieEntry>> = runBlocking {
-        val firstDayOfMonth = date.clone()as Calendar
+    suspend fun getDataOfMonth(date: Calendar): Pair<List<Entry>, List<PieEntry>> = runBlocking {
+        val firstDayOfMonth = date.clone() as Calendar
         firstDayOfMonth.apply {
-            set(Calendar.DAY_OF_MONTH,1)
-            set(Calendar.HOUR_OF_DAY,0)
-            set(Calendar.MINUTE,0)
-            set(Calendar.SECOND,0)
+            set(Calendar.DAY_OF_MONTH, 1)
+            set(Calendar.HOUR_OF_DAY, 0)
+            set(Calendar.MINUTE, 0)
+            set(Calendar.SECOND, 0)
         }
 
         val lastDayOfMonth = date.clone() as Calendar
 
         lastDayOfMonth.apply {
-            set(Calendar.DAY_OF_MONTH,getActualMaximum(Calendar.DAY_OF_MONTH))
-            set(Calendar.HOUR_OF_DAY,23)
+            set(Calendar.DAY_OF_MONTH, getActualMaximum(Calendar.DAY_OF_MONTH))
+            set(Calendar.HOUR_OF_DAY, 23)
             set(Calendar.MINUTE, 59)
-            set(Calendar.SECOND,59)
+            set(Calendar.SECOND, 59)
         }
 
-        val posts = fireStoreRepository.loadDateRangedCollection(userId,firstDayOfMonth.time,lastDayOfMonth.time)
+        val posts = fireStoreRepository.loadDateRangedCollection(
+                userId,
+                firstDayOfMonth.time,
+                lastDayOfMonth.time
+        )
         val sentiScoreMap = getMonthAverageScoreMap(posts)
 
         val lineEntryList = mutableListOf<Entry>()
         sentiScoreMap.keys.forEach { day ->
-//           axisValueが０から始まるので日付を−1.0fする
+            //           axisValueが０から始まるので日付を−1.0fする
             val floatDay = day.toFloat() - 1.0f
             val sentiScore = sentiScoreMap[day] ?: 2f
             val entry = Entry(floatDay, formatSentiScore(sentiScore))
@@ -147,16 +158,16 @@ class ChartFragmentUsecase {
         return ((score * 10) + 10) / 5
     }
 
-    private fun getWeekAverageScoreMap(posts: List<Post>):Map<Int,Float>{
+    private fun getWeekAverageScoreMap(posts: List<Post>): Map<Int, Float> {
 //        週の何日目 : その日の平均スコア のマップを作成
-        val defMap = mutableMapOf<Int,MutableList<Float>>()
+        val defMap = mutableMapOf<Int, MutableList<Float>>()
         val calendar = Calendar.getInstance()
         posts.forEach {
             calendar.time = it.date
             val dayOfWeek = calendar.diffToMonday().absoluteValue
-            if (defMap.containsKey(dayOfWeek)){
+            if (defMap.containsKey(dayOfWeek)) {
                 defMap[dayOfWeek]?.add(it.sentiScore)
-            }else{
+            } else {
                 defMap.set(dayOfWeek, mutableListOf(it.sentiScore))
             }
         }
@@ -192,8 +203,6 @@ class ChartFragmentUsecase {
             val average = scoreList?.average()?.toFloat() ?: 0f
             resultMap.set(day, average)
         }
-
-
         return resultMap
     }
 }

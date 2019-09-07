@@ -20,24 +20,26 @@ class PostsRecordFragment : Fragment() {
     lateinit var recyclerViewAdapter: PostRecordRecyclerViewAdapter
     lateinit var viewModel: PostsRecordFragmentViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_posts_record, container, false)
-     viewModel = ViewModelProviders.of(this).get(PostsRecordFragmentViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(PostsRecordFragmentViewModel::class.java)
 
         recyclerViewAdapter = PostRecordRecyclerViewAdapter(requireContext()) {}
 
-        val recyclerView = view.recentPostsRecyclerView.apply {
+        view.recentPostsRecyclerView.apply {
             adapter = recyclerViewAdapter
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-            layoutAnimation = AnimationUtils.loadLayoutAnimation(this.context, R.anim.animation_recyclerview)
+            layoutAnimation =
+                    AnimationUtils.loadLayoutAnimation(this.context, R.anim.animation_recyclerview)
         }
 
         viewModel.postsList.observe(viewLifecycleOwner, Observer {
             recyclerViewAdapter.addNextCollection(it)
         })
-
-
-
         return view
     }
 

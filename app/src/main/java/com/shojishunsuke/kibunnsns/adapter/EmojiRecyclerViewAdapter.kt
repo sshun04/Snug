@@ -9,12 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
 
 class EmojiRecyclerViewAdapter(
-    context: Context,
-    private val unicodeList:MutableList<String> = mutableListOf(),
-    private val emojiListener: (String) -> Unit
-) :
-    RecyclerView.Adapter<EmojiRecyclerViewAdapter.ViewHolder>() {
-
+        context: Context,
+        private val unicodeList: MutableList<String> = mutableListOf(),
+        private val emojiListener: (String) -> Unit
+) : RecyclerView.Adapter<EmojiRecyclerViewAdapter.ViewHolder>() {
     private val inflater = LayoutInflater.from(context)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -33,10 +31,10 @@ class EmojiRecyclerViewAdapter(
     override fun getItemCount(): Int = unicodeList.count()
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val emojiTextView:EmojiTextView = view.findViewById(R.id.emojiTextView)
+        val emojiTextView: EmojiTextView = view.findViewById(R.id.emojiTextView)
     }
 
-    fun setValue(list: List<String>){
+    fun setValue(list: List<String>) {
         unicodeList.addAll(list)
         notifyDataSetChanged()
     }

@@ -13,22 +13,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
-import androidx.viewpager.widget.ViewPager
-import at.markushi.ui.CircleButton
 import com.bumptech.glide.Glide
-import com.google.android.material.tabs.TabLayout
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
-//import com.shojishunsuke.kibunnsns.activity.CalendarActivity
-//import com.shojishunsuke.kibunnsns.activity.ChartActivity
 import com.shojishunsuke.kibunnsns.activity.SettingActivity
 import com.shojishunsuke.kibunnsns.adapter.PagerAdapter
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.RecordFragmentViewModel
@@ -45,7 +36,11 @@ class RecordFragment : Fragment() {
     private lateinit var viewModel: RecordFragmentViewModel
     private lateinit var iconView: CircleImageView
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_record, container, false)
 
         viewModel = requireActivity().run {
@@ -60,8 +55,6 @@ class RecordFragment : Fragment() {
         val viewPager = view.viewPager
         val tabLayout = view.tabLayout
 
-
-
         settingIcon.setOnClickListener {
             val intent = Intent(requireContext(), SettingActivity::class.java)
             startActivity(intent)
@@ -69,7 +62,10 @@ class RecordFragment : Fragment() {
 
         editImageIcon.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            intent.setDataAndType(Uri.parse(Environment.getExternalStorageDirectory().path), "image/*")
+            intent.setDataAndType(
+                    Uri.parse(Environment.getExternalStorageDirectory().path),
+                    "image/*"
+            )
             startActivityForResult(intent, REQUEST_CODE_VIEW)
         }
 
@@ -81,7 +77,7 @@ class RecordFragment : Fragment() {
             setUpEditNameDialog(inflater)
         }
 
-        Log.d("Fragment","${this.tag}")
+        Log.d("Fragment", "${this.tag}")
 
 
         tabLayout.apply {
@@ -115,16 +111,16 @@ class RecordFragment : Fragment() {
         super.onResume()
         if (viewModel.currentBitmap != null) {
             Glide.with(requireContext())
-                .load(viewModel.currentBitmap)
-                .placeholder(R.drawable.iconmonstr_user_20_96)
-                .error(R.drawable.iconmonstr_user_20_96)
-                .into(iconView)
+                    .load(viewModel.currentBitmap)
+                    .placeholder(R.drawable.iconmonstr_user_20_96)
+                    .error(R.drawable.iconmonstr_user_20_96)
+                    .into(iconView)
         } else {
             GlideApp.with(requireContext())
-                .load(viewModel.getIconRef())
-                .placeholder(R.drawable.iconmonstr_user_20_96)
-                .error(R.drawable.iconmonstr_user_20_96)
-                .into(iconView)
+                    .load(viewModel.getIconRef())
+                    .placeholder(R.drawable.iconmonstr_user_20_96)
+                    .error(R.drawable.iconmonstr_user_20_96)
+                    .into(iconView)
         }
     }
 
@@ -135,11 +131,11 @@ class RecordFragment : Fragment() {
         editText.setText(viewModel.userName.value)
 
         val editDialog = AlertDialog.Builder(requireContext())
-            .setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
-                viewModel.saveUserName(editText.text.toString())
-            })
-            .setNegativeButton("キャンセル", null)
-            .create()
+                .setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
+                    viewModel.saveUserName(editText.text.toString())
+                })
+                .setNegativeButton("キャンセル", null)
+                .create()
 
         editDialog.setView(parentView)
         editDialog.show()

@@ -8,8 +8,8 @@
         android:id="@+id/emojiTextView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="\ud83e\udd5d"
         android:gravity="center"
+        android:text="\ud83e\udd5d"
         android:textSize="28sp" />
 
 </RelativeLayout>

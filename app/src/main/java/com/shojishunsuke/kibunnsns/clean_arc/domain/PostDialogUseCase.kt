@@ -12,16 +12,15 @@ import kotlinx.coroutines.runBlocking
 import java.util.*
 
 class PostDialogUseCase(
-    private val localDataBaseRepository: LocalDataBaseRepository,
-    private val analysisRepository: LanguageAnalysisRepository
+        private val localDataBaseRepository: LocalDataBaseRepository,
+        private val analysisRepository: LanguageAnalysisRepository
 ) {
     private val emojiRepository = EmojiRepositoy()
     private val fireStoreRepository = FireStoreDatabaseRepository()
     private val userInfoRepository = FirebaseUserRepository()
     private val postDateRepository = RoomPostDateRepository()
 
-
-    suspend fun generatePost(content: String, emojiCode: String,date: Date): Post = runBlocking {
+    suspend fun generatePost(content: String, emojiCode: String, date: Date): Post = runBlocking {
 
         if (emojiCode.isNotBlank()) {
             localDataBaseRepository.registerItem(emojiCode)
@@ -37,15 +36,15 @@ class PostDialogUseCase(
         val category: String = analysisResult.third
 
         val post = Post(
-            userName = userName,
-            userId = userId,
-            iconPhotoLink = "$iconUri",
-            contentText = content,
-            sentiScore = sentiScore,
-            magnitude = magnitude,
-            actID = emojiCode,
-            keyWord = category,
-            date = date
+                userName = userName,
+                userId = userId,
+                iconPhotoLink = "$iconUri",
+                contentText = content,
+                sentiScore = sentiScore,
+                magnitude = magnitude,
+                actID = emojiCode,
+                keyWord = category,
+                date = date
         )
 
         runBlocking {
@@ -57,13 +56,12 @@ class PostDialogUseCase(
     fun loadWholeEmoji(): List<String> = emojiRepository.loadWholeEmoji()
 
     suspend fun loadCurrentEmoji(): List<String> {
-        val defaultCollection: List<EmojiItem> = localDataBaseRepository.loadLatestCollection() as List<EmojiItem>
+        val defaultCollection: List<EmojiItem> =
+                localDataBaseRepository.loadLatestCollection() as List<EmojiItem>
         val stringList = mutableListOf<String>()
         defaultCollection.forEach {
             stringList.add(it.emojiCode)
         }
         return stringList
     }
-
-
 }

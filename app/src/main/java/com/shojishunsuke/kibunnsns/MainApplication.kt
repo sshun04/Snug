@@ -10,16 +10,19 @@ import com.shojishunsuke.kibunnsns.clean_arc.data.room.RoomPostDatabase
 class MainApplication : Application() {
     companion object {
         lateinit var emojiDatabase: RoomEmojiDatabase
-        lateinit var postDateDatabase:RoomPostDatabase
+        lateinit var postDateDatabase: RoomPostDatabase
     }
+
     override fun onCreate() {
 
         val emojiConfig = BundledEmojiCompatConfig(this)
         emojiConfig.setReplaceAll(true)
         EmojiCompat.init(emojiConfig)
 
-        emojiDatabase = Room.databaseBuilder(this,RoomEmojiDatabase::class.java,"kibunn_emoji.db").build()
-        postDateDatabase = Room.databaseBuilder(this,RoomPostDatabase::class.java,"kibunn_post_date.db").build()
+        emojiDatabase =
+                Room.databaseBuilder(this, RoomEmojiDatabase::class.java, "kibunn_emoji.db").build()
+        postDateDatabase =
+                Room.databaseBuilder(this, RoomPostDatabase::class.java, "kibunn_post_date.db").build()
 
         super.onCreate()
     }

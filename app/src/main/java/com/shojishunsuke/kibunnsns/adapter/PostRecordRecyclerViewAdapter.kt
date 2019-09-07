@@ -3,7 +3,6 @@ package com.shojishunsuke.kibunnsns.adapter
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
-import android.graphics.Color
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -11,24 +10,19 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.PopupMenu
 import android.widget.TextView
-import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.PostRecordItemViewModel
 import com.shojishunsuke.kibunnsns.model.Post
-import com.shojishunsuke.kibunnsns.utils.dayOfMonth
-import com.shojishunsuke.kibunnsns.utils.dayOfWeek
 import com.shojishunsuke.kibunnsns.utils.detailDateString
 import java.util.*
 
 class PostRecordRecyclerViewAdapter(
-    private val context: Context,
-    private val removedListener: (Post) -> Unit
+        private val context: Context,
+        private val removedListener: (Post) -> Unit
 ) : PagingBaseAdapter<RecyclerView.ViewHolder>() {
-
     private val inflater = LayoutInflater.from(context)
     private val calendar = Calendar.getInstance()
-
     private val viewModel = PostRecordItemViewModel()
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -37,7 +31,7 @@ class PostRecordRecyclerViewAdapter(
         val detailDateString = calendar.detailDateString()
         val time = takeTimeFromDate(calendar.time)
         val activityIcon =
-            if (post.actID.isNotBlank()) post.actID else ""
+                if (post.actID.isNotBlank()) post.actID else ""
 
         calendar.time = post.date
 
@@ -47,17 +41,15 @@ class PostRecordRecyclerViewAdapter(
             popupMenu.setOnMenuItemClickListener { menu ->
                 when (menu.itemId) {
                     R.id.deletePost -> {
-                        val deleteDialog = AlertDialog.Builder(context)
-                            .setPositiveButton("削除", DialogInterface.OnClickListener { _, _ ->
-
-                                viewModel.deletePost(post)
-                                removedListener(post)
-                                removeItem(position)
-                            })
-                            .setNegativeButton("キャンセル", null)
-                            .setMessage("本当に削除しますか？")
-                            .show()
-
+                        AlertDialog.Builder(context)
+                                .setPositiveButton("削除") { _, _ ->
+                                    viewModel.deletePost(post)
+                                    removedListener(post)
+                                    removeItem(position)
+                                }
+                                .setNegativeButton("キャンセル", null)
+                                .setMessage("本当に削除しますか？")
+                                .show()
                     }
                 }
                 return@setOnMenuItemClickListener true
@@ -65,7 +57,6 @@ class PostRecordRecyclerViewAdapter(
             popupMenu.inflate(R.menu.record_popup_menu)
             popupMenu.show()
         }
-
 
         holder.sentiScoreDescription.apply {
             val description = getSentiDescription(post.sentiScore)
@@ -78,15 +69,12 @@ class PostRecordRecyclerViewAdapter(
         holder.timeTextView.text = time
         holder.contentTextView.text = post.contentText
         holder.activityICon.text = activityIcon
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            val view = inflater.inflate(R.layout.item_post_record_detail, parent, false)
-            return DetailViewHolder(view)
-
+        val view = inflater.inflate(R.layout.item_post_record_detail, parent, false)
+        return DetailViewHolder(view)
     }
-
 
     private class DetailViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val sentiScoreDescription: TextView = view.findViewById(R.id.sentiDescription)
@@ -96,7 +84,5 @@ class PostRecordRecyclerViewAdapter(
         val timeTextView: TextView = view.findViewById(R.id.timeTextView)
         val popMenuButton: ImageButton = view.findViewById(R.id.popMenuButton)
         val numberOfViews: TextView = view.findViewById(R.id.numberOfViews)
-
     }
-
 }

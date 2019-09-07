@@ -20,31 +20,34 @@ import kotlinx.android.synthetic.main.fragment_calendar.view.*
 import java.util.*
 
 class CalendarFragment : Fragment() {
+    lateinit var recyclerViewAdapter: PostRecordRecyclerViewAdapter
+    lateinit var viewModel: CalendarFragmentViewModel
 
-    lateinit var recyclerViewAdapter:PostRecordRecyclerViewAdapter
-    lateinit var viewModel :CalendarFragmentViewModel
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_calendar, container, false)
-        viewModel = requireActivity().run { ViewModelProviders.of(this).get(CalendarFragmentViewModel::class.java) }
+        viewModel = requireActivity().run {
+            ViewModelProviders.of(this).get(CalendarFragmentViewModel::class.java)
+        }
 
-
-       recyclerViewAdapter = PostRecordRecyclerViewAdapter(requireContext()){
-           viewModel.onPostRemoved(it)
-       }
+        recyclerViewAdapter = PostRecordRecyclerViewAdapter(requireContext()) {
+            viewModel.onPostRemoved(it)
+        }
 
         val recyclerView = view.datePostsRecyclerView.apply {
             adapter = recyclerViewAdapter
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-            layoutAnimation = AnimationUtils.loadLayoutAnimation(this.context, R.anim.animation_recyclerview)
-
+            layoutAnimation =
+                    AnimationUtils.loadLayoutAnimation(this.context, R.anim.animation_recyclerview)
         }
         view.focusTodayButton.setOnClickListener {
             recyclerViewAdapter.clear()
             viewModel.onFocusToday()
             view.compactCalendar.setCurrentDate(viewModel.getDate())
         }
-
 
         view.compactCalendar.apply {
             val currentDate = Calendar.getInstance()
@@ -56,12 +59,13 @@ class CalendarFragment : Fragment() {
             setListener(object : CompactCalendarView.CompactCalendarViewListener {
                 override fun onDayClick(dateClicked: Date?) {
                     recyclerViewAdapter.clear()
-                    viewModel.setDate(dateClicked?: Date())
+                    viewModel.setDate(dateClicked ?: Date())
                 }
 
                 override fun onMonthScroll(firstDayOfNewMonth: Date?) {
                     currentDate.time = firstDayOfNewMonth
-                    view.calendarHeaderTextView.text = "${currentDate.year()}年${currentDate.month()}月"
+                    view.calendarHeaderTextView.text =
+                            "${currentDate.year()}年${currentDate.month()}月"
                 }
             })
         }

@@ -45,9 +45,9 @@ class DetailPostsFragment : Fragment() {
         fun setupFragment(post: Post, fragmentManager: FragmentManager) {
             fragmentManager.beginTransaction().also {
                 it.add(R.id.detailFragmentContainer, getInstance(post))
-                    .setCustomAnimations(R.anim.slide_from_right, R.anim.slide_to_left)
-                    .addToBackStack("detail")
-                    .commit()
+                        .setCustomAnimations(R.anim.slide_from_right, R.anim.slide_to_left)
+                        .addToBackStack("detail")
+                        .commit()
             }
         }
 
@@ -63,13 +63,17 @@ class DetailPostsFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_detail, container, false)
         val post = arguments?.getSerializable(EXTRA_POST) as Post
 
         val viewModel = this.run {
             ViewModelProviders.of(this, DetailPostsFragmentViewModelFactory(post))
-                .get(DetailPostsFragmentViewModel::class.java)
+                    .get(DetailPostsFragmentViewModel::class.java)
         }
 
         view.detailFragmentToolbar.setNavigationOnClickListener {
@@ -82,10 +86,10 @@ class DetailPostsFragment : Fragment() {
         view.selectedUserName.text = viewModel.getUserName()
 
         Glide.with(requireContext())
-            .load(post.iconPhotoLink)
-            .error(R.drawable.icon_annonymous)
-            .placeholder(R.drawable.icon_annonymous)
-            .into(view.selectedUserIcon)
+                .load(post.iconPhotoLink)
+                .error(R.drawable.icon_annonymous)
+                .placeholder(R.drawable.icon_annonymous)
+                .into(view.selectedUserIcon)
 
         view.selectedActIcon.text = viewModel.getEmojiCode()
         view.selectedDate.text = viewModel.getFormattedDate()
@@ -103,9 +107,9 @@ class DetailPostsFragment : Fragment() {
         }
 
         val endlessScrollListener =
-            NestedEndlessScrollListener(stagLayoutManager, recyclerView) {
+                NestedEndlessScrollListener(stagLayoutManager, recyclerView) {
                     viewModel.onScrollBottom()
-            }
+                }
         view.nestedScrollView.setOnScrollChangeListener(endlessScrollListener)
 
         viewModel.nextPosts.observe(viewLifecycleOwner, Observer {
@@ -114,9 +118,4 @@ class DetailPostsFragment : Fragment() {
 
         return view
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
 }

@@ -6,9 +6,6 @@ import android.util.Log
 import androidx.preference.PreferenceFragmentCompat
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.shojishunsuke.kibunnsns.R
@@ -29,15 +26,16 @@ class PreferenceFragment : PreferenceFragmentCompat() {
         val authPreference = findPreference("authenticate")
         authPreference.setOnPreferenceClickListener {
             startActivityForResult(
-                AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(
-                    listOf(AuthUI.IdpConfig.GoogleBuilder().build(),
-                        AuthUI.IdpConfig.EmailBuilder().build(),
-                        AuthUI.IdpConfig.PhoneBuilder().build())
-                ).build(), RC_SIGN_IN
+                    AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(
+                            listOf(
+                                    AuthUI.IdpConfig.GoogleBuilder().build(),
+                                    AuthUI.IdpConfig.EmailBuilder().build(),
+                                    AuthUI.IdpConfig.PhoneBuilder().build()
+                            )
+                    ).build(), RC_SIGN_IN
             )
             true
         }
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -51,18 +49,15 @@ class PreferenceFragment : PreferenceFragmentCompat() {
         }
     }
 
-
-    private fun fireBaseAuthWithGoogle(idToken:String) {
+    private fun fireBaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
 
-        user?.linkWithCredential(credential)?.addOnCompleteListener(requireActivity()){ task ->
+        user?.linkWithCredential(credential)?.addOnCompleteListener(requireActivity()) { task ->
             if (task.isSuccessful) {
                 Log.d(TAG, "signInWithCredential:success")
             } else {
                 Log.d(TAG, "signInWithCredential : failure")
             }
-
         }
-
     }
 }

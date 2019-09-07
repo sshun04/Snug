@@ -23,27 +23,26 @@ import com.shojishunsuke.kibunnsns.model.Post
 import kotlinx.android.synthetic.main.fragment_home_posts.view.*
 
 class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
-
     lateinit var viewModel: HomeFragmentViewModel
     lateinit var pagingAdapter: PagingRecyclerViewAdapter
     private var isLoading = false
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home_posts, container, false)
 
         viewModel =
-            ViewModelProviders.of(this).get(HomeFragmentViewModel::class.java)
+                ViewModelProviders.of(this).get(HomeFragmentViewModel::class.java)
 
 
         val progressBar = view.progressBar.apply {
             max = 100
-            if(Build.VERSION.SDK_INT >= 24){
+            if (Build.VERSION.SDK_INT >= 24) {
                 setProgress(84, true)
-            }else {
+            } else {
             }
 
         }
@@ -71,17 +70,17 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
             adapter = pagingAdapter
             layoutManager = stagLayoutManager
             layoutAnimation =
-                AnimationUtils.loadLayoutAnimation(this.context, R.anim.animation_recyclerview)
+                    AnimationUtils.loadLayoutAnimation(this.context, R.anim.animation_recyclerview)
         }
 
         view.linear.setOnClickListener {
             recyclerView.layoutManager =
-                LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+                    LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             pagingAdapter.viewType = 2
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.scheduleLayoutAnimation()
             it.visibility = View.GONE
-            view.grid.visibility  = View.VISIBLE
+            view.grid.visibility = View.VISIBLE
         }
 
         view.grid.setOnClickListener {
@@ -96,8 +95,8 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
         view.sentiSeekBar.apply {
             setOnSeekBarChangeListener(this@HomePostsFragment)
             progressDrawable?.setColorFilter(
-                viewModel.getProgressSeekBarColor(),
-                PorterDuff.Mode.SRC_ATOP
+                    viewModel.getProgressSeekBarColor(),
+                    PorterDuff.Mode.SRC_ATOP
             )
             thumb?.setColorFilter(viewModel.getProgressSeekBarColor(), PorterDuff.Mode.SRC_IN)
             scrollBarSize = 8
@@ -142,9 +141,7 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
         Log.d("HomeFragment", "onResume")
     }
 
-
     private fun setUpDetailFragment(post: Post) {
         DetailPostsFragment.setupFragment(post, requireFragmentManager())
     }
-
 }

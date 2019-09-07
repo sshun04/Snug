@@ -17,17 +17,21 @@ import kotlinx.android.synthetic.main.fragment_chart.view.*
 import java.util.*
 
 class ChartFragment : Fragment(), View.OnClickListener {
-
     private lateinit var viewModel: ChartFragmentViewModel
     private lateinit var parentView: View
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? {
         parentView = inflater.inflate(R.layout.fragment_chart, container, false)
         val lineChart = parentView.lineChart
         val pieChart = parentView.pieChart
 
         viewModel = requireActivity().run {
-            ViewModelProviders.of(this,ChartFragmentViewModelFactory(requireContext())).get(ChartFragmentViewModel::class.java)
+            ViewModelProviders.of(this, ChartFragmentViewModelFactory(requireContext()))
+                    .get(ChartFragmentViewModel::class.java)
         }
         lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
 
@@ -127,9 +131,4 @@ class ChartFragment : Fragment(), View.OnClickListener {
             }
         }
     }
-
-
-
-
-
 }

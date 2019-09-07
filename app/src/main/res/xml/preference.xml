@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Preference
         app:key="editEmoji"
         app:title="アクティビティアイコンを編集"
-        app:summary="Report technical issues or suggest new features"
-        />
+        app:summary="Report technical issues or suggest new features" />
 
     <Preference
         app:key="themeColor"
         app:title="テーマを変更"
-        app:summary="メインカラーテーマを変更します"
-        />
+        app:summary="メインカラーテーマを変更します" />
 
     <Preference
         app:key="authenticate"
         app:title="Googleアカウントと連携"
-        app:summary="Googleアカウントにログインすることで機種変更の際にデータが引き継がれます"
-        />
+        app:summary="Googleアカウントにログインすることで機種変更の際にデータが引き継がれます" />
 
 </PreferenceScreen>

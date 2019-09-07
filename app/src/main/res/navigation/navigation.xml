@@ -21,7 +21,7 @@
         android:id="@+id/navigation_second"
         android:name="com.shojishunsuke.kibunnsns.fragment.RecordFragment"
         android:label="RecordFragment"
-        tools:layout="@layout/fragment_record" >
+        tools:layout="@layout/fragment_record">
 
 
     </custom_fragment>
@@ -30,12 +30,11 @@
         android:id="@+id/post_dialog"
         android:label="PostDialogFragment"
         android:name="com.shojishunsuke.kibunnsns.fragment.PostDialogFragment"
-        tools:layout="@layout/fragment_dialog_post"
-        >
+        tools:layout="@layout/fragment_dialog_post">
 
         <action
             android:id="@+id/action_dialog_to_home"
-            app:destination="@id/navigation_home"/>
+            app:destination="@id/navigation_home" />
 
     </fragment>
 

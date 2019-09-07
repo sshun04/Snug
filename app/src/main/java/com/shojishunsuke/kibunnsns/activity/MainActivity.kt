@@ -12,7 +12,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.MainActivityViewModel
 import com.shojishunsuke.kibunnsns.clean_arc.presentation.viewmodel_factory.MainActivityViewModelFactory
@@ -21,7 +20,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class
 MainActivity : AppCompatActivity() {
-
     private lateinit var bottomNavigation: BottomNavigationView
     private lateinit var mainViewModel: MainActivityViewModel
     private var isInitialized = false
@@ -32,19 +30,16 @@ MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         auth = FirebaseAuth.getInstance()
-
         val fab = findViewById<FloatingActionButton>(R.id.fab)
-
         mainViewModel = run {
             ViewModelProviders.of(this, MainActivityViewModelFactory(this))
-                .get(MainActivityViewModel::class.java)
+                    .get(MainActivityViewModel::class.java)
         }
 
         fab.setOnClickListener {
             mainViewModel.setupPostFragment(supportFragmentManager)
             isInitialized = true
         }
-
     }
 
     override fun onStart() {
@@ -52,31 +47,26 @@ MainActivity : AppCompatActivity() {
         val currentUser = auth.currentUser
         if (currentUser != null) {
             Log.d("Auth is Anonymous", "${currentUser.isAnonymous}")
-            if (!mainViewModel.isNavigationInitialized) updateUi(currentUser)
+            if (!mainViewModel.isNavigationInitialized) updateUi()
         } else {
 
             auth.signInAnonymously()
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Log.d("TAG", "signInAnonymously:success")
-                        val user = auth.currentUser
-                        mainViewModel.onAuthSuccess()
-                        updateUi(user)
-                    } else {
-                        Log.d("TAG", "signInAnonymously:failure")
-                        Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT)
-                            .show()
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Log.d("TAG", "signInAnonymously:success")
+                            val user = auth.currentUser
+                            mainViewModel.onAuthSuccess()
+                            updateUi()
+                        } else {
+                            Log.d("TAG", "signInAnonymously:failure")
+                            Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT)
+                                    .show()
+                        }
                     }
-                }
-
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
-    private fun updateUi(user: FirebaseUser?) {
+    private fun updateUi() {
         Log.d("MainActivity", "updateUI")
         this.mainActivityProgressbar.visibility = View.GONE
         val navController = findNavController(R.id.nav_host_fragment)
@@ -84,16 +74,13 @@ MainActivity : AppCompatActivity() {
 
         bottomNavigation = findViewById(R.id.bottom_navigation)
         val navigator =
-            CustomNavigator(this, navHostFragment.childFragmentManager, R.id.nav_host_fragment)
+                CustomNavigator(this, navHostFragment.childFragmentManager, R.id.nav_host_fragment)
         navController.navigatorProvider += navigator
         navController.setGraph(R.navigation.navigation)
         bottomNavigation.setupWithNavController(navController)
         mainViewModel.isNavigationInitialized = true
     }
 
-
     override fun onNavigateUp(): Boolean = findNavController(R.id.nav_host_fragment).navigateUp()
-
-
 }
 

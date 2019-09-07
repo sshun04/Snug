@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -26,51 +25,49 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp">
+                        android:layout_height="40dp"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:id="@+id/monthNextButton"
-                            android:padding="4dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ic_chevron_left_black_24dp"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent" />
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:padding="4dp"
+                            android:src="@drawable/ic_chevron_left_black_24dp" />
 
                         <TextView
                             android:id="@+id/calendarHeaderTextView"
-                            android:gravity="center"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
                             android:layout_weight="7"
+                            android:gravity="center"
                             android:text="2019年8月"
                             android:textColor="@color/dark_54"
-                            android:textStyle="bold"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent" />
+                            android:textStyle="bold" />
 
                         <ImageView
                             android:id="@+id/monthPreviousButton"
-                            android:padding="4dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ic_chevron_right_black_24dp"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent" />
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:padding="4dp"
+                            android:src="@drawable/ic_chevron_right_black_24dp" />
 
                     </LinearLayout>
 
                     <com.github.sundeepk.compactcalendarview.CompactCalendarView
                         android:id="@+id/compactCalendar"
+                        android:layout_width="match_parent"
+                        android:layout_height="260dp"
                         app:compactCalendarBackgroundColor="@android:color/transparent"
-                        app:compactCalendarTextSize="12sp"
-                        app:compactCalendarCurrentSelectedDayBackgroundColor="@color/color_neutral"
                         app:compactCalendarCurrentDayBackgroundColor="@color/dark_12"
+                        app:compactCalendarCurrentSelectedDayBackgroundColor="@color/color_neutral"
                         app:compactCalendarEventIndicatorStyle="small_indicator"
                         app:compactCalendarMultiEventIndicatorColor="@color/color_neutral"
-                        android:layout_width="match_parent"
-                        android:layout_height="260dp" />
-
+                        app:compactCalendarTextSize="12sp" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/focusTodayButton"
@@ -86,6 +83,7 @@
                         app:iconTint="@color/dark_26" />
 
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -106,7 +104,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:visibility="gone"
                     android:id="@+id/detailSwitch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -114,18 +111,16 @@
                     android:text="詳細表示"
                     android:textColor="@color/dark_54"
                     android:textSize="12sp"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/datePostsRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
 
         </LinearLayout>
 

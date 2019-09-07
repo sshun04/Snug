@@ -11,7 +11,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class RecordFragmentViewModel : ViewModel(), CloudStorageRepository.ImageUploadListener {
-
     private val useCase = RecordFragmentUsecase(this)
 
     var currentBitmap: Bitmap? = null
@@ -46,8 +45,5 @@ class RecordFragmentViewModel : ViewModel(), CloudStorageRepository.ImageUploadL
         GlobalScope.launch {
             useCase.saveLocalPhotoUri(result)
         }
-//
     }
-
-
 }

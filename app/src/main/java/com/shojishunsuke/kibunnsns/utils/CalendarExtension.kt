@@ -9,7 +9,6 @@ import java.util.*
  *
  * @author shun
  */
-
 fun Calendar.month(): Int = get(Calendar.MONTH) + 1
 
 fun Calendar.dayOfMonth(): Int = get(Calendar.DAY_OF_MONTH)
@@ -32,16 +31,16 @@ fun Calendar.dayOfWeek(): String {
     }
 }
 
-fun Calendar.diffToMonday():Int{
+fun Calendar.diffToMonday(): Int {
     val dayOfWeek = get(Calendar.DAY_OF_WEEK)
     return 2 - dayOfWeek
 }
 
-fun Calendar.detailDateString():String{
+fun Calendar.detailDateString(): String {
     return "${year()}年${month()}月${dayOfMonth()}日(${dayOfWeek()})"
 }
 
-fun Calendar.timeOfDayString():String{
+fun Calendar.timeOfDayString(): String {
     val formatter = SimpleDateFormat("HH:mm", Locale.JAPAN)
     return formatter.format(this.time)
 }

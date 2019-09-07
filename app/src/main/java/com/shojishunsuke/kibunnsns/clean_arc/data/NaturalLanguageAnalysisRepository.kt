@@ -15,20 +15,20 @@ import kotlinx.coroutines.runBlocking
 
 
 class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepository {
-
     private val naturalLanguageService: CloudNaturalLanguage
 
     init {
         val apiKey = context.resources.getString(R.string.api_key)
         naturalLanguageService = CloudNaturalLanguage.Builder(
-            AndroidHttp.newCompatibleTransport(), AndroidJsonFactory(), null
-        ).setCloudNaturalLanguageRequestInitializer(
-            CloudNaturalLanguageRequestInitializer(apiKey)
-        ).build()
-
+                AndroidHttp.newCompatibleTransport(),
+                AndroidJsonFactory(),
+                null
+        )
+                .setCloudNaturalLanguageRequestInitializer(CloudNaturalLanguageRequestInitializer(apiKey))
+                .build()
     }
 
-    override suspend fun analyzeText(text: String):Triple<Float,Float, String> = runBlocking {
+    override suspend fun analyzeText(text: String): Triple<Float, Float, String> = runBlocking {
         val document = Document()
         document.language = "ja_JP"
         document.type = "PLAIN_TEXT"
@@ -42,8 +42,8 @@ class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepo
         annotateTextRequest.document = document
         annotateTextRequest.features = features
 
-
-        val response = naturalLanguageService.documents().annotateText(annotateTextRequest).execute()
+        val response =
+                naturalLanguageService.documents().annotateText(annotateTextRequest).execute()
         val sentiScore = response.documentSentiment.score
         val magnitude = response.documentSentiment.magnitude
 
@@ -51,7 +51,7 @@ class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepo
 
         Log.d("SentiScore", "$sentiScore")
 
-        return@runBlocking Triple(sentiScore,magnitude,category)
+        return@runBlocking Triple(sentiScore, magnitude, category)
     }
 
     private fun getKeyWord(entities: List<com.google.api.services.language.v1.model.Entity>): String {
@@ -59,7 +59,6 @@ class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepo
             it.salience
         }
 
-       return if (sortedList.isNotEmpty())sortedList[0].name else ""
+        return if (sortedList.isNotEmpty()) sortedList[0].name else ""
     }
-
 }
