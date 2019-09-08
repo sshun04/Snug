@@ -1116,10 +1116,6 @@
         "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/5fdaf7a51b8805c71ec27764779c3b1f/res/drawable-v21/design_password_eye.xml"
     },
     {
-        "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/layout_item_post_record.xml.flat",
-        "source": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/res/layout/item_post_record.xml"
-    },
-    {
         "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_dark.xml.flat",
         "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/2bac2d081979811523383f990e13bbd9/res/drawable/common_google_signin_btn_text_dark.xml"
     },
@@ -1938,10 +1934,6 @@
     {
         "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/layout_notification_template_big_media_custom.xml.flat",
         "source": "/Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/ee338d2e2b0732302fe06ad97cf152ad/res/layout/notification_template_big_media_custom.xml"
-    },
-    {
-        "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/layout_item_post_linear.xml.flat",
-        "source": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/res/layout/item_post_linear.xml"
     },
     {
         "merged": "/Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/build/intermediates/res/merged/debug/drawable_abc_seekbar_tick_mark_material.xml.flat",

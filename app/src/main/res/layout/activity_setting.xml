@@ -4,30 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.SettingActivity">
+    tools:context=".presentation.secen.setting.SettingActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/settingToolbar"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        app:navigationIcon="?attr/homeAsUpIndicator"
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?attr/homeAsUpIndicator"
         app:popupTheme="@style/Theme.AppCompat.Light" />
 
-
     <FrameLayout
+        android:id="@+id/pref_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:id="@+id/pref_container"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/settingToolbar"/>
-
-
+        app:layout_constraintTop_toBottomOf="@id/settingToolbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

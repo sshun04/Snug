@@ -6,7 +6,6 @@
     android:background="@color/light_100"
     app:layout_constraintCircleRadius="12dp">
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/postButton"
         android:layout_width="80dp"
@@ -20,11 +19,11 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center"
-        android:text="投稿"
         android:padding="2dp"
+        android:text="投稿"
         app:layout_constraintBottom_toBottomOf="@id/cancelButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/cancelButton"/>
+        app:layout_constraintTop_toTopOf="@id/cancelButton" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/cancelButton"
@@ -35,9 +34,9 @@
         android:layout_marginBottom="12dp"
         android:clickable="true"
         android:focusable="true"
-        android:padding="2dp"
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center"
+        android:padding="2dp"
         android:text="キャンセル"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,8 +71,8 @@
     <TextView
         android:id="@+id/timeTextView"
         android:layout_width="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:drawableLeft="@drawable/ic_access_time_black_12dp"
         android:drawablePadding="2dp"
         android:gravity="center"
@@ -84,26 +83,26 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/setActivityButton"
-        app:cornerRadius="8dp"
-        android:text="アクティビティを設定"
-        android:textSize="10sp"
-        android:textColor="@color/dark_54"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/timeTextView"
-        app:layout_constraintTop_toTopOf="@id/timeTextView"
-        app:layout_constraintBottom_toBottomOf="@id/timeTextView"
+        android:layout_height="36dp"
         android:layout_marginStart="12dp"
-        android:layout_height="36dp" />
+        android:text="アクティビティを設定"
+        android:textColor="@color/dark_54"
+        android:textSize="10sp"
+        app:cornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/timeTextView"
+        app:layout_constraintStart_toEndOf="@id/timeTextView"
+        app:layout_constraintTop_toTopOf="@id/timeTextView" />
 
 
     <LinearLayout
-        android:visibility="gone"
         android:id="@+id/selectEmojiBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/timeTextView"
         app:layout_constraintStart_toEndOf="@id/timeTextView"
         app:layout_constraintTop_toTopOf="@id/timeTextView">
@@ -122,17 +121,16 @@
 
     </LinearLayout>
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textField"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintBottom_toTopOf="@id/postButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@id/postButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/timeTextView" >
+        app:layout_constraintTop_toBottomOf="@id/timeTextView">
 
         <EditText
             android:id="@+id/contentEditText"
@@ -146,6 +144,5 @@
             android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

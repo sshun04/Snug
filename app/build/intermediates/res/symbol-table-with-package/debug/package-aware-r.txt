@@ -305,9 +305,6 @@ attr editTextBackground
 attr editTextColor
 attr editTextPreferenceStyle
 attr editTextStyle
-attr el_duration
-attr el_expanded
-attr el_parallax
 attr elevation
 attr emojiReplaceStrategy
 attr emptyVisibility
@@ -1497,6 +1494,7 @@ id action_navigation_home_to_navigation_second
 id action_text
 id actions
 id activityIcon
+id activityIconTextView
 id activity_chooser_view_content
 id add
 id adjust_height
@@ -1566,7 +1564,6 @@ id cross_device_linking_body
 id custom
 id customPanel
 id dark
-id dateField
 id datePostsRecyclerView
 id decelerate
 id decelerateAndComplete
@@ -1610,7 +1607,6 @@ id email_footer_tos_and_pp_text
 id email_layout
 id email_top_layout
 id email_tos_and_pp_text
-id emojiIconTextView
 id emojiRecyclerView
 id emojiTextView
 id end
@@ -1866,7 +1862,6 @@ id textinput_helper_text
 id ticker
 id time
 id timeTextView
-id timeTextView2
 id title
 id titleDividerNoCustom
 id title_template
@@ -2010,8 +2005,6 @@ layout fui_welcome_back_password_prompt_layout
 layout input_method_extract_view
 layout item_emoji
 layout item_post
-layout item_post_linear
-layout item_post_record
 layout item_post_record_detail
 layout item_post_vertical
 layout mtrl_layout_snackbar
@@ -2880,7 +2873,6 @@ styleable DialogPreference android_dialogTitle android_dialogMessage android_dia
 styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color drawableSize gapBetweenBars spinBars thickness
 styleable EmojiEditText maxEmojiCount
 styleable EmojiExtractTextLayout emojiReplaceStrategy
-styleable ExpandableLayout android_orientation el_duration el_expanded el_parallax
 styleable FloatingActionButton backgroundTint backgroundTintMode borderWidth elevation fabCustomSize fabSize hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor showMotionSpec useCompatPadding
 styleable FloatingActionButton_Behavior_Layout behavior_autoHide
 styleable FlowLayout itemSpacing lineSpacing

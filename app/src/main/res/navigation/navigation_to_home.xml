@@ -8,23 +8,20 @@
     <dialog
         android:id="@+id/post_dialog"
         android:label="PostDialogFragment"
-        android:name="com.shojishunsuke.kibunnsns.fragment.PostDialogFragment"
-        tools:layout="@layout/fragment_dialog_post"
-        >
+        android:name="com.shojishunsuke.kibunnsns.presentation.secen.main.post_dialog.PostDialogFragment"
+        tools:layout="@layout/fragment_dialog_post">
         <action
             android:id="@+id/action_dialog_to_home"
-            app:destination="@id/navigation_home"/>
+            app:destination="@id/navigation_home" />
 
     </dialog>
 
 
     <custom_fragment
         android:id="@+id/navigation_home"
-        android:name="com.shojishunsuke.kibunnsns.fragment.HomePostsFragment"
+        android:name="com.shojishunsuke.kibunnsns.presentation.secen.main.home.HomePostsFragment"
         android:label="HomePostsFragment"
-        tools:layout="@layout/fragment_home_posts"/>
-
-
+        tools:layout="@layout/fragment_home_posts" />
 
 
 </navigation>

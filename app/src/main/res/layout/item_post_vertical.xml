@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.shojishunsuke.kibunnsns.presentation.custom_view.VerticalPostCellView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="0dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    app:cardCornerRadius="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/postBaseView"
@@ -26,7 +26,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
         <LinearLayout
             android:id="@+id/nameField"
@@ -53,7 +52,6 @@
                 android:text="匿名"
                 android:textSize="14sp" />
 
-
         </LinearLayout>
 
         <androidx.emoji.widget.EmojiTextView
@@ -77,13 +75,13 @@
             android:text="本文がここにくる"
             android:textColor="@color/dark_87"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@id/timeTextView2"
+            app:layout_constraintBottom_toTopOf="@id/timeTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/sentiIcon"
             app:layout_constraintTop_toBottomOf="@id/nameField" />
 
         <TextView
-            android:id="@+id/timeTextView2"
+            android:id="@+id/timeTextView"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
             android:layout_marginEnd="4dp"
@@ -95,7 +93,6 @@
             app:layout_constraintStart_toStartOf="@id/contentTextView"
             app:layout_constraintTop_toBottomOf="@id/contentTextView" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
@@ -105,5 +102,4 @@
         android:layout_marginHorizontal="8dp"
         android:background="@color/dark_12" />
 
-
-</androidx.cardview.widget.CardView>
+</com.shojishunsuke.kibunnsns.presentation.custom_view.VerticalPostCellView>
