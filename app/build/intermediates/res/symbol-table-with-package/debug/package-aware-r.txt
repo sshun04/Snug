@@ -1494,6 +1494,7 @@ id action_navigation_home_to_navigation_second
 id action_text
 id actions
 id activityIcon
+id activityIconTextView
 id activity_chooser_view_content
 id add
 id adjust_height
@@ -1607,7 +1608,6 @@ id email_footer_tos_and_pp_text
 id email_layout
 id email_top_layout
 id email_tos_and_pp_text
-id emojiIconTextView
 id emojiRecyclerView
 id emojiTextView
 id end
@@ -1863,7 +1863,6 @@ id textinput_helper_text
 id ticker
 id time
 id timeTextView
-id timeTextView2
 id title
 id titleDividerNoCustom
 id title_template

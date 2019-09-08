@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.shojishunsuke.kibunnsns.presentation.custom_view.VerticalPostCellView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -75,13 +75,13 @@
             android:text="本文がここにくる"
             android:textColor="@color/dark_87"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@id/timeTextView2"
+            app:layout_constraintBottom_toTopOf="@id/timeTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/sentiIcon"
             app:layout_constraintTop_toBottomOf="@id/nameField" />
 
         <TextView
-            android:id="@+id/timeTextView2"
+            android:id="@+id/timeTextView"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
             android:layout_marginEnd="4dp"
@@ -102,4 +102,4 @@
         android:layout_marginHorizontal="8dp"
         android:background="@color/dark_12" />
 
-</androidx.cardview.widget.CardView>
+</com.shojishunsuke.kibunnsns.presentation.custom_view.VerticalPostCellView>

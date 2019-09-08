@@ -130,14 +130,14 @@ public final class R {
         public static final int action_image = 0x7f08003a;
         public static final int action_text = 0x7f080041;
         public static final int actions = 0x7f080042;
-        public static final int adjust_height = 0x7f080046;
-        public static final int adjust_width = 0x7f080047;
-        public static final int async = 0x7f080051;
-        public static final int auto = 0x7f080052;
-        public static final int blocking = 0x7f080059;
-        public static final int bottom = 0x7f08005a;
-        public static final int chronometer = 0x7f080074;
-        public static final int dark = 0x7f080088;
+        public static final int adjust_height = 0x7f080047;
+        public static final int adjust_width = 0x7f080048;
+        public static final int async = 0x7f080052;
+        public static final int auto = 0x7f080053;
+        public static final int blocking = 0x7f08005a;
+        public static final int bottom = 0x7f08005b;
+        public static final int chronometer = 0x7f080075;
+        public static final int dark = 0x7f080089;
         public static final int end = 0x7f0800b8;
         public static final int forever = 0x7f0800ca;
         public static final int icon = 0x7f0800e0;
@@ -165,9 +165,9 @@ public final class R {
         public static final int text = 0x7f0801a8;
         public static final int text2 = 0x7f0801a9;
         public static final int time = 0x7f0801b3;
-        public static final int title = 0x7f0801b6;
-        public static final int top = 0x7f0801bb;
-        public static final int wide = 0x7f0801d8;
+        public static final int title = 0x7f0801b5;
+        public static final int top = 0x7f0801ba;
+        public static final int wide = 0x7f0801d7;
     }
     public static final class integer {
         private integer() {}
