@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.domain.model.Post
+import com.shojishunsuke.kibunnsns.ext.postedTime
 import kotlinx.android.synthetic.main.item_post_vertical.view.*
 
 class VerticalPostCellView @JvmOverloads constructor(
@@ -17,7 +18,7 @@ class VerticalPostCellView @JvmOverloads constructor(
     fun build(post: Post, listener: (Post) -> Unit) {
         userName.text = post.userName
         contentTextView.text = post.contentText
-        timeTextView.text = post.date.toString()
+        timeTextView.text = post.date.postedTime()
 
         activityIcon.text = post.actID
 

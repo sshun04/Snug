@@ -9,6 +9,7 @@ import androidx.cardview.widget.CardView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.domain.model.Post
 import com.shojishunsuke.kibunnsns.ext.detailDateString
+import com.shojishunsuke.kibunnsns.ext.timeInDay
 import kotlinx.android.synthetic.main.item_post_record_detail.view.*
 import java.util.*
 
@@ -22,7 +23,7 @@ class RecordPostCellView @JvmOverloads constructor(
     fun build(post: Post, listener: (Post) -> Unit) {
         calendar.time = post.date
         detailDateTextView.text = calendar.detailDateString()
-        timeTextView.text = post.date.toString()
+        timeTextView.text = post.date.timeInDay()
 
         popMenuButton.setOnClickListener {
             val popupMenu = PopupMenu(context, it, Gravity.END)

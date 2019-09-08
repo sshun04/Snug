@@ -7,6 +7,7 @@ import androidx.cardview.widget.CardView
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.domain.model.Post
+import com.shojishunsuke.kibunnsns.ext.postedTime
 import kotlinx.android.synthetic.main.item_post.view.*
 
 class StaggerdPostCellView @JvmOverloads constructor(
@@ -18,7 +19,7 @@ class StaggerdPostCellView @JvmOverloads constructor(
     fun build(post:Post,listener: (Post) -> Unit){
         userName.text = if (post.userName.isNotBlank()) post.userName else "匿名"
         contentTextView.text = post.contentText
-        timeTextView.text = post.date.toString()
+        timeTextView.text = post.date.postedTime()
         if (post.actID.isNotBlank()){
             activityIcon.visibility = View.VISIBLE
             activityIcon.text = post.actID

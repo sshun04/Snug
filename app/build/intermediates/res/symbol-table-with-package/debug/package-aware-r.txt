@@ -1564,7 +1564,6 @@ id cross_device_linking_body
 id custom
 id customPanel
 id dark
-id dateField
 id datePostsRecyclerView
 id decelerate
 id decelerateAndComplete
@@ -2006,8 +2005,6 @@ layout fui_welcome_back_password_prompt_layout
 layout input_method_extract_view
 layout item_emoji
 layout item_post
-layout item_post_linear
-layout item_post_record
 layout item_post_record_detail
 layout item_post_vertical
 layout mtrl_layout_snackbar
