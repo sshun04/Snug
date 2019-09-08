@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         mainViewModel = run {
-            ViewModelProviders.of(this, MainActivityViewModel.MainActivityViewModelFactory(this))
+            ViewModelProviders.of(this, MainActivityViewModel.MainActivityViewModelFactory(application))
                     .get(MainActivityViewModel::class.java)
         }
 
@@ -79,6 +79,4 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setupWithNavController(navController)
         mainViewModel.isNavigationInitialized = true
     }
-
 }
-

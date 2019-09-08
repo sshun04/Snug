@@ -1,5 +1,6 @@
 package com.shojishunsuke.kibunnsns.presentation.secen.main
 
+import android.app.Application
 import android.content.Context
 import android.util.Log
 import androidx.fragment.app.FragmentManager
@@ -9,12 +10,12 @@ import com.shojishunsuke.kibunnsns.data.repository.impl.SharedPrefRepository
 import com.shojishunsuke.kibunnsns.domain.use_case.MainActivityUseCase
 import com.shojishunsuke.kibunnsns.presentation.secen.main.post_dialog.PostDialogFragment
 
-class MainActivityViewModel(context: Context) : ViewModel() {
+class MainActivityViewModel(application: Application) : ViewModel() {
     var isNavigationInitialized: Boolean = false
     private val useCase: MainActivityUseCase
 
     init {
-        val dataConfigRepository = SharedPrefRepository(context)
+        val dataConfigRepository = SharedPrefRepository(application)
         useCase = MainActivityUseCase(dataConfigRepository)
         useCase.initialize()
     }
@@ -29,9 +30,9 @@ class MainActivityViewModel(context: Context) : ViewModel() {
         useCase.updateUser()
     }
 
-    class MainActivityViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
+    class MainActivityViewModelFactory(private val application: Application) : ViewModelProvider.AndroidViewModelFactory(application){
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return MainActivityViewModel(context) as T
+            return MainActivityViewModel(application) as T
         }
     }
 }

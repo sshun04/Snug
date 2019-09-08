@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
+import com.shojishunsuke.kibunnsns.presentation.custom_view.EmojiCellView
 
 class EmojiRecyclerViewAdapter(
         context: Context,
@@ -15,17 +16,14 @@ class EmojiRecyclerViewAdapter(
 ) : RecyclerView.Adapter<EmojiRecyclerViewAdapter.ViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val unicode = unicodeList[position]
-        holder.emojiTextView.text = unicode
-        holder.emojiTextView.setOnClickListener {
-            emojiListener(unicode)
-        }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = inflater.inflate(R.layout.item_emoji, parent, false) as EmojiCellView
+        return ViewHolder(view)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = inflater.inflate(R.layout.item_emoji, parent, false)
-        return ViewHolder(view)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val unicode = unicodeList[position]
+        holder.view.build(unicode, emojiListener)
     }
 
     override fun getItemCount(): Int = unicodeList.count()
@@ -35,7 +33,5 @@ class EmojiRecyclerViewAdapter(
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val emojiTextView: EmojiTextView = view.findViewById(R.id.emojiTextView)
-    }
+    inner class ViewHolder(val view: EmojiCellView) : RecyclerView.ViewHolder(view)
 }

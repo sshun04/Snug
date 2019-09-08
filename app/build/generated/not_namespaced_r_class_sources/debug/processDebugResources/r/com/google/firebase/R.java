@@ -12,15 +12,15 @@ public final class R {
     public static final class attr {
         private attr() {}
 
-        public static final int font = 0x7f030148;
-        public static final int fontProviderAuthority = 0x7f03014a;
-        public static final int fontProviderCerts = 0x7f03014b;
-        public static final int fontProviderFetchStrategy = 0x7f03014c;
-        public static final int fontProviderFetchTimeout = 0x7f03014d;
-        public static final int fontProviderPackage = 0x7f03014e;
-        public static final int fontProviderQuery = 0x7f03014f;
-        public static final int fontStyle = 0x7f030150;
-        public static final int fontWeight = 0x7f030152;
+        public static final int font = 0x7f030145;
+        public static final int fontProviderAuthority = 0x7f030147;
+        public static final int fontProviderCerts = 0x7f030148;
+        public static final int fontProviderFetchStrategy = 0x7f030149;
+        public static final int fontProviderFetchTimeout = 0x7f03014a;
+        public static final int fontProviderPackage = 0x7f03014b;
+        public static final int fontProviderQuery = 0x7f03014c;
+        public static final int fontStyle = 0x7f03014d;
+        public static final int fontWeight = 0x7f03014f;
     }
     public static final class bool {
         private bool() {}
@@ -163,14 +163,14 @@ public final class R {
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] FontFamily = { 0x7f03014a, 0x7f03014b, 0x7f03014c, 0x7f03014d, 0x7f03014e, 0x7f03014f };
+        public static final int[] FontFamily = { 0x7f030147, 0x7f030148, 0x7f030149, 0x7f03014a, 0x7f03014b, 0x7f03014c };
         public static final int FontFamily_fontProviderAuthority = 0;
         public static final int FontFamily_fontProviderCerts = 1;
         public static final int FontFamily_fontProviderFetchStrategy = 2;
         public static final int FontFamily_fontProviderFetchTimeout = 3;
         public static final int FontFamily_fontProviderPackage = 4;
         public static final int FontFamily_fontProviderQuery = 5;
-        public static final int[] FontFamilyFont = { 0x1010532, 0x1010533, 0x101053f, 0x101056f, 0x1010570, 0x7f030148, 0x7f030150, 0x7f030151, 0x7f030152, 0x7f0302fe };
+        public static final int[] FontFamilyFont = { 0x1010532, 0x1010533, 0x101053f, 0x101056f, 0x1010570, 0x7f030145, 0x7f03014d, 0x7f03014e, 0x7f03014f, 0x7f0302fb };
         public static final int FontFamilyFont_android_font = 0;
         public static final int FontFamilyFont_android_fontWeight = 1;
         public static final int FontFamilyFont_android_fontStyle = 2;

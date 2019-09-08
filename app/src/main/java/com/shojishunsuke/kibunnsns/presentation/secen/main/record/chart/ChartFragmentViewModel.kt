@@ -1,10 +1,9 @@
 package com.shojishunsuke.kibunnsns.presentation.secen.main.record.chart
 
+import android.app.Application
 import android.graphics.Color
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.*
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.EntryXComparator
@@ -17,7 +16,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
 
-class ChartFragmentViewModel(application: MainApplication) : AndroidViewModel(application) {
+class ChartFragmentViewModel(application: Application) : AndroidViewModel(application) {
     var rangeField: Int = Calendar.DATE
     private val date: Calendar = Calendar.getInstance()
 
@@ -179,4 +178,9 @@ class ChartFragmentViewModel(application: MainApplication) : AndroidViewModel(ap
         }
     }
 
+    class ChartFragmentViewModelFactory(private val application: Application):ViewModelProvider.AndroidViewModelFactory(application){
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            return ChartFragmentViewModel(application) as T
+        }
+    }
 }

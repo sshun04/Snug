@@ -1,8 +1,7 @@
 package com.shojishunsuke.kibunnsns.presentation.secen.main.post_dialog
 
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import android.app.Application
+import androidx.lifecycle.*
 import com.shojishunsuke.kibunnsns.MainApplication
 import com.shojishunsuke.kibunnsns.data.repository.impl.NaturalLanguageAnalysisRepository
 import com.shojishunsuke.kibunnsns.data.repository.impl.RoomEmojiRepository
@@ -15,7 +14,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
 
-class PostDialogViewModel(application: MainApplication) : AndroidViewModel(application) {
+class PostDialogViewModel(application: Application) : AndroidViewModel(application) {
     private val postUseCase: PostDialogUseCase
 
     val currentPosted: LiveData<Post> get() = _currentPosted
@@ -52,6 +51,12 @@ class PostDialogViewModel(application: MainApplication) : AndroidViewModel(appli
             launch(Dispatchers.IO) {
                 currentEmojiList.postValue(emojiList)
             }
+        }
+    }
+
+    class PostDialogViewModelFactory(private val application:Application):ViewModelProvider.AndroidViewModelFactory(application){
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            return PostDialogViewModel(application) as T
         }
     }
 }

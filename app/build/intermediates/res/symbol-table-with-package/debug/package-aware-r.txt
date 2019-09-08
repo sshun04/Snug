@@ -305,9 +305,6 @@ attr editTextBackground
 attr editTextColor
 attr editTextPreferenceStyle
 attr editTextStyle
-attr el_duration
-attr el_expanded
-attr el_parallax
 attr elevation
 attr emojiReplaceStrategy
 attr emptyVisibility
@@ -2880,7 +2877,6 @@ styleable DialogPreference android_dialogTitle android_dialogMessage android_dia
 styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color drawableSize gapBetweenBars spinBars thickness
 styleable EmojiEditText maxEmojiCount
 styleable EmojiExtractTextLayout emojiReplaceStrategy
-styleable ExpandableLayout android_orientation el_duration el_expanded el_parallax
 styleable FloatingActionButton backgroundTint backgroundTintMode borderWidth elevation fabCustomSize fabSize hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor showMotionSpec useCompatPadding
 styleable FloatingActionButton_Behavior_Layout behavior_autoHide
 styleable FlowLayout itemSpacing lineSpacing

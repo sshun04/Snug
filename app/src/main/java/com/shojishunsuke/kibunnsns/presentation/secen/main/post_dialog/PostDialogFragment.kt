@@ -26,7 +26,7 @@ class PostDialogFragment : DialogFragment() {
                 requireActivity().layoutInflater.inflate(R.layout.fragment_dialog_post, null)
 
         val viewModel = this.run {
-            ViewModelProviders.of(this, ViewModelProvider.AndroidViewModelFactory(requireActivity().application))
+            ViewModelProviders.of(this, PostDialogViewModel.PostDialogViewModelFactory(requireActivity().application))
                     .get(PostDialogViewModel::class.java)
         }
 
@@ -93,6 +93,7 @@ class PostDialogFragment : DialogFragment() {
                 Toast.makeText(requireContext(), "メッセージを入力してください", Toast.LENGTH_SHORT).show()
             }
         }
+
         parentView.cancelButton.setOnClickListener {
             dismiss()
         }

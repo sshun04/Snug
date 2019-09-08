@@ -29,7 +29,7 @@ class ChartFragment : Fragment(), View.OnClickListener {
         val pieChart = parentView.pieChart
 
         viewModel = requireActivity().run {
-            ViewModelProviders.of(this, ViewModelProvider.AndroidViewModelFactory(application))
+            ViewModelProviders.of(this, ChartFragmentViewModel.ChartFragmentViewModelFactory(application))
                     .get(ChartFragmentViewModel::class.java)
         }
         lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
