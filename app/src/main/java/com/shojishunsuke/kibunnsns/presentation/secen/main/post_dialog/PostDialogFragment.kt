@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.shojishunsuke.kibunnsns.R
@@ -17,7 +16,6 @@ import kotlinx.android.synthetic.main.dialog_pop.view.*
 import kotlinx.android.synthetic.main.fragment_dialog_post.view.*
 
 class PostDialogFragment : DialogFragment() {
-
     private var selectedEmojiCode: String = ""
     private var posted = false
 

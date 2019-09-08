@@ -3,10 +3,12 @@ package com.shojishunsuke.kibunnsns.domain.use_case
 import com.shojishunsuke.kibunnsns.data.repository.impl.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.domain.model.Post
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class HomePostsFragmentUseCase {
-    private val fireStoreRepository: DataBaseRepository = FireStoreDatabaseRepository()
+    private val fireStoreRepository: FireStoreDatabaseRepository = FireStoreDatabaseRepository()
     private var previousPost: Post = Post(sentiScore = -0.4f)
     private var previousRange: Int = 3
 
@@ -68,6 +70,10 @@ class HomePostsFragmentUseCase {
         if (result.isNotEmpty()) previousPost = result.last()
 
         return result
+    }
+
+    fun increaseView(postId: String) {
+        GlobalScope.launch { fireStoreRepository.increaseViews(postId) }
     }
 
     fun resetValues() {

@@ -7,9 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.domain.model.Post
 import com.shojishunsuke.kibunnsns.presentation.custom_view.RecordPostCellView
-import com.shojishunsuke.kibunnsns.presentation.custom_view.VerticalPostCellView
-import com.shojishunsuke.kibunnsns.presentation.secen.main.record.my_post.PostRecordItemViewModel
-import java.util.*
 
 class PostRecordRecyclerViewPagingAdapter(
     context: Context,

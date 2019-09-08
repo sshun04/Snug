@@ -3,9 +3,11 @@ package com.shojishunsuke.kibunnsns.domain.use_case
 import com.shojishunsuke.kibunnsns.data.repository.impl.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.domain.model.Post
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class DetailPostsFragmentUseCase(basePost: Post) {
-    private val fireStoreRepository: DataBaseRepository = FireStoreDatabaseRepository()
+    private val fireStoreRepository: FireStoreDatabaseRepository = FireStoreDatabaseRepository()
     private var hasMoreSameActPost: Boolean = true
     private var sameActPrevPost: Post
     private var wideRangePrevPost: Post
@@ -26,6 +28,10 @@ class DetailPostsFragmentUseCase(basePost: Post) {
         }
 
         return result.shuffled()
+    }
+
+    fun increaseView(postId: String) {
+        GlobalScope.launch { fireStoreRepository.increaseViews(postId) }
     }
 
     private suspend fun loadWideRangeCollection(): List<Post> {

@@ -32,12 +32,14 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
         }
     }
 
+    fun onItemClicked(post: Post){
+        useCase.increaseView(post.postId)
+    }
 
     fun getFormattedDate(): String {
         val formatter = SimpleDateFormat("YYYY年MM月dd日HH時mm分", Locale.JAPAN)
         return formatter.format(post.date)
     }
-
 
     fun getUserName(): String = if (post.userName.isNotBlank()) post.userName else "匿名"
 

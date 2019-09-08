@@ -16,26 +16,26 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.presentation.recycler_view.adapter.RecyclerViewPagingAdapter
-import com.shojishunsuke.kibunnsns.presentation.secen.main.home.detail.DetailPostsFragment
-import com.shojishunsuke.kibunnsns.presentation.recycler_view.listener.EndlessScrollListener
 import com.shojishunsuke.kibunnsns.domain.model.Post
+import com.shojishunsuke.kibunnsns.presentation.recycler_view.adapter.RecyclerViewPagingAdapter
+import com.shojishunsuke.kibunnsns.presentation.recycler_view.listener.EndlessScrollListener
+import com.shojishunsuke.kibunnsns.presentation.secen.main.home.detail.DetailPostsFragment
 import kotlinx.android.synthetic.main.fragment_home_posts.view.*
 
 class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
     private var isLoading: Boolean = false
-    lateinit var viewModelPosts: HomePostsFragmentViewModel
+    lateinit var viewModel: HomePostsFragmentViewModel
     lateinit var pagingAdapter: RecyclerViewPagingAdapter
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home_posts, container, false)
 
-        viewModelPosts =
-                ViewModelProviders.of(this).get(HomePostsFragmentViewModel::class.java)
+        viewModel =
+            ViewModelProviders.of(this).get(HomePostsFragmentViewModel::class.java)
 
         val progressBar = view.progressBar.apply {
             max = 100
@@ -50,27 +50,29 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
         }
 
         val stagLayoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
-        val scrollListener = EndlessScrollListener() {
+        val scrollListener = EndlessScrollListener {
             if (!isLoading) {
                 isLoading = true
-                viewModelPosts.onScrollBottom()
+                viewModel.onScrollBottom()
             }
         }
-        pagingAdapter = RecyclerViewPagingAdapter(requireContext()) {
-            setUpDetailFragment(it)
 
+        pagingAdapter = RecyclerViewPagingAdapter(requireContext()) { post ->
+            viewModel.onItemClicked(post)
+            setUpDetailFragment(post)
         }
+
         val recyclerView = view.postsRecyclerView.apply {
             addOnScrollListener(scrollListener)
             adapter = pagingAdapter
             layoutManager = stagLayoutManager
             layoutAnimation =
-                    AnimationUtils.loadLayoutAnimation(this.context, R.anim.animation_recyclerview)
+                AnimationUtils.loadLayoutAnimation(this.context, R.anim.animation_recyclerview)
         }
 
         view.linear.setOnClickListener {
             recyclerView.layoutManager =
-                    LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+                LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             pagingAdapter.viewType = 2
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.scheduleLayoutAnimation()
@@ -90,20 +92,19 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
         view.sentiSeekBar.apply {
             setOnSeekBarChangeListener(this@HomePostsFragment)
             progressDrawable?.setColorFilter(
-                    viewModelPosts.getProgressSeekBarColor(),
-                    PorterDuff.Mode.SRC_ATOP
+                viewModel.getProgressSeekBarColor(),
+                PorterDuff.Mode.SRC_ATOP
             )
-            thumb?.setColorFilter(viewModelPosts.getProgressSeekBarColor(), PorterDuff.Mode.SRC_IN)
+            thumb?.setColorFilter(viewModel.getProgressSeekBarColor(), PorterDuff.Mode.SRC_IN)
             scrollBarSize = 8
-
         }
 
         view.pullToRefreshLayout.setOnRefreshListener {
             pagingAdapter.clear()
-            viewModelPosts.refresh()
+            viewModel.refresh()
         }
 
-        viewModelPosts.nextPosts.observe(viewLifecycleOwner, Observer {
+        viewModel.nextPosts.observe(viewLifecycleOwner, Observer {
             progressBar.visibility = View.GONE
             pagingAdapter.addNextCollection(it)
             isLoading = false
@@ -114,15 +115,15 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
     }
 
     override fun onProgressChanged(seekbar: SeekBar?, progress: Int, p2: Boolean) {
-        viewModelPosts.progressMood = progress
+        viewModel.progressMood = progress
     }
 
     override fun onStartTrackingTouch(p0: SeekBar?) {}
 
     override fun onStopTrackingTouch(seekbar: SeekBar?) {
         pagingAdapter.clear()
-        viewModelPosts.onStopTracking()
-        val color = viewModelPosts.getProgressSeekBarColor()
+        viewModel.onStopTracking()
+        val color = viewModel.getProgressSeekBarColor()
         seekbar?.progressDrawable?.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
         seekbar?.thumb?.setColorFilter(color, PorterDuff.Mode.SRC_IN)
     }
@@ -130,7 +131,7 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
     override fun onResume() {
         super.onResume()
         pagingAdapter.clear()
-        viewModelPosts.refresh()
+        viewModel.refresh()
         Log.d("HomeFragment", "onResume")
     }
 

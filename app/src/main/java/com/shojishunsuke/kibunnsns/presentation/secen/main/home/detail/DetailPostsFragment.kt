@@ -15,9 +15,9 @@ import androidx.transition.Slide
 import androidx.transition.TransitionSet
 import com.bumptech.glide.Glide
 import com.shojishunsuke.kibunnsns.R
+import com.shojishunsuke.kibunnsns.domain.model.Post
 import com.shojishunsuke.kibunnsns.presentation.recycler_view.adapter.RecyclerViewPagingAdapter
 import com.shojishunsuke.kibunnsns.presentation.recycler_view.listener.NestedEndlessScrollListener
-import com.shojishunsuke.kibunnsns.domain.model.Post
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 
 class DetailPostsFragment : Fragment() {
@@ -44,9 +44,9 @@ class DetailPostsFragment : Fragment() {
         fun setupFragment(post: Post, fragmentManager: FragmentManager) {
             fragmentManager.beginTransaction().also {
                 it.add(R.id.detailFragmentContainer, getInstance(post))
-                        .setCustomAnimations(R.anim.slide_from_right, R.anim.slide_to_left)
-                        .addToBackStack("detail")
-                        .commit()
+                    .setCustomAnimations(R.anim.slide_from_right, R.anim.slide_to_left)
+                    .addToBackStack("detail")
+                    .commit()
             }
         }
 
@@ -63,40 +63,43 @@ class DetailPostsFragment : Fragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_detail, container, false)
         val post = arguments?.getSerializable(EXTRA_POST) as Post
 
         val viewModel = this.run {
-            ViewModelProviders.of(this, DetailPostsFragmentViewModel.DetailPostsFragmentViewModelFactory(post))
-                    .get(DetailPostsFragmentViewModel::class.java)
+            ViewModelProviders.of(
+                this,
+                DetailPostsFragmentViewModel.DetailPostsFragmentViewModelFactory(post)
+            )
+                .get(DetailPostsFragmentViewModel::class.java)
         }
 
         view.detailFragmentToolbar.setNavigationOnClickListener {
             for (i in 0 until requireFragmentManager().backStackEntryCount) {
                 requireFragmentManager().popBackStack()
             }
-
         }
 
         view.selectedUserName.text = viewModel.getUserName()
 
         Glide.with(requireContext())
-                .load(post.iconPhotoLink)
-                .error(R.drawable.icon_annonymous)
-                .placeholder(R.drawable.icon_annonymous)
-                .into(view.selectedUserIcon)
+            .load(post.iconPhotoLink)
+            .error(R.drawable.icon_annonymous)
+            .placeholder(R.drawable.icon_annonymous)
+            .into(view.selectedUserIcon)
 
         view.selectedActIcon.text = viewModel.getEmojiCode()
         view.selectedDate.text = viewModel.getFormattedDate()
         view.selectedContentText.text = viewModel.getContentText()
 
         val stagLayoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
-        val pagingAdapter = RecyclerViewPagingAdapter(requireContext()) {
-            setupFragment(it, requireFragmentManager())
+        val pagingAdapter = RecyclerViewPagingAdapter(requireContext()) { post ->
+            viewModel.onItemClicked(post)
+            setupFragment(post, requireFragmentManager())
         }
 
         val recyclerView = view.detailPostsRecyclerView.apply {
@@ -106,9 +109,10 @@ class DetailPostsFragment : Fragment() {
         }
 
         val endlessScrollListener =
-                NestedEndlessScrollListener(stagLayoutManager, recyclerView) {
-                    viewModel.onScrollBottom()
-                }
+            NestedEndlessScrollListener(stagLayoutManager, recyclerView) {
+                viewModel.onScrollBottom()
+            }
+
         view.nestedScrollView.setOnScrollChangeListener(endlessScrollListener)
 
         viewModel.nextPosts.observe(viewLifecycleOwner, Observer {

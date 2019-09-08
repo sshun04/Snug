@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.sundeepk.compactcalendarview.CompactCalendarView
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.presentation.recycler_view.adapter.PostRecordRecyclerViewPagingAdapter
 import com.shojishunsuke.kibunnsns.ext.month
 import com.shojishunsuke.kibunnsns.ext.year
+import com.shojishunsuke.kibunnsns.presentation.recycler_view.adapter.PostRecordRecyclerViewPagingAdapter
 import kotlinx.android.synthetic.main.fragment_calendar.view.*
 import java.util.*
 
@@ -23,24 +23,24 @@ class CalendarFragment : Fragment() {
     lateinit var viewModel: CalendarFragmentViewModel
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_calendar, container, false)
         viewModel = requireActivity().run {
             ViewModelProviders.of(this).get(CalendarFragmentViewModel::class.java)
         }
 
-        recyclerViewAdapter = PostRecordRecyclerViewPagingAdapter(requireContext()) {
-            viewModel.onPostRemoved(it)
+        recyclerViewAdapter = PostRecordRecyclerViewPagingAdapter(requireContext()) { post ->
+            viewModel.onPostRemove(post)
         }
 
         val recyclerView = view.datePostsRecyclerView.apply {
             adapter = recyclerViewAdapter
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             layoutAnimation =
-                    AnimationUtils.loadLayoutAnimation(this.context, R.anim.animation_recyclerview)
+                AnimationUtils.loadLayoutAnimation(this.context, R.anim.animation_recyclerview)
         }
         view.focusTodayButton.setOnClickListener {
             recyclerViewAdapter.clear()
@@ -64,7 +64,7 @@ class CalendarFragment : Fragment() {
                 override fun onMonthScroll(firstDayOfNewMonth: Date?) {
                     currentDate.time = firstDayOfNewMonth
                     view.calendarHeaderTextView.text =
-                            "${currentDate.year()}年${currentDate.month()}月"
+                        "${currentDate.year()}年${currentDate.month()}月"
                 }
             })
         }

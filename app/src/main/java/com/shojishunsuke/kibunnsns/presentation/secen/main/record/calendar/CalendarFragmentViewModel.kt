@@ -30,7 +30,14 @@ class CalendarFragmentViewModel : ViewModel() {
         }.toMutableList()
     }
 
-    fun onPostRemoved(post: Post) {}
+    fun refresh() {
+        _postsOfDate.value?.clear()
+        onFocusToday()
+    }
+
+    fun onPostRemove(post: Post) {
+        deletePost(post)
+    }
 
     fun setDate(date: Date) {
         this.date.time = date
@@ -44,12 +51,6 @@ class CalendarFragmentViewModel : ViewModel() {
         requestPostsByDate()
     }
 
-
-    fun refresh() {
-        _postsOfDate.value?.clear()
-        onFocusToday()
-    }
-
     private fun requestPostsByDate() {
         val dateString = "${date.get(Calendar.MONTH) + 1}/${date.get(Calendar.DAY_OF_MONTH)}"
         _dateText.postValue(dateString)
@@ -58,6 +59,12 @@ class CalendarFragmentViewModel : ViewModel() {
             launch(Dispatchers.IO) {
                 _postsOfDate.postValue(posts)
             }
+        }
+    }
+
+   private fun deletePost(post: Post) {
+        GlobalScope.launch {
+            useCase.deletePostFromDatabase(post)
         }
     }
 }

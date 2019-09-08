@@ -35,6 +35,10 @@ class HomePostsFragmentViewModel : ViewModel() {
         refresh()
     }
 
+    fun onItemClicked(post: Post) {
+        useCase.increaseView(post.postId)
+    }
+
     private fun requestPosts() {
         GlobalScope.launch {
             val posts = useCase.requestPostsByScore(progressMood)

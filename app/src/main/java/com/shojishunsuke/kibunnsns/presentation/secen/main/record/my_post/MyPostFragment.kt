@@ -15,7 +15,6 @@ import com.shojishunsuke.kibunnsns.presentation.recycler_view.adapter.PostRecord
 import kotlinx.android.synthetic.main.fragment_posts_record.view.*
 
 class MyPostFragment : Fragment() {
-
     lateinit var recyclerViewAdapter: PostRecordRecyclerViewPagingAdapter
     lateinit var viewModel: MyPostFragmentViewModel
 
@@ -27,7 +26,9 @@ class MyPostFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_posts_record, container, false)
         viewModel = ViewModelProviders.of(this).get(MyPostFragmentViewModel::class.java)
 
-        recyclerViewAdapter = PostRecordRecyclerViewPagingAdapter(requireContext()) {}
+        recyclerViewAdapter = PostRecordRecyclerViewPagingAdapter(requireContext()) {post ->
+            viewModel.onPostRemove(post)
+        }
 
         view.recentPostsRecyclerView.apply {
             adapter = recyclerViewAdapter

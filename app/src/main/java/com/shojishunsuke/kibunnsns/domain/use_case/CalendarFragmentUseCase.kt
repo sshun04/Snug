@@ -9,12 +9,12 @@ import java.util.*
 
 class CalendarFragmentUseCase {
     private val fireStoreRepository: DataBaseRepository = FireStoreDatabaseRepository()
+    private val roomRepository: RoomPostDateRepository = RoomPostDateRepository()
+    private val postDateRepository: RoomPostDateRepository = RoomPostDateRepository()
     private val userRepository: FirebaseUserRepository = FirebaseUserRepository()
     private val userId: String = userRepository.getUserId()
-    private val postDateRepository: RoomPostDateRepository = RoomPostDateRepository()
 
     suspend fun loadPostsByDate(date: Calendar): MutableList<Post> {
-
         val dateStart = date.clone() as Calendar
         dateStart.apply {
             set(Calendar.HOUR_OF_DAY, 0)
@@ -28,6 +28,11 @@ class CalendarFragmentUseCase {
             set(Calendar.SECOND, 59)
         }
         return fireStoreRepository.loadDateRangedCollection(userId, dateStart.time, dateEnd.time)
+    }
+
+    fun deletePostFromDatabase(post: Post) {
+        fireStoreRepository.deleteItemFromDatabase(post)
+        roomRepository.deleteDate(post.date)
     }
 
     val postedDate = postDateRepository.loadDateList()
