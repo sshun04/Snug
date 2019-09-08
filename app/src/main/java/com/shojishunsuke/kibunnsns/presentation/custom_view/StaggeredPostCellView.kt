@@ -10,7 +10,7 @@ import com.shojishunsuke.kibunnsns.domain.model.Post
 import com.shojishunsuke.kibunnsns.ext.postedTime
 import kotlinx.android.synthetic.main.item_post.view.*
 
-class StaggerdPostCellView @JvmOverloads constructor(
+class StaggeredPostCellView @JvmOverloads constructor(
     context: Context,
     attrs:AttributeSet? = null,
     defStyleAttr:Int = 0

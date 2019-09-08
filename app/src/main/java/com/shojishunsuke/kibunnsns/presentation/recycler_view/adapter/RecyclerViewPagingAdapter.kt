@@ -2,19 +2,12 @@ package com.shojishunsuke.kibunnsns.presentation.recycler_view.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
-import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.presentation.secen.main.home.PostItemViewModel
 import com.shojishunsuke.kibunnsns.domain.model.Post
-import com.shojishunsuke.kibunnsns.presentation.custom_view.StaggerdPostCellView
+import com.shojishunsuke.kibunnsns.presentation.custom_view.StaggeredPostCellView
 import com.shojishunsuke.kibunnsns.presentation.custom_view.VerticalPostCellView
-import de.hdodenhof.circleimageview.CircleImageView
 
 class RecyclerViewPagingAdapter(
         private val context: Context,
@@ -25,7 +18,7 @@ class RecyclerViewPagingAdapter(
         val inflater = LayoutInflater.from(context)
         when (viewType) {
             1 -> {
-                val mView = inflater.inflate(R.layout.item_post, parent, false) as StaggerdPostCellView
+                val mView = inflater.inflate(R.layout.item_post, parent, false) as StaggeredPostCellView
                 return StaggeredRecyclerViewHolder(mView)
             }
             2 -> {
@@ -53,7 +46,7 @@ class RecyclerViewPagingAdapter(
         }
     }
 
-    inner class StaggeredRecyclerViewHolder(val view: StaggerdPostCellView) : RecyclerView.ViewHolder(view)
+    inner class StaggeredRecyclerViewHolder(val view: StaggeredPostCellView) : RecyclerView.ViewHolder(view)
 
     inner class VerticalRecyclerViewHolder(val view: VerticalPostCellView) : RecyclerView.ViewHolder(view)
 }

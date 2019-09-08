@@ -8,7 +8,6 @@ import java.util.*
  *
  * @author shun
  */
-
 fun Date.postedTime():String{
     val currentDate = Date()
     val timeDiffInSec = (currentDate.time - this.time) / 1000
