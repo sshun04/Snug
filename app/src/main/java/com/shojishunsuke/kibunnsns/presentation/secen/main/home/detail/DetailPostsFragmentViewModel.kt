@@ -58,15 +58,6 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
         }
     }
 
-    private fun getAppropriateIconFromSentiScore(sentiScore: Float): String {
-        return when {
-            sentiScore > 0.4f -> "\uD83D\uDE01"
-            sentiScore <= 0.4f && sentiScore >= -0.4f -> "\uD83D\uDE10"
-            sentiScore < -0.4f -> "☹️"
-            else -> "\uD83D\uDE10"
-        }
-    }
-
     class DetailPostsFragmentViewModelFactory(private val post: Post) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return DetailPostsFragmentViewModel(post) as T
