@@ -7,7 +7,7 @@ import androidx.lifecycle.*
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.EntryXComparator
-import com.shojishunsuke.kibunnsns.MainApplication
+import com.shojishunsuke.kibunnsns.SnugApplication
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.domain.use_case.ChartFragmentUseCase
 import com.shojishunsuke.kibunnsns.ext.*
@@ -21,9 +21,9 @@ class ChartFragmentViewModel(application: Application) : AndroidViewModel(applic
     private val date: Calendar = Calendar.getInstance()
 
     private val pieColorsMap = mapOf(
-            "Positive" to ContextCompat.getColor(getApplication<MainApplication>(), R.color.color_positive),
-            "Neutral" to ContextCompat.getColor(getApplication<MainApplication>(), R.color.color_neutral),
-            "Negative" to ContextCompat.getColor(getApplication<MainApplication>(), R.color.color_negative)
+            "Positive" to ContextCompat.getColor(getApplication<SnugApplication>(), R.color.color_positive),
+            "Neutral" to ContextCompat.getColor(getApplication<SnugApplication>(), R.color.color_neutral),
+            "Negative" to ContextCompat.getColor(getApplication<SnugApplication>(), R.color.color_negative)
     )
     private val daysOfWeek = listOf("月", "火", "水", "木", "金", "土", "日")
     private val hours: List<String> = (0..24).map { "$it:00" }

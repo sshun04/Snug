@@ -7,7 +7,7 @@ import androidx.room.Room
 import com.shojishunsuke.kibunnsns.data.room.RoomEmojiDatabase
 import com.shojishunsuke.kibunnsns.data.room.RoomPostDatabase
 
-class MainApplication : Application() {
+class SnugApplication : Application() {
     companion object {
         lateinit var emojiDatabase: RoomEmojiDatabase
         lateinit var postDateDatabase: RoomPostDatabase

@@ -1,6 +1,6 @@
 package com.shojishunsuke.kibunnsns.data.repository.impl
 
-import com.shojishunsuke.kibunnsns.MainApplication
+import com.shojishunsuke.kibunnsns.SnugApplication
 import com.shojishunsuke.kibunnsns.data.repository.LocalDataBaseRepository
 import com.shojishunsuke.kibunnsns.data.room.RoomEmojiDao
 import com.shojishunsuke.kibunnsns.domain.model.EmojiItem
@@ -8,7 +8,7 @@ import com.shojishunsuke.kibunnsns.domain.model.Item
 import java.util.*
 
 class RoomEmojiRepository : LocalDataBaseRepository {
-    private val dao: RoomEmojiDao = MainApplication.emojiDatabase.emojiDao()
+    private val dao: RoomEmojiDao = SnugApplication.emojiDatabase.emojiDao()
 
     override suspend fun loadLatestCollection(): List<Item> {
         val savedList = dao.findAll()

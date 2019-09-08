@@ -2,7 +2,6 @@ package com.shojishunsuke.kibunnsns.presentation.secen.main.post_dialog
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.shojishunsuke.kibunnsns.MainApplication
 import com.shojishunsuke.kibunnsns.data.repository.impl.NaturalLanguageAnalysisRepository
 import com.shojishunsuke.kibunnsns.data.repository.impl.RoomEmojiRepository
 import com.shojishunsuke.kibunnsns.domain.use_case.PostDialogUseCase
