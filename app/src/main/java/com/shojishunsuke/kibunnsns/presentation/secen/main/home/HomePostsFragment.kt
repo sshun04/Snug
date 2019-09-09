@@ -46,7 +46,7 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
         }
 
         view.homeToolBar.apply {
-            title = "Snug"
+            title = resources.getString(R.string.app_name)
             setTitleTextColor(resources.getColor(R.color.dark_54))
         }
 

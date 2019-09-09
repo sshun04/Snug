@@ -79,13 +79,18 @@ class RecordFragment : Fragment() {
         Log.d("Fragment", "${this.tag}")
 
 
+        val tabTitleList = listOf(
+            resources.getString(R.string.page_my_post_title),
+            resources.getString(R.string.page_calendar_title),
+            resources.getString(R.string.page_chart_title)
+        )
         tabLayout.apply {
-            addTab(newTab().setText("最近"))
-            addTab(newTab().setText("カレンダー"))
-            addTab(newTab().setText("気分"))
+            tabTitleList.forEach { title ->
+                this.addTab(newTab().setText(title))
+            }
         }
         viewPager.apply {
-            adapter = PagerAdapter(childFragmentManager)
+            adapter = PagerAdapter(childFragmentManager,tabTitleList)
         }
 
         tabLayout.setupWithViewPager(view.viewPager)
@@ -102,7 +107,7 @@ class RecordFragment : Fragment() {
             val bitmap = BitmapFactory.decodeStream(inputStream)
             viewModel.saveUserIcon(bitmap)
         } else {
-            Toast.makeText(requireContext(), "アイコン画像の選択に失敗しました", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), resources.getString(R.string.toast_error_get_photo), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -130,10 +135,10 @@ class RecordFragment : Fragment() {
         editText.setText(viewModel.userName.value)
 
         val editDialog = AlertDialog.Builder(requireContext())
-                .setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
+                .setPositiveButton(resources.getString(R.string.button_dialog_positive), DialogInterface.OnClickListener { _, _ ->
                     viewModel.saveUserName(editText.text.toString())
                 })
-                .setNegativeButton("キャンセル", null)
+                .setNegativeButton(resources.getString(R.string.button_cancel), null)
                 .create()
 
         editDialog.setView(parentView)

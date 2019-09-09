@@ -7,8 +7,8 @@ import androidx.lifecycle.*
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.EntryXComparator
-import com.shojishunsuke.kibunnsns.SnugApplication
 import com.shojishunsuke.kibunnsns.R
+import com.shojishunsuke.kibunnsns.SnugApplication
 import com.shojishunsuke.kibunnsns.domain.use_case.ChartFragmentUseCase
 import com.shojishunsuke.kibunnsns.ext.*
 import kotlinx.coroutines.Dispatchers
@@ -21,19 +21,28 @@ class ChartFragmentViewModel(application: Application) : AndroidViewModel(applic
     private val date: Calendar = Calendar.getInstance()
 
     private val pieColorsMap = mapOf(
-            "Positive" to ContextCompat.getColor(getApplication<SnugApplication>(), R.color.color_positive),
-            "Neutral" to ContextCompat.getColor(getApplication<SnugApplication>(), R.color.color_neutral),
-            "Negative" to ContextCompat.getColor(getApplication<SnugApplication>(), R.color.color_negative)
+        getApplication<SnugApplication>().resources.getString(R.string.mood_positive) to ContextCompat.getColor(
+            getApplication<SnugApplication>(),
+            R.color.color_positive
+        ),
+        getApplication<SnugApplication>().resources.getString(R.string.mood_neutral) to ContextCompat.getColor(
+            getApplication<SnugApplication>(),
+            R.color.color_neutral
+        ),
+        getApplication<SnugApplication>().resources.getString(R.string.mood_negative) to ContextCompat.getColor(
+            getApplication<SnugApplication>(),
+            R.color.color_negative
+        )
     )
     private val daysOfWeek = listOf("月", "火", "水", "木", "金", "土", "日")
     private val hours: List<String> = (0..24).map { "$it:00" }
 
     val modes = listOf(
-            "☹️",
-            "\uD83D\uDE41",
-            "\uD83D\uDE10",
-            "\uD83D\uDE42",
-            "\uD83D\uDE00"
+        "☹️",
+        "\uD83D\uDE41",
+        "\uD83D\uDE10",
+        "\uD83D\uDE42",
+        "\uD83D\uDE00"
     )
 
     private val _lineEntries = MutableLiveData<List<Entry>>()
@@ -145,12 +154,12 @@ class ChartFragmentViewModel(application: Application) : AndroidViewModel(applic
 
     fun getLineChartData(): LineData {
         Collections.sort(_lineEntries.value, EntryXComparator())
-        val lineDataSet = LineDataSet(_lineEntries.value, "投稿")
-                .apply {
-                    lineWidth = 2.5f
-                    circleRadius = 5f
-                    setDrawValues(false)
-                }
+        val lineDataSet = LineDataSet(_lineEntries.value, getApplication<SnugApplication>().getString(R.string.button_post))
+            .apply {
+                lineWidth = 2.5f
+                circleRadius = 5f
+                setDrawValues(false)
+            }
         return LineData(lineDataSet)
     }
 
@@ -178,7 +187,8 @@ class ChartFragmentViewModel(application: Application) : AndroidViewModel(applic
         }
     }
 
-    class ChartFragmentViewModelFactory(private val application: Application):ViewModelProvider.AndroidViewModelFactory(application){
+    class ChartFragmentViewModelFactory(private val application: Application) :
+        ViewModelProvider.AndroidViewModelFactory(application) {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return ChartFragmentViewModel(application) as T
         }

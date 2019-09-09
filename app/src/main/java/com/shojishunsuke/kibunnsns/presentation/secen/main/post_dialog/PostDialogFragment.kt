@@ -88,7 +88,7 @@ class PostDialogFragment : DialogFragment() {
                 viewModel.requestPost(contentText, selectedEmojiCode)
                 posted = true
             } else {
-                Toast.makeText(requireContext(), "メッセージを入力してください", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), resources.getString(R.string.toast_enter_message), Toast.LENGTH_SHORT).show()
             }
         }
 

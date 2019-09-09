@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">Snug</string>
+    <string name="page_my_post_title">RECENT</string>
+    <string name="page_calendar_title">CALENDAR</string>
+    <string name="page_chart_title">MOOD</string>
+    <string name="user_name_default">Anonymous</string>
+    <string name="confirm_delete_post">Are you sure deleting this post?</string>
+    <string name="following_user_name">\'s post</string>
+    <string name="views">views</string>
+    <string name="recommend">recommend</string>
+    <string name="hint_message">enter message</string>
+    <string name="button_dialog_positive">OK</string>
+    <string name="button_post">POST</string>
+    <string name="button_cancel">CANCEL</string>
+    <string name="button_delete_post">delete</string>
+    <string name="button_pop_delete_post">delete post</string>
+    <string name="button_set_activity">set activity</string>
+    <string name="button_calendar_today">today</string>
+    <string name="button_chart_day">day</string>
+    <string name="button_chart_week">week</string>
+    <string name="button_chart_month">month</string>
+    <string name="header_edit_name">please enter your nickname</string>
+    <string name="header_chart_movement">Mood Movement</string>
+    <string name="header_chart_share">Mood Sharing</string>
+    <string name="toast_enter_message">please enter message</string>
+    <string name="toast_error_get_photo">Could not complete task</string>
+    <string name="date_format_time">HH:mm</string>
+    <string name="year">year</string>
+    <string name="month">month</string>
+    <string name="day_of_month">day</string>
+    <string name="day_of_week">day</string>
+    <string name="mood_positive">Positive</string>
+    <string name="mood_neutral">Neutral</string>
+    <string name="mood_negative">Negative</string>
 </resources>

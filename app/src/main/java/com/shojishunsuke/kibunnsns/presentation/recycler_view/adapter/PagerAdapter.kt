@@ -1,5 +1,6 @@
 package com.shojishunsuke.kibunnsns.presentation.recycler_view.adapter
 
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -7,7 +8,7 @@ import com.shojishunsuke.kibunnsns.presentation.secen.main.record.calendar.Calen
 import com.shojishunsuke.kibunnsns.presentation.secen.main.record.chart.ChartFragment
 import com.shojishunsuke.kibunnsns.presentation.secen.main.record.my_post.MyPostFragment
 
-class PagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+class PagerAdapter(fragmentManager: FragmentManager,private val pageTitleList: List<String>) : FragmentPagerAdapter(fragmentManager) {
     enum class Page(val value:Int) {
         MyPost(0),
         Calendar(1),
@@ -24,12 +25,7 @@ class PagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(frag
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return when (position) {
-            Page.MyPost.value -> "最近"
-            Page.Calendar.value -> "カレンダー"
-            Page.Chart.value -> "気分"
-            else -> throw IllegalArgumentException()
-        }
+        return pageTitleList[position]
     }
 
     override fun getCount(): Int = Page.values().size
