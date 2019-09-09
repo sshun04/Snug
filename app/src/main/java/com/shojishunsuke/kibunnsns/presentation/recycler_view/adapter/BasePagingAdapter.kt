@@ -7,7 +7,7 @@ import com.shojishunsuke.kibunnsns.presentation.recycler_view.view_type.Recycler
 abstract class BasePagingAdapter<VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val posts: MutableList<Post> = mutableListOf()
 
-    var viewType: Int = RecyclerViewType.Staggered.ordinal
+    var viewType: Int = RecyclerViewType.Staggered.value
 
     override fun getItemViewType(position: Int): Int = viewType
 

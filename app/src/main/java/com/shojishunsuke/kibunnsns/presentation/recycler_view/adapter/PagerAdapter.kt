@@ -8,26 +8,26 @@ import com.shojishunsuke.kibunnsns.presentation.secen.main.record.chart.ChartFra
 import com.shojishunsuke.kibunnsns.presentation.secen.main.record.my_post.MyPostFragment
 
 class PagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
-    enum class Page {
-        MyPost,
-        Calendar,
-        Chart
+    enum class Page(val value:Int) {
+        MyPost(0),
+        Calendar(1),
+        Chart(2)
     }
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            Page.MyPost.ordinal -> MyPostFragment()
-            Page.Calendar.ordinal -> CalendarFragment()
-            Page.Chart.ordinal -> ChartFragment()
+            Page.MyPost.value -> MyPostFragment()
+            Page.Calendar.value -> CalendarFragment()
+            Page.Chart.value -> ChartFragment()
             else -> throw IllegalArgumentException()
         }
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position) {
-            Page.MyPost.ordinal -> "最近"
-            Page.Calendar.ordinal -> "カレンダー"
-            Page.Chart.ordinal -> "気分"
+            Page.MyPost.value -> "最近"
+            Page.Calendar.value -> "カレンダー"
+            Page.Chart.value -> "気分"
             else -> throw IllegalArgumentException()
         }
     }

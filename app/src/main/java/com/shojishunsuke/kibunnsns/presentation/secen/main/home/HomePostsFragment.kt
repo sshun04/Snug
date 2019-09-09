@@ -74,7 +74,7 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
         view.linear.setOnClickListener {
             recyclerView.layoutManager =
                 LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-            pagingAdapter.viewType = RecyclerViewType.Vertical.ordinal
+            pagingAdapter.viewType = RecyclerViewType.Vertical.value
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.scheduleLayoutAnimation()
             it.visibility = View.GONE
@@ -83,7 +83,7 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
 
         view.grid.setOnClickListener {
             recyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
-            pagingAdapter.viewType = RecyclerViewType.Staggered.ordinal
+            pagingAdapter.viewType = RecyclerViewType.Staggered.value
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.scheduleLayoutAnimation()
             it.visibility = View.GONE
