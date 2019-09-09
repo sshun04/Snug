@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.domain.model.Post
+import com.shojishunsuke.kibunnsns.presentation.recycler_view.view_type.RecyclerViewType
 import com.shojishunsuke.kibunnsns.presentation.recycler_view.adapter.RecyclerViewPagingAdapter
 import com.shojishunsuke.kibunnsns.presentation.recycler_view.listener.EndlessScrollListener
 import com.shojishunsuke.kibunnsns.presentation.secen.main.home.detail.DetailPostsFragment
@@ -73,7 +74,7 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
         view.linear.setOnClickListener {
             recyclerView.layoutManager =
                 LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-            pagingAdapter.viewType = 2
+            pagingAdapter.viewType = RecyclerViewType.Vertical.ordinal
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.scheduleLayoutAnimation()
             it.visibility = View.GONE
@@ -82,7 +83,7 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
 
         view.grid.setOnClickListener {
             recyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
-            pagingAdapter.viewType = 1
+            pagingAdapter.viewType = RecyclerViewType.Staggered.ordinal
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.scheduleLayoutAnimation()
             it.visibility = View.GONE
