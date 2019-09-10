@@ -1,12 +1,12 @@
 package com.shojishunsuke.kibunnsns.presentation.custom_view
 
 import android.content.Context
+import android.text.format.DateUtils
 import android.util.AttributeSet
 import androidx.cardview.widget.CardView
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.domain.model.Post
-import com.shojishunsuke.kibunnsns.ext.postedTime
 import kotlinx.android.synthetic.main.item_post_vertical.view.*
 
 class VerticalPostCellView @JvmOverloads constructor(
@@ -16,9 +16,14 @@ class VerticalPostCellView @JvmOverloads constructor(
 ) : CardView(context, attrs, defStyleAttr) {
 
     fun build(post: Post, listener: (Post) -> Unit) {
-        userName.text = post.userName
+        userName.text =
+            if (post.userName.isNotBlank()) post.userName else context.resources.getString(R.string.user_name_default)
         contentTextView.text = post.contentText
-        timeTextView.text = post.date.postedTime()
+        timeTextView.text = DateUtils.getRelativeTimeSpanString(
+            post.date.time, System.currentTimeMillis(),
+            DateUtils.MINUTE_IN_MILLIS,
+            DateUtils.FORMAT_ABBREV_RELATIVE
+        )
 
         activityIcon.text = post.actID
 

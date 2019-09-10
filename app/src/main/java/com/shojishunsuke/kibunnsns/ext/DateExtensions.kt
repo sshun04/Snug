@@ -1,5 +1,6 @@
 package com.shojishunsuke.kibunnsns.ext
 
+import android.text.format.DateUtils
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -15,6 +16,8 @@ fun Date.postedTime():String{
     val hourDiff = timeDiffInSec / 3600
     val minuteDiff = (timeDiffInSec % 3600) / 60
     val secDiff = timeDiffInSec % 60
+
+    DateUtils.getRelativeTimeSpanString(this.time,System.currentTimeMillis(),DateUtils.MINUTE_IN_MILLIS,DateUtils.FORMAT_ABBREV_RELATIVE)
 
     return when {
         timeDiffInSec in 3600 * 24 until 3600 * 48 -> {

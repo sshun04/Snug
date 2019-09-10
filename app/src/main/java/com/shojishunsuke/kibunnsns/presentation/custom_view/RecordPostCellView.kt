@@ -2,6 +2,8 @@ package com.shojishunsuke.kibunnsns.presentation.custom_view
 
 import android.app.AlertDialog
 import android.content.Context
+import android.text.format.DateUtils
+import android.text.format.DateUtils.*
 import android.util.AttributeSet
 import android.view.Gravity
 import android.widget.PopupMenu
@@ -22,8 +24,8 @@ class RecordPostCellView @JvmOverloads constructor(
 
     fun build(post: Post, listener: (Post) -> Unit) {
         calendar.time = post.date
-        detailDateTextView.text = calendar.detailDateString()
-        timeTextView.text = post.date.timeInDay()
+        detailDateTextView.text = formatDateTime(context,post.date.time,FORMAT_SHOW_YEAR or FORMAT_SHOW_DATE or FORMAT_SHOW_WEEKDAY)
+        timeTextView.text = formatDateTime(context,post.date.time, FORMAT_SHOW_TIME)
 
         popMenuButton.setOnClickListener {
             val popupMenu = PopupMenu(context, it, Gravity.END)

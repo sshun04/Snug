@@ -34,7 +34,15 @@ class ChartFragmentViewModel(application: Application) : AndroidViewModel(applic
             R.color.color_negative
         )
     )
-    private val daysOfWeek = listOf("月", "火", "水", "木", "金", "土", "日")
+    private val daysOfWeek = listOf(
+        application.resources.getString(R.string.monday),
+        application.resources.getString(R.string.tuesday),
+        application.resources.getString(R.string.wednesday),
+        application.resources.getString(R.string.thursday),
+        application.resources.getString(R.string.friday),
+        application.resources.getString(R.string.saturday),
+        application.resources.getString(R.string.sunday)
+    )
     private val hours: List<String> = (0..24).map { "$it:00" }
 
     val modes = listOf(
@@ -154,7 +162,10 @@ class ChartFragmentViewModel(application: Application) : AndroidViewModel(applic
 
     fun getLineChartData(): LineData {
         Collections.sort(_lineEntries.value, EntryXComparator())
-        val lineDataSet = LineDataSet(_lineEntries.value, getApplication<SnugApplication>().getString(R.string.button_post))
+        val lineDataSet = LineDataSet(
+            _lineEntries.value,
+            getApplication<SnugApplication>().getString(R.string.button_post)
+        )
             .apply {
                 lineWidth = 2.5f
                 circleRadius = 5f
