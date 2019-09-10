@@ -39,4 +39,5 @@
     <string name="friday">Fri</string>
     <string name="saturday">Sat</string>
     <string name="sunday">Sun</string>
+    <string name="chart_no_data_description">No data.</string>
 </resources>

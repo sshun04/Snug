@@ -2106,6 +2106,7 @@ string button_post
 string button_set_activity
 string character_counter_content_description
 string character_counter_pattern
+string chart_no_data_description
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
 string common_google_play_services_enable_title

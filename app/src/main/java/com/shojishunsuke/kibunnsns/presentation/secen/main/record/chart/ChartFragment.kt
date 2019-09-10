@@ -26,7 +26,9 @@ class ChartFragment : Fragment(), View.OnClickListener {
     ): View? {
         parentView = inflater.inflate(R.layout.fragment_chart, container, false)
         val lineChart = parentView.lineChart
-        val pieChart = parentView.pieChart
+        val pieChart = parentView.pieChart.apply {
+            setNoDataText(resources.getString(R.string.chart_no_data_description))
+        }
 
         viewModel = requireActivity().run {
             ViewModelProviders.of(this, ChartFragmentViewModel.ChartFragmentViewModelFactory(application))
