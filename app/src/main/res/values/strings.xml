@@ -19,7 +19,7 @@
     <string name="button_chart_day">day</string>
     <string name="button_chart_week">week</string>
     <string name="button_chart_month">month</string>
-    <string name="header_edit_name">please enter your nickname</string>
+    <string name="header_edit_name">Enter your nickname</string>
     <string name="header_chart_movement">Mood Movement</string>
     <string name="header_chart_share">Mood Sharing</string>
     <string name="toast_enter_message">please enter message</string>
