@@ -39,6 +39,12 @@ class HomePostsFragmentViewModel : ViewModel() {
         useCase.increaseView(post.postId)
     }
 
+    fun refresh() {
+        _nextPosts.value?.clear()
+        useCase.resetValues()
+        requestPosts()
+    }
+
     private fun requestPosts() {
         GlobalScope.launch {
             val posts = useCase.requestPostsByScore(progressMood)
@@ -47,11 +53,5 @@ class HomePostsFragmentViewModel : ViewModel() {
                 _nextPosts.postValue(posts)
             }
         }
-    }
-
-    fun refresh() {
-        _nextPosts.value?.clear()
-        useCase.resetValues()
-        requestPosts()
     }
 }

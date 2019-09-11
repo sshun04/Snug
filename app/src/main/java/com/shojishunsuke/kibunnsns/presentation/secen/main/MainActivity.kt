@@ -1,7 +1,6 @@
 package com.shojishunsuke.kibunnsns.presentation.secen.main
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -29,8 +28,11 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         mainViewModel = run {
-            ViewModelProviders.of(this, MainActivityViewModel.MainActivityViewModelFactory(application))
-                    .get(MainActivityViewModel::class.java)
+            ViewModelProviders.of(
+                this,
+                MainActivityViewModel.MainActivityViewModelFactory(application)
+            )
+                .get(MainActivityViewModel::class.java)
         }
 
         fab.setOnClickListener {
@@ -43,37 +45,32 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            Log.d("Auth is Anonymous", "${currentUser.isAnonymous}")
             if (!mainViewModel.isNavigationInitialized) updateUi()
         } else {
-
             auth.signInAnonymously()
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            Log.d("TAG", "signInAnonymously:success")
-                            val user = auth.currentUser
-                            mainViewModel.onAuthSuccess()
-                            updateUi()
-                        } else {
-                            Log.d("TAG", "signInAnonymously:failure")
-                            Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT)
-                                    .show()
-                        }
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val user = auth.currentUser
+                        mainViewModel.onAuthSuccess()
+                        updateUi()
+                    } else {
+                        Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT)
+                            .show()
                     }
+                }
         }
     }
 
     override fun onNavigateUp(): Boolean = findNavController(R.id.nav_host_fragment).navigateUp()
 
     private fun updateUi() {
-        Log.d("MainActivity", "updateUI")
         this.mainActivityProgressbar.visibility = View.GONE
         val navController = findNavController(R.id.nav_host_fragment)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)!!
 
         bottomNavigation = findViewById(R.id.bottom_navigation)
         val navigator =
-                MainBottomNavigator(this, navHostFragment.childFragmentManager, R.id.nav_host_fragment)
+            MainBottomNavigator(this, navHostFragment.childFragmentManager, R.id.nav_host_fragment)
         navController.navigatorProvider += navigator
         navController.setGraph(R.navigation.navigation)
         bottomNavigation.setupWithNavController(navController)

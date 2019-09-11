@@ -26,7 +26,6 @@ class NestedEndlessScrollListener(
 
         if (diff == 0) {
             if (lastVisibleItemCount == totalItemCount) {
-                Log.d("scrolling", "Load!!")
                 recyclerView.post {
                     onLoadMoreListener()
                 }

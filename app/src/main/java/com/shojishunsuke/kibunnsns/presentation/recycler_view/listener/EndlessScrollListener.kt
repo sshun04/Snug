@@ -20,7 +20,6 @@ class EndlessScrollListener(private val onLoadMoreListener: () -> Unit) : Recycl
 
                 if (lastVisibleItemCount == totalItemCount) {
                     onLoadMoreListener()
-                    Log.d("EndlessScrollListener", "scrolled")
                 }
             } else if (layoutManager is LinearLayoutManager) {
                 val totalItemCount = layoutManager.itemCount
@@ -28,7 +27,6 @@ class EndlessScrollListener(private val onLoadMoreListener: () -> Unit) : Recycl
 
                 if (lastVisibleItemCount == totalItemCount) {
                     onLoadMoreListener()
-                    Log.d("EndlessScrollListener", "scrolled")
                 }
             }
         }

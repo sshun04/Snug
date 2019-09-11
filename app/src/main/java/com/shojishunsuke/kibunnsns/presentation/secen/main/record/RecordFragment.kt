@@ -76,14 +76,12 @@ class RecordFragment : Fragment() {
             setUpEditNameDialog(inflater)
         }
 
-        Log.d("Fragment", "${this.tag}")
-
-
         val tabTitleList = listOf(
             resources.getString(R.string.page_my_post_title),
             resources.getString(R.string.page_calendar_title),
             resources.getString(R.string.page_chart_title)
         )
+
         tabLayout.apply {
             tabTitleList.forEach { title ->
                 this.addTab(newTab().setText(title))

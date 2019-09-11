@@ -21,9 +21,8 @@ class MainActivityViewModel(application: Application) : ViewModel() {
     }
 
     fun setupPostFragment(fragmentManager: FragmentManager) {
-        Log.d("Main", "Tapped!!")
         val postDialog = PostDialogFragment()
-        postDialog.show(fragmentManager.beginTransaction(), "a")
+        postDialog.show(fragmentManager.beginTransaction(), "fragment")
     }
 
     fun onAuthSuccess() {

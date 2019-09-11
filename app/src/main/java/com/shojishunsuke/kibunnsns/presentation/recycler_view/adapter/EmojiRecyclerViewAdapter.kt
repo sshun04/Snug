@@ -2,9 +2,7 @@ package com.shojishunsuke.kibunnsns.presentation.recycler_view.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.emoji.widget.EmojiTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.presentation.custom_view.EmojiCellView

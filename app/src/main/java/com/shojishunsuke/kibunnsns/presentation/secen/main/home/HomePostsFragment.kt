@@ -133,7 +133,6 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
         super.onResume()
         pagingAdapter.clear()
         viewModel.refresh()
-        Log.d("HomeFragment", "onResume")
     }
 
     private fun setUpDetailFragment(post: Post) {

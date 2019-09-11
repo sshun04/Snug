@@ -69,7 +69,6 @@ class ChartFragment : Fragment(), View.OnClickListener {
             }
         })
 
-
         viewModel.pieEntries.observe(viewLifecycleOwner, Observer {
             pieChart.data = viewModel.getPieChartData()
             pieChart.setEntryLabelColor(R.color.dark_87)
