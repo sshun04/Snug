@@ -1,8 +1,6 @@
 package com.shojishunsuke.kibunnsns.presentation.secen.main
 
 import android.app.Application
-import android.content.Context
-import android.util.Log
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

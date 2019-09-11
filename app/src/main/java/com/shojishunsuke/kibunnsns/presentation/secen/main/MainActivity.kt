@@ -53,9 +53,6 @@ class MainActivity : AppCompatActivity() {
                         val user = auth.currentUser
                         mainViewModel.onAuthSuccess()
                         updateUi()
-                    } else {
-                        Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT)
-                            .show()
                     }
                 }
         }

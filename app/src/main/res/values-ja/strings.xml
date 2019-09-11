@@ -13,7 +13,7 @@
     <string name="button_dialog_positive">OK</string>
     <string name="button_post">投稿</string>
     <string name="button_cancel">キャンセル</string>
-    <string name="button_delete_post">delete</string>
+    <string name="button_delete_post">削除</string>
     <string name="button_pop_delete_post">delete post</string>
     <string name="button_set_activity">アクティビティを追加</string>
     <string name="button_calendar_today">今日</string>

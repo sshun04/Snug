@@ -7,7 +7,7 @@
     <string name="confirm_delete_post">Are you sure deleting this post?</string>
     <string name="following_user_name">\'s post</string>
     <string name="views">views</string>
-    <string name="recommend">recommend</string>
+    <string name="recommend">related</string>
     <string name="hint_message">enter message</string>
     <string name="button_dialog_positive">OK</string>
     <string name="button_post">POST</string>
