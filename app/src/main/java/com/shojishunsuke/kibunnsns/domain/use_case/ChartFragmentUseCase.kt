@@ -181,7 +181,6 @@ class ChartFragmentUseCase {
     }
 
     private fun getMonthAverageScoreMap(posts: List<Post>): Map<Int, Float> {
-
 //     日付 : その日のスコアのリスト を 月の何日 : その日の平均スコア に変換
         val defMap = mutableMapOf<Int, MutableList<Float>>()
         posts.forEach {

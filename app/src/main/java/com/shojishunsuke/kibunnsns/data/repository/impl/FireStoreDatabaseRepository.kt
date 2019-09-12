@@ -55,8 +55,6 @@ class FireStoreDatabaseRepository : DataBaseRepository {
                 .get()
                 .await()
 
-        Log.d("IsFromCache", querySnapshot.metadata.isFromCache.toString())
-
         val results = ArrayList<Post>()
 
         querySnapshot.forEach {
@@ -73,8 +71,6 @@ class FireStoreDatabaseRepository : DataBaseRepository {
                 .limit(12)
                 .get()
                 .await()
-
-
 
         return@runBlocking querySnapshot.toPostsMutableList()
     }
@@ -111,8 +107,6 @@ class FireStoreDatabaseRepository : DataBaseRepository {
                 .get()
                 .await()
 
-
-
         return@runBlocking querySnapshot.toPostsMutableList()
     }
 
@@ -135,19 +129,17 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         collectionSnapShot
                 .document(post.postId)
                 .delete()
-                .addOnSuccessListener { Log.d("FireStore", "DocumentSnapshot successfully deleted!") }
-                .addOnFailureListener { e -> Log.w("FireStore", "Error deleting document", e) }
+                .addOnSuccessListener {  }
+                .addOnFailureListener { }
     }
 
     fun increaseViews(postId: String) {
         val post = collectionSnapShot
                 .document(postId)
         post.update("views", FieldValue.increment(1))
-
     }
 
     private fun QuerySnapshot.toPostsMutableList(): MutableList<Post> {
-        Log.d("IsFromCache", this.metadata.isFromCache.toString())
         return this.map { it.toObject(Post::class.java) }.toMutableList()
     }
 }

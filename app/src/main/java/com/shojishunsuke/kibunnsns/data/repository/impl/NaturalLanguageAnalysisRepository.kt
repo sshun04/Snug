@@ -49,8 +49,6 @@ class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepo
 
         val category = getKeyWord(response.entities)
 
-        Log.d("SentiScore", "$sentiScore")
-
         return@runBlocking Triple(sentiScore, magnitude, category)
     }
 
