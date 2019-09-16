@@ -1,11 +1,9 @@
 package com.shojishunsuke.kibunnsns.domain.use_case
 
 import com.shojishunsuke.kibunnsns.data.repository.impl.FireStoreDatabaseRepository
-import com.shojishunsuke.kibunnsns.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.domain.model.Post
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-
 
 class HomePostsFragmentUseCase {
     private val fireStoreRepository: FireStoreDatabaseRepository = FireStoreDatabaseRepository()

@@ -1,6 +1,5 @@
 package com.shojishunsuke.kibunnsns.data.repository.impl
 
-
 class EmojiRepositoy {
     private val uniCodeList = listOf(
         "\uD83C\uDF74",

@@ -2,7 +2,6 @@ package com.shojishunsuke.kibunnsns.presentation.custom_view
 
 import android.app.AlertDialog
 import android.content.Context
-import android.text.format.DateUtils
 import android.text.format.DateUtils.*
 import android.util.AttributeSet
 import android.view.Gravity
@@ -10,8 +9,6 @@ import android.widget.PopupMenu
 import androidx.cardview.widget.CardView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.domain.model.Post
-import com.shojishunsuke.kibunnsns.ext.detailDateString
-import com.shojishunsuke.kibunnsns.ext.timeInDay
 import kotlinx.android.synthetic.main.item_post_record_detail.view.*
 import java.util.*
 
