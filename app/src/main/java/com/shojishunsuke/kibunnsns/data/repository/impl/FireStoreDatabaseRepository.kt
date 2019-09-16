@@ -1,6 +1,5 @@
 package com.shojishunsuke.kibunnsns.data.repository.impl
 
-import android.util.Log
 import com.google.firebase.firestore.*
 import com.shojishunsuke.kibunnsns.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.domain.model.Post

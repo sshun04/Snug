@@ -27,7 +27,7 @@ class DetailPostsFragmentUseCase(basePost: Post) {
             result.addAll(sameActCollection)
         }
 
-        return result.shuffled()
+        return result.shuffled().distinct()
     }
 
     fun increaseView(postId: String) {
