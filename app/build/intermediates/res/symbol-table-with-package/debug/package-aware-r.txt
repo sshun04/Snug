@@ -1642,7 +1642,6 @@ id header
 id headerBackGround
 id headerGroup
 id headerGuideline
-id headerTextView
 id header_text
 id heading
 id home
@@ -1661,7 +1660,6 @@ id inputExtractAccessories
 id inputExtractAction
 id invisible
 id invisible_frame
-id isDetailSwitch
 id italic
 id item_touch_helper_previous_elevation
 id jumpToEnd

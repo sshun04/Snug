@@ -18,5 +18,4 @@ class SharedPrefRepository(context: Context) : DataConfigRepository {
         editor.putBoolean(key_init, true)
         editor.apply()
     }
-
 }
