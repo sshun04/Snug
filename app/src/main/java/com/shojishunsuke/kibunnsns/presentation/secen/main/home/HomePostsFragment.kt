@@ -117,6 +117,9 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
 
     override fun onProgressChanged(seekbar: SeekBar?, progress: Int, p2: Boolean) {
         viewModel.progressMood = progress
+        val color = viewModel.getProgressSeekBarColor()
+        seekbar?.progressDrawable?.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+        seekbar?.thumb?.setColorFilter(color, PorterDuff.Mode.SRC_IN)
     }
 
     override fun onStartTrackingTouch(p0: SeekBar?) {}
@@ -124,9 +127,6 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
     override fun onStopTrackingTouch(seekbar: SeekBar?) {
         pagingAdapter.clear()
         viewModel.onStopTracking()
-        val color = viewModel.getProgressSeekBarColor()
-        seekbar?.progressDrawable?.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
-        seekbar?.thumb?.setColorFilter(color, PorterDuff.Mode.SRC_IN)
     }
 
     override fun onResume() {
