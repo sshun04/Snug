@@ -23,14 +23,13 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
     private val collectionSnapShot = dataBase.collection(COLLECTION_PATH)
 
-
     override suspend fun savePost(post: Post) {
         dataBase.collection(COLLECTION_PATH)
                 .document(post.postId)
                 .set(post).await()
     }
 
-    override suspend fun loadSpecificSortedNextCollection(basePost: Post): List<Post> =
+    override suspend fun loadSpecificSortedNextCollection(basePost: Post): MutableList<Post> =
             runBlocking {
 
                 val querySnapshot = dataBase.collection(COLLECTION_PATH)
