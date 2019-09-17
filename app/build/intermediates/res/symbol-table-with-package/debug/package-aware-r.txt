@@ -1228,6 +1228,8 @@ dimen preference_no_icon_padding_start
 dimen preference_seekbar_padding_end
 dimen preference_seekbar_padding_start
 dimen preference_seekbar_value_width
+dimen seek_bar_thickness
+dimen seek_bar_thumb_size
 dimen subtitle_corner_radius
 dimen subtitle_outline_width
 dimen subtitle_shadow_offset
@@ -1417,6 +1419,8 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable preference_list_divider_material
+drawable seek_bar
+drawable seek_thumb
 drawable shape
 drawable snugicon6hdpi
 drawable state_pressed_ripple

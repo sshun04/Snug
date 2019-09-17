@@ -4,4 +4,6 @@
     <item type="dimen" name="dialog_min_width_minor">90%</item>
     <item type="dimen" name="dialog_min_height">60%</item>
     <dimen name="design_navigation_icon_size" tools:override="true">40dp</dimen>
+    <dimen name="seek_bar_thickness">4dp</dimen>
+    <dimen name="seek_bar_thumb_size">16dp</dimen>
 </resources>
