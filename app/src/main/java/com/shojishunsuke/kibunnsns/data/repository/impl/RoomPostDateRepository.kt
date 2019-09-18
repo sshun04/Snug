@@ -8,7 +8,7 @@ import com.shojishunsuke.kibunnsns.domain.model.PostedDate
 import java.util.*
 
 class RoomPostDateRepository {
-    private val dao : RoomPostDao = SnugApplication.postDateDatabase.postDateDao()
+    private val dao: RoomPostDao = SnugApplication.postDateDatabase.postDateDao()
 
     fun registerDate(date: Date) {
         val dateInLong = date.time

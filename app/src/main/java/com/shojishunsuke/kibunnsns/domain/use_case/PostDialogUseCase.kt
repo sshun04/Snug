@@ -1,20 +1,20 @@
 package com.shojishunsuke.kibunnsns.domain.use_case
 
+import com.shojishunsuke.kibunnsns.data.repository.DataBaseRepository
+import com.shojishunsuke.kibunnsns.data.repository.LanguageAnalysisRepository
+import com.shojishunsuke.kibunnsns.data.repository.LocalDataBaseRepository
 import com.shojishunsuke.kibunnsns.data.repository.impl.EmojiRepositoy
 import com.shojishunsuke.kibunnsns.data.repository.impl.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.data.repository.impl.FirebaseUserRepository
 import com.shojishunsuke.kibunnsns.data.repository.impl.RoomPostDateRepository
-import com.shojishunsuke.kibunnsns.data.repository.DataBaseRepository
-import com.shojishunsuke.kibunnsns.data.repository.LanguageAnalysisRepository
-import com.shojishunsuke.kibunnsns.data.repository.LocalDataBaseRepository
 import com.shojishunsuke.kibunnsns.domain.model.EmojiItem
 import com.shojishunsuke.kibunnsns.domain.model.Post
 import kotlinx.coroutines.runBlocking
 import java.util.*
 
 class PostDialogUseCase(
-        private val localDataBaseRepository: LocalDataBaseRepository,
-        private val analysisRepository: LanguageAnalysisRepository
+    private val localDataBaseRepository: LocalDataBaseRepository,
+    private val analysisRepository: LanguageAnalysisRepository
 ) {
     private val emojiRepository: EmojiRepositoy = EmojiRepositoy()
     private val fireStoreRepository: DataBaseRepository = FireStoreDatabaseRepository()
@@ -37,15 +37,15 @@ class PostDialogUseCase(
         val category: String = analysisResult.third
 
         val post = Post(
-                userName = userName,
-                userId = userId,
-                iconPhotoLink = "$iconUri",
-                contentText = content,
-                sentiScore = sentiScore,
-                magnitude = magnitude,
-                actID = emojiCode,
-                keyWord = category,
-                date = date
+            userName = userName,
+            userId = userId,
+            iconPhotoLink = "$iconUri",
+            contentText = content,
+            sentiScore = sentiScore,
+            magnitude = magnitude,
+            actID = emojiCode,
+            keyWord = category,
+            date = date
         )
 
         runBlocking {
@@ -58,7 +58,7 @@ class PostDialogUseCase(
 
     suspend fun loadCurrentEmoji(): List<String> {
         val defaultCollection: List<EmojiItem> =
-                localDataBaseRepository.loadLatestCollection() as List<EmojiItem>
+            localDataBaseRepository.loadLatestCollection() as List<EmojiItem>
         val stringList = mutableListOf<String>()
         defaultCollection.forEach {
             stringList.add(it.emojiCode)

@@ -21,16 +21,19 @@ class PostDialogFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val parentView =
-                requireActivity().layoutInflater.inflate(R.layout.fragment_dialog_post, null)
+            requireActivity().layoutInflater.inflate(R.layout.fragment_dialog_post, null)
 
         val viewModel = this.run {
-            ViewModelProviders.of(this, PostDialogViewModel.PostDialogViewModelFactory(requireActivity().application))
-                    .get(PostDialogViewModel::class.java)
+            ViewModelProviders.of(
+                this,
+                PostDialogViewModel.PostDialogViewModelFactory(requireActivity().application)
+            )
+                .get(PostDialogViewModel::class.java)
         }
 
         val dialog = AlertDialog.Builder(requireContext())
-                .setView(parentView)
-                .create()
+            .setView(parentView)
+            .create()
 
         viewModel.currentPosted.observe(this, Observer { post ->
             DetailPostsFragment.setupFragment(post, requireFragmentManager())
@@ -42,12 +45,12 @@ class PostDialogFragment : DialogFragment() {
 
         parentView.setActivityButton.setOnClickListener {
             val emojiDialog = AlertDialog.Builder(requireContext(), R.style.AppTheme_DialogTheme)
-                    .create()
+                .create()
             val emojiParentView = emojiDialog.layoutInflater.inflate(R.layout.dialog_pop, null)
             emojiParentView.emojiRecyclerView.apply {
                 adapter = EmojiRecyclerViewAdapter(
-                        requireContext(),
-                        viewModel.requestWholeEmoji()
+                    requireContext(),
+                    viewModel.requestWholeEmoji()
                 ) { emojiCode ->
                     selectedEmojiCode = emojiCode
                     parentView.selectedEmojiTextView.text = selectedEmojiCode
@@ -64,12 +67,12 @@ class PostDialogFragment : DialogFragment() {
 
         parentView.selectEmojiBox.setOnClickListener {
             val emojiDialog = AlertDialog.Builder(requireContext(), R.style.AppTheme_DialogTheme)
-                    .create()
+                .create()
             val emojiParentView = emojiDialog.layoutInflater.inflate(R.layout.dialog_pop, null)
             emojiParentView.emojiRecyclerView.apply {
                 adapter = EmojiRecyclerViewAdapter(
-                        requireContext(),
-                        viewModel.requestWholeEmoji()
+                    requireContext(),
+                    viewModel.requestWholeEmoji()
                 ) { emojiCode ->
                     selectedEmojiCode = emojiCode
                     parentView.selectedEmojiTextView.text = selectedEmojiCode
@@ -88,7 +91,11 @@ class PostDialogFragment : DialogFragment() {
                 viewModel.requestPost(contentText, selectedEmojiCode)
                 posted = true
             } else {
-                Toast.makeText(requireContext(), resources.getString(R.string.toast_enter_message), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    resources.getString(R.string.toast_enter_message),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 

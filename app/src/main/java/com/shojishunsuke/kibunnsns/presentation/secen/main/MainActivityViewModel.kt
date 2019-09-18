@@ -27,7 +27,8 @@ class MainActivityViewModel(application: Application) : ViewModel() {
         useCase.updateUser()
     }
 
-    class MainActivityViewModelFactory(private val application: Application) : ViewModelProvider.AndroidViewModelFactory(application){
+    class MainActivityViewModelFactory(private val application: Application) :
+        ViewModelProvider.AndroidViewModelFactory(application) {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return MainActivityViewModel(application) as T
         }

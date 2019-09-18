@@ -13,8 +13,8 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
     init {
         dataBase.firestoreSettings = FirebaseFirestoreSettings.Builder()
-                .setPersistenceEnabled(true)
-                .build()
+            .setPersistenceEnabled(true)
+            .build()
     }
 
     companion object {
@@ -25,115 +25,116 @@ class FireStoreDatabaseRepository : DataBaseRepository {
 
     override suspend fun savePost(post: Post) {
         dataBase.collection(COLLECTION_PATH)
-                .document(post.postId)
-                .set(post).await()
+            .document(post.postId)
+            .set(post).await()
     }
 
     override suspend fun loadSpecificSortedNextCollection(basePost: Post): MutableList<Post> =
-            runBlocking {
+        runBlocking {
 
-                val querySnapshot = dataBase.collection(COLLECTION_PATH)
-                        .whereEqualTo("actID", basePost.actID)
-                        .orderBy("sentiScore", Query.Direction.ASCENDING)
-                        .orderBy("date", Query.Direction.DESCENDING)
-                        .startAfter(basePost.sentiScore, basePost.date)
-                        .limit(12)
-                        .get()
-                        .await()
+            val querySnapshot = dataBase.collection(COLLECTION_PATH)
+                .whereEqualTo("actID", basePost.actID)
+                .orderBy("sentiScore", Query.Direction.ASCENDING)
+                .orderBy("date", Query.Direction.DESCENDING)
+                .startAfter(basePost.sentiScore, basePost.date)
+                .limit(12)
+                .get()
+                .await()
 
-                return@runBlocking querySnapshot.toPostsMutableList()
-            }
+            return@runBlocking querySnapshot.toPostsMutableList()
+        }
 
-    override suspend fun loadPositiveTimeLineCollection(date: Date): MutableList<Post> = runBlocking {
+    override suspend fun loadPositiveTimeLineCollection(date: Date): MutableList<Post> =
+        runBlocking {
 
-        val querySnapshot = collectionSnapShot
+            val querySnapshot = collectionSnapShot
                 .orderBy("date", Query.Direction.DESCENDING)
                 .startAfter(date)
                 .limit(30)
                 .get()
                 .await()
 
-        val results = ArrayList<Post>()
+            val results = ArrayList<Post>()
 
-        querySnapshot.forEach {
-            val post = it.toObject(Post::class.java)
-            if (post.sentiScore >= -0.35f) results.add(post)
+            querySnapshot.forEach {
+                val post = it.toObject(Post::class.java)
+                if (post.sentiScore >= -0.35f) results.add(post)
+            }
+            return@runBlocking results
         }
-        return@runBlocking results
-    }
 
     override suspend fun loadFollowingCollection(date: Date): List<Post> = runBlocking {
         val querySnapshot = collectionSnapShot
-                .orderBy("date", Query.Direction.DESCENDING)
-                .startAfter(date)
-                .limit(12)
-                .get()
-                .await()
+            .orderBy("date", Query.Direction.DESCENDING)
+            .startAfter(date)
+            .limit(12)
+            .get()
+            .await()
 
         return@runBlocking querySnapshot.toPostsMutableList()
     }
 
     override suspend fun loadDateRangedCollection(
-            userId: String,
-            oldDate: Date,
-            currentDate: Date,
-            limit: Long
+        userId: String,
+        oldDate: Date,
+        currentDate: Date,
+        limit: Long
     ): MutableList<Post> = runBlocking {
 
         val querySnapshot = collectionSnapShot
-                .whereEqualTo("userId", userId)
-                .orderBy("date", Query.Direction.DESCENDING)
-                .startAt(currentDate)
-                .endAt(oldDate)
-                .limit(limit)
-                .get()
-                .await()
+            .whereEqualTo("userId", userId)
+            .orderBy("date", Query.Direction.DESCENDING)
+            .startAt(currentDate)
+            .endAt(oldDate)
+            .limit(limit)
+            .get()
+            .await()
 
         return@runBlocking querySnapshot.toPostsMutableList()
     }
 
     override suspend fun loadScoreRangedCollectionAscend(
-            limit: Long,
-            post: Post
+        limit: Long,
+        post: Post
     ): MutableList<Post> = runBlocking {
 
         val querySnapshot = collectionSnapShot
-                .orderBy("sentiScore", Query.Direction.ASCENDING)
-                .orderBy("date", Query.Direction.DESCENDING)
-                .startAfter(post.sentiScore, post.date)
-                .limit(limit)
-                .get()
-                .await()
+            .orderBy("sentiScore", Query.Direction.ASCENDING)
+            .orderBy("date", Query.Direction.DESCENDING)
+            .startAfter(post.sentiScore, post.date)
+            .limit(limit)
+            .get()
+            .await()
 
         return@runBlocking querySnapshot.toPostsMutableList()
     }
 
     override suspend fun loadScoreRangedCollectionDescend(
-            limit: Long,
-            post: Post
+        limit: Long,
+        post: Post
     ): MutableList<Post> = runBlocking {
         val querySnapshot = collectionSnapShot
-                .orderBy("sentiScore", Query.Direction.DESCENDING)
-                .orderBy("date", Query.Direction.DESCENDING)
-                .startAfter(post.sentiScore, post.date)
-                .limit(limit)
-                .get()
-                .await()
+            .orderBy("sentiScore", Query.Direction.DESCENDING)
+            .orderBy("date", Query.Direction.DESCENDING)
+            .startAfter(post.sentiScore, post.date)
+            .limit(limit)
+            .get()
+            .await()
 
         return@runBlocking querySnapshot.toPostsMutableList()
     }
 
     override fun deleteItemFromDatabase(post: Post) {
         collectionSnapShot
-                .document(post.postId)
-                .delete()
-                .addOnSuccessListener {  }
-                .addOnFailureListener { }
+            .document(post.postId)
+            .delete()
+            .addOnSuccessListener { }
+            .addOnFailureListener { }
     }
 
     fun increaseViews(postId: String) {
         val post = collectionSnapShot
-                .document(postId)
+            .document(postId)
         post.update("views", FieldValue.increment(1))
     }
 

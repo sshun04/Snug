@@ -126,8 +126,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
-                android:paddingBottom="40dp"
-                android:nestedScrollingEnabled="false">
+                android:nestedScrollingEnabled="false"
+                android:paddingBottom="40dp">
 
             </androidx.recyclerview.widget.RecyclerView>
 

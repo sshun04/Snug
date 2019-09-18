@@ -21,8 +21,12 @@ class RecordPostCellView @JvmOverloads constructor(
 
     fun build(post: Post, listener: (Post) -> Unit) {
         calendar.time = post.date
-        detailDateTextView.text = formatDateTime(context,post.date.time,FORMAT_SHOW_YEAR or FORMAT_SHOW_DATE or FORMAT_SHOW_WEEKDAY)
-        timeTextView.text = formatDateTime(context,post.date.time, FORMAT_SHOW_TIME)
+        detailDateTextView.text = formatDateTime(
+            context,
+            post.date.time,
+            FORMAT_SHOW_YEAR or FORMAT_SHOW_DATE or FORMAT_SHOW_WEEKDAY
+        )
+        timeTextView.text = formatDateTime(context, post.date.time, FORMAT_SHOW_TIME)
 
         popMenuButton.setOnClickListener {
             val popupMenu = PopupMenu(context, it, Gravity.END)
@@ -57,9 +61,18 @@ class RecordPostCellView @JvmOverloads constructor(
 
     private fun getSentiDescription(sentiScore: Float): Pair<String, Int> {
         return when {
-            sentiScore > 0.3f -> Pair(resources.getString(R.string.mood_positive), R.drawable.textview_back_positive)
-            sentiScore < -0.3f -> Pair(resources.getString(R.string.mood_negative), R.drawable.textview_back_negative)
-            else -> Pair(resources.getString(R.string.mood_neutral), R.drawable.textview_back_neutral)
+            sentiScore > 0.3f -> Pair(
+                resources.getString(R.string.mood_positive),
+                R.drawable.textview_back_positive
+            )
+            sentiScore < -0.3f -> Pair(
+                resources.getString(R.string.mood_negative),
+                R.drawable.textview_back_negative
+            )
+            else -> Pair(
+                resources.getString(R.string.mood_neutral),
+                R.drawable.textview_back_neutral
+            )
         }
     }
 }

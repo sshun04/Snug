@@ -20,9 +20,9 @@ class SnugApplication : Application() {
         EmojiCompat.init(emojiConfig)
 
         emojiDatabase =
-                Room.databaseBuilder(this, RoomEmojiDatabase::class.java, "kibunn_emoji.db").build()
+            Room.databaseBuilder(this, RoomEmojiDatabase::class.java, "kibunn_emoji.db").build()
         postDateDatabase =
-                Room.databaseBuilder(this, RoomPostDatabase::class.java, "kibunn_post_date.db").build()
+            Room.databaseBuilder(this, RoomPostDatabase::class.java, "kibunn_post_date.db").build()
 
         super.onCreate()
     }

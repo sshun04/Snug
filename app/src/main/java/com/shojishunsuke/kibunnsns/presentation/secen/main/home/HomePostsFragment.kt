@@ -3,7 +3,6 @@ package com.shojishunsuke.kibunnsns.presentation.secen.main.home
 import android.graphics.PorterDuff
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,9 +16,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.domain.model.Post
-import com.shojishunsuke.kibunnsns.presentation.recycler_view.view_type.RecyclerViewType
 import com.shojishunsuke.kibunnsns.presentation.recycler_view.adapter.RecyclerViewPagingAdapter
 import com.shojishunsuke.kibunnsns.presentation.recycler_view.listener.EndlessScrollListener
+import com.shojishunsuke.kibunnsns.presentation.recycler_view.view_type.RecyclerViewType
 import com.shojishunsuke.kibunnsns.presentation.secen.main.home.detail.DetailPostsFragment
 import kotlinx.android.synthetic.main.fragment_home_posts.view.*
 

@@ -4,8 +4,8 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.shojishunsuke.kibunnsns.data.repository.impl.NaturalLanguageAnalysisRepository
 import com.shojishunsuke.kibunnsns.data.repository.impl.RoomEmojiRepository
-import com.shojishunsuke.kibunnsns.domain.use_case.PostDialogUseCase
 import com.shojishunsuke.kibunnsns.domain.model.Post
+import com.shojishunsuke.kibunnsns.domain.use_case.PostDialogUseCase
 import com.shojishunsuke.kibunnsns.ext.detailDateString
 import com.shojishunsuke.kibunnsns.ext.timeOfDayString
 import kotlinx.coroutines.Dispatchers
@@ -42,7 +42,7 @@ class PostDialogViewModel(application: Application) : AndroidViewModel(applicati
     }
 
     fun requestWholeEmoji(): MutableList<String> =
-            postUseCase.loadWholeEmoji() as MutableList<String>
+        postUseCase.loadWholeEmoji() as MutableList<String>
 
     private fun requestCurrentEmojiList() {
         GlobalScope.launch {
@@ -53,7 +53,8 @@ class PostDialogViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
-    class PostDialogViewModelFactory(private val application:Application):ViewModelProvider.AndroidViewModelFactory(application){
+    class PostDialogViewModelFactory(private val application: Application) :
+        ViewModelProvider.AndroidViewModelFactory(application) {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return PostDialogViewModel(application) as T
         }

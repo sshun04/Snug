@@ -9,7 +9,7 @@ import java.util.*
  *
  * @author shun
  */
-fun Date.postedTime():String{
+fun Date.postedTime(): String {
     val currentDate = Date()
     val timeDiffInSec = (currentDate.time - this.time) / 1000
 
@@ -17,7 +17,12 @@ fun Date.postedTime():String{
     val minuteDiff = (timeDiffInSec % 3600) / 60
     val secDiff = timeDiffInSec % 60
 
-    DateUtils.getRelativeTimeSpanString(this.time,System.currentTimeMillis(),DateUtils.MINUTE_IN_MILLIS,DateUtils.FORMAT_ABBREV_RELATIVE)
+    DateUtils.getRelativeTimeSpanString(
+        this.time,
+        System.currentTimeMillis(),
+        DateUtils.MINUTE_IN_MILLIS,
+        DateUtils.FORMAT_ABBREV_RELATIVE
+    )
 
     return when {
         timeDiffInSec in 3600 * 24 until 3600 * 48 -> {
@@ -39,7 +44,7 @@ fun Date.postedTime():String{
     }
 }
 
-fun Date.timeInDay():String{
+fun Date.timeInDay(): String {
     val formatter = SimpleDateFormat("HH:mm", Locale.JAPAN)
     return formatter.format(this)
 }

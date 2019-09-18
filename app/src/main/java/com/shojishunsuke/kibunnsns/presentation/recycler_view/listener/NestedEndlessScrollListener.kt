@@ -1,6 +1,5 @@
 package com.shojishunsuke.kibunnsns.presentation.recycler_view.listener
 
-import android.util.Log
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager

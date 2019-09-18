@@ -19,9 +19,9 @@ class ChartFragment : Fragment(), View.OnClickListener {
     private lateinit var parentView: View
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         parentView = inflater.inflate(R.layout.fragment_chart, container, false)
         val lineChart = parentView.lineChart
@@ -30,8 +30,11 @@ class ChartFragment : Fragment(), View.OnClickListener {
         }
 
         viewModel = requireActivity().run {
-            ViewModelProviders.of(this, ChartFragmentViewModel.ChartFragmentViewModelFactory(application))
-                    .get(ChartFragmentViewModel::class.java)
+            ViewModelProviders.of(
+                this,
+                ChartFragmentViewModel.ChartFragmentViewModelFactory(application)
+            )
+                .get(ChartFragmentViewModel::class.java)
         }
         lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
 

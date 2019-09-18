@@ -5,9 +5,10 @@ import android.content.SharedPreferences
 import com.shojishunsuke.kibunnsns.data.repository.DataConfigRepository
 
 class SharedPrefRepository(context: Context) : DataConfigRepository {
-    private val sharedPreferences: SharedPreferences = context.getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
+    private val sharedPreferences: SharedPreferences =
+        context.getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
 
-    companion object{
+    companion object {
         const val key_init = "KEY_INITIALIZATION"
     }
 

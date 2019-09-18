@@ -2,9 +2,9 @@ package com.shojishunsuke.kibunnsns.domain.use_case
 
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.PieEntry
+import com.shojishunsuke.kibunnsns.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.data.repository.impl.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.data.repository.impl.FirebaseUserRepository
-import com.shojishunsuke.kibunnsns.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.domain.model.Post
 import com.shojishunsuke.kibunnsns.ext.diffToMonday
 import kotlinx.coroutines.runBlocking
@@ -31,7 +31,7 @@ class ChartFragmentUseCase {
         }
 
         val posts =
-                fireStoreRepository.loadDateRangedCollection(userId, dateStart.time, dateEnd.time)
+            fireStoreRepository.loadDateRangedCollection(userId, dateStart.time, dateEnd.time)
         val lineEntryList = mutableListOf<Entry>()
 
         if (posts.isNotEmpty()) {
@@ -47,8 +47,8 @@ class ChartFragmentUseCase {
     }
 
     suspend fun getDataOfWeek(
-            firstDayOfWeek: Calendar,
-            lastDayOfWeek: Calendar
+        firstDayOfWeek: Calendar,
+        lastDayOfWeek: Calendar
     ): Pair<List<Entry>, List<PieEntry>> = runBlocking {
         firstDayOfWeek.apply {
             set(Calendar.HOUR_OF_DAY, 0)
@@ -63,9 +63,9 @@ class ChartFragmentUseCase {
         }
 
         val posts = fireStoreRepository.loadDateRangedCollection(
-                userId,
-                firstDayOfWeek.time,
-                lastDayOfWeek.time
+            userId,
+            firstDayOfWeek.time,
+            lastDayOfWeek.time
         )
         val sentiScoreMap = getWeekAverageScoreMap(posts)
 
@@ -102,9 +102,9 @@ class ChartFragmentUseCase {
         }
 
         val posts = fireStoreRepository.loadDateRangedCollection(
-                userId,
-                firstDayOfMonth.time,
-                lastDayOfMonth.time
+            userId,
+            firstDayOfMonth.time,
+            lastDayOfMonth.time
         )
         val sentiScoreMap = getMonthAverageScoreMap(posts)
 

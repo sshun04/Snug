@@ -18,7 +18,6 @@ class FirebaseUserRepository : AuthRepository {
         return if (savedName.isNotBlank()) savedName else "匿名"
     }
 
-
     override fun updateUserName(userName: String) {
         val profileUpdate = UserProfileChangeRequest.Builder()
             .setDisplayName(userName)

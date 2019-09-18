@@ -4,8 +4,8 @@ import android.graphics.Color
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.shojishunsuke.kibunnsns.domain.use_case.HomePostsFragmentUseCase
 import com.shojishunsuke.kibunnsns.domain.model.Post
+import com.shojishunsuke.kibunnsns.domain.use_case.HomePostsFragmentUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

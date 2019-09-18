@@ -8,9 +8,9 @@ import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.presentation.custom_view.EmojiCellView
 
 class EmojiRecyclerViewAdapter(
-        context: Context,
-        private val unicodeList: MutableList<String> = mutableListOf(),
-        private val emojiListener: (String) -> Unit
+    context: Context,
+    private val unicodeList: MutableList<String> = mutableListOf(),
+    private val emojiListener: (String) -> Unit
 ) : RecyclerView.Adapter<EmojiRecyclerViewAdapter.ViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
 

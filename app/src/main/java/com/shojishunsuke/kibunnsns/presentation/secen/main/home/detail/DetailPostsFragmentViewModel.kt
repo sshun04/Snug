@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.shojishunsuke.kibunnsns.domain.use_case.DetailPostsFragmentUseCase
 import com.shojishunsuke.kibunnsns.domain.model.Post
+import com.shojishunsuke.kibunnsns.domain.use_case.DetailPostsFragmentUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -29,7 +29,7 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
         }
     }
 
-    fun onItemClicked(post: Post){
+    fun onItemClicked(post: Post) {
         useCase.increaseView(post.postId)
     }
 

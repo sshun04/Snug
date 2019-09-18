@@ -15,7 +15,8 @@ class PostRecordRecyclerViewPagingAdapter(
     private val inflater: LayoutInflater = LayoutInflater.from(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val view = inflater.inflate(R.layout.item_post_record_detail, parent, false) as RecordPostCellView
+        val view =
+            inflater.inflate(R.layout.item_post_record_detail, parent, false) as RecordPostCellView
         return DetailViewHolder(view)
     }
 
@@ -23,7 +24,7 @@ class PostRecordRecyclerViewPagingAdapter(
         val post = posts[position]
 
         holder as DetailViewHolder
-        holder.view.build(post){
+        holder.view.build(post) {
             removedListener(it)
             removeItem(position)
         }
