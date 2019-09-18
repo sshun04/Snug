@@ -1,17 +1,14 @@
 package com.shojishunsuke.kibunnsns.presentation.secen.main.home.detail
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.shojishunsuke.kibunnsns.domain.use_case.DetailPostsFragmentUseCase
 import com.shojishunsuke.kibunnsns.domain.model.Post
+import com.shojishunsuke.kibunnsns.domain.use_case.DetailPostsFragmentUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.util.*
 
 class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
     private val useCase: DetailPostsFragmentUseCase = DetailPostsFragmentUseCase(post)
@@ -32,16 +29,11 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
         }
     }
 
-    fun onItemClicked(post: Post){
+    fun onItemClicked(post: Post) {
         useCase.increaseView(post.postId)
     }
 
-    fun getFormattedDate(): String {
-        val formatter = SimpleDateFormat("YYYY年MM月dd日HH時mm分", Locale.JAPAN)
-        return formatter.format(post.date)
-    }
-
-    fun getUserName(): String = if (post.userName.isNotBlank()) post.userName else "匿名"
+    fun getUserName(): String? = if (post.userName.isNotBlank()) post.userName else null
 
     fun getEmojiCode(): String = if (post.actID.isNotBlank()) post.actID else ""
 
@@ -53,7 +45,6 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
             launch(Dispatchers.Main) {
                 _nextPosts.postValue(posts)
                 isLoading = false
-                Log.d("Load", "Finish")
             }
         }
     }

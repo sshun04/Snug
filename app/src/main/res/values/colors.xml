@@ -5,7 +5,6 @@
     <color name="colorPrimaryLight">#83F3DF</color>
     <color name="colorAccent">#FF9C36</color>
 
-
     <color name="dark_87">#DE000000</color>
     <color name="dark_54">#8A000000</color>
     <color name="dark_26">#42000000</color>
@@ -18,7 +17,6 @@
 
     <color name="alto_010">#E2E2E2</color>
     <color name="alto_020">#D4D4D4</color>
-
 
     <color name="color_positive">#FF8382</color>
     <color name="color_neutral">#9EE6A0</color>

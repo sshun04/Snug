@@ -2,14 +2,13 @@ package com.shojishunsuke.kibunnsns.presentation.custom_view
 
 import android.app.AlertDialog
 import android.content.Context
+import android.text.format.DateUtils.*
 import android.util.AttributeSet
 import android.view.Gravity
 import android.widget.PopupMenu
 import androidx.cardview.widget.CardView
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.domain.model.Post
-import com.shojishunsuke.kibunnsns.ext.detailDateString
-import com.shojishunsuke.kibunnsns.ext.timeInDay
 import kotlinx.android.synthetic.main.item_post_record_detail.view.*
 import java.util.*
 
@@ -22,8 +21,12 @@ class RecordPostCellView @JvmOverloads constructor(
 
     fun build(post: Post, listener: (Post) -> Unit) {
         calendar.time = post.date
-        detailDateTextView.text = calendar.detailDateString()
-        timeTextView.text = post.date.timeInDay()
+        detailDateTextView.text = formatDateTime(
+            context,
+            post.date.time,
+            FORMAT_SHOW_YEAR or FORMAT_SHOW_DATE or FORMAT_SHOW_WEEKDAY
+        )
+        timeTextView.text = formatDateTime(context, post.date.time, FORMAT_SHOW_TIME)
 
         popMenuButton.setOnClickListener {
             val popupMenu = PopupMenu(context, it, Gravity.END)
@@ -31,11 +34,11 @@ class RecordPostCellView @JvmOverloads constructor(
                 when (menu.itemId) {
                     R.id.deletePost -> {
                         AlertDialog.Builder(context)
-                            .setPositiveButton("削除") { _, _ ->
+                            .setPositiveButton(resources.getString(R.string.button_delete_post)) { _, _ ->
                                 listener(post)
                             }
-                            .setNegativeButton("キャンセル", null)
-                            .setMessage("本当に削除しますか？")
+                            .setNegativeButton(resources.getString(R.string.button_cancel), null)
+                            .setMessage(resources.getString(R.string.confirm_delete_post))
                             .show()
                     }
                 }
@@ -58,9 +61,18 @@ class RecordPostCellView @JvmOverloads constructor(
 
     private fun getSentiDescription(sentiScore: Float): Pair<String, Int> {
         return when {
-            sentiScore > 0.3f -> Pair("Positive", R.drawable.textview_back_positive)
-            sentiScore < -0.3f -> Pair("Negative", R.drawable.textview_back_negative)
-            else -> Pair("Neutral", R.drawable.textview_back_neutral)
+            sentiScore > 0.3f -> Pair(
+                resources.getString(R.string.mood_positive),
+                R.drawable.textview_back_positive
+            )
+            sentiScore < -0.3f -> Pair(
+                resources.getString(R.string.mood_negative),
+                R.drawable.textview_back_negative
+            )
+            else -> Pair(
+                resources.getString(R.string.mood_neutral),
+                R.drawable.textview_back_neutral
+            )
         }
     }
 }

@@ -8,7 +8,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,8 +19,8 @@ import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.shojishunsuke.kibunnsns.GlideApp
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.presentation.secen.setting.SettingActivity
 import com.shojishunsuke.kibunnsns.presentation.recycler_view.adapter.PagerAdapter
+import com.shojishunsuke.kibunnsns.presentation.secen.setting.SettingActivity
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.fragment_record.view.*
 
@@ -36,9 +35,9 @@ class RecordFragment : Fragment() {
     private lateinit var iconView: CircleImageView
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_record, container, false)
 
@@ -62,8 +61,8 @@ class RecordFragment : Fragment() {
         editImageIcon.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             intent.setDataAndType(
-                    Uri.parse(Environment.getExternalStorageDirectory().path),
-                    "image/*"
+                Uri.parse(Environment.getExternalStorageDirectory().path),
+                "image/*"
             )
             startActivityForResult(intent, REQUEST_CODE_VIEW)
         }
@@ -76,16 +75,19 @@ class RecordFragment : Fragment() {
             setUpEditNameDialog(inflater)
         }
 
-        Log.d("Fragment", "${this.tag}")
-
+        val tabTitleList = listOf(
+            resources.getString(R.string.page_my_post_title),
+            resources.getString(R.string.page_calendar_title),
+            resources.getString(R.string.page_chart_title)
+        )
 
         tabLayout.apply {
-            addTab(newTab().setText("最近"))
-            addTab(newTab().setText("カレンダー"))
-            addTab(newTab().setText("気分"))
+            tabTitleList.forEach { title ->
+                this.addTab(newTab().setText(title))
+            }
         }
         viewPager.apply {
-            adapter = PagerAdapter(childFragmentManager)
+            adapter = PagerAdapter(childFragmentManager, tabTitleList)
         }
 
         tabLayout.setupWithViewPager(view.viewPager)
@@ -102,7 +104,11 @@ class RecordFragment : Fragment() {
             val bitmap = BitmapFactory.decodeStream(inputStream)
             viewModel.saveUserIcon(bitmap)
         } else {
-            Toast.makeText(requireContext(), "アイコン画像の選択に失敗しました", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireContext(),
+                resources.getString(R.string.toast_error_get_photo),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
@@ -110,16 +116,16 @@ class RecordFragment : Fragment() {
         super.onResume()
         if (viewModel.currentBitmap != null) {
             Glide.with(requireContext())
-                    .load(viewModel.currentBitmap)
-                    .placeholder(R.drawable.iconmonstr_user_20_96)
-                    .error(R.drawable.iconmonstr_user_20_96)
-                    .into(iconView)
+                .load(viewModel.currentBitmap)
+                .placeholder(R.drawable.iconmonstr_user_20_96)
+                .error(R.drawable.iconmonstr_user_20_96)
+                .into(iconView)
         } else {
             GlideApp.with(requireContext())
-                    .load(viewModel.getIconRef())
-                    .placeholder(R.drawable.iconmonstr_user_20_96)
-                    .error(R.drawable.iconmonstr_user_20_96)
-                    .into(iconView)
+                .load(viewModel.getIconRef())
+                .placeholder(R.drawable.iconmonstr_user_20_96)
+                .error(R.drawable.iconmonstr_user_20_96)
+                .into(iconView)
         }
     }
 
@@ -130,11 +136,13 @@ class RecordFragment : Fragment() {
         editText.setText(viewModel.userName.value)
 
         val editDialog = AlertDialog.Builder(requireContext())
-                .setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
+            .setPositiveButton(
+                resources.getString(R.string.button_dialog_positive),
+                DialogInterface.OnClickListener { _, _ ->
                     viewModel.saveUserName(editText.text.toString())
                 })
-                .setNegativeButton("キャンセル", null)
-                .create()
+            .setNegativeButton(resources.getString(R.string.button_cancel), null)
+            .create()
 
         editDialog.setView(parentView)
         editDialog.show()

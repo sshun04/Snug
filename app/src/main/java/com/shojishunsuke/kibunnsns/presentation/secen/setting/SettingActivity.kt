@@ -17,8 +17,8 @@ class SettingActivity : AppCompatActivity() {
         }
 
         supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.pref_container, PreferenceFragment())
-                .commit()
+            .beginTransaction()
+            .replace(R.id.pref_container, PreferenceFragment())
+            .commit()
     }
 }

@@ -4,8 +4,8 @@ import android.graphics.Color
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.shojishunsuke.kibunnsns.domain.use_case.HomePostsFragmentUseCase
 import com.shojishunsuke.kibunnsns.domain.model.Post
+import com.shojishunsuke.kibunnsns.domain.use_case.HomePostsFragmentUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -39,6 +39,12 @@ class HomePostsFragmentViewModel : ViewModel() {
         useCase.increaseView(post.postId)
     }
 
+    fun refresh() {
+        _nextPosts.value?.clear()
+        useCase.resetValues()
+        requestPosts()
+    }
+
     private fun requestPosts() {
         GlobalScope.launch {
             val posts = useCase.requestPostsByScore(progressMood)
@@ -47,11 +53,5 @@ class HomePostsFragmentViewModel : ViewModel() {
                 _nextPosts.postValue(posts)
             }
         }
-    }
-
-    fun refresh() {
-        _nextPosts.value?.clear()
-        useCase.resetValues()
-        requestPosts()
     }
 }

@@ -1,7 +1,6 @@
 package com.shojishunsuke.kibunnsns.data.repository.impl
 
 import android.content.Context
-import android.util.Log
 import com.google.api.client.extensions.android.http.AndroidHttp
 import com.google.api.client.extensions.android.json.AndroidJsonFactory
 import com.google.api.services.language.v1.CloudNaturalLanguage
@@ -12,7 +11,6 @@ import com.google.api.services.language.v1.model.Features
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.data.repository.LanguageAnalysisRepository
 import kotlinx.coroutines.runBlocking
-
 
 class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepository {
     private val naturalLanguageService: CloudNaturalLanguage
@@ -48,8 +46,6 @@ class NaturalLanguageAnalysisRepository(context: Context) : LanguageAnalysisRepo
         val magnitude = response.documentSentiment.magnitude
 
         val category = getKeyWord(response.entities)
-
-        Log.d("SentiScore", "$sentiScore")
 
         return@runBlocking Triple(sentiScore, magnitude, category)
     }

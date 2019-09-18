@@ -1,8 +1,8 @@
 package com.shojishunsuke.kibunnsns.domain.use_case
 
+import com.shojishunsuke.kibunnsns.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.data.repository.impl.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.data.repository.impl.FirebaseUserRepository
-import com.shojishunsuke.kibunnsns.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.data.repository.impl.RoomPostDateRepository
 import com.shojishunsuke.kibunnsns.domain.model.Post
 import java.util.*

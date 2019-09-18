@@ -1,6 +1,5 @@
 package com.shojishunsuke.kibunnsns.presentation.recycler_view.listener
 
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -20,7 +19,6 @@ class EndlessScrollListener(private val onLoadMoreListener: () -> Unit) : Recycl
 
                 if (lastVisibleItemCount == totalItemCount) {
                     onLoadMoreListener()
-                    Log.d("EndlessScrollListener", "scrolled")
                 }
             } else if (layoutManager is LinearLayoutManager) {
                 val totalItemCount = layoutManager.itemCount
@@ -28,7 +26,6 @@ class EndlessScrollListener(private val onLoadMoreListener: () -> Unit) : Recycl
 
                 if (lastVisibleItemCount == totalItemCount) {
                     onLoadMoreListener()
-                    Log.d("EndlessScrollListener", "scrolled")
                 }
             }
         }

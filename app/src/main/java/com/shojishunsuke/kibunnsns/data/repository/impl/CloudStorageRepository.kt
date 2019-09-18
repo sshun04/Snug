@@ -2,7 +2,6 @@ package com.shojishunsuke.kibunnsns.data.repository.impl
 
 import android.graphics.Bitmap
 import android.net.Uri
-import android.util.Log
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
 import com.google.firebase.storage.FirebaseStorage
@@ -29,10 +28,8 @@ class CloudStorageRepository(private val uploadListener: ImageUploadListener) : 
 
         uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
             if (!task.isSuccessful) {
-                task.exception?.let {
-                    Log.d("uploading icon", "failure")
-                }
             }
+
             return@Continuation iconsRef.downloadUrl
         }).addOnCompleteListener { task ->
             GlobalScope.launch {
@@ -45,7 +42,7 @@ class CloudStorageRepository(private val uploadListener: ImageUploadListener) : 
     }
 
     override fun getStorageRefByUri(uriString: String): StorageReference =
-            storage.getReferenceFromUrl(uriString)
+        storage.getReferenceFromUrl(uriString)
 
     interface ImageUploadListener {
         suspend fun onUploadTaskComplete(result: Uri)

@@ -3,7 +3,6 @@ package com.shojishunsuke.kibunnsns.presentation.secen.main.home
 import android.graphics.PorterDuff
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,9 +16,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.domain.model.Post
-import com.shojishunsuke.kibunnsns.presentation.recycler_view.view_type.RecyclerViewType
 import com.shojishunsuke.kibunnsns.presentation.recycler_view.adapter.RecyclerViewPagingAdapter
 import com.shojishunsuke.kibunnsns.presentation.recycler_view.listener.EndlessScrollListener
+import com.shojishunsuke.kibunnsns.presentation.recycler_view.view_type.RecyclerViewType
 import com.shojishunsuke.kibunnsns.presentation.secen.main.home.detail.DetailPostsFragment
 import kotlinx.android.synthetic.main.fragment_home_posts.view.*
 
@@ -46,7 +45,7 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
         }
 
         view.homeToolBar.apply {
-            title = "Snug"
+            title = resources.getString(R.string.app_name)
             setTitleTextColor(resources.getColor(R.color.dark_54))
         }
 
@@ -74,7 +73,7 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
         view.linear.setOnClickListener {
             recyclerView.layoutManager =
                 LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-            pagingAdapter.viewType = RecyclerViewType.Vertical.ordinal
+            pagingAdapter.viewType = RecyclerViewType.Vertical.value
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.scheduleLayoutAnimation()
             it.visibility = View.GONE
@@ -83,7 +82,7 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
 
         view.grid.setOnClickListener {
             recyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
-            pagingAdapter.viewType = RecyclerViewType.Staggered.ordinal
+            pagingAdapter.viewType = RecyclerViewType.Staggered.value
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.scheduleLayoutAnimation()
             it.visibility = View.GONE
@@ -117,6 +116,9 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
 
     override fun onProgressChanged(seekbar: SeekBar?, progress: Int, p2: Boolean) {
         viewModel.progressMood = progress
+        val color = viewModel.getProgressSeekBarColor()
+        seekbar?.progressDrawable?.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+        seekbar?.thumb?.setColorFilter(color, PorterDuff.Mode.SRC_IN)
     }
 
     override fun onStartTrackingTouch(p0: SeekBar?) {}
@@ -124,16 +126,12 @@ class HomePostsFragment : Fragment(), SeekBar.OnSeekBarChangeListener {
     override fun onStopTrackingTouch(seekbar: SeekBar?) {
         pagingAdapter.clear()
         viewModel.onStopTracking()
-        val color = viewModel.getProgressSeekBarColor()
-        seekbar?.progressDrawable?.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
-        seekbar?.thumb?.setColorFilter(color, PorterDuff.Mode.SRC_IN)
     }
 
     override fun onResume() {
         super.onResume()
         pagingAdapter.clear()
         viewModel.refresh()
-        Log.d("HomeFragment", "onResume")
     }
 
     private fun setUpDetailFragment(post: Post) {

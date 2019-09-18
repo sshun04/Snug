@@ -1,12 +1,11 @@
 package com.shojishunsuke.kibunnsns.domain.use_case
 
 import com.shojishunsuke.kibunnsns.data.repository.impl.FireStoreDatabaseRepository
-import com.shojishunsuke.kibunnsns.data.repository.DataBaseRepository
 import com.shojishunsuke.kibunnsns.domain.model.Post
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class DetailPostsFragmentUseCase(basePost: Post) {
+class DetailPostsFragmentUseCase(private val basePost: Post) {
     private val fireStoreRepository: FireStoreDatabaseRepository = FireStoreDatabaseRepository()
     private var hasMoreSameActPost: Boolean = true
     private var sameActPrevPost: Post
@@ -27,7 +26,7 @@ class DetailPostsFragmentUseCase(basePost: Post) {
             result.addAll(sameActCollection)
         }
 
-        return result.shuffled()
+        return result.distinct()
     }
 
     fun increaseView(postId: String) {
@@ -35,13 +34,18 @@ class DetailPostsFragmentUseCase(basePost: Post) {
     }
 
     private suspend fun loadWideRangeCollection(): List<Post> {
-        val posts = fireStoreRepository.loadScoreRangedCollectionAscend(post = wideRangePrevPost)
+        val posts =
+            fireStoreRepository.loadScoreRangedCollectionAscend(post = wideRangePrevPost).apply {
+                removeIf { post -> post.postId == basePost.postId }
+            }
         if (posts.isNotEmpty()) wideRangePrevPost = posts.last()
         return posts
     }
 
     private suspend fun loadSameActCollection(): List<Post> {
-        val posts = fireStoreRepository.loadSpecificSortedNextCollection(sameActPrevPost)
+        val posts = fireStoreRepository.loadSpecificSortedNextCollection(sameActPrevPost).apply {
+            removeIf { post -> post.postId == basePost.postId }
+        }
         if (posts.isNotEmpty()) sameActPrevPost = posts.last()
         if (posts.size < 12) hasMoreSameActPost = false
 

@@ -25,9 +25,7 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="true"
-        android:paddingBottom="8dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,7 +64,7 @@
                             android:layout_height="28dp"
                             android:layout_marginStart="4dp"
                             android:gravity="start|center"
-                            android:text="UserName"
+                            android:text="@string/user_name_default"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -76,7 +74,7 @@
                             android:layout_gravity="center"
                             android:layout_marginStart="4dp"
                             android:gravity="bottom"
-                            android:text="さんのつぶやき"
+                            android:text="@string/following_user_name"
                             android:textColor="@color/dark_54"
                             android:textSize="12sp" />
 
@@ -116,10 +114,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="おすすめ"
+                android:text="@string/recommend"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
@@ -127,7 +125,9 @@
                 android:id="@+id/detailPostsRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:nestedScrollingEnabled="false">
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:paddingBottom="40dp">
 
             </androidx.recyclerview.widget.RecyclerView>
 

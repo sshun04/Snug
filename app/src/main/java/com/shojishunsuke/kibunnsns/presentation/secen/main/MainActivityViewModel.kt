@@ -1,8 +1,6 @@
 package com.shojishunsuke.kibunnsns.presentation.secen.main
 
 import android.app.Application
-import android.content.Context
-import android.util.Log
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -21,16 +19,16 @@ class MainActivityViewModel(application: Application) : ViewModel() {
     }
 
     fun setupPostFragment(fragmentManager: FragmentManager) {
-        Log.d("Main", "Tapped!!")
         val postDialog = PostDialogFragment()
-        postDialog.show(fragmentManager.beginTransaction(), "a")
+        postDialog.show(fragmentManager.beginTransaction(), "fragment")
     }
 
     fun onAuthSuccess() {
         useCase.updateUser()
     }
 
-    class MainActivityViewModelFactory(private val application: Application) : ViewModelProvider.AndroidViewModelFactory(application){
+    class MainActivityViewModelFactory(private val application: Application) :
+        ViewModelProvider.AndroidViewModelFactory(application) {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return MainActivityViewModel(application) as T
         }

@@ -19,14 +19,14 @@ class MyPostFragment : Fragment() {
     lateinit var viewModel: MyPostFragmentViewModel
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_posts_record, container, false)
         viewModel = ViewModelProviders.of(this).get(MyPostFragmentViewModel::class.java)
 
-        recyclerViewAdapter = PostRecordRecyclerViewPagingAdapter(requireContext()) {post ->
+        recyclerViewAdapter = PostRecordRecyclerViewPagingAdapter(requireContext()) { post ->
             viewModel.onPostRemove(post)
         }
 
@@ -34,7 +34,7 @@ class MyPostFragment : Fragment() {
             adapter = recyclerViewAdapter
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             layoutAnimation =
-                    AnimationUtils.loadLayoutAnimation(this.context, R.anim.animation_recyclerview)
+                AnimationUtils.loadLayoutAnimation(this.context, R.anim.animation_recyclerview)
         }
 
         viewModel.postsList.observe(viewLifecycleOwner, Observer {

@@ -3,7 +3,6 @@ package com.shojishunsuke.kibunnsns.ext
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 /**
  * Calendarの拡張関数群
  *

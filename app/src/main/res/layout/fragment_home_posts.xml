@@ -54,12 +54,12 @@
         <LinearLayout
             android:id="@+id/headerGroup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_gravity="center"
             android:layout_marginHorizontal="16dp"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingBottom="8dp">
+            android:paddingBottom="4dp">
 
             <androidx.emoji.widget.EmojiTextView
                 android:layout_width="wrap_content"
@@ -78,7 +78,9 @@
                 android:max="20"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:progress="10" />
+                android:progress="10"
+                android:progressDrawable="@drawable/seek_bar"
+                android:thumb="@drawable/seek_thumb" />
 
             <androidx.emoji.widget.EmojiTextView
                 android:layout_width="wrap_content"

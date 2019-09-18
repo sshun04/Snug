@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
 import com.github.sundeepk.compactcalendarview.domain.Event
-import com.shojishunsuke.kibunnsns.domain.use_case.CalendarFragmentUseCase
 import com.shojishunsuke.kibunnsns.domain.model.Post
+import com.shojishunsuke.kibunnsns.domain.use_case.CalendarFragmentUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -62,7 +62,7 @@ class CalendarFragmentViewModel : ViewModel() {
         }
     }
 
-   private fun deletePost(post: Post) {
+    private fun deletePost(post: Post) {
         GlobalScope.launch {
             useCase.deletePostFromDatabase(post)
         }

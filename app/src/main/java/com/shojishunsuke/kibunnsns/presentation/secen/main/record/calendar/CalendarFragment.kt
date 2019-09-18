@@ -1,6 +1,7 @@
 package com.shojishunsuke.kibunnsns.presentation.secen.main.record.calendar
 
 import android.os.Bundle
+import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.sundeepk.compactcalendarview.CompactCalendarView
 import com.shojishunsuke.kibunnsns.R
-import com.shojishunsuke.kibunnsns.ext.month
-import com.shojishunsuke.kibunnsns.ext.year
 import com.shojishunsuke.kibunnsns.presentation.recycler_view.adapter.PostRecordRecyclerViewPagingAdapter
 import kotlinx.android.synthetic.main.fragment_calendar.view.*
 import java.util.*
@@ -64,7 +63,11 @@ class CalendarFragment : Fragment() {
                 override fun onMonthScroll(firstDayOfNewMonth: Date?) {
                     currentDate.time = firstDayOfNewMonth
                     view.calendarHeaderTextView.text =
-                        "${currentDate.year()}年${currentDate.month()}月"
+                        DateUtils.formatDateTime(
+                            requireContext(),
+                            currentDate.timeInMillis,
+                            DateUtils.FORMAT_SHOW_YEAR or DateUtils.FORMAT_NO_MONTH_DAY
+                        )
                 }
             })
         }

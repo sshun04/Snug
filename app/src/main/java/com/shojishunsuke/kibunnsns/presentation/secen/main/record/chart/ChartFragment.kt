@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
@@ -20,17 +19,22 @@ class ChartFragment : Fragment(), View.OnClickListener {
     private lateinit var parentView: View
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         parentView = inflater.inflate(R.layout.fragment_chart, container, false)
         val lineChart = parentView.lineChart
-        val pieChart = parentView.pieChart
+        val pieChart = parentView.pieChart.apply {
+            setNoDataText(resources.getString(R.string.chart_no_data_description))
+        }
 
         viewModel = requireActivity().run {
-            ViewModelProviders.of(this, ChartFragmentViewModel.ChartFragmentViewModelFactory(application))
-                    .get(ChartFragmentViewModel::class.java)
+            ViewModelProviders.of(
+                this,
+                ChartFragmentViewModel.ChartFragmentViewModelFactory(application)
+            )
+                .get(ChartFragmentViewModel::class.java)
         }
         lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
 
@@ -66,7 +70,6 @@ class ChartFragment : Fragment(), View.OnClickListener {
                 axisMinimum = 0f
             }
         })
-
 
         viewModel.pieEntries.observe(viewLifecycleOwner, Observer {
             pieChart.data = viewModel.getPieChartData()
