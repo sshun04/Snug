@@ -8,7 +8,7 @@
     <string name="following_user_name">\'s post</string>
     <string name="views">views</string>
     <string name="recommend">related</string>
-    <string name="hint_message">enter message</string>
+    <string name="hint_message">Enter message</string>
     <string name="button_dialog_positive">OK</string>
     <string name="button_post">POST</string>
     <string name="button_cancel">CANCEL</string>

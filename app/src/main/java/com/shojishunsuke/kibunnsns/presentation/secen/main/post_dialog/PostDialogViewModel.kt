@@ -6,7 +6,6 @@ import com.shojishunsuke.kibunnsns.data.repository.impl.NaturalLanguageAnalysisR
 import com.shojishunsuke.kibunnsns.data.repository.impl.RoomEmojiRepository
 import com.shojishunsuke.kibunnsns.domain.model.Post
 import com.shojishunsuke.kibunnsns.domain.use_case.PostDialogUseCase
-import com.shojishunsuke.kibunnsns.ext.detailDateString
 import com.shojishunsuke.kibunnsns.ext.timeOfDayString
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -21,7 +20,6 @@ class PostDialogViewModel(application: Application) : AndroidViewModel(applicati
 
     private val date = Calendar.getInstance()
     val timeString = date.timeOfDayString()
-    val detailDate = date.detailDateString()
 
     private val currentEmojiList: MutableLiveData<List<String>> = MutableLiveData()
 
