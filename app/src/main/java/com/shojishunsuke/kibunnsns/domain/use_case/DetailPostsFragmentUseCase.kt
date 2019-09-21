@@ -24,6 +24,7 @@ class DetailPostsFragmentUseCase(private val basePost: Post) {
         if (hasMoreSameActPost) {
             val sameActCollection = loadSameActCollection()
             result.addAll(sameActCollection)
+            result.shuffle()
         }
 
         return result.distinct()
@@ -37,8 +38,10 @@ class DetailPostsFragmentUseCase(private val basePost: Post) {
         val posts =
             fireStoreRepository.loadScoreRangedCollectionAscend(post = wideRangePrevPost).apply {
                 removeIf { post -> post.postId == basePost.postId }
+                removeIf { post -> post.actID == basePost.actID }
             }
         if (posts.isNotEmpty()) wideRangePrevPost = posts.last()
+
         return posts
     }
 
