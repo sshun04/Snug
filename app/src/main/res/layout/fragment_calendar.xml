@@ -80,7 +80,7 @@
                         android:backgroundTint="@android:color/transparent"
                         android:foreground="?attr/selectableItemBackground"
                         android:padding="8dp"
-                        android:text="今日"
+                        android:text="@string/today"
                         app:icon="@drawable/ic_today_black_24dp"
                         app:iconTint="@color/dark_26" />
 
@@ -100,21 +100,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:singleLine="true"
-                    android:text="月日"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/detailSwitch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="詳細表示"
-                    android:textColor="@color/dark_54"
-                    android:textSize="12sp"
-                    android:visibility="gone"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
