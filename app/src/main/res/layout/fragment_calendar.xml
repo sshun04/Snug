@@ -80,6 +80,7 @@
                         android:backgroundTint="@android:color/transparent"
                         android:foreground="?attr/selectableItemBackground"
                         android:padding="8dp"
+                        android:paddingEnd="12dp"
                         android:text="@string/today"
                         app:icon="@drawable/ic_today_black_24dp"
                         app:iconTint="@color/dark_26" />
