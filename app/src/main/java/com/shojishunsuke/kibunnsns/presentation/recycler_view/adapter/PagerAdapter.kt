@@ -8,8 +8,8 @@ import com.shojishunsuke.kibunnsns.presentation.secen.main.record.chart.ChartFra
 import com.shojishunsuke.kibunnsns.presentation.secen.main.record.my_post.MyPostFragment
 
 class PagerAdapter(fragmentManager: FragmentManager, private val pageTitleList: List<String>) :
-    FragmentPagerAdapter(fragmentManager) {
-    enum class Page(val value: Int) {
+    FragmentPagerAdapter(fragmentManager,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+   private enum class Page(val value: Int) {
         MyPost(0),
         Calendar(1),
         Chart(2)

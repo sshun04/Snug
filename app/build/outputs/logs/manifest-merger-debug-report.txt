@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
-INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
-INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
-INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
+ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-26:12
 MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:2:1-109:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-beta2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e901323b05e81d57053e71a0194c80c3/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.preference:preference:1.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f5be4757d8dbe033b3d860dcc62bdbf2/AndroidManifest.xml:17:1-22:12
@@ -106,25 +106,25 @@ MERGED from [androidx.arch.core:core-runtime:2.1.0-beta01] /Users/shojishunsuke/
 MERGED from [com.google.firebase:firebase-database-collection:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/d6012102025af0e6756b64256c216a3b/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:protolite-well-known-types:17.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e609159e5786ce95a29fa746f2632903/AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.21.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/28f214cef35c1293bebad261ed4f9a8b/AndroidManifest.xml:2:1-13:12
-INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
-INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
-INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-26:12
 	package
 		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:3:5-42
 		INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
+		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-26:12
 		INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-25:12
+		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:1-26:12
 		INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:5:5-23:19
+ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:5:5-24:19
 MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:15:5-107:19
 MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/f575dd0882197cb535a27d8d73e22060/AndroidManifest.xml:15:5-107:19
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-beta2] /Users/shojishunsuke/.gradle/caches/transforms-2/files-2.1/e901323b05e81d57053e71a0194c80c3/AndroidManifest.xml:9:5-20
@@ -211,26 +211,30 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users
 		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:12:9-40
 	android:name
 		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:6:9-40
+activity#com.shojishunsuke.kibunnsns.presentation.secen.tutorial.TutorialActivity
+ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:13:9-91
+	android:name
+		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:13:19-79
 activity#com.shojishunsuke.kibunnsns.presentation.secen.setting.SettingActivity
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:13:9-107
+ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:14:9-80
 	android:name
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:13:19-104
+		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:14:19-77
 activity#com.shojishunsuke.kibunnsns.presentation.secen.main.MainActivity
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:14:9-22:20
+ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:15:9-23:20
 	android:screenOrientation
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:16:13-49
+		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:17:13-49
 	android:name
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:15:13-92
+		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:16:13-65
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:17:13-21:29
+ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:18:13-22:29
 action#android.intent.action.MAIN
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:18:17-69
+ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:19:17-69
 	android:name
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:18:25-66
+		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:19:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:20:17-77
+ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:21:17-77
 	android:name
-		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:20:27-74
+		ADDED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml:21:27-74
 uses-sdk
 INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/shojishunsuke/AndroidStudioProjects/KibunnSns/app/src/main/AndroidManifest.xml

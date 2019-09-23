@@ -1,5 +1,6 @@
 package com.shojishunsuke.kibunnsns.presentation.secen.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.shojishunsuke.kibunnsns.R
+import com.shojishunsuke.kibunnsns.presentation.secen.tutorial.TutorialActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -38,6 +40,8 @@ class MainActivity : AppCompatActivity() {
             mainViewModel.setupPostFragment(supportFragmentManager)
             isInitialized = true
         }
+
+       TutorialActivity.start(this)
     }
 
     override fun onStart() {

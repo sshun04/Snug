@@ -1403,6 +1403,7 @@ drawable ic_today_black_24dp
 drawable icon_annonymous
 drawable icon_setting_24
 drawable iconmonstr_user_20_96
+drawable indicator_selector
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1522,6 +1523,7 @@ id baseline
 id beginning
 id blocking
 id bottom
+id bottomIndicator
 id bottom_app_bar
 id bottom_navigation
 id bounce
@@ -1706,6 +1708,7 @@ id navigation_to_home
 id nestedScrollView
 id never
 id next
+id nextButton
 id no_fill_large_indicator
 id nonExistent
 id none
@@ -1810,6 +1813,7 @@ id sign_in_email_sent_header_text
 id sign_in_email_sent_text
 id simpleDateTextView
 id sin
+id skipButton
 id smallLabel
 id small_indicator
 id snackbar_action
@@ -1883,6 +1887,8 @@ id transition_transform
 id triangle
 id trouble_signing_in
 id trouble_signing_in_possible_fixes
+id tutorialTabLayout
+id tutorialViewPager
 id uniform
 id unlabeled
 id up
@@ -1953,6 +1959,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
 layout activity_setting
+layout activity_tutorial
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog
@@ -1980,6 +1987,7 @@ layout fragment_dialog_post
 layout fragment_home_posts
 layout fragment_posts_record
 layout fragment_record
+layout fragment_tutorial_first
 layout fui_activity_invisible
 layout fui_activity_register_email
 layout fui_activity_register_phone
@@ -2102,9 +2110,11 @@ string button_chart_month
 string button_chart_week
 string button_delete_post
 string button_dialog_positive
+string button_next
 string button_pop_delete_post
 string button_post
 string button_set_activity
+string button_skip
 string character_counter_content_description
 string character_counter_pattern
 string chart_no_data_description

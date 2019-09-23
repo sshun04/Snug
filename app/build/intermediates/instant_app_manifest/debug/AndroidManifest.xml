@@ -26,6 +26,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.shojishunsuke.kibunnsns.presentation.secen.tutorial.TutorialActivity" />
         <activity android:name="com.shojishunsuke.kibunnsns.presentation.secen.setting.SettingActivity" />
         <activity
             android:name="com.shojishunsuke.kibunnsns.presentation.secen.main.MainActivity"
