@@ -1,5 +1,6 @@
 package com.shojishunsuke.kibunnsns.domain.use_case
 
+import android.os.Build
 import com.shojishunsuke.kibunnsns.data.repository.impl.FireStoreDatabaseRepository
 import com.shojishunsuke.kibunnsns.domain.model.Post
 import kotlinx.coroutines.GlobalScope
@@ -37,8 +38,11 @@ class DetailPostsFragmentUseCase(private val basePost: Post) {
     private suspend fun loadWideRangeCollection(): List<Post> {
         val posts =
             fireStoreRepository.loadScoreRangedCollectionAscend(post = wideRangePrevPost).apply {
-                removeIf { post -> post.postId == basePost.postId }
-                removeIf { post -> post.actID == basePost.actID }
+                //                Api23以下でクラッシュ java.lang.NoClassDefFoundError:
+                if (Build.VERSION.SDK_INT > 23) {
+                    removeIf { post -> post.postId == basePost.postId }
+                    removeIf { post -> post.actID == basePost.actID }
+                }
             }
         if (posts.isNotEmpty()) wideRangePrevPost = posts.last()
 
@@ -47,7 +51,10 @@ class DetailPostsFragmentUseCase(private val basePost: Post) {
 
     private suspend fun loadSameActCollection(): List<Post> {
         val posts = fireStoreRepository.loadSpecificSortedNextCollection(sameActPrevPost).apply {
-            removeIf { post -> post.postId == basePost.postId }
+            //            Api23以下でクラッシュ java.lang.NoClassDefFoundError:
+            if (Build.VERSION.SDK_INT > 23) {
+                removeIf { post -> post.postId == basePost.postId }
+            }
         }
         if (posts.isNotEmpty()) sameActPrevPost = posts.last()
         if (posts.size < 12) hasMoreSameActPost = false

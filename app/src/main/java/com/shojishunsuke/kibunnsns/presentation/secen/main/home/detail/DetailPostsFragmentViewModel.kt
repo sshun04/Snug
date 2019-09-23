@@ -6,8 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.shojishunsuke.kibunnsns.domain.model.Post
 import com.shojishunsuke.kibunnsns.domain.use_case.DetailPostsFragmentUseCase
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 
 class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
@@ -15,6 +16,8 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
 
     val nextPosts: LiveData<List<Post>> get() = _nextPosts
     private val _nextPosts = MutableLiveData<List<Post>>()
+    private val job = SupervisorJob()
+    private val scope = CoroutineScope(Dispatchers.Default + job)
 
     private var isLoading: Boolean = true
 
@@ -40,7 +43,7 @@ class DetailPostsFragmentViewModel(private val post: Post) : ViewModel() {
     fun getContentText(): String = post.contentText
 
     private fun loadNextPosts() {
-        GlobalScope.launch {
+        scope.launch {
             val posts = useCase.loadPosts()
             launch(Dispatchers.Main) {
                 _nextPosts.postValue(posts)
