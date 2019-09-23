@@ -7,13 +7,13 @@
     <string name="confirm_delete_post">Are you sure deleting this post?</string>
     <string name="following_user_name">\'s post</string>
     <string name="views">views</string>
-    <string name="recommend">related</string>
-    <string name="hint_message">enter message</string>
+    <string name="recommend">Recommend</string>
+    <string name="hint_message">Enter message</string>
     <string name="button_dialog_positive">OK</string>
     <string name="button_post">POST</string>
     <string name="button_cancel">CANCEL</string>
     <string name="button_delete_post">delete</string>
-    <string name="button_pop_delete_post">delete post</string>
+    <string name="button_pop_delete_post">Delete post</string>
     <string name="button_set_activity">set activity</string>
     <string name="button_calendar_today">today</string>
     <string name="button_chart_day">day</string>
@@ -25,6 +25,7 @@
     <string name="toast_enter_message">please enter message</string>
     <string name="toast_error_get_photo">Could not complete task</string>
     <string name="date_format_time">HH:mm</string>
+    <string name="today">Today</string>
     <string name="year">year</string>
     <string name="month">month</string>
     <string name="day_of_month">day</string>

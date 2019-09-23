@@ -1586,7 +1586,6 @@ id detailFragment
 id detailFragmentContainer
 id detailFragmentToolbar
 id detailPostsRecyclerView
-id detailSwitch
 id dialog_button
 id dimensions
 id direct
@@ -2270,6 +2269,7 @@ string sunday
 string thursday
 string toast_enter_message
 string toast_error_get_photo
+string today
 string tuesday
 string twitter_consumer_key
 string twitter_consumer_secret

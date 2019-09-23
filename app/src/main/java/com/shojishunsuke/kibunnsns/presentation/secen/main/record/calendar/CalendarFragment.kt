@@ -50,8 +50,8 @@ class CalendarFragment : Fragment() {
         view.compactCalendar.apply {
             val currentDate = Calendar.getInstance()
             setCurrentDate(currentDate.time)
+            setLocale(TimeZone.getDefault(),Locale.getDefault())
             setFirstDayOfWeek(Calendar.SUNDAY)
-            setLocale(TimeZone.getDefault(), Locale.JAPAN)
             shouldDrawIndicatorsBelowSelectedDays(true)
             setShouldDrawDaysHeader(true)
             setListener(object : CompactCalendarView.CompactCalendarViewListener {

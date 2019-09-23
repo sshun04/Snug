@@ -2,6 +2,7 @@ package com.shojishunsuke.kibunnsns.presentation.secen.main.post_dialog
 
 import android.app.Dialog
 import android.os.Bundle
+import android.text.format.DateUtils
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -40,7 +41,10 @@ class PostDialogFragment : DialogFragment() {
             dismiss()
         })
 
-        parentView.detailDateTextView.text = viewModel.detailDate
+        parentView.detailDateTextView.text = DateUtils.formatDateTime(
+            requireContext(), System.currentTimeMillis(),
+            DateUtils.FORMAT_SHOW_YEAR or DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_SHOW_WEEKDAY or DateUtils.FORMAT_ABBREV_WEEKDAY
+        )
         parentView.timeTextView.text = viewModel.timeString
 
         parentView.setActivityButton.setOnClickListener {
