@@ -1592,6 +1592,7 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
+id doneButton
 id dragDown
 id dragLeft
 id dragRight
@@ -1988,6 +1989,8 @@ layout fragment_home_posts
 layout fragment_posts_record
 layout fragment_record
 layout fragment_tutorial_first
+layout fragment_tutorial_last
+layout fragment_tutorial_second
 layout fui_activity_invisible
 layout fui_activity_register_email
 layout fui_activity_register_phone
@@ -2110,6 +2113,7 @@ string button_chart_month
 string button_chart_week
 string button_delete_post
 string button_dialog_positive
+string button_done
 string button_next
 string button_pop_delete_post
 string button_post

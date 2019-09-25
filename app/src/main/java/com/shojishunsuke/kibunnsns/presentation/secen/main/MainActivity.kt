@@ -1,6 +1,5 @@
 package com.shojishunsuke.kibunnsns.presentation.secen.main
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -25,7 +24,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         auth = FirebaseAuth.getInstance()
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         mainViewModel = run {
@@ -36,12 +34,14 @@ class MainActivity : AppCompatActivity() {
                 .get(MainActivityViewModel::class.java)
         }
 
+//        if(!mainViewModel.isTutorialInitialized()){
+        TutorialActivity.start(this)
+//        }
+
         fab.setOnClickListener {
             mainViewModel.setupPostFragment(supportFragmentManager)
             isInitialized = true
         }
-
-       TutorialActivity.start(this)
     }
 
     override fun onStart() {

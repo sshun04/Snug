@@ -32,16 +32,33 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:foreground="?attr/selectableItemBackground"
-            android:text="@string/button_skip" />
+            android:text="@string/button_skip"
+            app:rippleColor="@android:color/transparent" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tutorialTabLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:focusable="false"
+            android:clickable="false"
             android:layout_weight="3"
             app:tabBackground="@drawable/indicator_selector"
             app:tabGravity="center"
+            app:tabRippleColor="@android:color/transparent"
+            app:tabUnboundedRipple="false"
             app:tabIndicatorHeight="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/doneButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/button_done"
+            android:visibility="gone"
+            app:rippleColor="@android:color/transparent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/nextButton"
@@ -51,7 +68,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:foreground="?attr/selectableItemBackground"
-            android:text="@string/button_next" />
+            android:text="@string/button_next"
+            app:rippleColor="@android:color/transparent" />
 
     </LinearLayout>
 

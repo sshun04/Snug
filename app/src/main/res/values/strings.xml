@@ -9,6 +9,7 @@
     <string name="views">views</string>
     <string name="recommend">Recommend</string>
     <string name="hint_message">Enter message</string>
+    <string name="button_done">done</string>
     <string name="button_next">next</string>
     <string name="button_skip">skip</string>
     <string name="button_dialog_positive">OK</string>

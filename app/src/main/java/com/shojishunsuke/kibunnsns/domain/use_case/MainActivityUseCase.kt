@@ -13,6 +13,8 @@ class MainActivityUseCase(private val dataConfigRepository: DataConfigRepository
         }
     }
 
+    fun getInitiazationState(): Boolean = dataConfigRepository.isInitialized()
+
     fun updateUser() {
         userRepository.updateUser()
     }
