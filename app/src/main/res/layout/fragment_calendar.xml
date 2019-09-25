@@ -70,19 +70,32 @@
                         app:compactCalendarMultiEventIndicatorColor="@color/color_neutral"
                         app:compactCalendarTextSize="12sp" />
 
-                    <com.google.android.material.button.MaterialButton
+
+                    <LinearLayout
                         android:id="@+id/focusTodayButton"
-                        style="@style/Widget.AppCompat.ImageButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
-                        android:backgroundTint="@android:color/transparent"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
-                        android:padding="8dp"
-                        android:paddingEnd="12dp"
-                        android:text="@string/today"
-                        app:icon="@drawable/ic_today_black_24dp"
-                        app:iconTint="@color/dark_26" />
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_today_black_24dp"
+                            android:backgroundTint="@color/dark_26" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="4dp"
+                            android:text="@string/today"
+                            android:textColor="@color/dark_87" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
