@@ -47,10 +47,10 @@ class CalendarFragment : Fragment() {
             view.compactCalendar.setCurrentDate(viewModel.getDate())
         }
 
+        val currentDate = Calendar.getInstance()
         view.compactCalendar.apply {
-            val currentDate = Calendar.getInstance()
             setCurrentDate(currentDate.time)
-            setLocale(TimeZone.getDefault(),Locale.getDefault())
+            setLocale(TimeZone.getDefault(), Locale.getDefault())
             setFirstDayOfWeek(Calendar.SUNDAY)
             shouldDrawIndicatorsBelowSelectedDays(true)
             setShouldDrawDaysHeader(true)
@@ -71,6 +71,14 @@ class CalendarFragment : Fragment() {
                 }
             })
         }
+
+        view.calendarHeaderTextView.text =
+            DateUtils.formatDateTime(
+                requireContext(),
+                currentDate.timeInMillis,
+                DateUtils.FORMAT_SHOW_YEAR or DateUtils.FORMAT_NO_MONTH_DAY
+            )
+
         view.monthNextButton.setOnClickListener {
             view.compactCalendar.scrollLeft()
         }
