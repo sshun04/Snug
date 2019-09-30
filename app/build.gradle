@@ -48,11 +48,11 @@ dependencies {
     //Kotlin coroutines用ライブラリ(async, await)
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines_version"
     implementation 'com.google.firebase:firebase-firestore:20.1.0'
     implementation 'com.google.firebase:firebase-auth:18.0.0'
     implementation 'com.google.android.gms:play-services-auth-api-phone:17.1.0'
     implementation 'com.google.firebase:firebase-storage:18.0.0'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha01"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-alpha01"
     implementation "android.arch.lifecycle:viewmodel:1.1.1"
