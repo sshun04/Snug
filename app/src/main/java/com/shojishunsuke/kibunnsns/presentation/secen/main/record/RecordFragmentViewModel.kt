@@ -38,9 +38,7 @@ class RecordFragmentViewModel : ViewModel(), CloudStorageRepository.ImageUploadL
         _userName.value = useCase.getUserName()
     }
 
-    fun getIconRef(): StorageReference {
-        return useCase.getIconStorageRef()
-    }
+    fun getUserIconUrl():String = useCase.getIconUrl()
 
     override suspend fun onUploadTaskComplete(result: Uri) {
         GlobalScope.launch {
