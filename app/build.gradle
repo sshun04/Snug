@@ -24,10 +24,10 @@ android {
 
     flavorDimensions "default"
     productFlavors {
-        development{
+        development {
 
         }
-        production{
+        production {
 
         }
     }

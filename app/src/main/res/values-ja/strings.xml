@@ -10,6 +10,8 @@
     <string name="views">閲覧</string>
     <string name="recommend">おすすめ</string>
     <string name="hint_message">メッセージ</string>
+    <string name="button_next">次へ</string>
+    <string name="button_skip">スキップ</string>
     <string name="button_dialog_positive">OK</string>
     <string name="button_post">投稿</string>
     <string name="button_cancel">キャンセル</string>
