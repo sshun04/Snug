@@ -32,6 +32,8 @@ class RecordFragmentUseCase(uploadListener: CloudStorageRepository.ImageUploadLi
         return cloutStorageRepository.getStorageRefByUri(uriString)
     }
 
+    fun getIconUrl():String = userInfoRepository.getUserPhotoUri().toString()
+
     fun getUserName(): String {
         return userInfoRepository.getUserName()
     }

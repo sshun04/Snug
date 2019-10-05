@@ -122,7 +122,7 @@ class RecordFragment : Fragment() {
                 .into(iconView)
         } else {
             GlideApp.with(requireContext())
-                .load(viewModel.getIconRef())
+                .load(viewModel.getUserIconUrl())
                 .placeholder(R.drawable.iconmonstr_user_20_96)
                 .error(R.drawable.iconmonstr_user_20_96)
                 .into(iconView)
