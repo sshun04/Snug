@@ -1,9 +1,11 @@
 package com.shojishunsuke.kibunnsns.presentation.secen.main.post_dialog
 
 import android.app.Dialog
+import android.content.Context
 import android.os.Bundle
 import android.text.format.DateUtils
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
@@ -31,6 +33,8 @@ class PostDialogFragment : DialogFragment() {
             )
                 .get(PostDialogViewModel::class.java)
         }
+
+        val editText = parentView.contentEditText
 
         val dialog = AlertDialog.Builder(requireContext())
             .setView(parentView)
@@ -90,7 +94,7 @@ class PostDialogFragment : DialogFragment() {
         }
 
         parentView.postButton.setOnClickListener {
-            val contentText = parentView.contentEditText.text.toString()
+            val contentText = editText.text.toString()
             if (contentText.isNotBlank() && !posted) {
                 viewModel.requestPost(contentText, selectedEmojiCode)
                 posted = true
@@ -101,6 +105,9 @@ class PostDialogFragment : DialogFragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+            val keyBoardManager = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            keyBoardManager.hideSoftInputFromWindow(editText.windowToken,0)
+            editText.clearFocus()
         }
 
         parentView.cancelButton.setOnClickListener {
