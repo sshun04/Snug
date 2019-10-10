@@ -10,9 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.shojishunsuke.kibunnsns.presentation.secen.setting.SettingActivity" />
+        <activity android:name=".presentation.secen.main.tutorial.TutorialActivity"></activity>
+        <activity android:name=".presentation.secen.setting.SettingActivity" />
         <activity
-            android:name="com.shojishunsuke.kibunnsns.presentation.secen.main.MainActivity"
+            android:name=".presentation.secen.main.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

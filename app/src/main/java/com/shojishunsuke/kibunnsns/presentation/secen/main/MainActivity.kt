@@ -11,6 +11,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.shojishunsuke.kibunnsns.R
+import com.shojishunsuke.kibunnsns.presentation.secen.main.tutorial.TutorialActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,13 +26,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         auth = FirebaseAuth.getInstance()
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
         mainViewModel = run {
             ViewModelProviders.of(
                 this,
                 MainActivityViewModel.MainActivityViewModelFactory(application)
             )
                 .get(MainActivityViewModel::class.java)
+        }
+        if (!mainViewModel.isInitialized()){
+            TutorialActivity.start(this)
         }
 
         fab.setOnClickListener {

@@ -5,13 +5,7 @@ import com.shojishunsuke.kibunnsns.data.repository.impl.FirebaseUserRepository
 
 class MainActivityUseCase(private val dataConfigRepository: DataConfigRepository) {
     private val userRepository: FirebaseUserRepository = FirebaseUserRepository()
-
-    fun initialize() {
-        val isInitialized = dataConfigRepository.isInitialized()
-        if (!isInitialized) {
-            dataConfigRepository.updateInitializationState()
-        }
-    }
+    val isInitialized: Boolean = dataConfigRepository.isInitialized()
 
     fun updateUser() {
         userRepository.updateUser()

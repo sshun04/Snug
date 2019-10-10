@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.secen.main.tutorial.TutorialActivity">
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/tutorialViewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/tutorialTabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tutorialTabLayout"
+        android:layout_width="wrap_content"
+        android:background="@null"
+        android:layout_height="24dp"
+        android:contextClickable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
+        android:focusable="false"
+        app:layout_constraintBottom_toTopOf="@id/footerFrame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabBackground="@drawable/indicator_selector"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp" />
+
+
+    <FrameLayout
+        android:id="@+id/footerFrame"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_margin="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonNext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="8dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/button_next"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:theme="@style/Widget.MaterialComponents.Button"
+            app:cornerRadius="32dp" />
+
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
