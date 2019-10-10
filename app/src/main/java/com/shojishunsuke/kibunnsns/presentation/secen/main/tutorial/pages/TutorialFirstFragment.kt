@@ -7,14 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.shojishunsuke.kibunnsns.R
 
-class TutorialFirstFragment:Fragment() {
+class TutorialFirstFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_tutorial_first,container,false)
-        return view
-    }
+    ): View? = inflater.inflate(R.layout.fragment_tutorial_first, container, false)
+
 }

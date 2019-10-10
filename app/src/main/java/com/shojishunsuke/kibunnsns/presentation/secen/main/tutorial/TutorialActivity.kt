@@ -41,7 +41,6 @@ class TutorialActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, Vi
         buttonNext.setOnClickListener(this)
     }
 
-
     override fun onPageScrollStateChanged(state: Int) {}
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 

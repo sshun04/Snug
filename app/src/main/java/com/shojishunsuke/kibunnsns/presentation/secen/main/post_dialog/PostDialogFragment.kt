@@ -105,8 +105,9 @@ class PostDialogFragment : DialogFragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            val keyBoardManager = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            keyBoardManager.hideSoftInputFromWindow(editText.windowToken,0)
+            val keyBoardManager =
+                requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            keyBoardManager.hideSoftInputFromWindow(editText.windowToken, 0)
             editText.clearFocus()
         }
 
