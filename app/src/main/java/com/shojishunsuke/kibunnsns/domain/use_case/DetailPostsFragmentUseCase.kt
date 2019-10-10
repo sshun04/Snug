@@ -14,7 +14,8 @@ class DetailPostsFragmentUseCase(private val basePost: Post) {
 
     init {
         sameActPrevPost = basePost
-        wideRangePrevPost = Post(sentiScore = 0.2f)
+        val baseSentiScore =  if (basePost.sentiScore >= 0.1) basePost.sentiScore else 0.1f
+        wideRangePrevPost = Post(sentiScore = baseSentiScore)
     }
 
     suspend fun loadPosts(): List<Post> {
