@@ -14,7 +14,7 @@ class DetailPostsFragmentUseCase(private val basePost: Post) {
 
     init {
         sameActPrevPost = basePost
-        wideRangePrevPost = Post(sentiScore = basePost.sentiScore)
+        wideRangePrevPost = Post(sentiScore = 0.2f)
     }
 
     suspend fun loadPosts(): List<Post> {
@@ -22,7 +22,7 @@ class DetailPostsFragmentUseCase(private val basePost: Post) {
         val result = mutableListOf<Post>().apply {
             addAll(wideRangeCollection)
         }
-        if (hasMoreSameActPost) {
+        if (hasMoreSameActPost && basePost.actID.isNotBlank()) {
             val sameActCollection = loadSameActCollection()
             result.addAll(sameActCollection)
             result.shuffle()
@@ -41,7 +41,7 @@ class DetailPostsFragmentUseCase(private val basePost: Post) {
                 //                Api23以下でクラッシュ java.lang.NoClassDefFoundError:
                 if (Build.VERSION.SDK_INT > 23) {
                     removeIf { post -> post.postId == basePost.postId }
-                    removeIf { post -> post.actID == basePost.actID }
+                    removeIf { post -> post.actID.isNotBlank() && post.actID == basePost.actID }
                 }
             }
         if (posts.isNotEmpty()) wideRangePrevPost = posts.last()
