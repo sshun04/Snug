@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.shojishunsuke.kibunnsns.R
 
 class TutorialThirdFragment:Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

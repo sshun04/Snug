@@ -6,16 +6,16 @@
             android:shape="ring"
             android:thickness="4dp"
             android:useLevel="false">
-            <solid android:color="#DEDCDB"/>
+            <solid android:color="@color/colorAccent"/>
         </shape>
     </item>
     <item>
         <shape
             android:innerRadius="0dp"
             android:shape="ring"
-            android:thickness="2dp"
+            android:thickness="4dp"
             android:useLevel="false">
-            <solid android:color="#A59E99"/>
+            <solid android:color="#DEDCDB"/>
         </shape>
     </item>
 

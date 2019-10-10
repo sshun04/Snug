@@ -15,8 +15,9 @@ class MainActivityViewModel(application: Application) : ViewModel() {
     init {
         val dataConfigRepository = SharedPrefRepository(application)
         useCase = MainActivityUseCase(dataConfigRepository)
-//        useCase.initialize()
     }
+
+    fun isInitialized():Boolean = useCase.isInitialized
 
     fun setupPostFragment(fragmentManager: FragmentManager) {
         val postDialog = PostDialogFragment()

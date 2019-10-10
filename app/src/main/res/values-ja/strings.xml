@@ -11,7 +11,7 @@
     <string name="recommend">おすすめ</string>
     <string name="hint_message">メッセージ</string>
     <string name="button_next">次へ</string>
-    <string name="button_skip">スキップ</string>
+    <string name="button_get_started">始める</string>
     <string name="button_dialog_positive">OK</string>
     <string name="button_post">投稿</string>
     <string name="button_cancel">キャンセル</string>

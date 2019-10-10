@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         auth = FirebaseAuth.getInstance()
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
         mainViewModel = run {
             ViewModelProviders.of(
                 this,
@@ -34,12 +33,14 @@ class MainActivity : AppCompatActivity() {
             )
                 .get(MainActivityViewModel::class.java)
         }
+        if (!mainViewModel.isInitialized()){
+            TutorialActivity.start(this)
+        }
 
         fab.setOnClickListener {
             mainViewModel.setupPostFragment(supportFragmentManager)
             isInitialized = true
         }
-        TutorialActivity.start(this)
     }
 
     override fun onStart() {

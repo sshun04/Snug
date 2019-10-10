@@ -11,20 +11,20 @@ class TutorialPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdap
     fragmentManager,
     BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
 ) {
-    private enum class Page(val value: Int) {
+   enum class TutorialPage(val value: Int) {
         First(0),
         Second(1),
-        Third(2),
+        Last(2),
     }
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            Page.First.value -> TutorialFirstFragment()
-            Page.Second.value -> TutorialSecondFragment()
-            Page.Third.value -> TutorialThirdFragment()
+            TutorialPage.First.value -> TutorialFirstFragment()
+            TutorialPage.Second.value -> TutorialSecondFragment()
+            TutorialPage.Last.value -> TutorialThirdFragment()
             else -> TutorialFirstFragment()
         }
     }
 
-    override fun getCount(): Int = Page.values().size
+    override fun getCount(): Int = TutorialPage.values().size
 }
