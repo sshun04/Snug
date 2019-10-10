@@ -8,7 +8,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.plusAssign
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.presentation.secen.main.tutorial.TutorialActivity
@@ -33,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             )
                 .get(MainActivityViewModel::class.java)
         }
-        if (!mainViewModel.isInitialized()){
+        if (!mainViewModel.isInitialized()) {
             TutorialActivity.start(this)
         }
 
