@@ -1,5 +1,9 @@
 package com.shojishunsuke.kibunnsns.presentation.secen
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
@@ -22,10 +26,20 @@ class SplashActivity : AppCompatActivity() {
                 .get(SplashViewModel::class.java)
         }
 
-        if (viewModel.isInitialized()){
+        if (viewModel.isInitialized()) {
             MainActivity.start(this)
-        }else{
+        } else {
             TutorialActivity.start(this)
         }
+
+        val intentFilter = IntentFilter().apply {
+            addAction(resources.getString(R.string.MAIN_ACTIVITY_SET_UP))
+        }
+//        MainActivityがセットアップされたことをレシーブし、finish()する
+        registerReceiver(object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                finish()
+            }
+        }, intentFilter)
     }
 }
