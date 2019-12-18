@@ -22,8 +22,7 @@
         android:name="com.shojishunsuke.kibunnsns.presentation.secen.main.record.RecordFragment"
         android:label="RecordFragment"
         tools:layout="@layout/fragment_record">
-
-
+        
     </custom_fragment>
 
     <fragment

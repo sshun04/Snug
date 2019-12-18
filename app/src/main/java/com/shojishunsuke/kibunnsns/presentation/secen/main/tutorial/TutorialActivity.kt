@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.ViewPager
 import com.shojishunsuke.kibunnsns.R
 import com.shojishunsuke.kibunnsns.presentation.recycler_view.adapter.TutorialPagerAdapter
+import com.shojishunsuke.kibunnsns.presentation.secen.main.MainActivity
 import kotlinx.android.synthetic.main.activity_tutorial.*
 
 class TutorialActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, View.OnClickListener {
@@ -67,6 +68,11 @@ class TutorialActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, Vi
     private fun finishTutorial() {
         viewModel.onFinishTutorial()
         finish()
+    }
+
+    override fun onDestroy() {
+        MainActivity.start(this)
+        super.onDestroy()
     }
 
     override fun dispatchKeyEvent(event: KeyEvent?): Boolean {

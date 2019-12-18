@@ -128,8 +128,8 @@ class FireStoreDatabaseRepository : DataBaseRepository {
         collectionSnapShot
             .document(post.postId)
             .delete()
-            .addOnSuccessListener { }
-            .addOnFailureListener { }
+            .addOnSuccessListener {}
+            .addOnFailureListener {}
     }
 
     fun increaseViews(postId: String) {

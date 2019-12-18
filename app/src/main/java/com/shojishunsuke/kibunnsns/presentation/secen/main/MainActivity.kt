@@ -1,6 +1,9 @@
 package com.shojishunsuke.kibunnsns.presentation.secen.main
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
@@ -19,6 +22,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bottomNavigation: BottomNavigationView
     private lateinit var mainViewModel: MainActivityViewModel
     private lateinit var auth: FirebaseAuth
+
+    companion object {
+        fun start(context: Context) {
+            val intent = createIntent(context)
+            context.startActivity(intent)
+        }
+
+        private fun createIntent(context: Context): Intent =
+            Intent(context, MainActivity::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +67,8 @@ class MainActivity : AppCompatActivity() {
                         val user = auth.currentUser
                         mainViewModel.onAuthSuccess()
                         updateUi()
+                    }else{
+                        Log.d("TAG",task.exception?.message)
                     }
                 }
         }
