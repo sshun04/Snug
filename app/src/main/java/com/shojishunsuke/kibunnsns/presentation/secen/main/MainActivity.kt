@@ -3,6 +3,7 @@ package com.shojishunsuke.kibunnsns.presentation.secen.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
@@ -66,6 +67,8 @@ class MainActivity : AppCompatActivity() {
                         val user = auth.currentUser
                         mainViewModel.onAuthSuccess()
                         updateUi()
+                    }else{
+                        Log.d("TAG",task.exception?.message)
                     }
                 }
         }
