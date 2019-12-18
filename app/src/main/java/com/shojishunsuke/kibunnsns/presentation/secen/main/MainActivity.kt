@@ -37,6 +37,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+//        SplashActivityに通知
+        val broadCastIntent = Intent().apply {
+            action = resources.getString(R.string.MAIN_ACTIVITY_SET_UP)
+        }
+        sendBroadcast(broadCastIntent)
+
         auth = FirebaseAuth.getInstance()
         mainViewModel = run {
             ViewModelProviders.of(
